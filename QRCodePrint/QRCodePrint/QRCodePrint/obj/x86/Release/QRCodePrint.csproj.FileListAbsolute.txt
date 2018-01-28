@@ -1,0 +1,9 @@
+H:\DownLoad\tsc条码打印dll及用例说明\QRCodePrint\QRCodePrint\bin\x86\Release\QRCodePrint.exe.config
+H:\DownLoad\tsc条码打印dll及用例说明\QRCodePrint\QRCodePrint\bin\x86\Release\QRCodePrint.exe
+H:\DownLoad\tsc条码打印dll及用例说明\QRCodePrint\QRCodePrint\bin\x86\Release\QRCodePrint.pdb
+H:\DownLoad\tsc条码打印dll及用例说明\QRCodePrint\QRCodePrint\obj\x86\Release\QRCodePrint.main.resources
+H:\DownLoad\tsc条码打印dll及用例说明\QRCodePrint\QRCodePrint\obj\x86\Release\QRCodePrint.Properties.Resources.resources
+H:\DownLoad\tsc条码打印dll及用例说明\QRCodePrint\QRCodePrint\obj\x86\Release\QRCodePrint.csproj.GenerateResource.Cache
+H:\DownLoad\tsc条码打印dll及用例说明\QRCodePrint\QRCodePrint\obj\x86\Release\QRCodePrint.exe
+H:\DownLoad\tsc条码打印dll及用例说明\QRCodePrint\QRCodePrint\obj\x86\Release\QRCodePrint.pdb
+H:\DownLoad\tsc条码打印dll及用例说明\QRCodePrint\QRCodePrint\obj\x86\Release\QRCodePrint.csprojResolveAssemblyReference.cache
