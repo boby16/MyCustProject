@@ -45,3 +45,12 @@ H:\DownLoad\QRCodePrint\QRCodePrint\obj\x86\Debug\QRCodePrint.csproj.GenerateRes
 H:\DownLoad\QRCodePrint\QRCodePrint\QRCodePrint\bin\x86\Debug\QRCodePrint.exe.config
 H:\DownLoad\QRCodePrint\QRCodePrint\QRCodePrint\obj\x86\Debug\QRCodePrint.exe
 H:\DownLoad\QRCodePrint\QRCodePrint\QRCodePrint\obj\x86\Debug\QRCodePrint.pdb
+H:\DownLoad\MyCustProject\MyCustProject\QRCodePrint\QRCodePrint\QRCodePrint\bin\x86\Debug\QRCodePrint.exe.config
+H:\DownLoad\MyCustProject\MyCustProject\QRCodePrint\QRCodePrint\QRCodePrint\obj\x86\Debug\QRCodePrint.exe
+H:\DownLoad\MyCustProject\MyCustProject\QRCodePrint\QRCodePrint\QRCodePrint\obj\x86\Debug\QRCodePrint.pdb
+H:\DownLoad\MyCustProject\MyCustProject\QRCodePrint\QRCodePrint\QRCodePrint\bin\x86\Debug\QRCodePrint.exe
+H:\DownLoad\MyCustProject\MyCustProject\QRCodePrint\QRCodePrint\QRCodePrint\bin\x86\Debug\QRCodePrint.pdb
+H:\DownLoad\MyCustProject\MyCustProject\QRCodePrint\QRCodePrint\QRCodePrint\obj\x86\Debug\QRCodePrint.csprojResolveAssemblyReference.cache
+H:\DownLoad\MyCustProject\MyCustProject\QRCodePrint\QRCodePrint\QRCodePrint\obj\x86\Debug\QRCodePrint.main.resources
+H:\DownLoad\MyCustProject\MyCustProject\QRCodePrint\QRCodePrint\QRCodePrint\obj\x86\Debug\QRCodePrint.Properties.Resources.resources
+H:\DownLoad\MyCustProject\MyCustProject\QRCodePrint\QRCodePrint\QRCodePrint\obj\x86\Debug\QRCodePrint.csproj.GenerateResource.Cache

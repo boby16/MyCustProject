@@ -49,71 +49,94 @@ namespace QRCodePrint
 
         private void btnPrintOrderNo_Click(object sender, EventArgs e)
         {
-            if (this.txtOrderNo.Text != "" && this.txtQty.Text != "")
+            try
             {
-                TSCLIB_DLL.OrderNoBarCodePrint(this.txtOrderNo.Text, this.txtQty.Text);
+                if (this.txtOrderNo.Text != "" && this.txtQty.Text != "")
+                {
+                    TSCLIB_DLL.OrderNoBarCodePrint(this.txtOrderNo.Text, this.txtQty.Text);
+                }
+                else
+                {
+                    MessageBox.Show("请将数据输入完整！");
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("请将数据输入完整！");
+                LogHelper.WriteLogs(ex.StackTrace + ex.Source + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnBoxPrint_Click(object sender, EventArgs e)
         {
-
-            if (this.txtBatNoBox.Text != string.Empty && this.txtDwgBox.Text != string.Empty && this.txtFoxPNBox.Text != string.Empty && this.txtQtyBox.Text != string.Empty && this.txtSpcBox.Text != string.Empty)
-
+            try
             {
-                BoxVO boxVo = new BoxVO
+                if (this.txtBatNoBox.Text != string.Empty && this.txtDwgBox.Text != string.Empty && this.txtFoxPNBox.Text != string.Empty && this.txtQtyBox.Text != string.Empty && this.txtSpcBox.Text != string.Empty)
+
                 {
-                    CompName = "昆山固品工程塑料有限公司",
-                    GPPrdName = this.cbPNBox.SelectedValue.ToString(),
-                    DWGRev = this.txtDwgBox.Text,
-                    LotNo = this.txtBatNoBox.Text,
-                    PDate = Convert.ToDateTime(this.txtDateBox.Text),
-                    PN = this.txtFoxPNBox.Text,
-                    Qty = this.txtQtyTotalBox.Text,
-                    SerialNo = this.txtSnoBox.Text,
-                    SPC = this.txtSpcBox.Text,
-                    OrderNo = this.txtOrderNoBox.Text,
-                    PrintCount = Convert.ToInt32(this.txtPrintCountBox.Text)
-                };
-                TSCLIB_DLL.BoxPrint(boxVo);
-                this.txtSnoBox.Text = TSCLIB_DLL.GetBoxSerialNo(boxVo.PDate);
+                    BoxVO boxVo = new BoxVO
+                    {
+                        CompName = "昆山固品工程塑料有限公司",
+                        GPPrdName = this.cbPNBox.SelectedValue.ToString(),
+                        DWGRev = this.txtDwgBox.Text,
+                        LotNo = this.txtBatNoBox.Text,
+                        PDate = Convert.ToDateTime(this.txtDateBox.Text),
+                        PN = this.txtFoxPNBox.Text,
+                        Qty = this.txtQtyTotalBox.Text,
+                        SerialNo = this.txtSnoBox.Text,
+                        SPC = this.txtSpcBox.Text,
+                        OrderNo = this.txtOrderNoBox.Text,
+                        PrintCount = Convert.ToInt32(this.txtPrintCountBox.Text)
+                    };
+                    TSCLIB_DLL.BoxPrint(boxVo);
+                    this.txtSnoBox.Text = TSCLIB_DLL.GetBoxSerialNo(boxVo.PDate);
+                }
+                else
+                {
+                    MessageBox.Show("请将数据输入完整！");
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("请将数据输入完整！");
+                LogHelper.WriteLogs(ex.StackTrace + ex.Source + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnPrintProduct_Click(object sender, EventArgs e)
         {
-
-            if (this.txtBatNoPrd.Text != string.Empty && this.txtDwgPrd.Text != string.Empty && this.txtFoxPNPrd.Text != string.Empty && this.txtQtyPrd.Text != string.Empty && this.txtSpcPrd.Text != string.Empty)
-
+            try
             {
-                ProductVO productVo = new ProductVO
+                if (this.txtBatNoPrd.Text != string.Empty && this.txtDwgPrd.Text != string.Empty && this.txtFoxPNPrd.Text != string.Empty && this.txtQtyPrd.Text != string.Empty && this.txtSpcPrd.Text != string.Empty)
                 {
-                    CompName = "昆山固品工程塑料有限公司",
-                    GPPrdName = this.cbPNPrd.SelectedValue.ToString(),
-                    DWGRev = this.txtDwgPrd.Text,
-                    LotNo = this.txtBatNoPrd.Text,
-                    PDate = Convert.ToDateTime(this.txtDatePrd.Text),
-                    PN = this.txtFoxPNPrd.Text,
-                    Qty = this.txtQtyPrd.Text,
-                    SerialNo = this.txtSnoPrd.Text,
-                    SPC = this.txtSpcPrd.Text,
-                    OrderNo = this.txtOrderNoPrd.Text,
-                    PrintCount = Convert.ToInt32(this.txtPrintCountPrd.Text)
-                };
-                TSCLIB_DLL.ProductPrint(productVo);
-                this.txtSnoPrd.Text = TSCLIB_DLL.GetBoxSerialNo(productVo.PDate);
+                    ProductVO productVo = new ProductVO
+                    {
+                        CompName = "昆山固品工程塑料有限公司",
+                        GPPrdName = this.cbPNPrd.SelectedValue.ToString(),
+                        DWGRev = this.txtDwgPrd.Text,
+                        LotNo = this.txtBatNoPrd.Text,
+                        PDate = Convert.ToDateTime(this.txtDatePrd.Text),
+                        PN = this.txtFoxPNPrd.Text,
+                        Qty = this.txtQtyPrd.Text,
+                        SerialNo = this.txtSnoPrd.Text,
+                        SPC = this.txtSpcPrd.Text,
+                        OrderNo = this.txtOrderNoPrd.Text,
+                        PrintCount = Convert.ToInt32(this.txtPrintCountPrd.Text)
+                    };
+                    TSCLIB_DLL.ProductPrint(productVo);
+                    this.txtSnoPrd.Text = TSCLIB_DLL.GetBoxSerialNo(productVo.PDate);
+                }
+                else
+                {
+                    MessageBox.Show("请将数据输入完整！");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("请将数据输入完整！");
+                LogHelper.WriteLogs(ex.StackTrace + ex.Source + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -160,13 +183,21 @@ namespace QRCodePrint
 
         private void btnUnBoxPrdPrint_Click(object sender, EventArgs e)
         {
-            if (this.txtOrderNoB.Text != "" && this.txtPrintCount.Text != "")
+            try
             {
-                 TSCLIB_DLL.OrderNoBarCodePrintNoBox(this.txtOrderNoB.Text, this.txtPrintCount.Text);
+                if (this.txtOrderNoB.Text != "" && this.txtPrintCount.Text != "")
+                {
+                    TSCLIB_DLL.OrderNoBarCodePrintNoBox(this.txtOrderNoB.Text, this.txtPrintCount.Text);
+                }
+                else
+                {
+                    MessageBox.Show("请将数据输入完整！");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("请将数据输入完整！");
+                LogHelper.WriteLogs(ex.StackTrace + ex.Source + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 

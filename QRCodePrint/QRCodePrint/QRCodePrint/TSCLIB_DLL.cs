@@ -634,6 +634,7 @@ namespace QRCodePrint
                 }
                 catch (Exception ex)
                 {
+                    throw;
                 }
                 finally
                 {
@@ -655,6 +656,7 @@ namespace QRCodePrint
                 }
                 catch (Exception ex)
                 {
+                    throw;
                 }
                 finally
                 {
