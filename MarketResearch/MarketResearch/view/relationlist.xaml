@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page x:Class="Gssy.Capi.View.RelationList" Title="CombineSingleList" Style="{StaticResource WindowBaseStyle}" Loaded="?80?" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="4*" />
+      <RowDefinition Height="4*" />
+      <RowDefinition Height="1*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <TextBlock Name="txtQuestionTitle" Grid.Row="0" Margin="10,30,10,30" Style="{StaticResource TitleTextStyle}" TextWrapping="Wrap">问题标题</TextBlock>
+    <Grid Name="GridContent" Grid.Row="1" Margin="20,5,20,5">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2*" />
+        <ColumnDefinition Width="4*" />
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="2*" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="1*" />
+        <RowDefinition Height="1*" />
+        <RowDefinition Height="1*" />
+        <RowDefinition Height="1*" />
+      </Grid.RowDefinitions>
+      <TextBlock Name="textBlock1" Grid.Column="0" Grid.Row="1" Margin="0,0,20,0" Text="品牌" Style="{StaticResource TitleMediumStyle}" HorizontalAlignment="Right" />
+      <ComboBox Name="cmbSelect1" Grid.Column="1" Grid.Row="1" Style="{StaticResource SimpleComboBox}" HorizontalAlignment="Left" SelectionChanged="?148?" />
+      <TextBlock Name="txtOther1" Grid.Column="2" Grid.Row="1" Margin="20,0,10,0" Text="{DynamicResource LFrmOther}" Style="{StaticResource TitleMediumStyle}" />
+      <TextBox Name="txtFillOther1" Grid.Column="3" Grid.Row="1" Margin="10,0,20,0" Style="{StaticResource TextBoxMediumStyle}" Width="200" MaxLength="250" GotFocus="?91?" LostFocus="?90?" />
+      <TextBlock Name="textBlock2" Grid.Column="0" Grid.Row="2" Margin="0,0,20,0" Text="车型" Style="{StaticResource TitleMediumStyle}" HorizontalAlignment="Right" />
+      <ComboBox Name="cmbSelect2" Grid.Column="1" Grid.Row="2" Style="{StaticResource SimpleComboBox}" HorizontalAlignment="Left" SelectionChanged="?149?" />
+      <TextBlock Name="txtOther2" Grid.Column="2" Grid.Row="2" Margin="20,0,10,0" Text="{DynamicResource LFrmOther}" Style="{StaticResource TitleMediumStyle}" />
+      <TextBox Name="txtFillOther2" Grid.Column="3" Grid.Row="2" Margin="10,0,20,0" Style="{StaticResource TextBoxMediumStyle}" Width="200" MaxLength="250" GotFocus="?91?" LostFocus="?90?" />
+    </Grid>
+    <DockPanel Grid.Row="3" Margin="5,0,5,0">
+      <Image Style="{StaticResource ImgLogo}" />
+      <TextBlock Name="txtSurvey" Margin="10,0,0,0" Text="" Style="{StaticResource TitleMediumStyle}" VerticalAlignment="Center" />
+      <Button Name="btnAttach" Content="{DynamicResource LBtnAddAttach}" Width="160" Margin="5,5,0,5" VerticalAlignment="Top" Style="{StaticResource NavBtnStyle}" Visibility="Collapsed" Click="?85?" />
+      <Button Name="btnNav" Content="{DynamicResource LBtnNav}" Style="{StaticResource NavBtnStyle}" Click="?58?" />
+    </DockPanel>
+  </Grid>
+</Page>

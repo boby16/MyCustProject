@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{79C96DA7-B9F5-4D63-BC7C-9DB469FD0284}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>Gssy.Capi</AssemblyName>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\PresentationFramework\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_32\PresentationCore\v4.0_4.0.0.0__31bf3856ad364e35\PresentationCore.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\System.Xaml\v4.0_4.0.0.0__b77a5c561934e089\System.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.BIZ">
+      <HintPath>D:\SourceCode\MarketResearch\源系统\Capi_ZD17916\Gssy.Capi.BIZ.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.Common">
+      <HintPath>D:\SourceCode\MarketResearch\源系统\Capi_ZD17916\Gssy.Capi.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.Entities">
+      <HintPath>D:\SourceCode\MarketResearch\源系统\Capi_ZD17916\Gssy.Capi.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</HintPath>
+    </Reference>
+    <Reference Include="SoundChat" />
+    <Reference Include="Microsoft.DirectX.DirectSound" />
+    <Reference Include="WindowsBase">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\WindowsBase\v4.0_4.0.0.0__31bf3856ad364e35\WindowsBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\WindowsFormsIntegration\v4.0_4.0.0.0__31bf3856ad364e35\WindowsFormsIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFMediaKit" />
+    <Reference Include="System.Core">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.DAL">
+      <HintPath>D:\SourceCode\MarketResearch\源系统\Capi_ZD17916\Gssy.Capi.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\System.Net.Http\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting" />
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell" />
+    <Reference Include="Xceed.Wpf.DataGrid" />
+    <Reference Include="Aliyun.OpenServices" />
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\Microsoft.CSharp\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="-0-.cs" />
+    <Compile Include="-1-.cs" />
+    <Compile Include="-2-.-3-.-4-\-5-.cs" />
+    <Compile Include="-2-.-3-.-4-\-6-.cs" />
+    <Compile Include="-487-.cs" />
+    <Compile Include="Gssy.Capi.BIZ\classListBorder.cs" />
+    <Compile Include="Gssy.Capi.BIZ\classListButton.cs" />
+    <Compile Include="Gssy.Capi.BIZ\classMatixBorder.cs" />
+    <Compile Include="Gssy.Capi.BIZ\classMatixButton.cs" />
+    <Compile Include="Gssy.Capi.Business\QDisplay.cs" />
+    <Compile Include="Gssy.Capi.Class\AutoFill.cs" />
+    <Compile Include="Gssy.Capi.Class\BoldTitle.cs" />
+    <Compile Include="Gssy.Capi.Class\PageNav.cs" />
+    <Compile Include="Gssy.Capi.Class\Persent2.cs" />
+    <Compile Include="Gssy.Capi.Class\Persent4.cs" />
+    <Compile Include="Gssy.Capi.Class\Persent5.cs" />
+    <Compile Include="Gssy.Capi.Class\ProgressConverter.cs" />
+    <Compile Include="Gssy.Capi.Class\QMemDisplay.cs" />
+    <Compile Include="Gssy.Capi.Class\QMemFill.cs" />
+    <Compile Include="Gssy.Capi.Class\QMemSingle.cs" />
+    <Compile Include="Gssy.Capi.Class\SurveyHelper.cs" />
+    <Compile Include="Gssy.Capi.Class\SurveyMsg.cs" />
+    <Compile Include="Gssy.Capi.Class\SurveyTaptip.cs" />
+    <Compile Include="Gssy.Capi.Control\MaskedTextBox.cs" />
+    <Compile Include="Gssy.Capi.Control\UCProgress.cs" />
+    <Compile Include="Gssy.Capi.QEdit\CheckPsw.cs" />
+    <Compile Include="Gssy.Capi.QEdit\DebugCheck.cs" />
+    <Compile Include="Gssy.Capi.QEdit\EditAnswer.cs" />
+    <Compile Include="Gssy.Capi.QEdit\EditAnswerSingle.cs" />
+    <Compile Include="Gssy.Capi.QEdit\EditAttachments.cs" />
+    <Compile Include="Gssy.Capi.QEdit\FillMode.cs" />
+    <Compile Include="Gssy.Capi.QEdit\ReloadData.cs" />
+    <Compile Include="Gssy.Capi.View\CircleGuide.cs" />
+    <Compile Include="Gssy.Capi.View\CircleStart.cs" />
+    <Compile Include="Gssy.Capi.View\Display.cs" />
+    <Compile Include="Gssy.Capi.View\DisplayPic.cs" />
+    <Compile Include="Gssy.Capi.View\EmptyJump.cs" />
+    <Compile Include="Gssy.Capi.View\EndSummary.cs" />
+    <Compile Include="Gssy.Capi.View\EndTerminate.cs" />
+    <Compile Include="Gssy.Capi.View\Fill.cs" />
+    <Compile Include="Gssy.Capi.View\FillDec.cs" />
+    <Compile Include="Gssy.Capi.View\FillInt.cs" />
+    <Compile Include="Gssy.Capi.View\FillLong.cs" />
+    <Compile Include="Gssy.Capi.View\FillMap.cs" />
+    <Compile Include="Gssy.Capi.View\FillPassword.cs" />
+    <Compile Include="Gssy.Capi.View\FillWebCam.cs" />
+    <Compile Include="Gssy.Capi.View\GridMultiple_LoopC_FixCol1.cs" />
+    <Compile Include="Gssy.Capi.View\GridMultiple_LoopC_FixRow1.cs" />
+    <Compile Include="Gssy.Capi.View\GridMultiple_LoopR_FixCol1.cs" />
+    <Compile Include="Gssy.Capi.View\GridMultiple_LoopR_FixRow1.cs" />
+    <Compile Include="Gssy.Capi.View\GridSingle_LoopC_FixCol1.cs" />
+    <Compile Include="Gssy.Capi.View\GridSingle_LoopC_FixRow1.cs" />
+    <Compile Include="Gssy.Capi.View\GridSingle_LoopR_FixCol1.cs" />
+    <Compile Include="Gssy.Capi.View\GridSingle_LoopR_FixRow1.cs" />
+    <Compile Include="Gssy.Capi.View\MatrixSingle.cs" />
+    <Compile Include="Gssy.Capi.View\MatrixSingleExt.cs" />
+    <Compile Include="Gssy.Capi.View\Multiple.cs" />
+    <Compile Include="Gssy.Capi.View\MultipleEntry.cs" />
+    <Compile Include="Gssy.Capi.View\MultipleGroup.cs" />
+    <Compile Include="Gssy.Capi.View\MultiplePic.cs" />
+    <Compile Include="Gssy.Capi.View\MultipleSearch.cs" />
+    <Compile Include="Gssy.Capi.View\MultipleText.cs" />
+    <Compile Include="Gssy.Capi.View\PageCallApp.cs" />
+    <Compile Include="Gssy.Capi.View\PageMedia.cs" />
+    <Compile Include="Gssy.Capi.View\PageSingleList.cs" />
+    <Compile Include="Gssy.Capi.View\PageSingleListItem.cs" />
+    <Compile Include="Gssy.Capi.View\PageSingleOther.cs" />
+    <Compile Include="Gssy.Capi.View\PicDefine.cs" />
+    <Compile Include="Gssy.Capi.View\PicMultiple.cs" />
+    <Compile Include="Gssy.Capi.View\PicSingle.cs" />
+    <Compile Include="Gssy.Capi.View\P_AutoNextFill.cs" />
+    <Compile Include="Gssy.Capi.View\P_AutoNextFillDec.cs" />
+    <Compile Include="Gssy.Capi.View\P_AutoNextFillInt.cs" />
+    <Compile Include="Gssy.Capi.View\P_BPTO.cs" />
+    <Compile Include="Gssy.Capi.View\P_ChipGame.cs" />
+    <Compile Include="Gssy.Capi.View\P_CmbList2.cs" />
+    <Compile Include="Gssy.Capi.View\P_Fill2.cs" />
+    <Compile Include="Gssy.Capi.View\P_Fill3.cs" />
+    <Compile Include="Gssy.Capi.View\P_FillDec2.cs" />
+    <Compile Include="Gssy.Capi.View\P_FillDec3.cs" />
+    <Compile Include="Gssy.Capi.View\P_FillIntSingle.cs" />
+    <Compile Include="Gssy.Capi.View\P_FillSingle.cs" />
+    <Compile Include="Gssy.Capi.View\P_RankBrand.cs" />
+    <Compile Include="Gssy.Capi.View\P_RankBrand_H.cs" />
+    <Compile Include="Gssy.Capi.View\P_RankBrand_Skip.cs" />
+    <Compile Include="Gssy.Capi.View\Recode.cs" />
+    <Compile Include="Gssy.Capi.View\RecodeInfo.cs" />
+    <Compile Include="Gssy.Capi.View\Relation1.cs" />
+    <Compile Include="Gssy.Capi.View\Relation5.cs" />
+    <Compile Include="Gssy.Capi.View\RelationList.cs" />
+    <Compile Include="Gssy.Capi.View\RelationList3.cs" />
+    <Compile Include="Gssy.Capi.View\RelationList4.cs" />
+    <Compile Include="Gssy.Capi.View\Single.cs" />
+    <Compile Include="Gssy.Capi.View\SingleEntry.cs" />
+    <Compile Include="Gssy.Capi.View\SingleGroup.cs" />
+    <Compile Include="Gssy.Capi.View\SinglePic.cs" />
+    <Compile Include="Gssy.Capi.View\SinglePoint.cs" />
+    <Compile Include="Gssy.Capi.View\SingleQuota.cs" />
+    <Compile Include="Gssy.Capi.View\SingleSearch.cs" />
+    <Compile Include="Gssy.Capi.View\SurveyCheckRecord.cs" />
+    <Compile Include="Gssy.Capi.View\SurveyCity.cs" />
+    <Compile Include="Gssy.Capi.View\SurveyCloud.cs" />
+    <Compile Include="Gssy.Capi.View\SurveyCode.cs" />
+    <Compile Include="Gssy.Capi.View\SurveyDelete.cs" />
+    <Compile Include="Gssy.Capi.View\SurveyQuery.cs" />
+    <Compile Include="Gssy.Capi.View\SurveyRange.cs" />
+    <Compile Include="Gssy.Capi.View\SurveyUserCode.cs" />
+    <Compile Include="Gssy.Capi\App.cs" />
+    <Compile Include="Gssy.Capi\AutoDo.cs" />
+    <Compile Include="Gssy.Capi\CStart.cs" />
+    <Compile Include="Gssy.Capi\MainWindow.cs" />
+    <Compile Include="Gssy.Capi\StartOne.cs" />
+    <Compile Include="Gssy.Capi\SurveyAuto.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\AppEvents.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\AppEvents_Event.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\Application.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\DocEvents.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\DocEvents_Event.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\Range.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\Sheets.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\Workbook.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\WorkbookEvents.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\WorkbookEvents_Event.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\Workbooks.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\Worksheet.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\XlWBATemplate.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\_Application.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\_Workbook.cs" />
+    <Compile Include="Microsoft.Office.Interop.Excel\_Worksheet.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\-e5-83-8f-e7-b4-a01x1-e9-80-8f-e6-98-8e-e5-ba-95.png" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\-e6-99-ba-e9-81-93logo.png" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\autodo.png" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\capi.ico" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\del.png" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\gssylogo.png" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\loading.gif" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\pic\_female.png" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\pic\_male.png" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\setting.png" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\splashscreen.png" />
+    <EmbeddedResource Include="D:\SourceCode\MarketResearch\MarketResearch\resources\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\app.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\autodo.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\control\ucprogress.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\cstart.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\mainwindow.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\qedit\checkpsw.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\qedit\debugcheck.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\qedit\editanswer.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\qedit\editanswersingle.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\qedit\editattachments.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\qedit\fillmode.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\qedit\reloaddata.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\resources\languages\en-us.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\resources\languages\zh-cn.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\startone.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\surveyauto.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\theme\basecontrol.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\theme\buttoncontrol.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\theme\customer.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\theme\theme.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\circleguide.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\circlestart.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\display.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\displaypic.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\emptyjump.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\endsummary.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\endterminate.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\fill.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\filldec.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\fillint.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\filllong.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\fillmap.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\fillpassword.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\fillwebcam.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\gridmultiple_loopc_fixcol1.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\gridmultiple_loopc_fixrow1.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\gridmultiple_loopr_fixcol1.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\gridmultiple_loopr_fixrow1.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\gridsingle_loopc_fixcol1.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\gridsingle_loopc_fixrow1.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\gridsingle_loopr_fixcol1.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\gridsingle_loopr_fixrow1.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\matrixsingle.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\matrixsingleext.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\multiple.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\multipleentry.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\multiplegroup.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\multiplepic.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\multiplesearch.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\multipletext.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\pagecallapp.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\pagemedia.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\pagesinglelist.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\pagesinglelistitem.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\pagesingleother.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\picdefine.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\picmultiple.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\picsingle.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_autonextfill.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_autonextfilldec.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_autonextfillint.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_bpto.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_chipgame.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_cmblist2.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_fill2.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_fill3.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_filldec2.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_filldec3.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_fillintsingle.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_fillsingle.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_rankbrand.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_rankbrand_h.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\p_rankbrand_skip.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\recode.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\recodeinfo.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\relation1.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\relation5.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\relationlist.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\relationlist3.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\relationlist4.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\single.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\singleentry.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\singlegroup.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\singlepic.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\singlepoint.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\singlequota.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\singlesearch.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\surveycheckrecord.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\surveycity.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\surveycloud.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\surveycode.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\surveydelete.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\surveyquery.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\surveyrange.xaml" />
+    <Page Include="D:\SourceCode\MarketResearch\MarketResearch\view\surveyusercode.xaml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

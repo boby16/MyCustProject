@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="Gssy.Capi.QEdit.ReloadData" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Title="{DynamicResource LSystemTitle}" Width="900" Height="600" Style="{StaticResource WindowBaseStyle}" Loaded="?24?" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <TextBlock Name="txtQuestionTitle" Grid.Row="0" Margin="5,5,5,0" Text="重新读入数据" Style="{StaticResource TitleTextStyle}" TextWrapping="Wrap" />
+    <TextBlock Name="txtTitle" Margin="20,10,20,10" Grid.Row="1" Style="{StaticResource TitleTextStyle}" TextBlock.Foreground="{StaticResource PressedBrush}" TextBlock.FontSize="40" TextBlock.FontWeight="Bold" TextWrapping="Wrap" Text="读入方式" />
+    <WrapPanel Name="w" Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Button Name="btn1" MinWidth="300" Content="快速读入" Height="40" FontSize="26" Style="{DynamicResource UnSelBtnStyle}" Margin="10" Click="?263?" />
+      <Button Name="btn2" MinWidth="300" Content="逐秒读入" Height="40" FontSize="26" Style="{DynamicResource UnSelBtnStyle}" Margin="10" Click="?263?" />
+      <Button Name="btn3" MinWidth="300" Content="逐题读入" Height="40" FontSize="26" Style="{DynamicResource SelBtnStyle}" Margin="10" Click="?263?" />
+    </WrapPanel>
+    <WrapPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,20">
+      <TextBlock Margin="20,10,0,10" Grid.Row="1" Style="{StaticResource TitleTextStyle}" TextBlock.Foreground="{StaticResource PressedBrush}" TextBlock.FontSize="26" TextBlock.FontWeight="Bold" TextWrapping="Wrap" Text="读到该页则不再读入：" />
+      <TextBox Name="StopFillPageId" Width="250" Style="{StaticResource TitleTextStyle}" FontSize="26" FontWeight="Bold" />
+      <TextBlock Margin="0,10,0,10" Style="{StaticResource TitleTextStyle}" TextBlock.FontSize="26" TextBlock.FontWeight="Bold" TextWrapping="Wrap" Text="（留空表示读入全部）" />
+    </WrapPanel>
+    <DockPanel Grid.Row="4" Margin="50,5,50,5" HorizontalAlignment="Center">
+      <Button Name="btnSave" Content="读入数据" Style="{StaticResource BaseBtnStyle}" Width="200" Click="?211?" />
+      <Button Name="btnCancel" Content="{DynamicResource LBtnCancel}" Style="{StaticResource BaseBtnStyle}" Width="200" Click="?128?" />
+    </DockPanel>
+  </Grid>
+</Window>

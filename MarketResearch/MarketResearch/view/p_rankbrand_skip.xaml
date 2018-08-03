@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page x:Class="Gssy.Capi.View.P_RankBrand_Skip" Title="P_RankBrand_Skip" Style="{StaticResource WindowBaseStyle}" Loaded="?80?" LayoutUpdated="?99?" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <TextBlock Name="txtQuestionTitle" Grid.Row="0" Margin="5,5,5,0" Style="{StaticResource TitleTextStyle}" TextWrapping="Wrap">问题描述</TextBlock>
+    <TextBlock Name="txtCircleTitle" Margin="20,10,20,10" Grid.Row="1" Style="{StaticResource TitleTextStyle}" TextBlock.FontSize="40" TextBlock.FontWeight="Bold" TextWrapping="Wrap">123</TextBlock>
+    <Grid Grid.Row="2" Margin="30,0,30,0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Name="BrandArea" Width="*" />
+      </Grid.ColumnDefinitions>
+      <Border Grid.Column="0" BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="1">
+        <ScrollViewer Name="scrollmain" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,0,0">
+          <WrapPanel Name="wrapPanel1" VerticalAlignment="Center" Orientation="Vertical" HorizontalAlignment="Center" Margin="10,0,10,0" />
+        </ScrollViewer>
+      </Border>
+      <Grid Grid.Column="1">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="1,1,1,0">
+          <StackPanel Name="stackPanel1" Margin="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBlock Name="txtBefore" Margin="30,5,5,5" Text="{DynamicResource LBtnRankBrandReset}" Style="{StaticResource TitleMediumStyle}" VerticalAlignment="Center" />
+            <TextBlock Name="txtFill" Margin="10,5,5,5" Text="第1位" Style="{StaticResource TitleMediumStyle}" TextBlock.Foreground="{StaticResource PressedBrush}" TextBlock.FontWeight="Bold" />
+            <TextBlock Name="txtAfter" Margin="5,5,30,5" Text="" Style="{StaticResource TitleMediumStyle}" VerticalAlignment="Center" />
+          </StackPanel>
+        </Border>
+        <Border Grid.Row="1" BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="1,0,1,1">
+          <Button Content="{DynamicResource LFrmRankBrandInfo1}" Grid.Column="1" Margin="0,0,0,5" HorizontalAlignment="Right" Width="250" FontSize="24" Height="40" Style="{StaticResource NavBtnStyle}" Click="?152?" />
+        </Border>
+        <Border Grid.Row="2" BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="1,0,1,1">
+          <ScrollViewer Name="scrollcode" Grid.Row="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="10,0,0,0">
+            <WrapPanel Name="wrapPanel2" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" />
+          </ScrollViewer>
+        </Border>
+      </Grid>
+    </Grid>
+    <DockPanel Grid.Row="3" Margin="5,0,5,0">
+      <Image Style="{StaticResource ImgLogo}" />
+      <TextBlock Name="txtSurvey" Margin="10,0,0,0" Text="" Style="{StaticResource TitleMediumStyle}" VerticalAlignment="Center" />
+      <Button Name="btnNav" Content="{DynamicResource LBtnNav}" Style="{StaticResource NavBtnStyle}" Click="?58?" />
+    </DockPanel>
+  </Grid>
+</Page>

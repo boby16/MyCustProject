@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page x:Class="Gssy.Capi.View.SurveyCode" Title="{DynamicResource LSystemTitle}" Style="{StaticResource WindowBaseStyle}" Loaded="?80?" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:my="clr-namespace:Gssy.Capi.Control">
+  <Grid Margin="0,1,0,0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="2*" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="1*" />
+      <RowDefinition Height="2*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <TextBlock Name="txtVersion" Grid.Row="0" Margin="10,10,5,5" Text="非正式版本" TextBlock.Foreground="#FF02AFFF" TextBlock.FontFamily="Arial Black" TextBlock.FontSize="60" TextDecorations="Underline" />
+    <TextBlock Name="txtQuestionTitle" Grid.Row="0" Margin="5,5,5,5" Text="{DynamicResource LFrmCodeTitle}" Style="{StaticResource TitleTextStyle}" />
+    <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+      <Button Name="btnLast" Content="{DynamicResource LBtnPreSurveyId}" Width="300" VerticalAlignment="Center" Style="{StaticResource BaseBtnStyle}" Height="60" HorizontalAlignment="Left" Click="?192?" />
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+        <Button Name="btnBack" Content="{DynamicResource LBtnReturn}" Margin="0,0,0,0" Height="50" Style="{StaticResource BaseBtnStyle}" Visibility="Collapsed" Click="?183?" />
+        <TextBox Name="txtFill" Margin="5,0,0,0" InputScope="Number" Height="50" VerticalAlignment="Center" Style="{StaticResource TextBoxMediumStyle}" Width="300" HorizontalAlignment="Center" MaxLength="4" KeyDown="?86?" TextChanged="?98?" GotFocus="?91?" LostFocus="?90?" />
+        <Button Name="btnOK" Content="{DynamicResource LBtnNav}" Width="130" VerticalAlignment="Center" Style="{StaticResource BaseBtnStyle}" Height="50" Click="?58?" />
+      </StackPanel>
+      <Button Name="btnAuto" Content="{DynamicResource LBtnNextSurveyId}" Width="300" VerticalAlignment="Center" Style="{StaticResource BaseBtnStyle}" Height="60" HorizontalAlignment="Left" Click="?191?" />
+    </StackPanel>
+    <TextBlock Name="txtCITY" Grid.Row="3" Text="{DynamicResource LFrmCity}" TextBlock.FontSize="36" VerticalAlignment="Bottom" Margin="0,50,0,0" Style="{StaticResource TitleMediumStyle}" HorizontalAlignment="Center" TextBlock.Foreground="{DynamicResource PressedBrush}" />
+    <TextBlock Name="txtMsg" Margin="5,5,50,5" Grid.Row="4" Text="{DynamicResource LFrmCodeRange}" Style="{StaticResource TitleMediumStyle}" HorizontalAlignment="Center" />
+    <WrapPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    <Grid Grid.Row="5">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <TextBlock Name="txtDate" Margin="10,0,20,10" Grid.Column="0" Text="{DynamicResource LFrmCodeTime}" Style="{StaticResource TitleMediumStyle}" HorizontalAlignment="Left" VerticalAlignment="Bottom" TextBlock.Foreground="#FFB2AFAF" />
+      <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="5,0,5,20" HorizontalAlignment="Right">
+        <TextBlock Name="txtMsgBar" Margin="50,0,10,0" Text="" Style="{StaticResource ContentTextStyle}" VerticalAlignment="Bottom" />
+        <ProgressBar Name="progressBar1" Height="30" Margin="5,0,20,0" Width="200" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+      </StackPanel>
+    </Grid>
+    <DockPanel Grid.Row="6" Margin="5,0,5,0">
+      <Image Style="{StaticResource ImgLogo}" />
+      <Button Name="btnExit" Content="{DynamicResource LBtnExit}" Width="140" Margin="5,5,0,20" Style="{StaticResource NavBtnStyle}" Click="?25?" />
+      <Button Name="btnNav" Content="{DynamicResource LBtnNav}" Style="{StaticResource NavBtnStyle}" Click="?58?" />
+    </DockPanel>
+  </Grid>
+</Page>

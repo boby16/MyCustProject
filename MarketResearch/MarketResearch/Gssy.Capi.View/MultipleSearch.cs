@@ -1,0 +1,1225 @@
+using Gssy.Capi.BIZ;
+using Gssy.Capi.Class;
+using Gssy.Capi.Entities;
+using Gssy.Capi.QEdit;
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Markup;
+using System.Windows.Media;
+using System.Windows.Threading;
+
+namespace Gssy.Capi.View
+{
+	public class MultipleSearch : Page, IComponentConnector
+	{
+		[Serializable]
+		[CompilerGenerated]
+		private sealed class _003F7_003F
+		{
+			public static readonly _003F7_003F _003C_003E9 = new _003F7_003F();
+
+			public static Comparison<SurveyDetail> _003C_003E9__21_0;
+
+			public static Func<SurveyDetail, int> _003C_003E9__35_1;
+
+			internal int _003F315_003F(SurveyDetail _003F481_003F, SurveyDetail _003F482_003F)
+			{
+				return Comparer<int>.Default.Compare(_003F481_003F.INNER_ORDER, _003F482_003F.INNER_ORDER);
+			}
+
+			internal int _003F316_003F(SurveyDetail _003F483_003F)
+			{
+				return _003F483_003F.INNER_ORDER;
+			}
+		}
+
+		[CompilerGenerated]
+		private sealed class _003F10_003F
+		{
+			public string strSearch;
+
+			public string strPinYin;
+
+			internal bool _003F312_003F(SurveyDetail _003F483_003F)
+			{
+				//IL_002d: Incompatible stack heights: 0 vs 1
+				if (_003F483_003F.CODE_TEXT.IndexOf(strSearch) < 0)
+				{
+					string eXTEND_ = _003F483_003F.EXTEND_1;
+					string value = strPinYin;
+					return ((string)/*Error near IL_0037: Stack underflow*/).IndexOf(value) >= 0;
+				}
+				return true;
+			}
+		}
+
+		private string MySurveyId;
+
+		private string CurPageId;
+
+		private NavBase MyNav = new NavBase();
+
+		private PageNav oPageNav = new PageNav();
+
+		private LogicEngine oLogicEngine = new LogicEngine();
+
+		private BoldTitle oBoldTitle = new BoldTitle();
+
+		private QMultiple oQuestion = new QMultiple();
+
+		private bool ExistTextFill;
+
+		private List<string> listPreSet = new List<string>();
+
+		private List<string> listOther = new List<string>();
+
+		private int Button_Type;
+
+		private int Button_Height;
+
+		private int Button_Width;
+
+		private int Button_FontSize;
+
+		private List<SurveyDetail> oListSource = new List<SurveyDetail>();
+
+		private string SearchKey = _003F487_003F._003F488_003F("");
+
+		private DispatcherTimer timer = new DispatcherTimer();
+
+		private int SecondsWait;
+
+		private int SecondsCountDown;
+
+		private string btnNav_Content = SurveyMsg.MsgbtnNav_Content;
+
+		internal TextBlock txtQuestionTitle;
+
+		internal TextBlock txtCircleTitle;
+
+		internal Grid gridContent;
+
+		internal TextBlock txtSearchTitle;
+
+		internal TextBox txtSearch;
+
+		internal Button btnSearch;
+
+		internal ListBox ListOption;
+
+		internal TextBlock txtSelectTitle;
+
+		internal TextBox txtSelect;
+
+		internal Button btnSelect;
+
+		internal TextBlock DelMsg;
+
+		internal ScrollViewer scrollmain;
+
+		internal WrapPanel wrapPanel1;
+
+		internal StackPanel stackPanel1;
+
+		internal TextBlock txtFillTitle;
+
+		internal TextBox txtFill;
+
+		internal TextBlock txtAfter;
+
+		internal TextBlock txtSurvey;
+
+		internal Button btnAttach;
+
+		internal Button btnNav;
+
+		private bool _contentLoaded;
+
+		public MultipleSearch()
+		{
+			InitializeComponent();
+		}
+
+		private void _003F80_003F(object _003F347_003F, RoutedEventArgs _003F348_003F)
+		{
+			//IL_0576: Incompatible stack heights: 0 vs 1
+			//IL_057d: Incompatible stack heights: 0 vs 1
+			//IL_070a: Incompatible stack heights: 0 vs 2
+			//IL_0721: Incompatible stack heights: 0 vs 1
+			MySurveyId = SurveyHelper.SurveyID;
+			CurPageId = SurveyHelper.NavCurPage;
+			SurveyHelper.PageStartTime = DateTime.Now;
+			txtSurvey.Text = MySurveyId;
+			btnNav.Content = btnNav_Content;
+			oQuestion.Init(CurPageId, 0, false);
+			MyNav.GroupLevel = oQuestion.QDefine.GROUP_LEVEL;
+			if (MyNav.GroupLevel != _003F487_003F._003F488_003F(""))
+			{
+				MyNav.GroupPageType = oQuestion.QDefine.GROUP_PAGE_TYPE;
+				MyNav.GroupCodeA = oQuestion.QDefine.GROUP_CODEA;
+				MyNav.CircleACurrent = SurveyHelper.CircleACurrent;
+				MyNav.CircleACount = SurveyHelper.CircleACount;
+				if (MyNav.GroupLevel == _003F487_003F._003F488_003F("C"))
+				{
+					MyNav.GroupCodeB = oQuestion.QDefine.GROUP_CODEB;
+					MyNav.CircleBCurrent = SurveyHelper.CircleBCurrent;
+					MyNav.CircleBCount = SurveyHelper.CircleBCount;
+				}
+				MyNav.GetCircleInfo(MySurveyId);
+				oQuestion.QuestionName += MyNav.QName_Add;
+				List<VEAnswer> list = new List<VEAnswer>();
+				VEAnswer vEAnswer = new VEAnswer();
+				vEAnswer.QUESTION_NAME = MyNav.GroupCodeA;
+				vEAnswer.CODE = MyNav.CircleACode;
+				vEAnswer.CODE_TEXT = MyNav.CircleCodeTextA;
+				list.Add(vEAnswer);
+				SurveyHelper.CircleACode = MyNav.CircleACode;
+				SurveyHelper.CircleACodeText = MyNav.CircleCodeTextA;
+				SurveyHelper.CircleACurrent = MyNav.CircleACurrent;
+				SurveyHelper.CircleACount = MyNav.CircleACount;
+				if (MyNav.GroupLevel == _003F487_003F._003F488_003F("C"))
+				{
+					VEAnswer vEAnswer2 = new VEAnswer();
+					vEAnswer2.QUESTION_NAME = MyNav.GroupCodeB;
+					vEAnswer2.CODE = MyNav.CircleBCode;
+					vEAnswer2.CODE_TEXT = MyNav.CircleCodeTextB;
+					list.Add(vEAnswer2);
+					SurveyHelper.CircleBCode = MyNav.CircleBCode;
+					SurveyHelper.CircleBCodeText = MyNav.CircleCodeTextB;
+					SurveyHelper.CircleBCurrent = MyNav.CircleBCurrent;
+					SurveyHelper.CircleBCount = MyNav.CircleBCount;
+				}
+			}
+			else
+			{
+				SurveyHelper.CircleACode = _003F487_003F._003F488_003F("");
+				SurveyHelper.CircleACodeText = _003F487_003F._003F488_003F("");
+				SurveyHelper.CircleACurrent = 0;
+				SurveyHelper.CircleACount = 0;
+				SurveyHelper.CircleBCode = _003F487_003F._003F488_003F("");
+				SurveyHelper.CircleBCodeText = _003F487_003F._003F488_003F("");
+				SurveyHelper.CircleBCurrent = 0;
+				SurveyHelper.CircleBCount = 0;
+				MyNav.GroupCodeA = _003F487_003F._003F488_003F("");
+				MyNav.CircleACurrent = 0;
+				MyNav.CircleACount = 0;
+				MyNav.GroupCodeB = _003F487_003F._003F488_003F("");
+				MyNav.CircleBCurrent = 0;
+				MyNav.CircleBCount = 0;
+			}
+			oLogicEngine.SurveyID = MySurveyId;
+			if (MyNav.GroupLevel != _003F487_003F._003F488_003F(""))
+			{
+				oLogicEngine.CircleACode = SurveyHelper.CircleACode;
+				oLogicEngine.CircleACodeText = SurveyHelper.CircleACodeText;
+				oLogicEngine.CircleACount = SurveyHelper.CircleACount;
+				oLogicEngine.CircleACurrent = SurveyHelper.CircleACurrent;
+				oLogicEngine.CircleBCode = SurveyHelper.CircleBCode;
+				oLogicEngine.CircleBCodeText = SurveyHelper.CircleBCodeText;
+				oLogicEngine.CircleBCount = SurveyHelper.CircleBCount;
+				oLogicEngine.CircleBCurrent = SurveyHelper.CircleBCurrent;
+			}
+			string sHOW_LOGIC = oQuestion.QDefine.SHOW_LOGIC;
+			List<string> list2 = new List<string>();
+			list2.Add(_003F487_003F._003F488_003F(""));
+			if (sHOW_LOGIC != _003F487_003F._003F488_003F(""))
+			{
+				list2 = oBoldTitle.ParaToList(sHOW_LOGIC, _003F487_003F._003F488_003F("-Į"));
+				if (list2.Count > 1)
+				{
+					oQuestion.QDefine.DETAIL_ID = oLogicEngine.Route(list2[1]);
+				}
+			}
+			oQuestion.InitDetailID(CurPageId, 0);
+			string qUESTION_TITLE = oQuestion.QDefine.QUESTION_TITLE;
+			List<string> list3 = oBoldTitle.ParaToList(qUESTION_TITLE, _003F487_003F._003F488_003F("-Į"));
+			qUESTION_TITLE = list3[0];
+			oBoldTitle.SetTextBlock(txtQuestionTitle, qUESTION_TITLE, oQuestion.QDefine.TITLE_FONTSIZE, _003F487_003F._003F488_003F(""), true);
+			if (list3.Count <= 1)
+			{
+				string qUESTION_CONTENT = oQuestion.QDefine.QUESTION_CONTENT;
+			}
+			else
+			{
+				string text = list3[1];
+			}
+			qUESTION_TITLE = (string)/*Error near IL_057e: Stack underflow*/;
+			oBoldTitle.SetTextBlock(txtCircleTitle, qUESTION_TITLE, 0, _003F487_003F._003F488_003F(""), true);
+			List<SurveyDetail>.Enumerator enumerator;
+			if (oQuestion.QDefine.LIMIT_LOGIC != _003F487_003F._003F488_003F(""))
+			{
+				string[] array = oLogicEngine.aryCode(oQuestion.QDefine.LIMIT_LOGIC, ',');
+				List<SurveyDetail> list4 = new List<SurveyDetail>();
+				for (int i = 0; i < array.Count(); i++)
+				{
+					enumerator = oQuestion.QDetails.GetEnumerator();
+					try
+					{
+						while (enumerator.MoveNext())
+						{
+							SurveyDetail current = enumerator.Current;
+							if (current.CODE == array[i].ToString())
+							{
+								list4.Add(current);
+								break;
+							}
+						}
+					}
+					finally
+					{
+						((IDisposable)enumerator).Dispose();
+					}
+				}
+				if (oQuestion.QDefine.SHOW_LOGIC == _003F487_003F._003F488_003F("") && oQuestion.QDefine.IS_RANDOM == 0)
+				{
+					if (_003F7_003F._003C_003E9__21_0 == null)
+					{
+						_003F7_003F._003C_003E9__21_0 = _003F7_003F._003C_003E9._003F315_003F;
+					}
+					((List<SurveyDetail>)/*Error near IL_0726: Stack underflow*/).Sort((Comparison<SurveyDetail>)/*Error near IL_0726: Stack underflow*/);
+				}
+				oQuestion.QDetails = list4;
+			}
+			if (oQuestion.QDefine.PRESET_LOGIC != _003F487_003F._003F488_003F(""))
+			{
+				string[] array2 = oLogicEngine.aryCode(oQuestion.QDefine.PRESET_LOGIC, ',');
+				for (int j = 0; j < array2.Count(); j++)
+				{
+					enumerator = oQuestion.QDetails.GetEnumerator();
+					try
+					{
+						while (enumerator.MoveNext())
+						{
+							if (enumerator.Current.CODE == array2[j])
+							{
+								listPreSet.Add(array2[j]);
+								break;
+							}
+						}
+					}
+					finally
+					{
+						((IDisposable)enumerator).Dispose();
+					}
+				}
+			}
+			if (oQuestion.QDefine.DETAIL_ID.Substring(0, 1) == _003F487_003F._003F488_003F("\""))
+			{
+				for (int k = 0; k < oQuestion.QDetails.Count(); k++)
+				{
+					oQuestion.QDetails[k].CODE_TEXT = oBoldTitle.ReplaceABTitle(oQuestion.QDetails[k].CODE_TEXT);
+				}
+			}
+			if (list2[0].Trim() != _003F487_003F._003F488_003F(""))
+			{
+				string[] array3 = oLogicEngine.aryCode(list2[0], ',');
+				List<SurveyDetail> list5 = new List<SurveyDetail>();
+				for (int l = 0; l < array3.Count(); l++)
+				{
+					enumerator = oQuestion.QDetails.GetEnumerator();
+					try
+					{
+						while (enumerator.MoveNext())
+						{
+							SurveyDetail current2 = enumerator.Current;
+							if (current2.CODE == array3[l].ToString())
+							{
+								list5.Add(current2);
+								break;
+							}
+						}
+					}
+					finally
+					{
+						((IDisposable)enumerator).Dispose();
+					}
+				}
+				oQuestion.QDetails = list5;
+			}
+			else if (oQuestion.QDefine.IS_RANDOM > 0)
+			{
+				oQuestion.RandomDetails();
+			}
+			Button_Height = SurveyHelper.BtnHeight;
+			Button_FontSize = SurveyHelper.BtnFontSize;
+			Button_Width = SurveyHelper.BtnWidth;
+			if (oQuestion.QDefine.CONTROL_HEIGHT != 0)
+			{
+				Button_Height = oQuestion.QDefine.CONTROL_HEIGHT;
+			}
+			if (oQuestion.QDefine.CONTROL_WIDTH != 0)
+			{
+				Button_Width = oQuestion.QDefine.CONTROL_WIDTH;
+			}
+			if (oQuestion.QDefine.CONTROL_FONTSIZE != 0)
+			{
+				Button_FontSize = oQuestion.QDefine.CONTROL_FONTSIZE;
+			}
+			ExistTextFill = false;
+			enumerator = oQuestion.QDetails.GetEnumerator();
+			try
+			{
+				while (enumerator.MoveNext())
+				{
+					int iS_OTHER = enumerator.Current.IS_OTHER;
+					if (iS_OTHER == 1 || iS_OTHER == 3 || iS_OTHER == 5 || iS_OTHER == 11 || iS_OTHER == 13 || iS_OTHER == 14)
+					{
+						ExistTextFill = true;
+						break;
+					}
+				}
+			}
+			finally
+			{
+				((IDisposable)enumerator).Dispose();
+			}
+			if (ExistTextFill)
+			{
+				txtFill.Visibility = Visibility.Visible;
+				if (oQuestion.QDefine.NOTE == _003F487_003F._003F488_003F(""))
+				{
+					txtFillTitle.Visibility = Visibility.Visible;
+				}
+				else
+				{
+					qUESTION_TITLE = oQuestion.QDefine.NOTE;
+					list3 = oBoldTitle.ParaToList(qUESTION_TITLE, _003F487_003F._003F488_003F("-Į"));
+					qUESTION_TITLE = list3[0];
+					oBoldTitle.SetTextBlock(txtFillTitle, qUESTION_TITLE, 0, _003F487_003F._003F488_003F(""), true);
+					if (list3.Count > 1)
+					{
+						qUESTION_TITLE = list3[1];
+						oBoldTitle.SetTextBlock(txtAfter, qUESTION_TITLE, 0, _003F487_003F._003F488_003F(""), true);
+					}
+				}
+			}
+			else
+			{
+				txtFill.Height = 0.0;
+				txtFillTitle.Height = 0.0;
+				txtAfter.Height = 0.0;
+			}
+			if (oQuestion.QDefine.CONTROL_MASK != _003F487_003F._003F488_003F(""))
+			{
+				qUESTION_TITLE = oQuestion.QDefine.CONTROL_MASK;
+				oBoldTitle.SetTextBlock(txtSelectTitle, qUESTION_TITLE, 0, _003F487_003F._003F488_003F(""), true);
+			}
+			if (oQuestion.QDefine.CONTROL_TOOLTIP.Trim() != _003F487_003F._003F488_003F(""))
+			{
+				qUESTION_TITLE = oQuestion.QDefine.CONTROL_TOOLTIP;
+				oBoldTitle.SetTextBlock(txtSearchTitle, qUESTION_TITLE, 0, _003F487_003F._003F488_003F(""), true);
+			}
+			oListSource = oQuestion.QDetails;
+			_003F113_003F();
+			txtSearch.Focus();
+			if (SurveyMsg.FunctionAttachments == _003F487_003F._003F488_003F("^ŢɸͶѠպٽݿࡑॻ\u0a7a୬౯\u0d63\u0e67ཬၦᅳትፚᑰᕱᙷᝤ") && oQuestion.QDefine.IS_ATTACH == 1)
+			{
+				btnAttach.Visibility = Visibility.Visible;
+			}
+			if (SurveyHelper.AutoFill)
+			{
+				AutoFill autoFill = new AutoFill();
+				autoFill.oLogicEngine = oLogicEngine;
+				List<SurveyDetail> list6 = autoFill.MultiDetail(oQuestion.QDefine, oQuestion.QDetails, 10);
+				enumerator = list6.GetEnumerator();
+				try
+				{
+					while (enumerator.MoveNext())
+					{
+						SurveyDetail current3 = enumerator.Current;
+						txtSelect.Text = current3.CODE_TEXT;
+						_003F117_003F(btnSelect, new RoutedEventArgs());
+					}
+				}
+				finally
+				{
+					((IDisposable)enumerator).Dispose();
+				}
+				if (txtFill.IsEnabled)
+				{
+					txtFill.Text = autoFill.CommonOther(oQuestion.QDefine, _003F487_003F._003F488_003F(""));
+				}
+				if (list6.Count > 0 && autoFill.AutoNext(oQuestion.QDefine))
+				{
+					_003F58_003F(this, _003F348_003F);
+				}
+			}
+			Style style = (Style)FindResource(_003F487_003F._003F488_003F("Xůɥ\u034aѳը\u0656ݰ\u087a८\u0a64"));
+			Style style2 = (Style)FindResource(_003F487_003F._003F488_003F("XŢɘ\u036fѥՊٳݨࡖ॰\u0a7a୮\u0c64"));
+			bool flag = false;
+			string navOperation = SurveyHelper.NavOperation;
+			if (!(navOperation == _003F487_003F._003F488_003F("FŢɡ\u036a")))
+			{
+				if (!(navOperation == _003F487_003F._003F488_003F("HŪɶ\u036eѣխ")))
+				{
+					if (navOperation == _003F487_003F._003F488_003F("NŶɯͱ"))
+					{
+					}
+				}
+				else
+				{
+					foreach (string item in listPreSet)
+					{
+						if (!oQuestion.SelectedValues.Contains(item))
+						{
+							oQuestion.SelectedValues.Add(item);
+							enumerator = oQuestion.QDetails.GetEnumerator();
+							try
+							{
+								while (enumerator.MoveNext())
+								{
+									SurveyDetail current5 = enumerator.Current;
+									if (current5.CODE == item)
+									{
+										_003F119_003F(item, current5.CODE_TEXT, current5.IS_OTHER);
+										int iS_OTHER2 = current5.IS_OTHER;
+										if (iS_OTHER2 == 1 || iS_OTHER2 == 3 || iS_OTHER2 == 5 || ((iS_OTHER2 == 11) | (iS_OTHER2 == 13)) || iS_OTHER2 == 14)
+										{
+											listOther.Add(item);
+											flag = true;
+										}
+										break;
+									}
+								}
+							}
+							finally
+							{
+								((IDisposable)enumerator).Dispose();
+							}
+						}
+					}
+					if (flag)
+					{
+						txtFill.IsEnabled = true;
+						txtFill.Background = Brushes.White;
+						txtFill.Focus();
+					}
+					if (oQuestion.QDetails.Count == 1)
+					{
+						if (oQuestion.SelectedValues.Count == 0 && (oQuestion.QDefine.EXTEND_1.Contains(SurveyHelper.Only1CodeMode1) || oQuestion.QDefine.EXTEND_1.Contains(SurveyHelper.Only1CodeMode2)))
+						{
+							ListOption.SelectedValue = oQuestion.QDetails[0].CODE_TEXT;
+							_003F114_003F(ListOption, null);
+							_003F117_003F(null, null);
+						}
+						if (oQuestion.QDefine.EXTEND_1.Contains(SurveyHelper.Only1CodeMode2))
+						{
+							if (txtFill.IsEnabled)
+							{
+								txtFill.Focus();
+							}
+							else if (!SurveyHelper.AutoFill)
+							{
+								_003F58_003F(this, _003F348_003F);
+							}
+						}
+					}
+					if (oQuestion.QDefine.EXTEND_1.Contains(SurveyHelper.Only1CodeMode3) && oQuestion.SelectedValues.Count > 0)
+					{
+						if (txtFill.IsEnabled)
+						{
+							txtFill.Focus();
+						}
+						else if (!SurveyHelper.AutoFill)
+						{
+							_003F58_003F(this, _003F348_003F);
+						}
+					}
+				}
+			}
+			else
+			{
+				oQuestion.ReadAnswer(MySurveyId, SurveyHelper.SurveySequence);
+				foreach (SurveyAnswer item2 in oQuestion.QAnswersRead)
+				{
+					if (_003F94_003F(item2.QUESTION_NAME, 0, (oQuestion.QuestionName + _003F487_003F._003F488_003F("]ŀ")).Length) == oQuestion.QuestionName + _003F487_003F._003F488_003F("]ŀ"))
+					{
+						oQuestion.SelectedValues.Add(item2.CODE);
+						enumerator = oQuestion.QDetails.GetEnumerator();
+						try
+						{
+							while (enumerator.MoveNext())
+							{
+								SurveyDetail current7 = enumerator.Current;
+								if (current7.CODE == item2.CODE)
+								{
+									_003F119_003F(item2.CODE, current7.CODE_TEXT, current7.IS_OTHER);
+									int iS_OTHER3 = current7.IS_OTHER;
+									if (iS_OTHER3 == 1 || iS_OTHER3 == 3 || iS_OTHER3 == 5 || ((iS_OTHER3 == 11) | (iS_OTHER3 == 13)) || iS_OTHER3 == 14)
+									{
+										listOther.Add(item2.CODE);
+										flag = true;
+									}
+									break;
+								}
+							}
+						}
+						finally
+						{
+							((IDisposable)enumerator).Dispose();
+						}
+					}
+					else if (ExistTextFill && item2.QUESTION_NAME == oQuestion.QuestionName + _003F487_003F._003F488_003F("[Ōɖ\u0349") && item2.CODE != _003F487_003F._003F488_003F(""))
+					{
+						txtFill.Text = item2.CODE;
+					}
+				}
+				if (flag)
+				{
+					txtFill.IsEnabled = true;
+					txtFill.Background = Brushes.White;
+				}
+			}
+			new SurveyBiz().ClearPageAnswer(MySurveyId, SurveyHelper.SurveySequence);
+			SecondsWait = oQuestion.QDefine.PAGE_COUNT_DOWN;
+			if (SecondsWait > 0)
+			{
+				SecondsCountDown = SecondsWait;
+				btnNav.Foreground = Brushes.Gray;
+				btnNav.Content = SecondsCountDown.ToString();
+				timer.Interval = TimeSpan.FromMilliseconds(1000.0);
+				timer.Tick += _003F84_003F;
+				timer.Start();
+			}
+		}
+
+		private bool _003F87_003F()
+		{
+			//IL_01d7: Incompatible stack heights: 0 vs 1
+			//IL_01f0: Incompatible stack heights: 0 vs 1
+			//IL_0200: Incompatible stack heights: 0 vs 1
+			//IL_0261: Incompatible stack heights: 0 vs 1
+			//IL_02ba: Incompatible stack heights: 0 vs 1
+			//IL_02bb: Incompatible stack heights: 0 vs 1
+			//IL_02bc: Unknown result type (might be due to invalid IL or missing references)
+			if (oQuestion.SelectedValues.Count == 0)
+			{
+				MessageBox.Show(SurveyMsg.MsgNotSelected, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
+				return true;
+			}
+			if (oQuestion.QDefine.MIN_COUNT != 0 && oQuestion.SelectedValues.Count < oQuestion.QDefine.MIN_COUNT)
+			{
+				MessageBox.Show(string.Format(SurveyMsg.MsgMAless, oQuestion.QDefine.MIN_COUNT.ToString()), SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
+				return true;
+			}
+			if (oQuestion.QDefine.MAX_COUNT != 0 && oQuestion.SelectedValues.Count > oQuestion.QDefine.MAX_COUNT)
+			{
+				MessageBox.Show(string.Format(SurveyMsg.MsgMAmore, oQuestion.QDefine.MAX_COUNT.ToString()), SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
+				return true;
+			}
+			if (txtFill.IsEnabled && txtFill.Text.Trim() == _003F487_003F._003F488_003F(""))
+			{
+				MessageBox.Show(SurveyMsg.MsgNotFillOther, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
+				txtFill.Focus();
+				return true;
+			}
+			if (txtFill.IsEnabled)
+			{
+				QMultiple oQuestion2 = oQuestion;
+				if (!txtFill.IsEnabled)
+				{
+					_003F487_003F._003F488_003F("");
+				}
+				else
+				{
+					txtFill.Text.Trim();
+				}
+				((QMultiple)/*Error near IL_0205: Stack underflow*/).FillText = (string)/*Error near IL_0205: Stack underflow*/;
+			}
+			foreach (Button child in wrapPanel1.Children)
+			{
+				int num = (int)child.Tag;
+				bool flag = wrapPanel1.Children.Count > 1;
+				if (num != 2 && num != 4 && num != 3 && num != 5 && num != 13)
+				{
+				}
+				if ((/*Error near IL_02bc: Stack underflow*/ & /*Error near IL_02bc: Stack underflow*/) != 0)
+				{
+					MessageBox.Show(string.Format(SurveyMsg.MsgNotSelectOther, child.Content), SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
+					return true;
+				}
+			}
+			return false;
+		}
+
+		private List<VEAnswer> _003F88_003F()
+		{
+			//IL_0126: Incompatible stack heights: 0 vs 2
+			//IL_013a: Incompatible stack heights: 0 vs 2
+			List<VEAnswer> list = new List<VEAnswer>();
+			SurveyHelper.Answer = _003F487_003F._003F488_003F("");
+			for (int i = 0; i < oQuestion.SelectedValues.Count; i++)
+			{
+				VEAnswer vEAnswer = new VEAnswer();
+				vEAnswer.QUESTION_NAME = oQuestion.QuestionName + _003F487_003F._003F488_003F("]ŀ") + (i + 1).ToString();
+				vEAnswer.CODE = oQuestion.SelectedValues[i].ToString();
+				list.Add(vEAnswer);
+				SurveyHelper.Answer = SurveyHelper.Answer + _003F487_003F._003F488_003F("-") + vEAnswer.QUESTION_NAME + _003F487_003F._003F488_003F("<") + vEAnswer.CODE;
+			}
+			string answer = SurveyHelper.Answer;
+			SurveyHelper.Answer = ((MultipleSearch)/*Error near IL_00d9: Stack underflow*/)._003F94_003F((string)/*Error near IL_00d9: Stack underflow*/, 1, -9999);
+			if (oQuestion.FillText != _003F487_003F._003F488_003F(""))
+			{
+				VEAnswer vEAnswer2 = new VEAnswer();
+				string qUESTION_NAME = ((MultipleSearch)/*Error near IL_0102: Stack underflow*/).oQuestion.QuestionName + _003F487_003F._003F488_003F("[Ōɖ\u0349");
+				((VEAnswer)/*Error near IL_0149: Stack underflow*/).QUESTION_NAME = qUESTION_NAME;
+				vEAnswer2.CODE = oQuestion.FillText;
+				list.Add(vEAnswer2);
+				SurveyHelper.Answer = SurveyHelper.Answer + _003F487_003F._003F488_003F("-") + vEAnswer2.QUESTION_NAME + _003F487_003F._003F488_003F("<") + oQuestion.FillText;
+			}
+			return list;
+		}
+
+		private void _003F89_003F(List<VEAnswer> _003F370_003F)
+		{
+			//IL_0046: Incompatible stack heights: 0 vs 1
+			oQuestion.BeforeSave();
+			oQuestion.Save(MySurveyId, SurveyHelper.SurveySequence);
+			if (SurveyMsg.DelaySeconds > 0)
+			{
+				PageNav oPageNav2 = oPageNav;
+				int delaySeconds = SurveyMsg.DelaySeconds;
+				Button _003F431_003F = btnNav;
+				string mySurveyId = MySurveyId;
+				((PageNav)/*Error near IL_0058: Stack underflow*/).PageDataLog(delaySeconds, _003F370_003F, _003F431_003F, mySurveyId);
+			}
+		}
+
+		private void _003F58_003F(object _003F347_003F, RoutedEventArgs _003F348_003F)
+		{
+			//IL_00e8: Incompatible stack heights: 0 vs 1
+			//IL_00f9: Incompatible stack heights: 0 vs 2
+			//IL_010f: Incompatible stack heights: 0 vs 3
+			if ((string)btnNav.Content != btnNav_Content)
+			{
+				return;
+			}
+			goto IL_0020;
+			IL_0020:
+			btnNav.Content = SurveyMsg.MsgbtnNav_SaveText;
+			if (_003F87_003F())
+			{
+				((MultipleSearch)/*Error near IL_0040: Stack underflow*/).btnNav.Content = btnNav_Content;
+			}
+			else
+			{
+				List<VEAnswer> list = _003F88_003F();
+				oLogicEngine.PageAnswer = list;
+				oPageNav.oLogicEngine = oLogicEngine;
+				if (!oPageNav.CheckLogic(CurPageId))
+				{
+					Button btnNav2 = btnNav;
+					string content = ((MultipleSearch)/*Error near IL_008b: Stack underflow*/).btnNav_Content;
+					((ContentControl)/*Error near IL_0090: Stack underflow*/).Content = content;
+				}
+				else
+				{
+					_003F89_003F(list);
+					if (SurveyHelper.Debug)
+					{
+						SurveyHelper.ShowPageAnswer(list);
+						string msgCaption = SurveyMsg.MsgCaption;
+						MessageBox.Show((string)/*Error near IL_00a9: Stack underflow*/, (string)/*Error near IL_00a9: Stack underflow*/, (MessageBoxButton)/*Error near IL_00a9: Stack underflow*/, MessageBoxImage.Asterisk);
+					}
+					MyNav.PageAnswer = list;
+					oPageNav.NextPage(MyNav, base.NavigationService);
+					btnNav.Content = btnNav_Content;
+				}
+			}
+			return;
+			IL_00d8:
+			goto IL_0020;
+		}
+
+		private void _003F84_003F(object _003F347_003F, EventArgs _003F348_003F)
+		{
+			//IL_0025: Incompatible stack heights: 0 vs 1
+			if (SecondsCountDown == 0)
+			{
+				DispatcherTimer timer2 = timer;
+				((DispatcherTimer)/*Error near IL_0010: Stack underflow*/).Stop();
+				btnNav.Foreground = Brushes.Black;
+				btnNav.Content = btnNav_Content;
+			}
+			else
+			{
+				SecondsCountDown--;
+				btnNav.Content = SecondsCountDown.ToString();
+			}
+		}
+
+		private void _003F90_003F(object _003F347_003F, RoutedEventArgs _003F348_003F)
+		{
+			if (SurveyHelper.IsTouch == _003F487_003F._003F488_003F("EŸɞ\u0366ѽդٮݚ\u0870\u0971\u0a77\u0b64"))
+			{
+				SurveyTaptip.HideInputPanel();
+			}
+		}
+
+		private void _003F91_003F(object _003F347_003F, RoutedEventArgs _003F348_003F)
+		{
+			if (SurveyHelper.IsTouch == _003F487_003F._003F488_003F("EŸɞ\u0366ѽդٮݚ\u0870\u0971\u0a77\u0b64"))
+			{
+				SurveyTaptip.ShowInputPanel();
+			}
+		}
+
+		private string _003F92_003F(string _003F362_003F, int _003F363_003F, int _003F364_003F = -9999)
+		{
+			//IL_009e: Incompatible stack heights: 0 vs 1
+			//IL_00a3: Incompatible stack heights: 1 vs 0
+			//IL_00ae: Incompatible stack heights: 0 vs 1
+			//IL_00b3: Incompatible stack heights: 1 vs 0
+			//IL_00be: Incompatible stack heights: 0 vs 1
+			//IL_00c3: Incompatible stack heights: 1 vs 0
+			//IL_00ce: Incompatible stack heights: 0 vs 1
+			//IL_00d3: Incompatible stack heights: 1 vs 0
+			//IL_00de: Incompatible stack heights: 0 vs 1
+			//IL_00e3: Incompatible stack heights: 1 vs 0
+			int num = _003F364_003F;
+			if (num == -9999)
+			{
+				num = _003F363_003F;
+			}
+			if (num < 0)
+			{
+				num = 0;
+			}
+			if (_003F363_003F < 0)
+			{
+			}
+			int num2 = 0;
+			int num3;
+			if (num2 < num)
+			{
+				num3 = num2;
+			}
+			int num4 = num3;
+			int num5;
+			if (num2 < num)
+			{
+				num5 = num;
+			}
+			num = num5;
+			int length;
+			if (num2 > _003F362_003F.Length)
+			{
+				length = _003F362_003F.Length;
+			}
+			num4 = length;
+			int num6;
+			if (_003F364_003F > _003F362_003F.Length)
+			{
+				num6 = _003F362_003F.Length - 1;
+			}
+			num = num6;
+			return _003F362_003F.Substring(num4, num - num4 + 1);
+		}
+
+		private string _003F93_003F(string _003F362_003F, int _003F365_003F = 1)
+		{
+			//IL_0031: Incompatible stack heights: 0 vs 1
+			//IL_0036: Incompatible stack heights: 1 vs 0
+			//IL_003b: Incompatible stack heights: 0 vs 2
+			//IL_0041: Incompatible stack heights: 0 vs 1
+			//IL_004c: Incompatible stack heights: 0 vs 1
+			if (_003F365_003F < 0)
+			{
+			}
+			int num = 0;
+			if (num > _003F362_003F.Length)
+			{
+				goto IL_0046;
+			}
+			goto IL_004c;
+			IL_0046:
+			int length = _003F362_003F.Length;
+			goto IL_004c;
+			IL_004c:
+			return ((string)/*Error near IL_0051: Stack underflow*/).Substring((int)/*Error near IL_0051: Stack underflow*/, (int)/*Error near IL_0051: Stack underflow*/);
+			IL_0021:
+			goto IL_0046;
+		}
+
+		private string _003F94_003F(string _003F362_003F, int _003F363_003F, int _003F365_003F = -9999)
+		{
+			//IL_0058: Incompatible stack heights: 0 vs 1
+			//IL_006f: Incompatible stack heights: 0 vs 1
+			//IL_0074: Incompatible stack heights: 1 vs 0
+			//IL_0079: Incompatible stack heights: 0 vs 2
+			//IL_007f: Incompatible stack heights: 0 vs 1
+			//IL_008b: Incompatible stack heights: 0 vs 1
+			int num = _003F365_003F;
+			if (num == -9999)
+			{
+				int length2 = _003F362_003F.Length;
+				num = (int)/*Error near IL_000e: Stack underflow*/;
+			}
+			if (num < 0)
+			{
+				num = 0;
+			}
+			int length;
+			if (_003F363_003F > _003F362_003F.Length)
+			{
+				length = _003F362_003F.Length;
+			}
+			int num2 = length;
+			if (num2 + num > _003F362_003F.Length)
+			{
+				int num3 = _003F362_003F.Length - num2;
+			}
+			return ((string)/*Error near IL_0090: Stack underflow*/).Substring((int)/*Error near IL_0090: Stack underflow*/, (int)/*Error near IL_0090: Stack underflow*/);
+		}
+
+		private string _003F95_003F(string _003F362_003F, int _003F365_003F = 1)
+		{
+			//IL_0037: Incompatible stack heights: 0 vs 1
+			//IL_003c: Incompatible stack heights: 1 vs 0
+			//IL_0041: Incompatible stack heights: 0 vs 1
+			//IL_0047: Incompatible stack heights: 0 vs 1
+			if (_003F365_003F < 0)
+			{
+			}
+			int num = 0;
+			if (num > _003F362_003F.Length)
+			{
+				goto IL_004c;
+			}
+			int startIndex = ((string)/*Error near IL_0020: Stack underflow*/).Length - num;
+			goto IL_004d;
+			IL_004c:
+			startIndex = 0;
+			goto IL_004d;
+			IL_004d:
+			return ((string)/*Error near IL_0052: Stack underflow*/).Substring(startIndex);
+			IL_0027:
+			goto IL_004c;
+		}
+
+		private int _003F96_003F(string _003F362_003F)
+		{
+			if (_003F362_003F == _003F487_003F._003F488_003F(""))
+			{
+				return 0;
+			}
+			goto IL_0015;
+			IL_0059:
+			goto IL_0015;
+			IL_0015:
+			if (_003F362_003F == _003F487_003F._003F488_003F("1"))
+			{
+				return 0;
+			}
+			goto IL_002a;
+			IL_0065:
+			goto IL_002a;
+			IL_002a:
+			if (_003F362_003F == _003F487_003F._003F488_003F("/ı"))
+			{
+				return 0;
+			}
+			goto IL_003f;
+			IL_0071:
+			goto IL_003f;
+			IL_003f:
+			if (!_003F97_003F(_003F362_003F))
+			{
+				return 0;
+			}
+			goto IL_004b;
+			IL_007d:
+			goto IL_004b;
+			IL_004b:
+			return Convert.ToInt32(_003F362_003F);
+		}
+
+		private bool _003F97_003F(string _003F366_003F)
+		{
+			return new Regex(_003F487_003F._003F488_003F("Kļɏ\u033fѭՌؤܧ࠲ॐ੯ଡడ\u0d54ษཚၡᄯሪጽᐥ")).IsMatch(_003F366_003F);
+		}
+
+		private void _003F104_003F(object _003F347_003F, RoutedEventArgs _003F348_003F)
+		{
+			//IL_0089: Expected O, but got Unknown
+			//IL_00c2: Incompatible stack heights: 0 vs 1
+			//IL_00d8: Incompatible stack heights: 0 vs 2
+			//IL_00e2: Incompatible stack heights: 0 vs 2
+			//IL_00f8: Incompatible stack heights: 0 vs 1
+			_003F10_003F _003F10_003F = new _003F10_003F();
+			_003F10_003F.strSearch = txtSearch.Text;
+			_003F10_003F.strPinYin = _003F10_003F.strSearch.ToLower();
+			if (SearchKey != _003F10_003F.strSearch)
+			{
+				string strSearch = _003F10_003F.strSearch;
+				string b = _003F487_003F._003F488_003F("");
+				if ((string)/*Error near IL_004d: Stack underflow*/ == b)
+				{
+					List<SurveyDetail> qDetail = oQuestion.QDetails;
+					((MultipleSearch)/*Error near IL_0057: Stack underflow*/).oListSource = (List<SurveyDetail>)/*Error near IL_0057: Stack underflow*/;
+				}
+				else
+				{
+					oQuestion.QDetails.Where(_003F10_003F._003F312_003F);
+					if (_003F7_003F._003C_003E9__35_1 == null)
+					{
+						new Func<SurveyDetail, int>(_003F7_003F._003C_003E9._003F316_003F);
+						_003F7_003F._003C_003E9__35_1 = (Func<SurveyDetail, int>)/*Error near IL_0083: Stack underflow*/;
+					}
+					IOrderedEnumerable<SurveyDetail> source = ((IEnumerable<SurveyDetail>)/*Error near IL_008e: Stack underflow*/).OrderBy((Func<SurveyDetail, int>)/*Error near IL_008e: Stack underflow*/);
+					oListSource = source.ToList();
+				}
+				_003F113_003F();
+				SearchKey = _003F10_003F.strSearch;
+			}
+		}
+
+		private void _003F113_003F()
+		{
+			ListOption.Items.Clear();
+			foreach (SurveyDetail item in oListSource)
+			{
+				ListOption.Items.Add(item.CODE_TEXT);
+			}
+		}
+
+		private void _003F114_003F(object _003F347_003F, SelectionChangedEventArgs _003F348_003F = null)
+		{
+			txtSelect.Text = (string)ListOption.SelectedValue;
+		}
+
+		private void _003F115_003F(object _003F347_003F, KeyEventArgs _003F348_003F)
+		{
+			//IL_001e: Incompatible stack heights: 0 vs 2
+			if (_003F348_003F.Key == Key.Return)
+			{
+				((MultipleSearch)/*Error near IL_0023: Stack underflow*/)._003F104_003F((object)/*Error near IL_0023: Stack underflow*/, (RoutedEventArgs)_003F348_003F);
+			}
+		}
+
+		private void _003F117_003F(object _003F347_003F = null, RoutedEventArgs _003F348_003F = null)
+		{
+			if (txtSelect.Text == _003F487_003F._003F488_003F(""))
+			{
+				MessageBox.Show(SurveyMsg.MsgNotSelected, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
+			}
+			else
+			{
+				string text = _003F487_003F._003F488_003F("");
+				string _003F372_003F = _003F487_003F._003F488_003F("");
+				int num = 0;
+				foreach (SurveyDetail item in oListSource)
+				{
+					if (item.CODE_TEXT == txtSelect.Text)
+					{
+						text = item.CODE;
+						_003F372_003F = item.CODE_TEXT;
+						num = item.IS_OTHER;
+						if (!SurveyHelper.AutoFill || !(SurveyHelper.FillMode == _003F487_003F._003F488_003F("2")) || !(oQuestion.QDefine.FILLDATA == _003F487_003F._003F488_003F("")) || (num != 2 && num != 4 && num != 3 && num != 5 && num != 13 && num != 14))
+						{
+							if (num == 1 || num == 3 || num == 5 || num == 11 || num == 13 || num == 14)
+							{
+								if (!listOther.Contains(text))
+								{
+									listOther.Add(text);
+								}
+								txtFill.IsEnabled = true;
+								txtFill.Background = Brushes.White;
+								txtFill.Focus();
+							}
+							break;
+						}
+						return;
+					}
+				}
+				bool flag = false;
+				for (int i = 0; i < oQuestion.SelectedValues.Count; i++)
+				{
+					if (oQuestion.SelectedValues[i] == text)
+					{
+						flag = true;
+						break;
+					}
+				}
+				if (!flag)
+				{
+					_003F119_003F(text, _003F372_003F, num);
+					oQuestion.SelectedValues.Add(text);
+				}
+			}
+		}
+
+		private void _003F118_003F(object _003F347_003F, MouseButtonEventArgs _003F348_003F)
+		{
+			_003F117_003F(_003F347_003F, _003F348_003F);
+		}
+
+		private void _003F119_003F(string _003F371_003F, string _003F372_003F, int _003F344_003F)
+		{
+			Style style = (Style)FindResource(_003F487_003F._003F488_003F("Xůɥ\u034aѳը\u0656ݰ\u087a८\u0a64"));
+			WrapPanel wrapPanel = wrapPanel1;
+			Button element = new Button
+			{
+				Name = _003F487_003F._003F488_003F("`Ş") + _003F371_003F,
+				Content = _003F372_003F,
+				Margin = new Thickness(0.0, 0.0, 15.0, 15.0),
+				Style = style,
+				Tag = (object)_003F344_003F,
+				Click = new RoutedEventHandler(_003F29_003F),
+				FontSize = (double)Button_FontSize,
+				MinWidth = (double)Button_Width,
+				MinHeight = (double)Button_Height
+			};
+			wrapPanel.Children.Add(element);
+		}
+
+		private void _003F29_003F(object _003F347_003F, RoutedEventArgs _003F348_003F)
+		{
+			//IL_00ba: Incompatible stack heights: 0 vs 1
+			//IL_00d0: Incompatible stack heights: 0 vs 1
+			Button button = (Button)_003F347_003F;
+			string text = button.Name.Substring(2);
+			for (int i = 0; i < oQuestion.SelectedValues.Count; i++)
+			{
+				if (oQuestion.SelectedValues[i] == text)
+				{
+					QMultiple oQuestion2 = oQuestion;
+					((QMultiple)/*Error near IL_003c: Stack underflow*/).SelectedValues.RemoveAt(i);
+					if (listOther.Contains(text))
+					{
+						listOther.Remove(text);
+						if (listOther.Count == 0)
+						{
+							txtFill.IsEnabled = false;
+							txtFill.Background = Brushes.LightGray;
+						}
+					}
+					break;
+				}
+			}
+			wrapPanel1.Children.Remove(button);
+		}
+
+		private void _003F85_003F(object _003F347_003F, RoutedEventArgs _003F348_003F)
+		{
+			SurveyHelper.AttachSurveyId = MySurveyId;
+			SurveyHelper.AttachQName = oQuestion.QuestionName;
+			SurveyHelper.AttachPageId = CurPageId;
+			SurveyHelper.AttachCount = 0;
+			SurveyHelper.AttachReadOnlyModel = false;
+			new EditAttachments().ShowDialog();
+		}
+
+		[DebuggerNonUserCode]
+		[GeneratedCode("PresentationBuildTasks", "4.0.0.0")]
+		public void InitializeComponent()
+		{
+			if (_contentLoaded)
+			{
+				return;
+			}
+			goto IL_000b;
+			IL_000b:
+			_contentLoaded = true;
+			Uri resourceLocator = new Uri(_003F487_003F._003F488_003F("\u0002ūɘ\u0359ѐԆ٤\u0747ࡕ\u094dਘ\u0b41\u0c4e\u0d4d\u0e6f\u0f71\u1073ᅹት፮ᐶᕮᙾ\u1773ᡢ\u193b\u1a7e᭧\u1c7d\u1d64Ṧ\u1f7e\u2061Ⅹ≸⍯⑨╺♤❮⠫⥼⩢⭯Ɑ"), UriKind.Relative);
+			Application.LoadComponent(this, resourceLocator);
+			return;
+			IL_0018:
+			goto IL_000b;
+		}
+
+		[DebuggerNonUserCode]
+		[GeneratedCode("PresentationBuildTasks", "4.0.0.0")]
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		void IComponentConnector.Connect(int _003F349_003F, object _003F350_003F)
+		{
+			switch (_003F349_003F)
+			{
+			case 1:
+				((MultipleSearch)_003F350_003F).Loaded += _003F80_003F;
+				break;
+			case 2:
+				txtQuestionTitle = (TextBlock)_003F350_003F;
+				break;
+			case 3:
+				txtCircleTitle = (TextBlock)_003F350_003F;
+				break;
+			case 4:
+				gridContent = (Grid)_003F350_003F;
+				break;
+			case 5:
+				txtSearchTitle = (TextBlock)_003F350_003F;
+				break;
+			case 6:
+				txtSearch = (TextBox)_003F350_003F;
+				txtSearch.PreviewKeyDown += _003F115_003F;
+				break;
+			case 7:
+				btnSearch = (Button)_003F350_003F;
+				btnSearch.Click += _003F104_003F;
+				break;
+			case 8:
+				ListOption = (ListBox)_003F350_003F;
+				ListOption.MouseDoubleClick += _003F118_003F;
+				ListOption.SelectionChanged += _003F114_003F;
+				break;
+			case 9:
+				txtSelectTitle = (TextBlock)_003F350_003F;
+				break;
+			case 10:
+				txtSelect = (TextBox)_003F350_003F;
+				break;
+			case 11:
+				btnSelect = (Button)_003F350_003F;
+				btnSelect.Click += _003F117_003F;
+				break;
+			case 12:
+				DelMsg = (TextBlock)_003F350_003F;
+				break;
+			case 13:
+				scrollmain = (ScrollViewer)_003F350_003F;
+				break;
+			case 14:
+				wrapPanel1 = (WrapPanel)_003F350_003F;
+				break;
+			case 15:
+				stackPanel1 = (StackPanel)_003F350_003F;
+				break;
+			case 16:
+				txtFillTitle = (TextBlock)_003F350_003F;
+				break;
+			case 17:
+				txtFill = (TextBox)_003F350_003F;
+				txtFill.GotFocus += _003F91_003F;
+				txtFill.LostFocus += _003F90_003F;
+				break;
+			case 18:
+				txtAfter = (TextBlock)_003F350_003F;
+				break;
+			case 19:
+				txtSurvey = (TextBlock)_003F350_003F;
+				break;
+			case 20:
+				btnAttach = (Button)_003F350_003F;
+				btnAttach.Click += _003F85_003F;
+				break;
+			case 21:
+				btnNav = (Button)_003F350_003F;
+				btnNav.Click += _003F58_003F;
+				break;
+			default:
+				_contentLoaded = true;
+				break;
+			}
+		}
+	}
+}
