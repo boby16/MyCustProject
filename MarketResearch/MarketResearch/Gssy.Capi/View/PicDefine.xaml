@@ -1,0 +1,202 @@
+<Page
+	x:Class="Gssy.Capi.View.PicDefine" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	Title="PicDefine"
+	Style="{StaticResource WindowBaseStyle}" xmlns:view="clr-namespace:Gssy.Capi.View"
+	Loaded="method_0"
+	LayoutUpdated="method_1">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="215" />
+		</Grid.ColumnDefinitions>
+		<TextBlock
+			Name="txtQuestionTitle"
+			Grid.Row="0"
+			Grid.Column="0"
+			Margin="30,0,0,0"
+			FontSize="16"
+			TextWrapping="Wrap">问题描述</TextBlock>
+		<TextBlock
+			Grid.Row="0"
+			Grid.Column="1"
+			Margin="5,0,0,10"
+			FontSize="16"
+			TextWrapping="Wrap"
+			VerticalAlignment="Bottom">注：最后的选项为最顶的图层</TextBlock>
+		<ScrollViewer
+			Name="scrollmain"
+			Grid.Row="1"
+			Grid.Column="0"
+			Margin="0,0,0,0"
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto">
+			<Grid
+				Name="g">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+			</Grid>
+		</ScrollViewer>
+		<Grid
+			Row="1"
+			Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<ScrollViewer
+				Name="scrollcode"
+				Grid.Row="0"
+				Margin="0,0,0,0"
+				HorizontalScrollBarVisibility="Auto"
+				VerticalScrollBarVisibility="Auto">
+				<WrapPanel
+					Name="WrapCode"
+					Orientation="Vertical" />
+			</ScrollViewer>
+			<WrapPanel
+				Name="AddCode"
+				Grid.Row="1"
+				Visibility="Collapsed"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Bottom"
+				Orientation="Vertical">
+				<Label
+					Content="编码："
+					Foreground="#FFFFFFFF"
+					FontSize="22" />
+				<TextBox
+					Name="Code"
+					MaxLength="10"
+					Width="210"
+					FontSize="22" />
+				<Label
+					Content="选项文本："
+					Foreground="#FFFFFFFF"
+					FontSize="22" />
+				<TextBox
+					Name="CodeText"
+					MaxLength="250"
+					Width="210"
+					FontSize="22" />
+			</WrapPanel>
+			<DockPanel
+				Grid.Row="2"
+				Margin="0,0,5,0">
+				<Button
+					Name="btnMoveTop"
+					Content="移到开头"
+					Width="100"
+					Margin="5,5,0,5"
+					VerticalAlignment="Top"
+					FontSize="16"
+					Click="btnMoveTop_Click" />
+				<Button
+					Name="btnMoveBottom"
+					Content="移到最后"
+					Width="100"
+					Margin="5,5,0,5"
+					VerticalAlignment="Top"
+					FontSize="16"
+					Click="btnMoveBottom_Click" />
+			</DockPanel>
+			<DockPanel
+				Grid.Row="3"
+				Margin="0,0,5,0">
+				<Button
+					Name="btnMoveUp"
+					Content="上移选项"
+					Width="100"
+					Margin="5,5,0,5"
+					VerticalAlignment="Top"
+					FontSize="16"
+					Click="btnMoveUp_Click" />
+				<Button
+					Name="btnMoveDown"
+					Content="下移选项"
+					Width="100"
+					Margin="5,5,0,5"
+					VerticalAlignment="Top"
+					FontSize="16"
+					Click="btnMoveDown_Click" />
+			</DockPanel>
+			<DockPanel
+				Grid.Row="4"
+				Margin="0,0,5,0">
+				<Button
+					Name="btnEdit"
+					Content="修改选项"
+					Width="100"
+					Margin="5,5,0,5"
+					VerticalAlignment="Top"
+					FontSize="16"
+					Click="btnEdit_Click" />
+				<Button
+					Name="btnCancel"
+					Content="取消修改"
+					Width="100"
+					Margin="5,5,0,5"
+					VerticalAlignment="Top"
+					FontSize="16"
+					Visibility="Hidden"
+					Click="btnCancel_Click" />
+			</DockPanel>
+		</Grid>
+		<DockPanel
+			Grid.Row="2"
+			Grid.Column="0"
+			Margin="5,0,5,0">
+			<Button
+				Name="btnNav"
+				Content="{DynamicResource LBtnNav}"
+				Margin="5,5,0,5"
+				VerticalAlignment="Top"
+				FontSize="16"
+				Click="btnNav_Click" />
+		</DockPanel>
+		<DockPanel
+			Grid.Row="2"
+			Grid.Column="1"
+			Margin="0,0,5,0">
+			<Button
+				Name="btnAdd"
+				Content="添加选项"
+				Width="100"
+				Margin="5,5,0,5"
+				VerticalAlignment="Top"
+				FontSize="16"
+				Click="btnAdd_Click" />
+			<Button
+				Name="btnDel"
+				Content="删除选项"
+				Width="100"
+				Margin="5,5,0,5"
+				VerticalAlignment="Top"
+				FontSize="16"
+				Click="btnDel_Click" />
+		</DockPanel>
+	</Grid>
+</Page>
