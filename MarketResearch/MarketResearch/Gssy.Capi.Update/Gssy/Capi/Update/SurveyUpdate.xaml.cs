@@ -17,23 +17,19 @@ using Gssy.Capi.Class;
 
 namespace Gssy.Capi.Update
 {
-	// Token: 0x0200000A RID: 10
 	public partial class SurveyUpdate : Window
 	{
-		// Token: 0x06000036 RID: 54 RVA: 0x00002F8C File Offset: 0x0000118C
 		public SurveyUpdate()
 		{
 			this.InitializeComponent();
 		}
 
-		// Token: 0x06000037 RID: 55 RVA: 0x00002212 File Offset: 0x00000412
 		private void btnExit_Click(object sender, RoutedEventArgs e)
 		{
 			base.Close();
 			Application.Current.Shutdown();
 		}
 
-		// Token: 0x06000038 RID: 56 RVA: 0x00002FF0 File Offset: 0x000011F0
 		private void method_0(object sender, RoutedEventArgs e)
 		{
 			this.method_5(GClass0.smethod_0("NŻɴͿЫՇ٢ݲࡨ"));
@@ -44,7 +40,6 @@ namespace Gssy.Capi.Update
 			this.txtProjectName.Text = SurveyMsg.MsgProjectName + GClass0.smethod_0(".襠䰅旷憲Ԩ");
 		}
 
-		// Token: 0x06000039 RID: 57 RVA: 0x000030A4 File Offset: 0x000012A4
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
 			if (MessageBox.Show(GClass0.smethod_0("迁伽擢暥惙䩏娔䠋膖翙禾尥窈眀傅絁眤䱰盥磑畡伏") + Environment.NewLine + Environment.NewLine + GClass0.smethod_0("昿唩穠袩泌拮塼懽涸ॄੇ୕్眈傍"), GClass0.smethod_0("牎昩擰暳籬躥"), MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
@@ -59,13 +54,12 @@ namespace Gssy.Capi.Update
 			}
 		}
 
-		// Token: 0x0600003A RID: 58 RVA: 0x00003160 File Offset: 0x00001360
 		private void bw_DoWork(object sender, DoWorkEventArgs e)
 		{
 			alioss alioss = new alioss(SurveyMsg.OSSRegion, false, SurveyMsg.ProjectId);
 			Stopwatch stopwatch = new Stopwatch();
 			stopwatch.Start();
-			this.bw.ReportProgress(20, GClass0.smethod_0("棉曭擳暶ЫԪحܬ࠯"));
+			this.bw.ReportProgress(20, "检查更新.....");
 			OssClient ossClient = new OssClient(alioss.endpoint, alioss.accessId, alioss.accessKey);
 			bool flag = false;
 			try
@@ -96,7 +90,7 @@ namespace Gssy.Capi.Update
 				stopwatch.Stop();
 				return;
 			}
-			string str = GClass0.smethod_0("");
+			string str = "";
 			int num = this.VersionID.ToLower().IndexOf(GClass0.smethod_0("w"));
 			if (num > -1)
 			{
@@ -126,17 +120,17 @@ namespace Gssy.Capi.Update
 				stopwatch.Stop();
 				return;
 			}
-			string text = GClass0.smethod_0("");
-			string key = GClass0.smethod_0("");
+			string text = "";
+			string key = "";
 			string text2 = this.VersionID.ToLower();
 			string text3 = text2;
-			string text4 = GClass0.smethod_0("");
+			string text4 = "";
 			foreach (OssObjectSummary ossObjectSummary in objectListing.ObjectSummaries)
 			{
 				if (!(ossObjectSummary.Key == alioss.bucketDirUpdate + GClass0.smethod_0(".")))
 				{
-					text = ossObjectSummary.Key.Replace(alioss.bucketDirUpdate + GClass0.smethod_0("."), GClass0.smethod_0(""));
-					text4 = text.Replace(GClass0.smethod_0("*űɣͳ"), GClass0.smethod_0("")).ToLower();
+					text = ossObjectSummary.Key.Replace(alioss.bucketDirUpdate + GClass0.smethod_0("."), "");
+					text4 = text.Replace(GClass0.smethod_0("*űɣͳ"), "").ToLower();
 					key = ossObjectSummary.Key;
 					if (string.Compare(text4, text3) > 0)
 					{
@@ -187,7 +181,6 @@ namespace Gssy.Capi.Update
 			stopwatch.Stop();
 		}
 
-		// Token: 0x0600003B RID: 59 RVA: 0x000036EC File Offset: 0x000018EC
 		private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
 			TextBlock textBlock = this.txtMsg;
@@ -196,7 +189,6 @@ namespace Gssy.Capi.Update
 			this.method_2(double_);
 		}
 
-		// Token: 0x0600003C RID: 60 RVA: 0x00003734 File Offset: 0x00001934
 		private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			this.VersionID = this.oSurveyConfigBiz.GetByCodeTextRead(GClass0.smethod_0("_ŭɵ͵Ѭի٭݋ࡅ"));
@@ -213,7 +205,6 @@ namespace Gssy.Capi.Update
 			}), GClass0.smethod_0("牌是擶暱"), MessageBoxButton.OK, MessageBoxImage.Asterisk);
 		}
 
-		// Token: 0x0600003D RID: 61 RVA: 0x000037D0 File Offset: 0x000019D0
 		private void method_1()
 		{
 			Duration duration = new Duration(TimeSpan.FromSeconds(1.0));
@@ -222,7 +213,6 @@ namespace Gssy.Capi.Update
 			this.progressBar1.BeginAnimation(RangeBase.ValueProperty, doubleAnimation);
 		}
 
-		// Token: 0x0600003E RID: 62 RVA: 0x00002224 File Offset: 0x00000424
 		private void method_2(double double_0)
 		{
 			this.progressBar1.Dispatcher.Invoke(new Action<DependencyProperty, object>(this.progressBar1.SetValue), DispatcherPriority.Background, new object[]
@@ -232,7 +222,6 @@ namespace Gssy.Capi.Update
 			});
 		}
 
-		// Token: 0x0600003F RID: 63 RVA: 0x00003820 File Offset: 0x00001A20
 		private void method_3()
 		{
 			Duration duration = new Duration(TimeSpan.FromSeconds(1.0));
@@ -246,7 +235,6 @@ namespace Gssy.Capi.Update
 			});
 		}
 
-		// Token: 0x06000040 RID: 64 RVA: 0x000038BC File Offset: 0x00001ABC
 		private void method_4(object sender, MouseButtonEventArgs e)
 		{
 			MessageBox.Show(string.Concat(new string[]
@@ -261,7 +249,6 @@ namespace Gssy.Capi.Update
 			}), GClass0.smethod_0("牌晀嫲攏"), MessageBoxButton.OK, MessageBoxImage.Asterisk);
 		}
 
-		// Token: 0x06000041 RID: 65 RVA: 0x00003930 File Offset: 0x00001B30
 		private void method_5(string string_0)
 		{
 			foreach (Process process in Process.GetProcesses())
@@ -273,22 +260,16 @@ namespace Gssy.Capi.Update
 			}
 		}
 
-		// Token: 0x0400003E RID: 62
 		private SurveyConfigBiz oSurveyConfigBiz = new SurveyConfigBiz();
 
-		// Token: 0x0400003F RID: 63
-		private string strRarFile = GClass0.smethod_0("");
+		private string strRarFile = "";
 
-		// Token: 0x04000040 RID: 64
-		private string strRarOutputFolder = GClass0.smethod_0("");
+		private string strRarOutputFolder = "";
 
-		// Token: 0x04000041 RID: 65
 		private string strRarPassword = GClass0.smethod_0("Nśɔ͟Ыէ٢ݲࡨ");
 
-		// Token: 0x04000042 RID: 66
-		private string VersionID = GClass0.smethod_0("");
+		private string VersionID = "";
 
-		// Token: 0x04000043 RID: 67
 		private BackgroundWorker bw;
 	}
 }

@@ -17,16 +17,13 @@ using Gssy.Capi.QEdit;
 
 namespace Gssy.Capi.View
 {
-	// Token: 0x02000046 RID: 70
 	public partial class PageSingleList : Page
 	{
-		// Token: 0x060004BC RID: 1212 RVA: 0x00003531 File Offset: 0x00001731
 		public PageSingleList()
 		{
 			this.InitializeComponent();
 		}
 
-		// Token: 0x060004BD RID: 1213 RVA: 0x00086FBC File Offset: 0x000851BC
 		private void method_0(object sender, RoutedEventArgs e)
 		{
 			this.MySurveyId = SurveyHelper.SurveyID;
@@ -35,16 +32,16 @@ namespace Gssy.Capi.View
 			this.txtSurvey.Text = this.MySurveyId;
 			this.oQuestion.Init(this.CurPageId, 0, true);
 			string question_TITLE = this.oQuestion.QDefine.QUESTION_TITLE;
-			this.txtQuestionTitle.Text = global::GClass0.smethod_0("");
+			this.txtQuestionTitle.Text = "";
 			BoldTitle boldTitle = new BoldTitle();
 			boldTitle.SpanTitle(this.MySurveyId, question_TITLE, SurveyHelper.CircleACode, SurveyHelper.CircleBCode);
 			foreach (classHtmlText classHtmlText in boldTitle.lSpan)
 			{
-				if (classHtmlText.TitleTextType == global::GClass0.smethod_0("?ŀȿ"))
+				if (classHtmlText.TitleTextType == "<B>")
 				{
 					Span span = new Span();
 					span.Inlines.Add(new Run(classHtmlText.TitleText));
-					span.Foreground = (Brush)base.FindResource(global::GClass0.smethod_0("\\Źɯͺѻբ٢݇ࡶॶੱ୩"));
+					span.Foreground = (Brush)base.FindResource("PressedBrush");
 					span.FontWeight = FontWeights.Bold;
 					this.txtQuestionTitle.Inlines.Add(span);
 				}
@@ -59,7 +56,7 @@ namespace Gssy.Capi.View
 			{
 				this.txtQuestionTitle.FontSize = (double)this.oQuestion.QDefine.TITLE_FONTSIZE;
 			}
-			if (this.oQuestion.QDefine.LIMIT_LOGIC != global::GClass0.smethod_0(""))
+			if (this.oQuestion.QDefine.LIMIT_LOGIC != "")
 			{
 				this.oLogicEngine.SurveyID = this.MySurveyId;
 				string[] array = this.oLogicEngine.aryCode(this.oQuestion.QDefine.LIMIT_LOGIC, ',');
@@ -99,36 +96,35 @@ namespace Gssy.Capi.View
 				}
 			}
 			this.cmbSelect.ItemsSource = this.oQuestion.QDetails;
-			this.cmbSelect.DisplayMemberPath = global::GClass0.smethod_0("JŇɃ̓њՐنݚࡕ");
-			this.cmbSelect.SelectedValuePath = global::GClass0.smethod_0("GŌɆ̈́");
-			if (this.oQuestion.OtherCode != null && this.oQuestion.OtherCode != global::GClass0.smethod_0(""))
+			this.cmbSelect.DisplayMemberPath = "CODE_TEXT";
+			this.cmbSelect.SelectedValuePath = "CODE";
+			if (this.oQuestion.OtherCode != null && this.oQuestion.OtherCode != "")
 			{
 				this.txtFill.Visibility = Visibility.Visible;
 				this.txtFillTitle.Visibility = Visibility.Visible;
 			}
-			if (SurveyMsg.FunctionAttachments == global::GClass0.smethod_0("^ŢɸͶѠպٽݿࡑॻ੺୬౯ൣ๧ཬၦᅳትፚᑰᕱᙷᝤ") && this.oQuestion.QDefine.IS_ATTACH == 1)
+			if (SurveyMsg.FunctionAttachments == "FunctionAttachments_true" && this.oQuestion.QDefine.IS_ATTACH == 1)
 			{
 				this.btnAttach.Visibility = Visibility.Visible;
 			}
-			if (SurveyHelper.NavOperation == global::GClass0.smethod_0("FŢɡͪ"))
+			if (SurveyHelper.NavOperation == "Back")
 			{
 				this.SelectedValue = this.oQuestion.ReadAnswerByQuestionName(this.MySurveyId, this.oQuestion.QuestionName);
-				this.txtFill.Text = this.oQuestion.ReadAnswerByQuestionName(this.MySurveyId, this.oQuestion.QuestionName + global::GClass0.smethod_0("[Ōɖ͉"));
+				this.txtFill.Text = this.oQuestion.ReadAnswerByQuestionName(this.MySurveyId, this.oQuestion.QuestionName + "_OTH");
 				this.cmbSelect.SelectedValue = this.SelectedValue;
 			}
 			new SurveyBiz().ClearPageAnswer(this.MySurveyId, SurveyHelper.SurveySequence);
 		}
 
-		// Token: 0x060004BE RID: 1214 RVA: 0x0008747C File Offset: 0x0008567C
 		private void btnNav_Click(object sender, RoutedEventArgs e)
 		{
-			if (this.cmbSelect.SelectedValue != null && !((string)this.cmbSelect.SelectedValue == global::GClass0.smethod_0("")))
+			if (this.cmbSelect.SelectedValue != null && !((string)this.cmbSelect.SelectedValue == ""))
 			{
 				this.SelectedValue = this.cmbSelect.SelectedValue.ToString();
 				this.oQuestion.SelectedCode = this.SelectedValue;
-				if (this.oQuestion.OtherCode != null && this.oQuestion.OtherCode != global::GClass0.smethod_0("") && this.SelectedValue == this.oQuestion.OtherCode)
+				if (this.oQuestion.OtherCode != null && this.oQuestion.OtherCode != "" && this.SelectedValue == this.oQuestion.OtherCode)
 				{
-					if (this.txtFill.Text == global::GClass0.smethod_0(""))
+					if (this.txtFill.Text == "")
 					{
 						MessageBox.Show(SurveyMsg.MsgNotFillOther, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 						this.txtFill.Focus();
@@ -140,17 +136,17 @@ namespace Gssy.Capi.View
 				VEAnswer veanswer = new VEAnswer();
 				veanswer.QUESTION_NAME = this.oQuestion.QuestionName;
 				veanswer.CODE = this.oQuestion.SelectedCode;
-				SurveyHelper.Answer = this.oQuestion.QuestionName + global::GClass0.smethod_0("<") + this.oQuestion.SelectedCode;
+				SurveyHelper.Answer = this.oQuestion.QuestionName + "=" + this.oQuestion.SelectedCode;
 				list.Add(veanswer);
 				VEAnswer veanswer2 = new VEAnswer();
-				veanswer2.QUESTION_NAME = this.oQuestion.QuestionName + global::GClass0.smethod_0("[Ōɖ͉");
+				veanswer2.QUESTION_NAME = this.oQuestion.QuestionName + "_OTH";
 				veanswer2.CODE = this.oQuestion.FillText;
 				SurveyHelper.Answer = string.Concat(new string[]
 				{
 					SurveyHelper.Answer,
-					global::GClass0.smethod_0("-"),
+					",",
 					veanswer2.QUESTION_NAME,
-					global::GClass0.smethod_0("<"),
+					"=",
 					this.oQuestion.FillText
 				});
 				list.Add(veanswer2);
@@ -181,7 +177,6 @@ namespace Gssy.Capi.View
 			MessageBox.Show(SurveyMsg.MsgNotSelected, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 		}
 
-		// Token: 0x060004BF RID: 1215 RVA: 0x00087760 File Offset: 0x00085960
 		private void method_1()
 		{
 			int surveySequence = SurveyHelper.SurveySequence;
@@ -192,10 +187,10 @@ namespace Gssy.Capi.View
 			this.MyNav.NextPage(this.MySurveyId, surveySequence, this.CurPageId, roadMapVersion);
 			string text = this.oLogicEngine.Route(this.MyNav.RoadMap.FORM_NAME);
 			SurveyHelper.RoadMapVersion = this.MyNav.RoadMap.VERSION_ID.ToString();
-			string uriString = string.Format(global::GClass0.smethod_0("TłɁ͊К԰رݼ࡬५੶୰౻൶๢ོၻᅽረጽᐼᔣᘡ᝛ᡥ᥮᩽ᬦᱳᴷṻἫ⁼Ⅲ≯⍭"), text);
-			if (text.Substring(0, 1) == global::GClass0.smethod_0("@"))
+			string uriString = string.Format("pack://application:,,,/View/{0}.xaml", text);
+			if (text.Substring(0, 1) == "A")
 			{
-				uriString = string.Format(global::GClass0.smethod_0("[ŋɊ̓Нԉ؊݅ࡓ੍॒୉౼ൿ๩ཱུၴᅴሣጴᐻᔺᘺᝂ᡺᥷ᩦᭀᱽᵡṧὩ⁨ⅾ∦⍳␷╻☫❼⡢⥯⩭"), text);
+				uriString = string.Format("pack://application:,,,/ViewProject/{0}.xaml", text);
 			}
 			if (text == SurveyHelper.CurPageName)
 			{
@@ -210,29 +205,26 @@ namespace Gssy.Capi.View
 			SurveyHelper.NavCurPage = this.MyNav.RoadMap.PAGE_ID;
 			SurveyHelper.CurPageName = this.MyNav.RoadMap.FORM_NAME;
 			SurveyHelper.NavGoBackTimes = 0;
-			SurveyHelper.NavOperation = global::GClass0.smethod_0("HŪɶͮѣխ");
+			SurveyHelper.NavOperation = "Normal";
 			SurveyHelper.NavLoad = 0;
 		}
 
-		// Token: 0x060004C0 RID: 1216 RVA: 0x00002581 File Offset: 0x00000781
 		private void txtFill_LostFocus(object sender, RoutedEventArgs e)
 		{
-			if (SurveyHelper.IsTouch == global::GClass0.smethod_0("EŸɞͦѽդٮݚࡰॱ੷୤"))
+			if (SurveyHelper.IsTouch == "IsTouch_true")
 			{
 				SurveyTaptip.HideInputPanel();
 			}
 		}
 
-		// Token: 0x060004C1 RID: 1217 RVA: 0x0000259E File Offset: 0x0000079E
 		private void txtFill_GotFocus(object sender, RoutedEventArgs e)
 		{
-			if (SurveyHelper.IsTouch == global::GClass0.smethod_0("EŸɞͦѽդٮݚࡰॱ੷୤"))
+			if (SurveyHelper.IsTouch == "IsTouch_true")
 			{
 				SurveyTaptip.ShowInputPanel();
 			}
 		}
 
-		// Token: 0x060004C2 RID: 1218 RVA: 0x00003560 File Offset: 0x00001760
 		private void btnAttach_Click(object sender, RoutedEventArgs e)
 		{
 			SurveyHelper.AttachSurveyId = this.MySurveyId;
@@ -243,39 +235,29 @@ namespace Gssy.Capi.View
 			new EditAttachments().ShowDialog();
 		}
 
-		// Token: 0x040008E1 RID: 2273
 		private string MySurveyId;
 
-		// Token: 0x040008E2 RID: 2274
 		private string CurPageId;
 
-		// Token: 0x040008E3 RID: 2275
 		private NavBase MyNav = new NavBase();
 
-		// Token: 0x040008E4 RID: 2276
 		private LogicEngine oLogicEngine = new LogicEngine();
 
-		// Token: 0x040008E5 RID: 2277
 		private QSingle oQuestion = new QSingle();
 
-		// Token: 0x040008E6 RID: 2278
 		private string SelectedValue;
 
-		// Token: 0x020000B6 RID: 182
 		[CompilerGenerated]
 		[Serializable]
 		private sealed class Class55
 		{
-			// Token: 0x0600078F RID: 1935 RVA: 0x00004347 File Offset: 0x00002547
 			internal int method_0(SurveyDetail surveyDetail_0, SurveyDetail surveyDetail_1)
 			{
 				return Comparer<int>.Default.Compare(surveyDetail_0.INNER_ORDER, surveyDetail_1.INNER_ORDER);
 			}
 
-			// Token: 0x04000D31 RID: 3377
 			public static readonly PageSingleList.Class55 instance = new PageSingleList.Class55();
 
-			// Token: 0x04000D32 RID: 3378
 			public static Comparison<SurveyDetail> compare0;
 		}
 	}

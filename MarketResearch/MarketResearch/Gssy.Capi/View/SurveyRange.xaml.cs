@@ -15,44 +15,40 @@ using Gssy.Capi.Entities;
 
 namespace Gssy.Capi.View
 {
-	// Token: 0x02000053 RID: 83
 	public partial class SurveyRange : Window
 	{
-		// Token: 0x06000578 RID: 1400 RVA: 0x00093264 File Offset: 0x00091464
 		public SurveyRange()
 		{
 			this.InitializeComponent();
 		}
 
-		// Token: 0x06000579 RID: 1401 RVA: 0x000020CF File Offset: 0x000002CF
 		private void btnExit_Click(object sender, RoutedEventArgs e)
 		{
 			new CStart().Show();
 			base.Close();
 		}
 
-		// Token: 0x0600057A RID: 1402 RVA: 0x00093320 File Offset: 0x00091520
 		private void method_0(object sender, RoutedEventArgs e)
 		{
-			this.CITY_Code = this.oSurveyConfigBiz.GetByCodeText(global::GClass0.smethod_0("KŮɲͼчլ٦ݤ"));
-			this.SurveyStart = this.oSurveyConfigBiz.GetByCodeText(global::GClass0.smethod_0("^ŹɹͼѬձَ݂ࡇॡ੤୫౯"));
-			this.SurveyEnd = this.oSurveyConfigBiz.GetByCodeText(global::GClass0.smethod_0("Xſɻ;Ѣտٌ݀ࡆ६੥"));
-			this.TouchPad = this.oSurveyConfigBiz.GetByCodeText(global::GClass0.smethod_0("\\ŨɳͦѬՓ٣ݥ"));
-			this.PC_Code = this.oSurveyConfigBiz.GetByCodeText(global::GClass0.smethod_0("VņɇͬѦդ"));
-			this.MP3Minutes = this.oSurveyConfigBiz.GetByCodeText(global::GClass0.smethod_0("GřȻ͊ѯիٱݷࡧॲ"));
-			this.MP3Mode = this.oSurveyConfigBiz.GetByCodeText(global::GClass0.smethod_0("JŖȶ͉Ѭզ٤"));
-			this.QDetails = this.oSurveyDetailDal.GetDetails(global::GClass0.smethod_0("GŊɖ͘"));
-			if (SurveyMsg.AllowClearCaseNumber == global::GClass0.smethod_0("XŴɻ͹Ѣ՗ٿݷࡰॢੌ୯౾൩ๅཿၤᅪቢ፴ᑚᕰᙱ᝷ᡤ"))
+			this.CITY_Code = this.oSurveyConfigBiz.GetByCodeText("CityCode");
+			this.SurveyStart = this.oSurveyConfigBiz.GetByCodeText("SurveyIDBegin");
+			this.SurveyEnd = this.oSurveyConfigBiz.GetByCodeText("SurveyIDEnd");
+			this.TouchPad = this.oSurveyConfigBiz.GetByCodeText("TouchPad");
+			this.PC_Code = this.oSurveyConfigBiz.GetByCodeText("PCCode");
+			this.MP3Minutes = this.oSurveyConfigBiz.GetByCodeText("MP3Minutes");
+			this.MP3Mode = this.oSurveyConfigBiz.GetByCodeText("MP3Mode");
+			this.QDetails = this.oSurveyDetailDal.GetDetails("CITY");
+			if (SurveyMsg.AllowClearCaseNumber == "AllowClearCaseNumber_true")
 			{
 				SurveyDetail surveyDetail = new SurveyDetail();
-				surveyDetail.CODE = global::GClass0.smethod_0("zŹ");
+				surveyDetail.CODE = "xx";
 				surveyDetail.CODE_TEXT = SurveyMsg.NoCity;
 				this.QDetails.Add(surveyDetail);
 			}
 			this.cmbCITY.ItemsSource = this.QDetails;
-			this.cmbCITY.DisplayMemberPath = global::GClass0.smethod_0("JŇɃ̓њՐنݚࡕ");
-			this.cmbCITY.SelectedValuePath = global::GClass0.smethod_0("GŌɆ̈́");
-			if (this.CITY_Code != global::GClass0.smethod_0("") && this.CITY_Code != null && this.CITY_Code != global::GClass0.smethod_0("zŹ"))
+			this.cmbCITY.DisplayMemberPath = "CODE_TEXT";
+			this.cmbCITY.SelectedValuePath = "CODE";
+			if (this.CITY_Code != "" && this.CITY_Code != null && this.CITY_Code != "xx")
 			{
 				this.SelectCity = true;
 				this.cmbCITY.SelectedValue = this.CITY_Code;
@@ -68,9 +64,9 @@ namespace Gssy.Capi.View
 			}
 			else
 			{
-				if (SurveyMsg.AllowClearCaseNumber == global::GClass0.smethod_0("XŴɻ͹Ѣ՗ٿݷࡰॢੌ୯౾൩ๅཿၤᅪቢ፴ᑚᕰᙱ᝷ᡤ"))
+				if (SurveyMsg.AllowClearCaseNumber == "AllowClearCaseNumber_true")
 				{
-					this.cmbCITY.SelectedValue = global::GClass0.smethod_0("zŹ");
+					this.cmbCITY.SelectedValue = "xx";
 				}
 				this.OrderStart.Visibility = Visibility.Hidden;
 				this.OrderEnd.Visibility = Visibility.Hidden;
@@ -99,29 +95,29 @@ namespace Gssy.Capi.View
 				this.txtEnd.Text = this.method_5(this.SurveyEnd, SurveyMsg.Order_Length);
 			}
 			this.nPcCodeLen = SurveyMsg.PcCode_Length - SurveyMsg.CITY_Length;
-			if (SurveyMsg.SetPCNumber == global::GClass0.smethod_0("CŪɺ͝яՅٿݤࡪॢੴ୚౰൱๷ཤ") && this.SelectCity)
+			if (SurveyMsg.SetPCNumber == "SetPCNumber_true" && this.SelectCity)
 			{
-				this.PCcode1st.Text = this.method_5(global::GClass0.smethod_0("5Ĵȳ̲б") + this.CITY_Code, SurveyMsg.CITY_Length);
+				this.PCcode1st.Text = this.method_5("00000" + this.CITY_Code, SurveyMsg.CITY_Length);
 				this.txtPCCode.Text = this.method_5(this.PC_Code, this.nPcCodeLen);
-				this.PCcodeMsg.Text = global::GClass0.smethod_0(")") + this.nPcCodeLen.ToString() + SurveyMsg.MsgBit3;
+				this.PCcodeMsg.Text = "(" + this.nPcCodeLen.ToString() + SurveyMsg.MsgBit3;
 				this.txtPCCode.MaxLength = this.nPcCodeLen;
 				this.PCcode1st.Width = this.txtBegin1st.Width;
 				this.txtPCCode.Width = this.txtBegin.Width;
 			}
 			else
 			{
-				this.PCcode1st.Text = global::GClass0.smethod_0("");
+				this.PCcode1st.Text = "";
 				this.txtPCCode.Text = this.PC_Code;
-				this.PCcodeMsg.Text = global::GClass0.smethod_0(")") + SurveyMsg.PcCode_Length.ToString() + SurveyMsg.MsgBit3;
+				this.PCcodeMsg.Text = "(" + SurveyMsg.PcCode_Length.ToString() + SurveyMsg.MsgBit3;
 				this.txtPCCode.MaxLength = SurveyMsg.PcCode_Length;
 				this.txtPCCode.Width = 180.0;
 				this.PCcode1st.Width = 0.0;
 			}
-			if (SurveyMsg.SurveyRangePsw == SurveyMsg.SurveyRangeDemoPsw || SurveyMsg.VersionID.IndexOf(global::GClass0.smethod_0("浈諗灉")) >= 0 || SurveyMsg.VersionID.IndexOf(global::GClass0.smethod_0("漗砸灉")) >= 0 || SurveyMsg.VersionID.IndexOf(global::GClass0.smethod_0("@Ŧɯͮ")) >= 0)
+			if (SurveyMsg.SurveyRangePsw == SurveyMsg.SurveyRangeDemoPsw || SurveyMsg.VersionID.IndexOf("测试版") >= 0 || SurveyMsg.VersionID.IndexOf("演示版") >= 0 || SurveyMsg.VersionID.IndexOf("Demo") >= 0)
 			{
 				this.PasswordMsg.Visibility = Visibility.Visible;
 			}
-			if (this.TouchPad == global::GClass0.smethod_0("0"))
+			if (this.TouchPad == "1")
 			{
 				this.ChkTouchPad.IsChecked = new bool?(true);
 			}
@@ -129,7 +125,7 @@ namespace Gssy.Capi.View
 			{
 				this.ChkTouchPad.IsChecked = new bool?(false);
 			}
-			if (SurveyMsg.RecordIsOn == global::GClass0.smethod_0("]ūɮͣѹծـݻࡈ२ਗ਼୰౱൷๤"))
+			if (SurveyMsg.RecordIsOn == "RecordIsOn_true")
 			{
 				this.spMP3Setup.Visibility = Visibility.Visible;
 				if (this.MP3Minutes == null)
@@ -146,7 +142,6 @@ namespace Gssy.Capi.View
 			this.txtBegin.Focus();
 		}
 
-		// Token: 0x0600057B RID: 1403 RVA: 0x00003954 File Offset: 0x00001B54
 		private void btnMP3Setup_Click(object sender, RoutedEventArgs e)
 		{
 			this.spMP3Setup.Visibility = Visibility.Collapsed;
@@ -154,7 +149,6 @@ namespace Gssy.Capi.View
 			this.spMP3.Visibility = Visibility.Visible;
 		}
 
-		// Token: 0x0600057C RID: 1404 RVA: 0x0000397A File Offset: 0x00001B7A
 		private void btnMP3_Click(object sender, RoutedEventArgs e)
 		{
 			if (this.btnMP3.Content.ToString() == SurveyMsg.MP3Mode1)
@@ -165,18 +159,17 @@ namespace Gssy.Capi.View
 			this.btnMP3.Content = SurveyMsg.MP3Mode1;
 		}
 
-		// Token: 0x0600057D RID: 1405 RVA: 0x000939A4 File Offset: 0x00091BA4
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
-			string text = global::GClass0.smethod_0("");
-			string text2 = global::GClass0.smethod_0("");
-			this.CITY_Code = global::GClass0.smethod_0("");
-			string string_ = global::GClass0.smethod_0("");
-			string text3 = global::GClass0.smethod_0("");
+			string text = "";
+			string text2 = "";
+			this.CITY_Code = "";
+			string string_ = "";
+			string text3 = "";
 			if (this.cmbCITY.SelectedValue != null)
 			{
 				text3 = this.cmbCITY.SelectedValue.ToString();
-				if (text3 != global::GClass0.smethod_0("zŹ"))
+				if (text3 != "xx")
 				{
 					this.SelectCity = true;
 					string_ = this.cmbCITY.Text;
@@ -190,13 +183,13 @@ namespace Gssy.Capi.View
 				}
 			}
 			string password = this.passwordBox1.Password;
-			string string_2 = global::GClass0.smethod_0("1");
+			string string_2 = "0";
 			string text4 = this.txtPCCode.Text;
 			string text5 = this.txtMP3Len.Text;
 			string string_3 = this.btnMP3.Content.ToString();
-			if (SurveyMsg.VersionID.IndexOf(global::GClass0.smethod_0("漗砸灉")) < 0 && SurveyMsg.VersionID.IndexOf(global::GClass0.smethod_0("浈諗灉")) < 0 && SurveyMsg.VersionID.IndexOf(global::GClass0.smethod_0("@Ŧɯͮ")) < 0)
+			if (SurveyMsg.VersionID.IndexOf("演示版") < 0 && SurveyMsg.VersionID.IndexOf("测试版") < 0 && SurveyMsg.VersionID.IndexOf("Demo") < 0)
 			{
-				if (password == global::GClass0.smethod_0("") || password != SurveyMsg.SurveyRangePsw)
+				if (password == "" || password != SurveyMsg.SurveyRangePsw)
 				{
 					MessageBox.Show(SurveyMsg.MsgRangeMissPsw, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Asterisk);
 					this.passwordBox1.Focus();
@@ -209,13 +202,13 @@ namespace Gssy.Capi.View
 				this.passwordBox1.Focus();
 				return;
 			}
-			if (text3 == global::GClass0.smethod_0(""))
+			if (text3 == "")
 			{
 				MessageBox.Show(SurveyMsg.MsgSelectOne, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Asterisk);
 				this.cmbCITY.Focus();
 				return;
 			}
-			if (SurveyMsg.SetPCNumber == global::GClass0.smethod_0("CŪɺ͝яՅٿݤࡪॢੴ୚౰൱๷ཤ") && this.SelectCity)
+			if (SurveyMsg.SetPCNumber == "SetPCNumber_true" && this.SelectCity)
 			{
 				if (text4.Length != SurveyMsg.PcCode_Length - SurveyMsg.CITY_Length)
 				{
@@ -232,7 +225,7 @@ namespace Gssy.Capi.View
 			}
 			string string_4 = text4.Substring(0, SurveyMsg.CITY_Length);
 			this.method_6(string_4);
-			if (!(text == global::GClass0.smethod_0("")) || !(text2 == global::GClass0.smethod_0("")) || !(SurveyMsg.AllowClearCaseNumber == global::GClass0.smethod_0("XŴɻ͹Ѣ՗ٿݷࡰॢੌ୯౾൩ๅཿၤᅪቢ፴ᑚᕰᙱ᝷ᡤ")))
+			if (!(text == "") || !(text2 == "") || !(SurveyMsg.AllowClearCaseNumber == "AllowClearCaseNumber_true"))
 			{
 				if (text.Length != SurveyMsg.SurveyId_Length)
 				{
@@ -255,42 +248,41 @@ namespace Gssy.Capi.View
 			}
 			if (this.ChkTouchPad.IsChecked.Value)
 			{
-				string_2 = global::GClass0.smethod_0("0");
-				SurveyHelper.IsTouch = global::GClass0.smethod_0("EŸɞͦѽդٮݚࡰॱ੷୤");
+				string_2 = "1";
+				SurveyHelper.IsTouch = "IsTouch_true";
 			}
 			else
 			{
-				string_2 = global::GClass0.smethod_0("1");
-				SurveyHelper.IsTouch = global::GClass0.smethod_0("DſɟͥѼիٯݙࡣ॥੯ୱ౤");
+				string_2 = "0";
+				SurveyHelper.IsTouch = "IsTouch_false";
 			}
 			text4 = this.txtPCCode.Text;
-			this.oSurveyConfigBiz.Save(global::GClass0.smethod_0("^ŹɹͼѬձَ݂ࡇॡ੤୫౯"), text);
-			this.oSurveyConfigBiz.Save(global::GClass0.smethod_0("Xſɻ;Ѣտٌ݀ࡆ६੥"), text2);
-			this.oSurveyConfigBiz.Save(global::GClass0.smethod_0("\\ŨɳͦѬՓ٣ݥ"), string_2);
-			if (SurveyMsg.SetPCNumber == global::GClass0.smethod_0("CŪɺ͝яՅٿݤࡪॢੴ୚౰൱๷ཤ") && text3 != global::GClass0.smethod_0("zŹ"))
+			this.oSurveyConfigBiz.Save("SurveyIDBegin", text);
+			this.oSurveyConfigBiz.Save("SurveyIDEnd", text2);
+			this.oSurveyConfigBiz.Save("TouchPad", string_2);
+			if (SurveyMsg.SetPCNumber == "SetPCNumber_true" && text3 != "xx")
 			{
-				text4 = this.method_5(global::GClass0.smethod_0("5Ĵȳ̲б") + this.CITY_Code, SurveyMsg.CITY_Length) + this.method_5(global::GClass0.smethod_0("5Ĵȳ̲б") + text4, SurveyMsg.PcCode_Length - SurveyMsg.CITY_Length);
+				text4 = this.method_5("00000" + this.CITY_Code, SurveyMsg.CITY_Length) + this.method_5("00000" + text4, SurveyMsg.PcCode_Length - SurveyMsg.CITY_Length);
 			}
-			this.oSurveyConfigBiz.Save(global::GClass0.smethod_0("VņɇͬѦդ"), text4);
-			this.oSurveyConfigBiz.Save(global::GClass0.smethod_0("KŮɲͼчլ٦ݤ"), this.CITY_Code);
-			this.oSurveyConfigBiz.Save(global::GClass0.smethod_0("KŮɲͼѐզٺݵ"), string_);
-			this.oSurveyConfigBiz.Save(global::GClass0.smethod_0("GřȻ͊ѯիٱݷࡧॲ"), text5);
-			this.oSurveyConfigBiz.Save(global::GClass0.smethod_0("JŖȶ͉Ѭզ٤"), string_3);
+			this.oSurveyConfigBiz.Save("PCCode", text4);
+			this.oSurveyConfigBiz.Save("CityCode", this.CITY_Code);
+			this.oSurveyConfigBiz.Save("CityText", string_);
+			this.oSurveyConfigBiz.Save("MP3Minutes", text5);
+			this.oSurveyConfigBiz.Save("MP3Mode", string_3);
 			if (text.Length > 0)
 			{
-				this.method_1(global::GClass0.smethod_0(""));
+				this.method_1("");
 			}
 			MessageBox.Show(SurveyMsg.MsgSetSaveOk, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Asterisk);
 			this.btnExit_Click(sender, e);
 		}
 
-		// Token: 0x0600057E RID: 1406 RVA: 0x00093EF8 File Offset: 0x000920F8
 		private void cmbCITY_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			if (this.cmbCITY.SelectedValue != null)
 			{
 				string text = this.cmbCITY.SelectedValue.ToString();
-				if (text == global::GClass0.smethod_0("zŹ"))
+				if (text == "xx")
 				{
 					this.SelectCity = false;
 					this.OrderStart.Visibility = Visibility.Hidden;
@@ -303,8 +295,8 @@ namespace Gssy.Capi.View
 					this.EndBit.Visibility = Visibility.Hidden;
 					this.OrderInfo.Visibility = Visibility.Visible;
 					this.txtPCCode.Text = this.PCcode1st.Text + this.txtPCCode.Text;
-					this.PCcode1st.Text = global::GClass0.smethod_0("");
-					this.PCcodeMsg.Text = global::GClass0.smethod_0(")") + SurveyMsg.PcCode_Length.ToString() + SurveyMsg.MsgBit3;
+					this.PCcode1st.Text = "";
+					this.PCcodeMsg.Text = "(" + SurveyMsg.PcCode_Length.ToString() + SurveyMsg.MsgBit3;
 					this.txtPCCode.MaxLength = SurveyMsg.PcCode_Length;
 					this.txtPCCode.Width = 180.0;
 					this.PCcode1st.Width = 0.0;
@@ -324,11 +316,11 @@ namespace Gssy.Capi.View
 				this.CITY_Code = text;
 				this.txtBegin1st.Text = text;
 				this.txtEnd1st.Text = text;
-				if (SurveyMsg.SetPCNumber == global::GClass0.smethod_0("CŪɺ͝яՅٿݤࡪॢੴ୚౰൱๷ཤ"))
+				if (SurveyMsg.SetPCNumber == "SetPCNumber_true")
 				{
 					this.txtPCCode.Text = this.method_5(this.txtPCCode.Text, this.nPcCodeLen);
-					this.PCcode1st.Text = this.method_5(global::GClass0.smethod_0("5Ĵȳ̲б") + this.CITY_Code, SurveyMsg.CITY_Length);
-					this.PCcodeMsg.Text = global::GClass0.smethod_0(")") + this.nPcCodeLen.ToString() + SurveyMsg.MsgBit3;
+					this.PCcode1st.Text = this.method_5("00000" + this.CITY_Code, SurveyMsg.CITY_Length);
+					this.PCcodeMsg.Text = "(" + this.nPcCodeLen.ToString() + SurveyMsg.MsgBit3;
 					this.txtPCCode.MaxLength = this.nPcCodeLen;
 					this.PCcode1st.Width = this.txtBegin1st.Width;
 					this.txtPCCode.Width = this.txtBegin.Width;
@@ -337,7 +329,6 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x0600057F RID: 1407 RVA: 0x000941C4 File Offset: 0x000923C4
 		private void txtMP3Len_LostFocus(object sender, RoutedEventArgs e)
 		{
 			if (this.ChkTouchPad.IsChecked.Value)
@@ -346,7 +337,6 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x06000580 RID: 1408 RVA: 0x000941EC File Offset: 0x000923EC
 		private void txtMP3Len_GotFocus(object sender, RoutedEventArgs e)
 		{
 			if (this.ChkTouchPad.IsChecked.Value)
@@ -355,7 +345,6 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x06000581 RID: 1409 RVA: 0x000039B9 File Offset: 0x00001BB9
 		private void passwordBox1_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.Key == Key.Return)
@@ -364,21 +353,20 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x06000582 RID: 1410 RVA: 0x00094214 File Offset: 0x00092414
 		private void txtMP3Len_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.Key == Key.Return)
 			{
 				TextBox textBox = (TextBox)sender;
-				if (textBox.Name == global::GClass0.smethod_0("|ſɲ͇ѡդ٫ݯ"))
+				if (textBox.Name == "txtBegin")
 				{
 					this.txtEnd.Focus();
 				}
-				else if (textBox.Name == global::GClass0.smethod_0("rŽɰ͆Ѭե"))
+				else if (textBox.Name == "txtEnd")
 				{
 					this.txtPCCode.Focus();
 				}
-				else if (textBox.Name == global::GClass0.smethod_0("}Űɳ͖цՇ٬ݦࡤ"))
+				else if (textBox.Name == "txtPCCode")
 				{
 					this.passwordBox1.Focus();
 				}
@@ -386,7 +374,7 @@ namespace Gssy.Capi.View
 			TextBox textBox2 = sender as TextBox;
 			if (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
 			{
-				if (textBox2.Text.Contains(global::GClass0.smethod_0("/")) && e.Key == Key.Decimal)
+				if (textBox2.Text.Contains(".") && e.Key == Key.Decimal)
 				{
 					e.Handled = true;
 					return;
@@ -401,7 +389,7 @@ namespace Gssy.Capi.View
 					e.Handled = true;
 					return;
 				}
-				if (textBox2.Text.Contains(global::GClass0.smethod_0("/")) && e.Key == Key.OemPeriod)
+				if (textBox2.Text.Contains(".") && e.Key == Key.OemPeriod)
 				{
 					e.Handled = true;
 					return;
@@ -411,7 +399,6 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x06000583 RID: 1411 RVA: 0x00090250 File Offset: 0x0008E450
 		private void txtMP3Len_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			TextBox textBox = sender as TextBox;
@@ -429,18 +416,16 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x06000584 RID: 1412 RVA: 0x000039CC File Offset: 0x00001BCC
 		private void method_1(string string_0)
 		{
-			this.oSurveyConfigBiz.Save(global::GClass0.smethod_0("@Ūɹͽћղٴݳࡡॺੋ୥"), string_0);
+			this.oSurveyConfigBiz.Save("LastSurveyId", string_0);
 		}
 
-		// Token: 0x06000585 RID: 1413 RVA: 0x00094348 File Offset: 0x00092548
 		private string method_2(string string_0, int int_0, int int_1 = -9999)
 		{
 			if (string_0 == null)
 			{
-				return global::GClass0.smethod_0("");
+				return "";
 			}
 			int num = int_1;
 			if (num == -9999)
@@ -459,23 +444,21 @@ namespace Gssy.Capi.View
 			return string_0.Substring(num5, num - num5 + 1);
 		}
 
-		// Token: 0x06000586 RID: 1414 RVA: 0x000943C4 File Offset: 0x000925C4
 		private string method_3(string string_0, int int_0 = 1)
 		{
 			if (string_0 == null)
 			{
-				return global::GClass0.smethod_0("");
+				return "";
 			}
 			int num = (int_0 < 0) ? 0 : int_0;
 			return string_0.Substring(0, (num > string_0.Length) ? string_0.Length : num);
 		}
 
-		// Token: 0x06000587 RID: 1415 RVA: 0x00094404 File Offset: 0x00092604
 		private string method_4(string string_0, int int_0, int int_1 = -9999)
 		{
 			if (string_0 == null)
 			{
-				return global::GClass0.smethod_0("");
+				return "";
 			}
 			int num = int_1;
 			if (num == -9999)
@@ -490,33 +473,31 @@ namespace Gssy.Capi.View
 			return string_0.Substring(num2, (num2 + num > string_0.Length) ? (string_0.Length - num2) : num);
 		}
 
-		// Token: 0x06000588 RID: 1416 RVA: 0x00094468 File Offset: 0x00092668
 		private string method_5(string string_0, int int_0 = 1)
 		{
 			if (string_0 == null)
 			{
-				return global::GClass0.smethod_0("");
+				return "";
 			}
 			int num = (int_0 < 0) ? 0 : int_0;
 			return string_0.Substring((num > string_0.Length) ? 0 : (string_0.Length - num));
 		}
 
-		// Token: 0x06000589 RID: 1417 RVA: 0x000944A8 File Offset: 0x000926A8
 		private int method_6(string string_0)
 		{
 			if (string_0 == null)
 			{
 				return 0;
 			}
-			if (string_0 == global::GClass0.smethod_0(""))
+			if (string_0 == "")
 			{
 				return 0;
 			}
-			if (string_0 == global::GClass0.smethod_0("1"))
+			if (string_0 == "0")
 			{
 				return 0;
 			}
-			if (string_0 == global::GClass0.smethod_0("/ı"))
+			if (string_0 == "-0")
 			{
 				return 0;
 			}
@@ -527,49 +508,35 @@ namespace Gssy.Capi.View
 			return Convert.ToInt32(string_0);
 		}
 
-		// Token: 0x0600058A RID: 1418 RVA: 0x000025BC File Offset: 0x000007BC
 		private bool method_7(string string_0)
 		{
-			return new Regex(global::GClass0.smethod_0("Kļɏ̿ѭՌؤܧ࠲ॐ੯ଡడൔษཚၡᄯሪጽᐥ")).IsMatch(string_0);
+			return new Regex("^(\\-|\\+)?\\d+(\\.\\d+)?$").IsMatch(string_0);
 		}
 
-		// Token: 0x040009F0 RID: 2544
 		private SurveyConfigBiz oSurveyConfigBiz = new SurveyConfigBiz();
 
-		// Token: 0x040009F1 RID: 2545
-		private string CITY_Code = global::GClass0.smethod_0("");
+		private string CITY_Code = "";
 
-		// Token: 0x040009F2 RID: 2546
-		private string SurveyStart = global::GClass0.smethod_0("");
+		private string SurveyStart = "";
 
-		// Token: 0x040009F3 RID: 2547
-		private string SurveyEnd = global::GClass0.smethod_0("");
+		private string SurveyEnd = "";
 
-		// Token: 0x040009F4 RID: 2548
-		private string PC_Code = global::GClass0.smethod_0("");
+		private string PC_Code = "";
 
-		// Token: 0x040009F5 RID: 2549
-		private string TouchPad = global::GClass0.smethod_0("");
+		private string TouchPad = "";
 
-		// Token: 0x040009F6 RID: 2550
-		private string MP3Minutes = global::GClass0.smethod_0("");
+		private string MP3Minutes = "";
 
-		// Token: 0x040009F7 RID: 2551
-		private string MP3Mode = global::GClass0.smethod_0("");
+		private string MP3Mode = "";
 
-		// Token: 0x040009F8 RID: 2552
 		private SurveyDetailDal oSurveyDetailDal = new SurveyDetailDal();
 
-		// Token: 0x040009F9 RID: 2553
 		private List<SurveyDetail> QDetails = new List<SurveyDetail>();
 
-		// Token: 0x040009FA RID: 2554
 		private int nFontSize = 32;
 
-		// Token: 0x040009FB RID: 2555
 		private int nPcCodeLen = 3;
 
-		// Token: 0x040009FC RID: 2556
 		private bool SelectCity;
 	}
 }

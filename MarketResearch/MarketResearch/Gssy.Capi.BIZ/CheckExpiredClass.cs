@@ -32,7 +32,7 @@ namespace Gssy.Capi.BIZ
 
         private DateTime _dtNone = DateTime.Parse(GClass0.smethod_0("9ľȶ\u0334ЩԲد\u0730")).Date;
 
-        public string _strTimeFile = GClass0.smethod_0("");
+        public string _strTimeFile = "";
 
         private string _ntStart = GClass0.smethod_0("7Şɺ\u036dѩճ٣ݡ\u0824६੬ଡ");
 
@@ -56,34 +56,34 @@ namespace Gssy.Capi.BIZ
 
         public string ExpiredFlag(string string_0 = "", string string_1 = "", string string_2 = "", string string_3 = "", string ExpiredFlag = "", string string_4 = "", string string_5 = "", string string_6 = "", string string_7 = "", int int_0 = 500)
         {
-            string text = GClass0.smethod_0("");
-            string value = (string_0 == GClass0.smethod_0("")) ? _StartDate : string_0;
-            string text2 = (string_1 == GClass0.smethod_0("")) ? _UseDays : string_1;
+            string text = "";
+            string value = (string_0 == "") ? _StartDate : string_0;
+            string text2 = (string_1 == "") ? _UseDays : string_1;
             DateTime date = Convert.ToDateTime(value).Date;
-            if (string_6 != GClass0.smethod_0(""))
+            if (string_6 != "")
             {
                 _ntStart = string_6;
             }
-            if (string_7 != GClass0.smethod_0(""))
+            if (string_7 != "")
             {
                 _ntEnd = string_7;
             }
             _strTimeFile = method_3(string_5);
             if (string_2 != GClass0.smethod_0("Głɒ\u0348"))
             {
-                if (string_2 != GClass0.smethod_0(""))
+                if (string_2 != "")
                 {
                     _strExpiredFile = string_2;
                 }
-                if (string_3 != GClass0.smethod_0(""))
+                if (string_3 != "")
                 {
                     _strExpiredFile = string_3;
                 }
-                if (ExpiredFlag != GClass0.smethod_0(""))
+                if (ExpiredFlag != "")
                 {
                     _strExpiredFlag = ExpiredFlag;
                 }
-                if (string_4 != GClass0.smethod_0(""))
+                if (string_4 != "")
                 {
                     _strUnexpiredFlag = string_4;
                 }
@@ -114,7 +114,7 @@ namespace Gssy.Capi.BIZ
                         dtNone = method_1(_strTimeFile, _ntStart, _ntEnd);
                         if (date2 < dtNone)
                         {
-                            text += GClass0.smethod_0("C");
+                            text += "B";
                         }
                         else
                         {
@@ -127,9 +127,9 @@ namespace Gssy.Capi.BIZ
                         }
                         else if (dtNone > t)
                         {
-                            text += GClass0.smethod_0("@");
+                            text += "A";
                         }
-                        if (text != GClass0.smethod_0(""))
+                        if (text != "")
                         {
                             method_6(_strExpiredFile, _strExpiredKey, _strExpiredFlag);
                         }
@@ -145,11 +145,11 @@ namespace Gssy.Capi.BIZ
                     }
                     else if (dtNone > t)
                     {
-                        text += GClass0.smethod_0("@");
+                        text += "A";
                     }
-                    if (text == GClass0.smethod_0(""))
+                    if (text == "")
                     {
-                        if (flag && text == GClass0.smethod_0(""))
+                        if (flag && text == "")
                         {
                             method_6(_strExpiredFile, _strExpiredKey, _strUnexpiredFlag);
                         }
@@ -210,23 +210,23 @@ namespace Gssy.Capi.BIZ
 
         private DateTime method_1(string string_0 = "", string string_1 = "", string string_2 = "")
         {
-            if (string_0 == GClass0.smethod_0(""))
+            if (string_0 == "")
             {
                 string_0 = _strTimeFile;
             }
-            if (string_1 == GClass0.smethod_0(""))
+            if (string_1 == "")
             {
                 string_1 = _ntStart;
             }
-            if (string_2 == GClass0.smethod_0(""))
+            if (string_2 == "")
             {
                 string_2 = _ntEnd;
             }
             DateTime result = default(DateTime);
             try
             {
-                string text = GClass0.smethod_0("");
-                text = method_20(string_0, string_1, 0, GClass0.smethod_0(""), GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
+                string text = "";
+                text = method_20(string_0, string_1, 0, "", GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
                 text = method_21(text, text.Length - string_2.Length);
                 result = Convert.ToDateTime(text).Date;
                 return result;
@@ -239,15 +239,15 @@ namespace Gssy.Capi.BIZ
 
         private void method_2(DateTime dateTime_0, string string_0 = "", string string_1 = "", string string_2 = "")
         {
-            if (string_0 == GClass0.smethod_0(""))
+            if (string_0 == "")
             {
                 string_0 = _strTimeFile;
             }
-            if (string_1 == GClass0.smethod_0(""))
+            if (string_1 == "")
             {
                 string_1 = _ntStart;
             }
-            if (string_2 == GClass0.smethod_0(""))
+            if (string_2 == "")
             {
                 string_2 = _ntEnd;
             }
@@ -255,7 +255,7 @@ namespace Gssy.Capi.BIZ
             {
                 string str = dateTime_0.ToString(GClass0.smethod_0("sŰɱ;ЩՈىܬ\u0866॥"));
                 File.SetAttributes(string_0, FileAttributes.Normal);
-                method_18(string_0, string_1, str + string_2, true, 0, GClass0.smethod_0(""), true, GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
+                method_18(string_0, string_1, str + string_2, true, 0, "", true, GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
                 File.SetAttributes(string_0, FileAttributes.Hidden);
                 File.SetAttributes(string_0, FileAttributes.System);
             }
@@ -270,15 +270,15 @@ namespace Gssy.Capi.BIZ
             string string_2 = method_12(GClass0.smethod_0("DųɷͶѦլٵ")) + GClass0.smethod_0("QŠɢ\u0368ѕա٩ݠ\u086aप੪୬౨");
             string string_3 = method_12(GClass0.smethod_0("DųɷͶѦլٵ")) + GClass0.smethod_0("Ušɩ\u0360ѪԪ٪ݬ\u0868");
             string text = method_4(string_0);
-            if (text == GClass0.smethod_0(""))
+            if (text == "")
             {
                 text = method_4(string_);
             }
-            if (text == GClass0.smethod_0(""))
+            if (text == "")
             {
                 text = method_4(string_2);
             }
-            if (text == GClass0.smethod_0(""))
+            if (text == "")
             {
                 text = method_4(string_3);
             }
@@ -287,8 +287,8 @@ namespace Gssy.Capi.BIZ
 
         private string method_4(string string_0)
         {
-            string result = GClass0.smethod_0("");
-            if (string_0 != GClass0.smethod_0(""))
+            string result = "";
+            if (string_0 != "")
             {
                 try
                 {
@@ -318,19 +318,19 @@ namespace Gssy.Capi.BIZ
 
         private string method_5(string string_0, string string_1)
         {
-            string result = GClass0.smethod_0("");
-            if (string_0 != GClass0.smethod_0("") && string_1 != GClass0.smethod_0("") && File.Exists(string_0))
+            string result = "";
+            if (string_0 != "" && string_1 != "" && File.Exists(string_0))
             {
-                result = method_20(string_0, string_1, 0, GClass0.smethod_0(""), GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
+                result = method_20(string_0, string_1, 0, "", GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
             }
             return result;
         }
 
         private void method_6(string string_0, string string_1, string string_2)
         {
-            if (string_0 != GClass0.smethod_0("") && string_2 != GClass0.smethod_0("") && string_1 != GClass0.smethod_0("") && File.Exists(string_0))
+            if (string_0 != "" && string_2 != "" && string_1 != "" && File.Exists(string_0))
             {
-                method_18(string_0, string_1, string_2, true, 0, GClass0.smethod_0(""), true, GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
+                method_18(string_0, string_1, string_2, true, 0, "", true, GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
             }
         }
 
@@ -358,13 +358,13 @@ namespace Gssy.Capi.BIZ
 
         public string SearchKeyFileOfStartOne(string string_0, string string_1 = ".key")
         {
-            string result = GClass0.smethod_0("");
+            string result = "";
             if (Directory.Exists(string_0))
             {
                 string[] files = Directory.GetFiles(string_0);
                 foreach (string text in files)
                 {
-                    if ((text + GClass0.smethod_0("\"")).IndexOf(string_1 + GClass0.smethod_0("\"")) > 0)
+                    if ((text + "#").IndexOf(string_1 + "#") > 0)
                     {
                         return text;
                     }
@@ -375,7 +375,7 @@ namespace Gssy.Capi.BIZ
 
         public string GetIDFromKeyFile(string string_0, string string_1, int int_0)
         {
-            string text = GClass0.smethod_0("");
+            string text = "";
             StreamReader streamReader = new StreamReader(string_0, Encoding.Default);
             string string_2 = streamReader.ReadToEnd();
             streamReader.Close();
@@ -386,7 +386,7 @@ namespace Gssy.Capi.BIZ
                 Regex regex = new Regex(GClass0.smethod_0("[Řɧ\u0329Х"));
                 if (!regex.IsMatch(text))
                 {
-                    text = GClass0.smethod_0("");
+                    text = "";
                 }
             }
             return text;
@@ -420,7 +420,7 @@ namespace Gssy.Capi.BIZ
         public string JieMi(string string_0)
         {
             Regex regex = new Regex(GClass0.smethod_0("[Řɧ\u0329Х"));
-            string result = GClass0.smethod_0("");
+            string result = "";
             string text = method_21(string_0, 8);
             if (regex.IsMatch(text))
             {
@@ -444,7 +444,7 @@ namespace Gssy.Capi.BIZ
                     {
                         int num2 = 0;
                         int int_ = Convert.ToInt32(text4);
-                        text4 = GClass0.smethod_0("");
+                        text4 = "";
                         while (text2.Length > 3)
                         {
                             int_ = method_10(num2, int_);
@@ -463,9 +463,9 @@ namespace Gssy.Capi.BIZ
                     }
                     return result;
                 }
-                return GClass0.smethod_0("");
+                return "";
             }
-            return GClass0.smethod_0("");
+            return "";
         }
 
         private int method_8(char char_0)
@@ -601,7 +601,7 @@ namespace Gssy.Capi.BIZ
 
         private string method_12(string string_0)
         {
-            string result = GClass0.smethod_0("");
+            string result = "";
             string a = string_0.ToUpper();
             if (a == GClass0.smethod_0("Dœɗ\u0356цՌ\u0655"))
             {
@@ -750,7 +750,7 @@ namespace Gssy.Capi.BIZ
 
         private string method_17(List<string> list_0, string string_0, string string_1, bool bool_0 = true, int int_0 = 0, string string_2 = "", bool bool_1 = true)
         {
-            string result = GClass0.smethod_0("");
+            string result = "";
             int num = int_0;
             if (string_2.Length > 0)
             {
@@ -789,7 +789,7 @@ namespace Gssy.Capi.BIZ
 
         private string method_18(string string_0, string string_1, string string_2, bool bool_0 = true, int int_0 = 0, string string_3 = "", bool bool_1 = true, string string_4 = "Default")
         {
-            string text = GClass0.smethod_0("");
+            string text = "";
             List<string> list_ = method_15(string_0, GClass0.smethod_0("\u000fċ"), string_4);
             text = method_17(list_, string_1, string_2, bool_0, int_0, string_3, bool_1);
             method_16(list_, string_0, false, string_4, GClass0.smethod_0("\u000fċ"));
@@ -798,7 +798,7 @@ namespace Gssy.Capi.BIZ
 
         private string method_19(List<string> list_0, string string_0, int int_0 = 0, string string_1 = "")
         {
-            string result = GClass0.smethod_0("");
+            string result = "";
             int num = int_0;
             if (string_1.Length > 0)
             {
@@ -830,7 +830,7 @@ namespace Gssy.Capi.BIZ
 
         private string method_20(string string_0, string string_1, int int_0 = 0, string string_2 = "", string string_3 = "Default")
         {
-            string text = GClass0.smethod_0("");
+            string text = "";
             List<string> list_ = method_15(string_0, GClass0.smethod_0("\u000fċ"), string_3);
             return method_19(list_, string_1, int_0, string_2);
         }
@@ -864,7 +864,7 @@ namespace Gssy.Capi.BIZ
 
         private bool method_24(string string_0)
         {
-            if (!(string_0 == GClass0.smethod_0("")))
+            if (!(string_0 == ""))
             {
                 if (!(string_0 == GClass0.smethod_0("1")))
                 {
@@ -902,7 +902,7 @@ namespace Gssy.Capi.BIZ
         {
             if (int_0 < 0 || int_0 > 255)
             {
-                return GClass0.smethod_0("");
+                return "";
             }
             ASCIIEncoding aSCIIEncoding = new ASCIIEncoding();
             byte[] bytes = new byte[1]

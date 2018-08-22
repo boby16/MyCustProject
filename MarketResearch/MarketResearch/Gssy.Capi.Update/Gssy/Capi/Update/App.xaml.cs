@@ -5,7 +5,6 @@ using System.Windows;
 
 namespace Gssy.Capi.Update
 {
-	// Token: 0x02000003 RID: 3
 	public partial class App : Application
 	{
 	}

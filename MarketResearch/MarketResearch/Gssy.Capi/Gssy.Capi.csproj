@@ -116,7 +116,6 @@
     <Compile Include="BIZ\classMatixBorder.cs" />
     <Compile Include="BIZ\classMatixButton.cs" />
     <Compile Include="Business\QDisplay.cs" />
-    <Compile Include="Class0.cs" />
     <Compile Include="Class\AutoFill.cs" />
     <Compile Include="Class\BoldTitle.cs" />
     <Compile Include="Class\PageNav.cs" />
@@ -137,14 +136,8 @@
     <Compile Include="CStart.xaml.cs">
       <DependentUpon>CStart.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GClass0.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ns0\Class1.Designer.cs">
-      <DependentUpon>Class1.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="ns0\Class2.Designer.cs">
       <DependentUpon>Class2.settings</DependentUpon>
@@ -408,7 +401,7 @@
   <ItemGroup>
     <EmbeddedResource Include="ns0\Class1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Class1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

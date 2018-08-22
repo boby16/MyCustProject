@@ -95,7 +95,7 @@ namespace Gssy.Capi.BIZ
 
         public string strRND(string string_0 = "13000000000", string string_1 = "18999999999")
         {
-            string text = GClass0.smethod_0("");
+            string text = "";
             int length = string_1.Length;
             long num = Convert.ToInt64(string_0);
             long num2 = Convert.ToInt64(string_1);
@@ -225,7 +225,7 @@ namespace Gssy.Capi.BIZ
             List<string> list = new List<string>();
             for (int i = 0; i < list_0.Count; i++)
             {
-                list.Add(GClass0.smethod_0(""));
+                list.Add("");
             }
             List<int> list2 = intRandomList(list_0.Count, 1, -1);
             for (int j = 0; j < list_0.Count; j++)
@@ -316,7 +316,7 @@ namespace Gssy.Capi.BIZ
         {
             Dictionary<string, int> dictionary = new Dictionary<string, int>();
             Dictionary<int, int> dictionary2 = new Dictionary<int, int>();
-            string text = GClass0.smethod_0("");
+            string text = "";
             int num = 0;
             foreach (int item in list_0)
             {
@@ -609,7 +609,7 @@ namespace Gssy.Capi.BIZ
                 int num = (int_0 >= 0) ? int_0 : 0;
                 return string_0.Substring((num <= string_0.Length) ? (string_0.Length - num) : 0);
             }
-            return GClass0.smethod_0("");
+            return "";
         }
 
         public string FillString(string string_0, string string_1, int int_0, bool bool_0 = true)

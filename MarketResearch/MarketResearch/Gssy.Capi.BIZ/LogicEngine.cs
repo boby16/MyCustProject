@@ -11,17 +11,17 @@ namespace Gssy.Capi.BIZ
     {
         private UDPX oFunc = new UDPX();
 
-        public string CircleACode = GClass0.smethod_0("");
+        public string CircleACode = "";
 
-        public string CircleACodeText = GClass0.smethod_0("");
+        public string CircleACodeText = "";
 
         public int CircleACount = 0;
 
         public int CircleACurrent = 0;
 
-        public string CircleBCode = GClass0.smethod_0("");
+        public string CircleBCode = "";
 
-        public string CircleBCodeText = GClass0.smethod_0("");
+        public string CircleBCodeText = "";
 
         public int CircleBCount = 0;
 
@@ -31,11 +31,11 @@ namespace Gssy.Capi.BIZ
 
         public List<VEAnswer> PageAnswer = new List<VEAnswer>();
 
-        public string Logic_Message = GClass0.smethod_0("");
+        public string Logic_Message = "";
 
         public int IS_ALLOW_PASS = 0;
 
-        public string NOTE = GClass0.smethod_0("");
+        public string NOTE = "";
 
         private SurveyConfigBiz oSurveyConfigBiz = new SurveyConfigBiz();
 
@@ -80,7 +80,7 @@ namespace Gssy.Capi.BIZ
 
         public string[] RecodeLogic(string string_0, int int_0 = 1, int int_1 = 9, int int_2 = 0, int int_3 = 99999)
         {
-            Logic_Message = GClass0.smethod_0("");
+            Logic_Message = "";
             int num = int_1;
             if (int_1 == 1)
             {
@@ -116,7 +116,7 @@ namespace Gssy.Capi.BIZ
                         if (num == 7)
                         {
                             string key = stringResult(rECODE_ANSWER);
-                            dictionary.Add(key, GClass0.smethod_0(""));
+                            dictionary.Add(key, "");
                             break;
                         }
                         string[] array = aryCode(rECODE_ANSWER, ',');
@@ -124,7 +124,7 @@ namespace Gssy.Capi.BIZ
                         {
                             if (!dictionary.Keys.Contains(array[i]))
                             {
-                                dictionary.Add(array[i], GClass0.smethod_0(""));
+                                dictionary.Add(array[i], "");
                             }
                         }
                         if (num < 9)
@@ -139,12 +139,12 @@ namespace Gssy.Capi.BIZ
                 }
                 return new string[1]
                 {
-                    GClass0.smethod_0("")
+                    ""
                 };
             }
             return new string[1]
             {
-                GClass0.smethod_0("")
+                ""
             };
         }
 
@@ -159,9 +159,9 @@ namespace Gssy.Capi.BIZ
             }
             string[] result = new string[1]
             {
-                GClass0.smethod_0("")
+                ""
             };
-            string_1 = GClass0.smethod_0("");
+            string_1 = "";
             return result;
         }
 
@@ -188,7 +188,7 @@ namespace Gssy.Capi.BIZ
                         {
                             if (!dictionary.Keys.Contains(array[i]))
                             {
-                                dictionary.Add(array[i], GClass0.smethod_0(""));
+                                dictionary.Add(array[i], "");
                             }
                         }
                     }
@@ -199,12 +199,12 @@ namespace Gssy.Capi.BIZ
                 }
                 return new string[1]
                 {
-                    GClass0.smethod_0("")
+                    ""
                 };
             }
             return new string[1]
             {
-                GClass0.smethod_0("")
+                ""
             };
         }
 
@@ -277,14 +277,14 @@ namespace Gssy.Capi.BIZ
             string text = logicExplain.CleanFormula(string_0);
             if (text.Length <= 0)
             {
-                return GClass0.smethod_0("");
+                return "";
             }
             text = ReplaceSpecialFlag(text);
             logicExplain.SetData(method_0(text), true);
             string text2 = logicExplain.SimpleCalculation(text);
             if (text.ToUpper().IndexOf(GClass0.smethod_0("/ŉɆ\u034cтՒ\u0640ݜࡗपਢ")) > -1)
             {
-                string textQuestion = logicExplain.GetTextQuestion(text2, GClass0.smethod_0(""));
+                string textQuestion = logicExplain.GetTextQuestion(text2, "");
                 logicExplain = new LogicExplain();
                 logicExplain.SetData(method_0(textQuestion), true);
                 text2 = logicExplain.TextFormula(text2);
@@ -317,7 +317,7 @@ namespace Gssy.Capi.BIZ
 
         public string stringCode(string string_0)
         {
-            string text = GClass0.smethod_0("");
+            string text = "";
             LogicExplain logicExplain = new LogicExplain();
             logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
             logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
@@ -333,7 +333,7 @@ namespace Gssy.Capi.BIZ
                 text = logicExplain.OptionCalculation(text2);
                 if (text2.ToUpper().IndexOf(GClass0.smethod_0("/ŉɆ\u034cтՒ\u0640ݜࡗपਢ")) > -1)
                 {
-                    string textQuestion = logicExplain.GetTextQuestion(text, GClass0.smethod_0(""));
+                    string textQuestion = logicExplain.GetTextQuestion(text, "");
                     logicExplain = new LogicExplain();
                     logicExplain.SetData(method_0(textQuestion), true);
                     text = logicExplain.TextFormula(text);
@@ -371,7 +371,7 @@ namespace Gssy.Capi.BIZ
                 string text = logicExplain.CleanFormula(string_0);
                 if (text.Length <= 0)
                 {
-                    return GClass0.smethod_0("");
+                    return "";
                 }
                 text = ReplaceSpecialFlag(text);
                 logicExplain.SetData(method_0(text), true);
@@ -386,7 +386,7 @@ namespace Gssy.Capi.BIZ
             string string_ = bool_0 ? logicExplain.CleanTextFormula(string_0) : string_0;
             string_ = ReplaceSpecialFlag(string_);
             string text = string_;
-            string textQuestion = logicExplain.GetTextQuestion(string_, GClass0.smethod_0(""));
+            string textQuestion = logicExplain.GetTextQuestion(string_, "");
             if (textQuestion.Length > 0 || string_.IndexOf(GClass0.smethod_0("Yģ")) > -1)
             {
                 logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
@@ -399,7 +399,7 @@ namespace Gssy.Capi.BIZ
                 text = logicExplain.TextFormula(string_);
                 if (string_.ToUpper().IndexOf(GClass0.smethod_0("/ŉɆ\u034cтՒ\u0640ݜࡗपਢ")) > -1)
                 {
-                    textQuestion = logicExplain.GetTextQuestion(text, GClass0.smethod_0(""));
+                    textQuestion = logicExplain.GetTextQuestion(text, "");
                     logicExplain = new LogicExplain();
                     logicExplain.SetData(method_0(textQuestion), true);
                     text = logicExplain.TextFormula(text);
@@ -427,11 +427,11 @@ namespace Gssy.Capi.BIZ
             logicExplain.OutputResult(GClass0.smethod_0("徯犫噾䴯\ufb1b"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
             logicExplain.OutputResult(GClass0.smethod_0("徬犪崑壿鲚福") + string_1 + GClass0.smethod_0("＜Ħ噸䴩换䯴亂") + string_0, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
             logicExplain.OutputResult(GClass0.smethod_0("xŷɶ\u0375Ѵճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㐸㕁㙐㜿"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            string text = GClass0.smethod_0("");
+            string text = "";
             string text2 = logicExplain.CleanFormula(string_1);
             int num = text2.IndexOf(GClass0.smethod_0("-"));
             string text3 = text2;
-            string text4 = GClass0.smethod_0("");
+            string text4 = "";
             if (num > 1)
             {
                 text3 = logicExplain.LEFT(text2, num);
@@ -447,7 +447,7 @@ namespace Gssy.Capi.BIZ
             {
                 text5 = ReplaceSpecialFlag(text5);
                 logicExplain.SetData(method_0(text5), true);
-                result = logicExplain.listLoopLevel(text5, text3, text4, GClass0.smethod_0("]œ"), GClass0.smethod_0("]œ"));
+                result = logicExplain.listLoopLevel(text5, text3, text4, "_R", "_R");
             }
             return result;
         }
@@ -474,14 +474,14 @@ namespace Gssy.Capi.BIZ
                     return strShowText(string_5, true);
                 }
             }
-            return GClass0.smethod_0("");
+            return "";
         }
 
         private Dictionary<string, string> method_0(string string_0)
         {
             string b = GClass0.smethod_0("Yģ");
             string value = GClass0.smethod_0(" Ŝ");
-            string b2 = GClass0.smethod_0("!Ś");
+            string b2 = "#[";
             string b3 = GClass0.smethod_0("!ź");
             string b4 = GClass0.smethod_0("&ź");
             string value2 = GClass0.smethod_0("|");
@@ -497,8 +497,8 @@ namespace Gssy.Capi.BIZ
             LogicExplain logicExplain = new LogicExplain();
             int num = 0;
             int num2 = 0;
-            string text = GClass0.smethod_0("");
-            string text2 = GClass0.smethod_0("");
+            string text = "";
+            string text2 = "";
             do
             {
                 text = logicExplain.MID(string_0, num, 2);
@@ -528,7 +528,7 @@ namespace Gssy.Capi.BIZ
                         {
                             dictionary.Add(text2, method_2(text2));
                         }
-                        text2 = GClass0.smethod_0("");
+                        text2 = "";
                         num = num2 + 1;
                     }
                     else
@@ -540,7 +540,7 @@ namespace Gssy.Capi.BIZ
                             string[] array2 = array;
                             foreach (string text3 in array2)
                             {
-                                string text4 = GClass0.smethod_0("");
+                                string text4 = "";
                                 if (string_0.Length - num > text3.Length)
                                 {
                                     text4 = logicExplain.MID(string_0, num, text3.Length);
@@ -550,12 +550,12 @@ namespace Gssy.Capi.BIZ
                                     flag = true;
                                     num2 = logicExplain.RightBrackets(string_0, num, GClass0.smethod_0(")"), GClass0.smethod_0("("));
                                     num += text3.Length;
-                                    text2 = string_0.Substring(num, num2 - num).Replace(GClass0.smethod_0("!"), GClass0.smethod_0("")).Trim();
+                                    text2 = string_0.Substring(num, num2 - num).Replace(GClass0.smethod_0("!"), "").Trim();
                                     if (!dictionary.ContainsKey(text3 + text2 + GClass0.smethod_0("(")))
                                     {
                                         dictionary.Add(text3 + text2 + GClass0.smethod_0("("), method_1(text3, text2));
                                     }
-                                    text2 = GClass0.smethod_0("");
+                                    text2 = "";
                                     num = num2 + 2;
                                     break;
                                 }
@@ -577,7 +577,7 @@ namespace Gssy.Capi.BIZ
                         else
                         {
                             text = logicExplain.JoinQnName(text, text2);
-                            if (text == GClass0.smethod_0(""))
+                            if (text == "")
                             {
                                 if (text2.Length > 0)
                                 {
@@ -586,7 +586,7 @@ namespace Gssy.Capi.BIZ
                                     {
                                         dictionary.Add(text2, method_2(text2));
                                     }
-                                    text2 = GClass0.smethod_0("");
+                                    text2 = "";
                                 }
                             }
                             else
@@ -621,22 +621,22 @@ namespace Gssy.Capi.BIZ
 
         private string method_1(string string_0, string string_1)
         {
-            string text = GClass0.smethod_0("");
-            string b = GClass0.smethod_0("\"");
+            string text = "";
+            string b = "#";
             string b2 = GClass0.smethod_0("_");
             LogicExplain logicExplain = new LogicExplain();
             List<string> list = logicExplain.ParaToList(string_1, GClass0.smethod_0("-"), false);
-            string text2 = GClass0.smethod_0("");
+            string text2 = "";
             if (string_0 == GClass0.smethod_0("#ŉɑ\u034cцՐة") || string_0 == GClass0.smethod_0("!ŋɗ\u034aЩ"))
             {
                 if (list.Count > 0)
                 {
                     text2 = list[0].Substring(0, 1);
-                    string string_2 = (list.Count > 1) ? stringResult(list[1]) : GClass0.smethod_0("");
+                    string string_2 = (list.Count > 1) ? stringResult(list[1]) : "";
                     text = ((text2 == b) ? method_11(list[0].Substring(1), string_2) : ((!(text2 == b2)) ? GetOtherText(list[0], string_2) : method_10(list[0].Substring(1), string_2)));
                     if (string.IsNullOrEmpty(text))
                     {
-                        text = GClass0.smethod_0("");
+                        text = "";
                     }
                 }
             }
@@ -665,21 +665,21 @@ namespace Gssy.Capi.BIZ
         private string method_2(string string_0)
         {
             string text = string_0.Trim();
-            string b = GClass0.smethod_0("\"");
+            string b = "#";
             string b2 = GClass0.smethod_0("_");
             string b3 = GClass0.smethod_0("!ź");
             string b4 = GClass0.smethod_0("&ź");
             string text2 = GClass0.smethod_0("-");
-            string text3 = GClass0.smethod_0("");
+            string text3 = "";
             if (text.Length > 0)
             {
                 string a = text.Substring(0, 1);
-                string a2 = (text.Length > 1) ? text.Substring(0, 2) : GClass0.smethod_0("");
+                string a2 = (text.Length > 1) ? text.Substring(0, 2) : "";
                 text3 = ((a2 == b3) ? method_8(text.Substring(2)) : ((a2 == b4) ? method_7(text.Substring(2)) : ((a == b) ? method_4(text.Substring(1)) : ((!(a == b2)) ? method_3(text) : method_5(text.Substring(1))))));
             }
             if (string.IsNullOrEmpty(text3))
             {
-                text3 = GClass0.smethod_0("");
+                text3 = "";
             }
             else
             {
@@ -709,7 +709,7 @@ namespace Gssy.Capi.BIZ
 
         private string method_4(string string_0)
         {
-            string b = GClass0.smethod_0("\"");
+            string b = "#";
             LogicAnswer logicAnswer = new LogicAnswer();
             logicAnswer.SurveyID = SurveyID;
             logicAnswer.PageAnswer = PageAnswer;
@@ -718,7 +718,7 @@ namespace Gssy.Capi.BIZ
             string a = string_0.Substring(0, 1);
             if (!(a == b))
             {
-                if (string_0.Length <= 2 || !(oFunc.LEFT(oFunc.RIGHT(string_0, 2), 1) == GClass0.smethod_0("\"")))
+                if (string_0.Length <= 2 || !(oFunc.LEFT(oFunc.RIGHT(string_0, 2), 1) == "#"))
                 {
                     return logicAnswer.GetAllCircleAnswer(string_0);
                 }
@@ -726,7 +726,7 @@ namespace Gssy.Capi.BIZ
                 string string_2 = oFunc.LEFT(string_0, string_0.Length - 2);
                 return logicAnswer.GetAllCircleAnswer_C(string_2, string_);
             }
-            if (string_0.Length <= 2 || !(oFunc.LEFT(oFunc.RIGHT(string_0, 2), 1) == GClass0.smethod_0("\"")))
+            if (string_0.Length <= 2 || !(oFunc.LEFT(oFunc.RIGHT(string_0, 2), 1) == "#"))
             {
                 return logicAnswer.GetCircleAnswer(string_0.Substring(1));
             }
@@ -770,7 +770,7 @@ namespace Gssy.Capi.BIZ
 
         internal string method_9(string string_0, string string_1, string string_2 = "、")
         {
-            string text = GClass0.smethod_0("");
+            string text = "";
             LogicAnswer logicAnswer = new LogicAnswer();
             List<string> list = oFunc.StringToList(string_1, GClass0.smethod_0("-"));
             foreach (string item in list)
@@ -808,9 +808,9 @@ namespace Gssy.Capi.BIZ
 
         internal string method_11(string string_0, string string_1 = "")
         {
-            string text = GClass0.smethod_0("");
+            string text = "";
             bool flag = false;
-            if (oFunc.LEFT(string_1, 1) == GClass0.smethod_0("\""))
+            if (oFunc.LEFT(string_1, 1) == "#")
             {
                 flag = true;
                 string_1 = oFunc.MID(string_1, 1, -9999);
@@ -820,7 +820,7 @@ namespace Gssy.Capi.BIZ
             logicAnswer.PageAnswer = PageAnswer;
             logicAnswer.CircleACode = CircleACode;
             logicAnswer.CircleBCode = CircleBCode;
-            if (!((CircleACode == GClass0.smethod_0("") || CircleACode == null) | flag))
+            if (!((CircleACode == "" || CircleACode == null) | flag))
             {
                 return logicAnswer.GetCircleOtherText(string_0, string_1);
             }
@@ -863,7 +863,7 @@ namespace Gssy.Capi.BIZ
         internal string method_14(string string_0)
         {
             string text = GClass0.smethod_0("1");
-            string b = GClass0.smethod_0("\"");
+            string b = "#";
             string b2 = GClass0.smethod_0("_");
             LogicExplain logicExplain = new LogicExplain();
             string a = string_0.Substring(0, 1);
@@ -871,12 +871,12 @@ namespace Gssy.Capi.BIZ
             if (a == b2 || a == b)
             {
                 text2 = logicExplain.MID(text2, 1, -9999);
-                if (CircleACode != GClass0.smethod_0(""))
+                if (CircleACode != "")
                 {
-                    text2 = text2 + GClass0.smethod_0("]œ") + CircleACode;
-                    if (CircleBCode != GClass0.smethod_0(""))
+                    text2 = text2 + "_R" + CircleACode;
+                    if (CircleBCode != "")
                     {
-                        text2 = text2 + GClass0.smethod_0("]œ") + CircleBCode;
+                        text2 = text2 + "_R" + CircleBCode;
                     }
                 }
             }

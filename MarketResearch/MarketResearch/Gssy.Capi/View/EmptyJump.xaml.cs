@@ -12,16 +12,13 @@ using Gssy.Capi.Entities;
 
 namespace Gssy.Capi.View
 {
-	// Token: 0x0200000E RID: 14
 	public partial class EmptyJump : Page
 	{
-		// Token: 0x06000080 RID: 128 RVA: 0x000024DF File Offset: 0x000006DF
 		public EmptyJump()
 		{
 			this.InitializeComponent();
 		}
 
-		// Token: 0x06000081 RID: 129 RVA: 0x0000AEF8 File Offset: 0x000090F8
 		private void method_0(object sender, RoutedEventArgs e)
 		{
 			this.MySurveyId = SurveyHelper.SurveyID;
@@ -30,20 +27,20 @@ namespace Gssy.Capi.View
 			this.oQuestion.Init(this.CurPageId, 0);
 			new SurveyBiz().ClearPageAnswer(this.MySurveyId, SurveyHelper.SurveySequence);
 			this.MyNav.GroupLevel = this.oQuestion.QDefine.GROUP_LEVEL;
-			if (!(this.MyNav.GroupLevel == global::GClass0.smethod_0("@")) && !(this.MyNav.GroupLevel == global::GClass0.smethod_0("C")))
+			if (!(this.MyNav.GroupLevel == "A") && !(this.MyNav.GroupLevel == "B"))
 			{
-				SurveyHelper.CircleACode = global::GClass0.smethod_0("");
-				SurveyHelper.CircleACodeText = global::GClass0.smethod_0("");
+				SurveyHelper.CircleACode = "";
+				SurveyHelper.CircleACodeText = "";
 				SurveyHelper.CircleACurrent = 0;
 				SurveyHelper.CircleACount = 0;
-				SurveyHelper.CircleBCode = global::GClass0.smethod_0("");
-				SurveyHelper.CircleBCodeText = global::GClass0.smethod_0("");
+				SurveyHelper.CircleBCode = "";
+				SurveyHelper.CircleBCodeText = "";
 				SurveyHelper.CircleBCurrent = 0;
 				SurveyHelper.CircleBCount = 0;
-				this.MyNav.GroupCodeA = global::GClass0.smethod_0("");
+				this.MyNav.GroupCodeA = "";
 				this.MyNav.CircleACurrent = 0;
 				this.MyNav.CircleACount = 0;
-				this.MyNav.GroupCodeB = global::GClass0.smethod_0("");
+				this.MyNav.GroupCodeB = "";
 				this.MyNav.CircleBCurrent = 0;
 				this.MyNav.CircleBCount = 0;
 			}
@@ -53,7 +50,7 @@ namespace Gssy.Capi.View
 				this.MyNav.GroupCodeA = this.oQuestion.QDefine.GROUP_CODEA;
 				this.MyNav.CircleACurrent = SurveyHelper.CircleACurrent;
 				this.MyNav.CircleACount = SurveyHelper.CircleACount;
-				if (this.MyNav.GroupLevel == global::GClass0.smethod_0("C"))
+				if (this.MyNav.GroupLevel == "B")
 				{
 					this.MyNav.GroupCodeB = this.oQuestion.QDefine.GROUP_CODEB;
 					this.MyNav.CircleBCurrent = SurveyHelper.CircleBCurrent;
@@ -72,7 +69,7 @@ namespace Gssy.Capi.View
 				SurveyHelper.CircleACodeText = this.MyNav.CircleCodeTextA;
 				SurveyHelper.CircleACurrent = this.MyNav.CircleACurrent;
 				SurveyHelper.CircleACount = this.MyNav.CircleACount;
-				if (this.MyNav.GroupLevel == global::GClass0.smethod_0("C"))
+				if (this.MyNav.GroupLevel == "B")
 				{
 					list.Add(new VEAnswer
 					{
@@ -87,7 +84,7 @@ namespace Gssy.Capi.View
 				}
 			}
 			this.oLogicEngine.SurveyID = this.MySurveyId;
-			if (this.MyNav.GroupLevel != global::GClass0.smethod_0(""))
+			if (this.MyNav.GroupLevel != "")
 			{
 				this.oLogicEngine.CircleACode = SurveyHelper.CircleACode;
 				this.oLogicEngine.CircleACodeText = SurveyHelper.CircleACodeText;
@@ -98,7 +95,7 @@ namespace Gssy.Capi.View
 				this.oLogicEngine.CircleBCount = SurveyHelper.CircleBCount;
 				this.oLogicEngine.CircleBCurrent = SurveyHelper.CircleBCurrent;
 			}
-			if (SurveyHelper.NavOperation == global::GClass0.smethod_0("FŢɡͪ"))
+			if (SurveyHelper.NavOperation == "Back")
 			{
 				SurveyHelper.AutoFill = false;
 				this.method_2();
@@ -107,7 +104,6 @@ namespace Gssy.Capi.View
 			this.method_1();
 		}
 
-		// Token: 0x06000082 RID: 130 RVA: 0x0000B33C File Offset: 0x0000953C
 		private void method_1()
 		{
 			bool flag = true;
@@ -126,7 +122,7 @@ namespace Gssy.Capi.View
 						return;
 					}
 					this.method_2();
-					SurveyHelper.NavOperation = global::GClass0.smethod_0("FŢɡͪ");
+					SurveyHelper.NavOperation = "Back";
 					return;
 				}
 			}
@@ -136,23 +132,22 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x06000083 RID: 131 RVA: 0x0000B3DC File Offset: 0x000095DC
 		private void method_2()
 		{
 			int surveySequence = SurveyHelper.SurveySequence;
-			if (!(this.MySurveyId == global::GClass0.smethod_0("")) && !(this.CurPageId == SurveyHelper.SurveyFirstPage))
+			if (!(this.MySurveyId == "") && !(this.CurPageId == SurveyHelper.SurveyFirstPage))
 			{
-				SurveyHelper.NavOperation = global::GClass0.smethod_0("FŢɡͪ");
+				SurveyHelper.NavOperation = "Back";
 				string roadMapVersion = SurveyHelper.RoadMapVersion;
 				this.MyNav.PrePage(this.MySurveyId, surveySequence, roadMapVersion);
 				SurveyHelper.CircleACount = this.MyNav.Sequence.CIRCLE_A_COUNT;
 				SurveyHelper.CircleACurrent = this.MyNav.Sequence.CIRCLE_A_CURRENT;
 				SurveyHelper.CircleBCount = this.MyNav.Sequence.CIRCLE_B_COUNT;
 				SurveyHelper.CircleBCurrent = this.MyNav.Sequence.CIRCLE_B_CURRENT;
-				string uriString = string.Format(global::GClass0.smethod_0("TłɁ͊К԰رݼ࡬५੶୰౻൶๢ོၻᅽረጽᐼᔣᘡ᝛ᡥ᥮᩽ᬦᱳᴷṻἫ⁼Ⅲ≯⍭"), this.MyNav.RoadMap.FORM_NAME);
-				if (this.MyNav.RoadMap.FORM_NAME.Substring(0, 1) == global::GClass0.smethod_0("@"))
+				string uriString = string.Format("pack://application:,,,/View/{0}.xaml", this.MyNav.RoadMap.FORM_NAME);
+				if (this.MyNav.RoadMap.FORM_NAME.Substring(0, 1) == "A")
 				{
-					uriString = string.Format(global::GClass0.smethod_0("[ŋɊ̓Нԉ؊݅ࡓ੍॒୉౼ൿ๩ཱུၴᅴሣጴᐻᔺᘺᝂ᡺᥷ᩦᭀᱽᵡṧὩ⁨ⅾ∦⍳␷╻☫❼⡢⥯⩭"), this.MyNav.RoadMap.FORM_NAME);
+					uriString = string.Format("pack://application:,,,/ViewProject/{0}.xaml", this.MyNav.RoadMap.FORM_NAME);
 				}
 				if (this.MyNav.RoadMap.FORM_NAME == SurveyHelper.CurPageName)
 				{
@@ -168,27 +163,21 @@ namespace Gssy.Capi.View
 				SurveyHelper.CurPageName = this.MyNav.RoadMap.FORM_NAME;
 				return;
 			}
-			SurveyHelper.NavOperation = global::GClass0.smethod_0("HŪɶͮѣխ");
+			SurveyHelper.NavOperation = "Normal";
 			MessageBox.Show(SurveyMsg.MsgFirstPage, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Asterisk);
 			this.oPageNav.NextPage(this.MyNav, base.NavigationService);
 		}
 
-		// Token: 0x040000AC RID: 172
 		private string MySurveyId;
 
-		// Token: 0x040000AD RID: 173
 		private string CurPageId;
 
-		// Token: 0x040000AE RID: 174
 		private NavBase MyNav = new NavBase();
 
-		// Token: 0x040000AF RID: 175
 		private PageNav oPageNav = new PageNav();
 
-		// Token: 0x040000B0 RID: 176
 		private LogicEngine oLogicEngine = new LogicEngine();
 
-		// Token: 0x040000B1 RID: 177
 		private QDisplay oQuestion = new QDisplay();
 	}
 }

@@ -61,7 +61,6 @@
     <Compile Include="AutoAnswer.cs" />
     <Compile Include="BaiduMapHelper.cs" />
     <Compile Include="CheckExpiredClass.cs" />
-    <Compile Include="Class0.cs" />
     <Compile Include="classHtmlText.cs" />
     <Compile Include="classLoopA.cs" />
     <Compile Include="classLoopB.cs" />

@@ -48,7 +48,7 @@ namespace Gssy.Capi.BIZ
         public bool LimitDetails(string string_0, int int_0, string string_1, string string_2, out string string_3)
         {
             bool result = true;
-            string_3 = GClass0.smethod_0("");
+            string_3 = "";
             switch (int_0)
             {
                 case 22:
@@ -84,9 +84,9 @@ namespace Gssy.Capi.BIZ
 
         private bool method_0(string string_0, int int_0, string string_1, string string_2, out string string_3)
         {
-            string _003F10_003F = GClass0.smethod_0("");
-            string text = GClass0.smethod_0("");
-            string_3 = GClass0.smethod_0("");
+            string _003F10_003F = "";
+            string text = "";
+            string_3 = "";
             LimitCodes.Clear();
             string[] array = string_1.Split('|');
             foreach (string arg in array)
@@ -127,13 +127,13 @@ namespace Gssy.Capi.BIZ
 
         private bool method_1(string string_0, int int_0, string string_1, string string_2)
         {
-            string text = GClass0.smethod_0("");
+            string text = "";
             LimitCodes.Clear();
             string[] array = string_1.Split('|');
             foreach (string _003F20_003F in array)
             {
                 text = oSurveyAnswerDal.GetOneCode(string_0, _003F20_003F);
-                if (text != GClass0.smethod_0(""))
+                if (text != "")
                 {
                     LimitCodes.Add(text);
                 }
@@ -147,10 +147,10 @@ namespace Gssy.Capi.BIZ
 
         private bool method_2(string string_0, int int_0, string string_1, string string_2, out string string_3)
         {
-            string _003F9_003F = GClass0.smethod_0("EŞ") + string_1;
-            string text = GClass0.smethod_0("");
-            string text2 = GClass0.smethod_0("");
-            string_3 = GClass0.smethod_0("");
+            string _003F9_003F = "G_" + string_1;
+            string text = "";
+            string text2 = "";
+            string_3 = "";
             List<SurveyDetail> details = oSurveyDetailDal.GetDetails(_003F9_003F);
             LimitCodes.Clear();
             List<string> list = new List<string>();
@@ -161,7 +161,7 @@ namespace Gssy.Capi.BIZ
             string oneCode;
             for (int i = 0; i < details.Count; i++)
             {
-                _003F20_003F = string_1 + GClass0.smethod_0("]œ") + details[i].CODE;
+                _003F20_003F = string_1 + "_R" + details[i].CODE;
                 oneCode = oSurveyAnswerDal.GetOneCode(string_0, _003F20_003F);
                 string a = oneCode;
                 if (!(a == GClass0.smethod_0("4")))
@@ -252,17 +252,17 @@ namespace Gssy.Capi.BIZ
         private bool method_3(string string_0, int int_0, string string_1, string string_2, out string string_3)
         {
             string[] array = string_1.Split(':');
-            string _003F9_003F = GClass0.smethod_0("EŞ") + array[0].ToString();
+            string _003F9_003F = "G_" + array[0].ToString();
             string b = array[1].ToString();
             string str = array[0].ToString();
-            string text = GClass0.smethod_0("");
-            string text2 = GClass0.smethod_0("");
-            string_3 = GClass0.smethod_0("");
+            string text = "";
+            string text2 = "";
+            string_3 = "";
             List<SurveyDetail> details = oSurveyDetailDal.GetDetails(_003F9_003F);
             LimitCodes.Clear();
             for (int i = 0; i < details.Count; i++)
             {
-                string _003F20_003F = str + GClass0.smethod_0("]œ") + details[i].CODE;
+                string _003F20_003F = str + "_R" + details[i].CODE;
                 string oneCode = oSurveyAnswerDal.GetOneCode(string_0, _003F20_003F);
                 if (oneCode == b)
                 {
@@ -287,17 +287,15 @@ namespace Gssy.Capi.BIZ
         private bool method_4(string string_0, int int_0, string string_1, string string_2, out string string_3)
         {
             string[] array = string_1.Split(':');
-            string _003F9_003F = GClass0.smethod_0("EŞ") + array[0].ToString();
+            string _003F9_003F = "G_" + array[0].ToString();
             string b = array[1].ToString();
             string str = array[0].ToString();
-            GClass0.smethod_0("");
-            GClass0.smethod_0("");
-            string_3 = GClass0.smethod_0("");
+            string_3 = "";
             List<SurveyDetail> details = oSurveyDetailDal.GetDetails(_003F9_003F);
             LimitCodes.Clear();
             for (int i = 0; i < details.Count; i++)
             {
-                string _003F20_003F = str + GClass0.smethod_0("]œ") + details[i].CODE;
+                string _003F20_003F = str + "_R" + details[i].CODE;
                 string oneCode = oSurveyAnswerDal.GetOneCode(string_0, _003F20_003F);
                 if (oneCode == b)
                 {
@@ -314,17 +312,17 @@ namespace Gssy.Capi.BIZ
         private bool method_5(string string_0, int int_0, string string_1, string string_2, out string string_3)
         {
             string[] array = string_1.Split(':');
-            string _003F9_003F = GClass0.smethod_0("EŞ") + array[0].ToString();
+            string _003F9_003F = "G_" + array[0].ToString();
             array[1].ToString();
             string str = array[0].ToString();
-            string text = GClass0.smethod_0("");
-            string text2 = GClass0.smethod_0("");
-            string_3 = GClass0.smethod_0("");
+            string text = "";
+            string text2 = "";
+            string_3 = "";
             List<SurveyDetail> details = oSurveyDetailDal.GetDetails(_003F9_003F);
             LimitCodes.Clear();
             for (int i = 0; i < details.Count; i++)
             {
-                string _003F20_003F = str + GClass0.smethod_0("]œ") + details[i].CODE;
+                string _003F20_003F = str + "_R" + details[i].CODE;
                 string oneCode = oSurveyAnswerDal.GetOneCode(string_0, _003F20_003F);
                 string a = oneCode;
                 if (!(a == GClass0.smethod_0("4")))
@@ -364,8 +362,8 @@ namespace Gssy.Capi.BIZ
 
         private bool method_6(string string_0, int int_0, string string_1, string string_2)
         {
-            string text = GClass0.smethod_0("");
-            string text2 = GClass0.smethod_0("");
+            string text = "";
+            string text2 = "";
             LimitCodes.Clear();
             string[] array = string_1.Split('|');
             foreach (string text3 in array)
@@ -382,7 +380,7 @@ namespace Gssy.Capi.BIZ
                             SurveyDetail surveyDetail = new SurveyDetail();
                             surveyDetail = oSurveyDetailDal.GetOne(text3, list[j].CODE.ToString());
                             text = surveyDetail.EXTEND_1;
-                            if (text != GClass0.smethod_0("") && text != GClass0.smethod_0("3Ĺ") && text != null)
+                            if (text != "" && text != GClass0.smethod_0("3Ĺ") && text != null)
                             {
                                 LimitCodes.Add(text);
                             }
@@ -392,7 +390,7 @@ namespace Gssy.Capi.BIZ
                 else
                 {
                     text = oSurveyAnswerDal.GetOneCode(string_0, text3);
-                    if (text != GClass0.smethod_0("") && text != GClass0.smethod_0("3Ĺ") && text != null)
+                    if (text != "" && text != GClass0.smethod_0("3Ĺ") && text != null)
                     {
                         LimitCodes.Add(text);
                     }
@@ -407,8 +405,8 @@ namespace Gssy.Capi.BIZ
 
         private bool method_7(string string_0, int int_0, string string_1, string string_2)
         {
-            string text = GClass0.smethod_0("");
-            string _003F10_003F = GClass0.smethod_0("");
+            string text = "";
+            string _003F10_003F = "";
             string oneCode = oSurveyAnswerDal.GetOneCode(string_0, GClass0.smethod_0("Vıɜ埃癍"));
             text = oSurveyAnswerDal.GetOneCode(string_0, string_1);
             if (text == GClass0.smethod_0("3") || text == GClass0.smethod_0("5") || text == GClass0.smethod_0("7"))
@@ -449,7 +447,7 @@ namespace Gssy.Capi.BIZ
                 else
                 {
                     result = method_8(string_0, string_1, string_2, string_3);
-                    LimitFirstINQName = GClass0.smethod_0("");
+                    LimitFirstINQName = "";
                 }
             }
             else
@@ -467,7 +465,7 @@ namespace Gssy.Capi.BIZ
             list = oSurveyAnswerDal.GetListBySql(_003F10_003F);
             if (list.Count != 0)
             {
-                string text = GClass0.smethod_0("");
+                string text = "";
                 for (int i = 0; i < list.Count; i++)
                 {
                     text = ((i != list.Count - 1) ? (text + GClass0.smethod_0("&") + list[i].CODE.ToString() + GClass0.smethod_0("%ĭ")) : (text + GClass0.smethod_0("&") + list[i].CODE.ToString() + GClass0.smethod_0("&")));
@@ -498,7 +496,7 @@ namespace Gssy.Capi.BIZ
             list = oSurveyAnswerDal.GetListBySql(_003F10_003F);
             if (list.Count != 0)
             {
-                string text = GClass0.smethod_0("");
+                string text = "";
                 for (int i = 0; i < list.Count; i++)
                 {
                     text = ((i != list.Count - 1) ? (text + GClass0.smethod_0("&") + list[i].CODE.ToString() + GClass0.smethod_0("%ĭ")) : (text + GClass0.smethod_0("&") + list[i].CODE.ToString() + GClass0.smethod_0("&")));
@@ -536,7 +534,7 @@ namespace Gssy.Capi.BIZ
             list = oSurveyAnswerDal.GetListBySql(_003F10_003F);
             if (list.Count != 0)
             {
-                string text = GClass0.smethod_0("");
+                string text = "";
                 for (int i = 0; i < list.Count; i++)
                 {
                     text = ((i != list.Count - 1) ? (text + GClass0.smethod_0("&") + list[i].CODE.ToString() + GClass0.smethod_0("%ĭ")) : (text + GClass0.smethod_0("&") + list[i].CODE.ToString() + GClass0.smethod_0("&")));
@@ -584,8 +582,8 @@ namespace Gssy.Capi.BIZ
         {
             bool result = true;
             string oneCode = oSurveyAnswerDal.GetOneCode(string_0, string_2);
-            string text = GClass0.smethod_0("");
-            string text2 = GClass0.smethod_0("");
+            string text = "";
+            string text2 = "";
             if (string_1 == GClass0.smethod_0("Rİȳ"))
             {
                 if (oneCode == GClass0.smethod_0("0"))
@@ -607,7 +605,7 @@ namespace Gssy.Capi.BIZ
         public bool CheckHaveOther(string string_0)
         {
             bool flag = false;
-            if (!(LimitFirstINQName == GClass0.smethod_0("")))
+            if (!(LimitFirstINQName == ""))
             {
                 foreach (SurveyDetail qDetail in QDetails)
                 {
@@ -628,9 +626,9 @@ namespace Gssy.Capi.BIZ
         public bool CheckHaveAddFill(string string_0)
         {
             bool flag = false;
-            if (!(LimitFirstINQName == GClass0.smethod_0("")))
+            if (!(LimitFirstINQName == ""))
             {
-                string str = GClass0.smethod_0("");
+                string str = "";
                 foreach (SurveyDetail qDetail in QDetails)
                 {
                     if (qDetail.IS_OTHER == 3)
@@ -641,7 +639,7 @@ namespace Gssy.Capi.BIZ
                 }
                 if (flag)
                 {
-                    LimitAddFillCodeText = oSurveyAnswerDal.GetOneCode(string_0, LimitFirstINQName + GClass0.smethod_0("]ŀ") + str + GClass0.smethod_0("[Ōɖ\u0349"));
+                    LimitAddFillCodeText = oSurveyAnswerDal.GetOneCode(string_0, LimitFirstINQName + "_A" + str + GClass0.smethod_0("[Ōɖ\u0349"));
                 }
                 return flag;
             }
@@ -655,7 +653,7 @@ namespace Gssy.Capi.BIZ
             list = oSurveyAnswerDal.GetListBySql(_003F10_003F);
             if (list.Count != 1)
             {
-                return GClass0.smethod_0("");
+                return "";
             }
             return list[0].CODE.ToString();
         }

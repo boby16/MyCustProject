@@ -4,11 +4,8 @@ using System.Net.Sockets;
 
 namespace Gssy.Capi.Common
 {
-	// Token: 0x02000018 RID: 24
 	public class SNTPTimeClient
 	{
-		// Token: 0x17000027 RID: 39
-		// (get) Token: 0x0600008D RID: 141 RVA: 0x0000489C File Offset: 0x00002A9C
 		public _LeapIndicator LeapIndicator
 		{
 			get
@@ -26,8 +23,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x17000028 RID: 40
-		// (get) Token: 0x0600008E RID: 142 RVA: 0x000048E0 File Offset: 0x00002AE0
 		public byte VersionNumber
 		{
 			get
@@ -36,8 +31,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x17000029 RID: 41
-		// (get) Token: 0x0600008F RID: 143 RVA: 0x00004900 File Offset: 0x00002B00
 		public _Mode Mode
 		{
 			get
@@ -59,8 +52,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x1700002A RID: 42
-		// (get) Token: 0x06000090 RID: 144 RVA: 0x0000495C File Offset: 0x00002B5C
 		public _Stratum Stratum
 		{
 			get
@@ -87,8 +78,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x1700002B RID: 43
-		// (get) Token: 0x06000091 RID: 145 RVA: 0x00004998 File Offset: 0x00002B98
 		public uint PollInterval
 		{
 			get
@@ -97,8 +86,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x1700002C RID: 44
-		// (get) Token: 0x06000092 RID: 146 RVA: 0x000049C4 File Offset: 0x00002BC4
 		public double Precision
 		{
 			get
@@ -107,8 +94,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x1700002D RID: 45
-		// (get) Token: 0x06000093 RID: 147 RVA: 0x000049F4 File Offset: 0x00002BF4
 		public double RootDelay
 		{
 			get
@@ -118,8 +103,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x1700002E RID: 46
-		// (get) Token: 0x06000094 RID: 148 RVA: 0x00004A54 File Offset: 0x00002C54
 		public double RootDispersion
 		{
 			get
@@ -129,13 +112,11 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x1700002F RID: 47
-		// (get) Token: 0x06000095 RID: 149 RVA: 0x00004AB4 File Offset: 0x00002CB4
 		public string ReferenceID
 		{
 			get
 			{
-				string text = GClass0.smethod_0("");
+				string text = "";
 				switch (this.Stratum)
 				{
 				case _Stratum.Unspecified:
@@ -150,8 +131,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x17000030 RID: 48
-		// (get) Token: 0x06000096 RID: 150 RVA: 0x00004B60 File Offset: 0x00002D60
 		public DateTime ReferenceTimestamp
 		{
 			get
@@ -163,8 +142,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x17000031 RID: 49
-		// (get) Token: 0x06000097 RID: 151 RVA: 0x00004BA8 File Offset: 0x00002DA8
 		public DateTime OriginateTimestamp
 		{
 			get
@@ -173,8 +150,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x17000032 RID: 50
-		// (get) Token: 0x06000098 RID: 152 RVA: 0x00004BC8 File Offset: 0x00002DC8
 		public DateTime ReceiveTimestamp
 		{
 			get
@@ -186,9 +161,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x17000033 RID: 51
-		// (get) Token: 0x06000099 RID: 153 RVA: 0x00004C10 File Offset: 0x00002E10
-		// (set) Token: 0x0600009A RID: 154 RVA: 0x00002241 File Offset: 0x00000441
 		public DateTime TransmitTimestamp
 		{
 			get
@@ -204,8 +176,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x17000034 RID: 52
-		// (get) Token: 0x0600009B RID: 155 RVA: 0x00004C58 File Offset: 0x00002E58
 		public int RoundTripDelay
 		{
 			get
@@ -214,8 +184,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x17000035 RID: 53
-		// (get) Token: 0x0600009C RID: 156 RVA: 0x00004C98 File Offset: 0x00002E98
 		public int LocalClockOffset
 		{
 			get
@@ -224,7 +192,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x0600009D RID: 157 RVA: 0x00004CE4 File Offset: 0x00002EE4
 		private DateTime method_0(ulong ulong_0)
 		{
 			TimeSpan t = TimeSpan.FromMilliseconds(ulong_0);
@@ -233,7 +200,6 @@ namespace Gssy.Capi.Common
 			return dateTime;
 		}
 
-		// Token: 0x0600009E RID: 158 RVA: 0x00004D14 File Offset: 0x00002F14
 		private ulong method_1(byte byte_0)
 		{
 			ulong num = 0UL;
@@ -249,7 +215,6 @@ namespace Gssy.Capi.Common
 			return num * 1000UL + num2 * 1000UL / 4294967296UL;
 		}
 
-		// Token: 0x0600009F RID: 159 RVA: 0x00004DB4 File Offset: 0x00002FB4
 		private void method_2(byte byte_0, DateTime dateTime_0)
 		{
 			DateTime d = new DateTime(1900, 1, 1, 0, 0, 0);
@@ -270,7 +235,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x060000A0 RID: 160 RVA: 0x00004EA0 File Offset: 0x000030A0
 		private void method_3()
 		{
 			this.NTPData[0] = 27;
@@ -281,7 +245,6 @@ namespace Gssy.Capi.Common
 			this.TransmitTimestamp = DateTime.Now;
 		}
 
-		// Token: 0x060000A1 RID: 161 RVA: 0x00004EDC File Offset: 0x000030DC
 		public void Connect()
 		{
 			try
@@ -305,13 +268,11 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x060000A2 RID: 162 RVA: 0x00004F90 File Offset: 0x00003190
 		public bool IsResponseValid()
 		{
 			return this.NTPData.Length >= 48 && this.Mode == _Mode.Server;
 		}
 
-		// Token: 0x060000A3 RID: 163 RVA: 0x00004FC4 File Offset: 0x000031C4
 		public override string ToString()
 		{
 			string str = GClass0.smethod_0("\\ŪɯͽЬՂ٤ݭࡡ।੧ୱ౫൱ุ༡");
@@ -377,41 +338,30 @@ namespace Gssy.Capi.Common
 			return str + GClass0.smethod_0("\u000fċ");
 		}
 
-		// Token: 0x060000A4 RID: 164 RVA: 0x0000224C File Offset: 0x0000044C
 		public SNTPTimeClient(string string_0, string string_1)
 		{
 			this.TimeServer = string_0;
 			this.TimePort = string_1;
 		}
 
-		// Token: 0x04000059 RID: 89
 		private const byte NTPDataLength = 48;
 
-		// Token: 0x0400005A RID: 90
 		private byte[] NTPData = new byte[48];
 
-		// Token: 0x0400005B RID: 91
 		private const byte offReferenceID = 12;
 
-		// Token: 0x0400005C RID: 92
 		private const byte offReferenceTimestamp = 16;
 
-		// Token: 0x0400005D RID: 93
 		private const byte offOriginateTimestamp = 24;
 
-		// Token: 0x0400005E RID: 94
 		private const byte offReceiveTimestamp = 32;
 
-		// Token: 0x0400005F RID: 95
 		private const byte offTransmitTimestamp = 40;
 
-		// Token: 0x04000060 RID: 96
 		public DateTime ReceptionTimestamp;
 
-		// Token: 0x04000061 RID: 97
 		private string TimeServer;
 
-		// Token: 0x04000062 RID: 98
 		private string TimePort;
 	}
 }

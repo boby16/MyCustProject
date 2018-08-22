@@ -18,16 +18,13 @@ using Gssy.Capi.QEdit;
 
 namespace Gssy.Capi.View
 {
-	// Token: 0x02000025 RID: 37
 	public partial class PageCallApp : Page
 	{
-		// Token: 0x0600022F RID: 559 RVA: 0x00046730 File Offset: 0x00044930
 		public PageCallApp()
 		{
 			this.InitializeComponent();
 		}
 
-		// Token: 0x06000230 RID: 560 RVA: 0x000467A4 File Offset: 0x000449A4
 		private void method_0(object sender, RoutedEventArgs e)
 		{
 			this.MySurveyId = SurveyHelper.SurveyID;
@@ -37,13 +34,13 @@ namespace Gssy.Capi.View
 			this.btnNav.Content = this.btnCall_Content;
 			this.oQuestion.Init(this.CurPageId, 0);
 			this.MyNav.GroupLevel = this.oQuestion.QDefine.GROUP_LEVEL;
-			if (this.MyNav.GroupLevel != global::GClass0.smethod_0(""))
+			if (this.MyNav.GroupLevel != "")
 			{
 				this.MyNav.GroupPageType = this.oQuestion.QDefine.GROUP_PAGE_TYPE;
 				this.MyNav.GroupCodeA = this.oQuestion.QDefine.GROUP_CODEA;
 				this.MyNav.CircleACurrent = SurveyHelper.CircleACurrent;
 				this.MyNav.CircleACount = SurveyHelper.CircleACount;
-				if (this.MyNav.GroupLevel == global::GClass0.smethod_0("C"))
+				if (this.MyNav.GroupLevel == "B")
 				{
 					this.MyNav.GroupCodeB = this.oQuestion.QDefine.GROUP_CODEB;
 					this.MyNav.CircleBCurrent = SurveyHelper.CircleBCurrent;
@@ -62,7 +59,7 @@ namespace Gssy.Capi.View
 				SurveyHelper.CircleACodeText = this.MyNav.CircleCodeTextA;
 				SurveyHelper.CircleACurrent = this.MyNav.CircleACurrent;
 				SurveyHelper.CircleACount = this.MyNav.CircleACount;
-				if (this.MyNav.GroupLevel == global::GClass0.smethod_0("C"))
+				if (this.MyNav.GroupLevel == "B")
 				{
 					list.Add(new VEAnswer
 					{
@@ -78,23 +75,23 @@ namespace Gssy.Capi.View
 			}
 			else
 			{
-				SurveyHelper.CircleACode = global::GClass0.smethod_0("");
-				SurveyHelper.CircleACodeText = global::GClass0.smethod_0("");
+				SurveyHelper.CircleACode = "";
+				SurveyHelper.CircleACodeText = "";
 				SurveyHelper.CircleACurrent = 0;
 				SurveyHelper.CircleACount = 0;
-				SurveyHelper.CircleBCode = global::GClass0.smethod_0("");
-				SurveyHelper.CircleBCodeText = global::GClass0.smethod_0("");
+				SurveyHelper.CircleBCode = "";
+				SurveyHelper.CircleBCodeText = "";
 				SurveyHelper.CircleBCurrent = 0;
 				SurveyHelper.CircleBCount = 0;
-				this.MyNav.GroupCodeA = global::GClass0.smethod_0("");
+				this.MyNav.GroupCodeA = "";
 				this.MyNav.CircleACurrent = 0;
 				this.MyNav.CircleACount = 0;
-				this.MyNav.GroupCodeB = global::GClass0.smethod_0("");
+				this.MyNav.GroupCodeB = "";
 				this.MyNav.CircleBCurrent = 0;
 				this.MyNav.CircleBCount = 0;
 			}
 			this.oLogicEngine.SurveyID = this.MySurveyId;
-			if (this.MyNav.GroupLevel != global::GClass0.smethod_0(""))
+			if (this.MyNav.GroupLevel != "")
 			{
 				this.oLogicEngine.CircleACode = SurveyHelper.CircleACode;
 				this.oLogicEngine.CircleACodeText = SurveyHelper.CircleACodeText;
@@ -115,22 +112,22 @@ namespace Gssy.Capi.View
 				}
 			}
 			string string_ = this.oQuestion.QDefine.QUESTION_TITLE;
-			this.oBoldTitle.SetTextBlock(this.txtQuestionTitle, string_, this.oQuestion.QDefine.TITLE_FONTSIZE, global::GClass0.smethod_0(""), true);
+			this.oBoldTitle.SetTextBlock(this.txtQuestionTitle, string_, this.oQuestion.QDefine.TITLE_FONTSIZE, "", true);
 			string_ = this.oQuestion.QDefine.QUESTION_CONTENT;
-			this.oBoldTitle.SetTextBlock(this.txtDisplayContext, string_, 0, global::GClass0.smethod_0(""), true);
+			this.oBoldTitle.SetTextBlock(this.txtDisplayContext, string_, 0, "", true);
 			string text = this.oQuestion.QDefine.CONTROL_TOOLTIP;
 			string note = this.oQuestion.QDefine.NOTE;
-			if (text == global::GClass0.smethod_0(""))
+			if (text == "")
 			{
 				text = Environment.CurrentDirectory;
 			}
-			else if (text.IndexOf(global::GClass0.smethod_0(";")) == -1)
+			else if (text.IndexOf(":") == -1)
 			{
-				text = Environment.CurrentDirectory + global::GClass0.smethod_0("]") + text;
+				text = Environment.CurrentDirectory + "\\" + text;
 			}
-			string text2 = text + global::GClass0.smethod_0("]") + note;
+			string text2 = text + "\\" + note;
 			this.txtProgram.Text = text2;
-			if (SurveyMsg.FunctionAttachments == global::GClass0.smethod_0("^ŢɸͶѠպٽݿࡑॻ੺୬౯ൣ๧ཬၦᅳትፚᑰᕱᙷᝤ") && this.oQuestion.QDefine.IS_ATTACH == 1)
+			if (SurveyMsg.FunctionAttachments == "FunctionAttachments_true" && this.oQuestion.QDefine.IS_ATTACH == 1)
 			{
 				this.btnAttach.Visibility = Visibility.Visible;
 			}
@@ -147,7 +144,6 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x06000231 RID: 561 RVA: 0x00046DB8 File Offset: 0x00044FB8
 		private void btnNav_Click(object sender, RoutedEventArgs e)
 		{
 			if ((string)this.btnNav.Content == this.btnCall_Content)
@@ -184,7 +180,6 @@ namespace Gssy.Capi.View
 			this.oPageNav.NextPage(this.MyNav, base.NavigationService);
 		}
 
-		// Token: 0x06000232 RID: 562 RVA: 0x00046F14 File Offset: 0x00045114
 		private void timer_Tick(object sender, EventArgs e)
 		{
 			if (this.SecondsCountDown == 0)
@@ -198,7 +193,6 @@ namespace Gssy.Capi.View
 			this.btnNav.Content = this.SecondsCountDown.ToString();
 		}
 
-		// Token: 0x06000233 RID: 563 RVA: 0x00002B57 File Offset: 0x00000D57
 		private void method_1(object sender, KeyEventArgs e)
 		{
 			if (this.btnNav.IsEnabled && e.Key == Key.Next)
@@ -207,7 +201,6 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x06000234 RID: 564 RVA: 0x00046F7C File Offset: 0x0004517C
 		private void btnCallApp_Click(object sender, RoutedEventArgs e)
 		{
 			this.btnNav.Content = this.btnNav_Content;
@@ -218,21 +211,21 @@ namespace Gssy.Capi.View
 			this.btnCallApp.Content = SurveyMsg.MsgCallApp_BtnNav;
 			string text = this.oQuestion.QDefine.CONTROL_TOOLTIP;
 			string note = this.oQuestion.QDefine.NOTE;
-			if (text == global::GClass0.smethod_0(""))
+			if (text == "")
 			{
 				text = Environment.CurrentDirectory;
 			}
-			else if (text.IndexOf(global::GClass0.smethod_0(";")) == -1)
+			else if (text.IndexOf(":") == -1)
 			{
-				text = Environment.CurrentDirectory + global::GClass0.smethod_0("]") + text;
+				text = Environment.CurrentDirectory + "\\" + text;
 			}
-			string text2 = text + global::GClass0.smethod_0("]") + note;
+			string text2 = text + "\\" + note;
 			if (File.Exists(text2))
 			{
 				this.AppRunTimes++;
 				try
 				{
-					if (!new RarFile().StartProcess(text2, text, global::GClass0.smethod_0(""), ProcessWindowStyle.Maximized, true, 0, false))
+					if (!new RarFile().StartProcess(text2, text, "", ProcessWindowStyle.Maximized, true, 0, false))
 					{
 						MessageBox.Show(SurveyMsg.MsgPrgNotRun, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 					}
@@ -251,7 +244,6 @@ namespace Gssy.Capi.View
 			MessageBox.Show(SurveyMsg.MsgPrgNotFound, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 		}
 
-		// Token: 0x06000235 RID: 565 RVA: 0x00002B78 File Offset: 0x00000D78
 		private void btnAttach_Click(object sender, RoutedEventArgs e)
 		{
 			SurveyHelper.AttachSurveyId = this.MySurveyId;
@@ -262,43 +254,30 @@ namespace Gssy.Capi.View
 			new EditAttachments().ShowDialog();
 		}
 
-		// Token: 0x04000444 RID: 1092
 		private string MySurveyId;
 
-		// Token: 0x04000445 RID: 1093
 		private string CurPageId;
 
-		// Token: 0x04000446 RID: 1094
 		private NavBase MyNav = new NavBase();
 
-		// Token: 0x04000447 RID: 1095
 		private PageNav oPageNav = new PageNav();
 
-		// Token: 0x04000448 RID: 1096
 		private LogicEngine oLogicEngine = new LogicEngine();
 
-		// Token: 0x04000449 RID: 1097
 		private BoldTitle oBoldTitle = new BoldTitle();
 
-		// Token: 0x0400044A RID: 1098
 		private QDisplay oQuestion = new QDisplay();
 
-		// Token: 0x0400044B RID: 1099
 		private int AppRunTimes;
 
-		// Token: 0x0400044C RID: 1100
 		private DispatcherTimer timer = new DispatcherTimer();
 
-		// Token: 0x0400044D RID: 1101
 		private int SecondsWait;
 
-		// Token: 0x0400044E RID: 1102
 		private int SecondsCountDown;
 
-		// Token: 0x0400044F RID: 1103
 		private string btnNav_Content = SurveyMsg.MsgbtnNav_Content;
 
-		// Token: 0x04000450 RID: 1104
 		private string btnCall_Content = SurveyMsg.MsgCallApp_BtnCall;
 	}
 }

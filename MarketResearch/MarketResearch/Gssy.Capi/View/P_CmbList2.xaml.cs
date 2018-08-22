@@ -21,16 +21,13 @@ using Gssy.Capi.QEdit;
 
 namespace Gssy.Capi.View
 {
-	// Token: 0x0200002E RID: 46
 	public partial class P_CmbList2 : Page
 	{
-		// Token: 0x060002ED RID: 749 RVA: 0x00059B50 File Offset: 0x00057D50
 		public P_CmbList2()
 		{
 			this.InitializeComponent();
 		}
 
-		// Token: 0x060002EE RID: 750 RVA: 0x00059BF8 File Offset: 0x00057DF8
 		private void method_0(object sender, RoutedEventArgs e)
 		{
 			this.MySurveyId = SurveyHelper.SurveyID;
@@ -43,13 +40,13 @@ namespace Gssy.Capi.View
 			this.oQSingle2.Init(this.CurPageId, 2, true);
 			this.cmbList2Detail = this.oQSingle2.QDetails;
 			this.MyNav.GroupLevel = this.oQuestion.QDefine.GROUP_LEVEL;
-			if (this.MyNav.GroupLevel != global::GClass0.smethod_0(""))
+			if (this.MyNav.GroupLevel != "")
 			{
 				this.MyNav.GroupPageType = this.oQuestion.QDefine.GROUP_PAGE_TYPE;
 				this.MyNav.GroupCodeA = this.oQuestion.QDefine.GROUP_CODEA;
 				this.MyNav.CircleACurrent = SurveyHelper.CircleACurrent;
 				this.MyNav.CircleACount = SurveyHelper.CircleACount;
-				if (this.MyNav.GroupLevel == global::GClass0.smethod_0("C"))
+				if (this.MyNav.GroupLevel == "B")
 				{
 					this.MyNav.GroupCodeB = this.oQuestion.QDefine.GROUP_CODEB;
 					this.MyNav.CircleBCurrent = SurveyHelper.CircleBCurrent;
@@ -70,7 +67,7 @@ namespace Gssy.Capi.View
 				SurveyHelper.CircleACodeText = this.MyNav.CircleCodeTextA;
 				SurveyHelper.CircleACurrent = this.MyNav.CircleACurrent;
 				SurveyHelper.CircleACount = this.MyNav.CircleACount;
-				if (this.MyNav.GroupLevel == global::GClass0.smethod_0("C"))
+				if (this.MyNav.GroupLevel == "B")
 				{
 					list.Add(new VEAnswer
 					{
@@ -86,23 +83,23 @@ namespace Gssy.Capi.View
 			}
 			else
 			{
-				SurveyHelper.CircleACode = global::GClass0.smethod_0("");
-				SurveyHelper.CircleACodeText = global::GClass0.smethod_0("");
+				SurveyHelper.CircleACode = "";
+				SurveyHelper.CircleACodeText = "";
 				SurveyHelper.CircleACurrent = 0;
 				SurveyHelper.CircleACount = 0;
-				SurveyHelper.CircleBCode = global::GClass0.smethod_0("");
-				SurveyHelper.CircleBCodeText = global::GClass0.smethod_0("");
+				SurveyHelper.CircleBCode = "";
+				SurveyHelper.CircleBCodeText = "";
 				SurveyHelper.CircleBCurrent = 0;
 				SurveyHelper.CircleBCount = 0;
-				this.MyNav.GroupCodeA = global::GClass0.smethod_0("");
+				this.MyNav.GroupCodeA = "";
 				this.MyNav.CircleACurrent = 0;
 				this.MyNav.CircleACount = 0;
-				this.MyNav.GroupCodeB = global::GClass0.smethod_0("");
+				this.MyNav.GroupCodeB = "";
 				this.MyNav.CircleBCurrent = 0;
 				this.MyNav.CircleBCount = 0;
 			}
 			this.oLogicEngine.SurveyID = this.MySurveyId;
-			if (this.MyNav.GroupLevel != global::GClass0.smethod_0(""))
+			if (this.MyNav.GroupLevel != "")
 			{
 				this.oLogicEngine.CircleACode = SurveyHelper.CircleACode;
 				this.oLogicEngine.CircleACodeText = SurveyHelper.CircleACodeText;
@@ -114,28 +111,28 @@ namespace Gssy.Capi.View
 				this.oLogicEngine.CircleBCurrent = SurveyHelper.CircleBCurrent;
 			}
 			string string_ = this.oQuestion.QDefine.QUESTION_TITLE;
-			List<string> list2 = this.oBoldTitle.ParaToList(string_, global::GClass0.smethod_0("-Į"));
+			List<string> list2 = this.oBoldTitle.ParaToList(string_, "//");
 			string_ = list2[0];
-			this.oBoldTitle.SetTextBlock(this.txtQuestionTitle, string_, this.oQuestion.QDefine.TITLE_FONTSIZE, global::GClass0.smethod_0(""), true);
+			this.oBoldTitle.SetTextBlock(this.txtQuestionTitle, string_, this.oQuestion.QDefine.TITLE_FONTSIZE, "", true);
 			string_ = ((list2.Count > 1) ? list2[1] : this.oQuestion.QDefine.QUESTION_CONTENT);
-			this.oBoldTitle.SetTextBlock(this.txtCircleTitle, string_, 0, global::GClass0.smethod_0(""), true);
-			if (this.oQSingle1.QDefine.CONTROL_TOOLTIP != global::GClass0.smethod_0(""))
+			this.oBoldTitle.SetTextBlock(this.txtCircleTitle, string_, 0, "", true);
+			if (this.oQSingle1.QDefine.CONTROL_TOOLTIP != "")
 			{
 				string_ = this.oQSingle1.QDefine.CONTROL_TOOLTIP;
-				list2 = this.oBoldTitle.ParaToList(string_, global::GClass0.smethod_0("-Į"));
+				list2 = this.oBoldTitle.ParaToList(string_, "//");
 				string_ = list2[0];
-				this.oBoldTitle.SetTextBlock(this.txtBefore1, string_, this.oQSingle1.QDefine.CONTROL_FONTSIZE, global::GClass0.smethod_0(""), true);
-				string_ = ((list2.Count > 1) ? list2[1] : global::GClass0.smethod_0(""));
-				this.oBoldTitle.SetTextBlock(this.txtAfter1, string_, this.oQSingle1.QDefine.CONTROL_FONTSIZE, global::GClass0.smethod_0(""), true);
+				this.oBoldTitle.SetTextBlock(this.txtBefore1, string_, this.oQSingle1.QDefine.CONTROL_FONTSIZE, "", true);
+				string_ = ((list2.Count > 1) ? list2[1] : "");
+				this.oBoldTitle.SetTextBlock(this.txtAfter1, string_, this.oQSingle1.QDefine.CONTROL_FONTSIZE, "", true);
 			}
-			if (this.oQSingle2.QDefine.CONTROL_TOOLTIP != global::GClass0.smethod_0(""))
+			if (this.oQSingle2.QDefine.CONTROL_TOOLTIP != "")
 			{
 				string_ = this.oQSingle2.QDefine.CONTROL_TOOLTIP;
-				list2 = this.oBoldTitle.ParaToList(string_, global::GClass0.smethod_0("-Į"));
+				list2 = this.oBoldTitle.ParaToList(string_, "//");
 				string_ = list2[0];
-				this.oBoldTitle.SetTextBlock(this.txtBefore2, string_, this.oQSingle1.QDefine.CONTROL_FONTSIZE, global::GClass0.smethod_0(""), true);
-				string_ = ((list2.Count > 1) ? list2[1] : global::GClass0.smethod_0(""));
-				this.oBoldTitle.SetTextBlock(this.txtAfter2, string_, this.oQSingle1.QDefine.CONTROL_FONTSIZE, global::GClass0.smethod_0(""), true);
+				this.oBoldTitle.SetTextBlock(this.txtBefore2, string_, this.oQSingle1.QDefine.CONTROL_FONTSIZE, "", true);
+				string_ = ((list2.Count > 1) ? list2[1] : "");
+				this.oBoldTitle.SetTextBlock(this.txtAfter2, string_, this.oQSingle1.QDefine.CONTROL_FONTSIZE, "", true);
 			}
 			if (this.oQSingle1.QDefine.CONTROL_HEIGHT != 0)
 			{
@@ -161,7 +158,7 @@ namespace Gssy.Capi.View
 			{
 				this.cmbSelect2.FontSize = (double)this.oQSingle1.QDefine.CONTROL_FONTSIZE;
 			}
-			if (this.oQSingle1.QDefine.LIMIT_LOGIC != global::GClass0.smethod_0(""))
+			if (this.oQSingle1.QDefine.LIMIT_LOGIC != "")
 			{
 				string[] array = this.oLogicEngine.aryCode(this.oQSingle1.QDefine.LIMIT_LOGIC, ',');
 				List<SurveyDetail> list3 = new List<SurveyDetail>();
@@ -178,7 +175,7 @@ namespace Gssy.Capi.View
 				}
 				list3.Sort(new Comparison<SurveyDetail>(P_CmbList2.Class31.instance.method_0));
 				this.oQSingle1.QDetails = list3;
-				if (this.oQSingle1.QDefine.DETAIL_ID.Substring(0, 1) == global::GClass0.smethod_0("\""))
+				if (this.oQSingle1.QDefine.DETAIL_ID.Substring(0, 1) == "#")
 				{
 					for (int j = 0; j < this.oQSingle1.QDetails.Count<SurveyDetail>(); j++)
 					{
@@ -187,9 +184,9 @@ namespace Gssy.Capi.View
 				}
 			}
 			this.cmbSelect1.ItemsSource = this.oQSingle1.QDetails;
-			this.cmbSelect1.DisplayMemberPath = global::GClass0.smethod_0("JŇɃ̓њՐنݚࡕ");
-			this.cmbSelect1.SelectedValuePath = global::GClass0.smethod_0("GŌɆ̈́");
-			if (this.oQSingle2.QDefine.LIMIT_LOGIC != global::GClass0.smethod_0(""))
+			this.cmbSelect1.DisplayMemberPath = "CODE_TEXT";
+			this.cmbSelect1.SelectedValuePath = "CODE";
+			if (this.oQSingle2.QDefine.LIMIT_LOGIC != "")
 			{
 				string[] array2 = this.oLogicEngine.aryCode(this.oQSingle2.QDefine.LIMIT_LOGIC, ',');
 				List<SurveyDetail> list4 = new List<SurveyDetail>();
@@ -206,7 +203,7 @@ namespace Gssy.Capi.View
 				}
 				list4.Sort(new Comparison<SurveyDetail>(P_CmbList2.Class31.instance.method_1));
 				this.oQSingle2.QDetails = list4;
-				if (this.oQSingle2.QDefine.DETAIL_ID.Substring(0, 1) == global::GClass0.smethod_0("\""))
+				if (this.oQSingle2.QDefine.DETAIL_ID.Substring(0, 1) == "#")
 				{
 					for (int l = 0; l < this.oQSingle2.QDetails.Count<SurveyDetail>(); l++)
 					{
@@ -215,17 +212,17 @@ namespace Gssy.Capi.View
 				}
 			}
 			this.cmbSelect2.ItemsSource = this.oQSingle2.QDetails;
-			this.cmbSelect2.DisplayMemberPath = global::GClass0.smethod_0("JŇɃ̓њՐنݚࡕ");
-			this.cmbSelect2.SelectedValuePath = global::GClass0.smethod_0("GŌɆ̈́");
-			if (this.oQuestion.QDefine.CONTROL_TOOLTIP.ToUpper() == global::GClass0.smethod_0("W"))
+			this.cmbSelect2.DisplayMemberPath = "CODE_TEXT";
+			this.cmbSelect2.SelectedValuePath = "CODE";
+			if (this.oQuestion.QDefine.CONTROL_TOOLTIP.ToUpper() == "V")
 			{
 				this.wrapFill.Orientation = Orientation.Vertical;
 			}
-			if (this.oQSingle1.QDefine.PRESET_LOGIC != global::GClass0.smethod_0(""))
+			if (this.oQSingle1.QDefine.PRESET_LOGIC != "")
 			{
 				this.cmbSelect1.SelectedValue = this.oLogicEngine.stringResult(this.oQSingle1.QDefine.PRESET_LOGIC);
 			}
-			if (this.oQSingle2.QDefine.PRESET_LOGIC != global::GClass0.smethod_0(""))
+			if (this.oQSingle2.QDefine.PRESET_LOGIC != "")
 			{
 				this.cmbSelect2.SelectedValue = this.oLogicEngine.stringResult(this.oQSingle2.QDefine.PRESET_LOGIC);
 			}
@@ -234,17 +231,17 @@ namespace Gssy.Capi.View
 				this.cmbSelect1_SelectionChanged(this.cmbSelect1, null);
 			}
 			this.cmbSelect1.Focus();
-			if (this.oQSingle1.QDefine.NOTE != global::GClass0.smethod_0(""))
+			if (this.oQSingle1.QDefine.NOTE != "")
 			{
 				string_ = this.oQSingle1.QDefine.NOTE;
-				list2 = this.oBoldTitle.ParaToList(string_, global::GClass0.smethod_0("-Į"));
+				list2 = this.oBoldTitle.ParaToList(string_, "//");
 				string_ = list2[0];
-				this.oBoldTitle.SetTextBlock(this.txtQuestionNote, string_, 0, global::GClass0.smethod_0(""), true);
+				this.oBoldTitle.SetTextBlock(this.txtQuestionNote, string_, 0, "", true);
 				if (list2.Count > 1)
 				{
-					string text = global::GClass0.smethod_0("");
-					string text2 = global::GClass0.smethod_0("");
-					int num = list2[1].IndexOf(global::GClass0.smethod_0("?"));
+					string text = "";
+					string text2 = "";
+					int num = list2[1].IndexOf(">");
 					if (num > 0)
 					{
 						text = this.method_9(list2[1], num + 1, -9999);
@@ -255,19 +252,19 @@ namespace Gssy.Capi.View
 					{
 						text = list2[1];
 					}
-					if (this.oQSingle1.QDefine.GROUP_LEVEL != global::GClass0.smethod_0("") && num > 0)
+					if (this.oQSingle1.QDefine.GROUP_LEVEL != "" && num > 0)
 					{
 						this.oQSingle1.InitCircle();
-						string text3 = global::GClass0.smethod_0("");
-						if (this.MyNav.GroupLevel == global::GClass0.smethod_0("@"))
+						string text3 = "";
+						if (this.MyNav.GroupLevel == "A")
 						{
 							text3 = this.MyNav.CircleACode;
 						}
-						if (this.MyNav.GroupLevel == global::GClass0.smethod_0("C"))
+						if (this.MyNav.GroupLevel == "B")
 						{
 							text3 = this.MyNav.CircleBCode;
 						}
-						if (text3 != global::GClass0.smethod_0(""))
+						if (text3 != "")
 						{
 							foreach (SurveyDetail surveyDetail3 in this.oQSingle1.QCircleDetails)
 							{
@@ -279,16 +276,16 @@ namespace Gssy.Capi.View
 							}
 						}
 					}
-					if (text != global::GClass0.smethod_0(""))
+					if (text != "")
 					{
-						string text4 = Environment.CurrentDirectory + global::GClass0.smethod_0("[ŋɠ͠Ѫգٝ") + text;
-						if (this.method_8(text, 1) == global::GClass0.smethod_0("\""))
+						string text4 = Environment.CurrentDirectory + "\\Media\\" + text;
+						if (this.method_8(text, 1) == "#")
 						{
-							text4 = global::GClass0.smethod_0("?ľɓ͜Ѩտ٤ݿࡻ५੢୵ౙൔ๪ཡၝ") + this.method_9(text, 1, -9999);
+							text4 = "..\\Resources\\Pic\\" + this.method_9(text, 1, -9999);
 						}
 						else if (!File.Exists(text4))
 						{
-							text4 = global::GClass0.smethod_0("?ľɓ͜Ѩտ٤ݿࡻ५੢୵ౙൔ๪ཡၝ") + text;
+							text4 = "..\\Resources\\Pic\\" + text;
 						}
 						Image image = new Image();
 						if (num > 0)
@@ -297,7 +294,7 @@ namespace Gssy.Capi.View
 							this.scrollNote.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
 							image.Height = (double)num;
 						}
-						else if (text2 == global::GClass0.smethod_0("\""))
+						else if (text2 == "#")
 						{
 							this.scrollNote.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
 							this.scrollNote.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
@@ -328,12 +325,12 @@ namespace Gssy.Capi.View
 					}
 				}
 			}
-			if (this.oQuestion.QDefine.DETAIL_ID != global::GClass0.smethod_0(""))
+			if (this.oQuestion.QDefine.DETAIL_ID != "")
 			{
-				if (this.oQuestion.QDefine.LIMIT_LOGIC != global::GClass0.smethod_0(""))
+				if (this.oQuestion.QDefine.LIMIT_LOGIC != "")
 				{
 					this.oLogicEngine.SurveyID = this.MySurveyId;
-					if (this.MyNav.GroupLevel != global::GClass0.smethod_0(""))
+					if (this.MyNav.GroupLevel != "")
 					{
 						this.oLogicEngine.CircleACode = SurveyHelper.CircleACode;
 						this.oLogicEngine.CircleACodeText = SurveyHelper.CircleACodeText;
@@ -360,7 +357,7 @@ namespace Gssy.Capi.View
 					list5.Sort(new Comparison<SurveyDetail>(P_CmbList2.Class31.instance.method_2));
 					this.oQuestion.QDetails = list5;
 				}
-				if (this.oQuestion.QDefine.DETAIL_ID.Substring(0, 1) == global::GClass0.smethod_0("\""))
+				if (this.oQuestion.QDefine.DETAIL_ID.Substring(0, 1) == "#")
 				{
 					for (int n = 0; n < this.oQuestion.QDetails.Count<SurveyDetail>(); n++)
 					{
@@ -427,7 +424,7 @@ namespace Gssy.Capi.View
 				}
 				this.method_2();
 			}
-			if (SurveyMsg.FunctionAttachments == global::GClass0.smethod_0("^ŢɸͶѠպٽݿࡑॻ੺୬౯ൣ๧ཬၦᅳትፚᑰᕱᙷᝤ") && this.oQuestion.QDefine.IS_ATTACH == 1)
+			if (SurveyMsg.FunctionAttachments == "FunctionAttachments_true" && this.oQuestion.QDefine.IS_ATTACH == 1)
 			{
 				this.btnAttach.Visibility = Visibility.Visible;
 			}
@@ -449,17 +446,17 @@ namespace Gssy.Capi.View
 					this.btnNav_Click(this, e);
 				}
 			}
-			Style style = (Style)base.FindResource(global::GClass0.smethod_0("Xůɥ͊ѳըٖݰࡺ८੤"));
+			Style style = (Style)base.FindResource("SelBtnStyle");
 			string navOperation = SurveyHelper.NavOperation;
-			if (!(navOperation == global::GClass0.smethod_0("FŢɡͪ")))
+			if (!(navOperation == "Back"))
 			{
-				if (!(navOperation == global::GClass0.smethod_0("HŪɶͮѣխ")))
+				if (!(navOperation == "Normal"))
 				{
-					if (!(navOperation == global::GClass0.smethod_0("NŶɯͱ")))
+					if (!(navOperation == "Jump"))
 					{
 					}
 				}
-				else if (this.oQuestion.QDefine.EXTEND_1.Contains(SurveyHelper.Only1CodeMode3) && this.cmbSelect1.SelectedValue != global::GClass0.smethod_0("") && this.cmbSelect2.SelectedValue != global::GClass0.smethod_0("") && !SurveyHelper.AutoFill)
+				else if (this.oQuestion.QDefine.EXTEND_1.Contains(SurveyHelper.Only1CodeMode3) && this.cmbSelect1.SelectedValue != "" && this.cmbSelect2.SelectedValue != "" && !SurveyHelper.AutoFill)
 				{
 					this.btnNav_Click(this, e);
 				}
@@ -485,7 +482,6 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x060002EF RID: 751 RVA: 0x0005B2C8 File Offset: 0x000594C8
 		private void method_1(object sender, EventArgs e)
 		{
 			if (this.PageLoaded)
@@ -513,17 +509,16 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x060002F0 RID: 752 RVA: 0x0005B34C File Offset: 0x0005954C
 		private void cmbSelect1_SelectionChanged(object sender, SelectionChangedEventArgs e = null)
 		{
 			this.cmbSelect2.Focus();
 			if (this.cmbSelect1.SelectedValue == null)
 			{
-				this.Answer1 = global::GClass0.smethod_0("");
+				this.Answer1 = "";
 				return;
 			}
 			this.Answer1 = (string)this.cmbSelect1.SelectedValue;
-			if (this.oQSingle2.QDefine.LIMIT_LOGIC != global::GClass0.smethod_0(""))
+			if (this.oQSingle2.QDefine.LIMIT_LOGIC != "")
 			{
 				this.oQSingle2.QDetails = this.cmbList2Detail;
 				this.oQSingle1.SelectedCode = this.cmbSelect1.SelectedValue.ToString();
@@ -549,7 +544,7 @@ namespace Gssy.Capi.View
 				}
 				list2.Sort(new Comparison<SurveyDetail>(P_CmbList2.Class31.instance.method_3));
 				this.oQSingle2.QDetails = list2;
-				if (this.oQSingle2.QDefine.DETAIL_ID.Substring(0, 1) == global::GClass0.smethod_0("\""))
+				if (this.oQSingle2.QDefine.DETAIL_ID.Substring(0, 1) == "#")
 				{
 					for (int j = 0; j < this.oQSingle2.QDetails.Count<SurveyDetail>(); j++)
 					{
@@ -558,35 +553,33 @@ namespace Gssy.Capi.View
 				}
 				this.cmbSelect2.ItemsSource = null;
 				this.cmbSelect2.ItemsSource = this.oQSingle2.QDetails;
-				this.cmbSelect2.DisplayMemberPath = global::GClass0.smethod_0("JŇɃ̓њՐنݚࡕ");
-				this.cmbSelect2.SelectedValuePath = global::GClass0.smethod_0("GŌɆ̈́");
+				this.cmbSelect2.DisplayMemberPath = "CODE_TEXT";
+				this.cmbSelect2.SelectedValuePath = "CODE";
 			}
 		}
 
-		// Token: 0x060002F1 RID: 753 RVA: 0x00002D34 File Offset: 0x00000F34
 		private void cmbSelect2_SelectionChanged(object sender, SelectionChangedEventArgs e = null)
 		{
 			if (this.cmbSelect2.SelectedValue == null)
 			{
-				this.Answer2 = global::GClass0.smethod_0("");
+				this.Answer2 = "";
 				return;
 			}
 			this.Answer2 = (string)this.cmbSelect2.SelectedValue;
 		}
 
-		// Token: 0x060002F2 RID: 754 RVA: 0x0005B5C8 File Offset: 0x000597C8
 		private void method_2()
 		{
-			Style style = (Style)base.FindResource(global::GClass0.smethod_0("XŢɘͯѥՊٳݨࡖ॰੺୮౤"));
+			Style style = (Style)base.FindResource("UnSelBtnStyle");
 			WrapPanel wrapPanel = this.wrapButton;
 			foreach (SurveyDetail surveyDetail in this.oQuestion.QDetails)
 			{
 				Button button = new Button();
-				button.Name = global::GClass0.smethod_0("`Ş") + surveyDetail.CODE;
+				button.Name = "b_" + surveyDetail.CODE;
 				button.Content = surveyDetail.CODE_TEXT;
 				button.Margin = new Thickness(0.0, 0.0, 15.0, 15.0);
 				button.Style = style;
-				button.Tag = surveyDetail.EXTEND_1 + global::GClass0.smethod_0("\u007f") + surveyDetail.EXTEND_2;
+				button.Tag = surveyDetail.EXTEND_1 + "~" + surveyDetail.EXTEND_2;
 				button.Click += this.method_3;
 				button.FontSize = (double)this.Button_FontSize;
 				button.MinWidth = this.Button_Width;
@@ -595,15 +588,14 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x060002F3 RID: 755 RVA: 0x0005B714 File Offset: 0x00059914
 		private void method_3(object sender, RoutedEventArgs e)
 		{
 			Button button = (Button)sender;
-			Style style = (Style)base.FindResource(global::GClass0.smethod_0("Xůɥ͊ѳըٖݰࡺ८੤"));
-			Style style2 = (Style)base.FindResource(global::GClass0.smethod_0("XŢɘͯѥՊٳݨࡖ॰੺୮౤"));
-			List<string> list = this.oBoldTitle.ParaToList((string)button.Tag, global::GClass0.smethod_0("\u007f"));
+			Style style = (Style)base.FindResource("SelBtnStyle");
+			Style style2 = (Style)base.FindResource("UnSelBtnStyle");
+			List<string> list = this.oBoldTitle.ParaToList((string)button.Tag, "~");
 			string answer = list[0];
-			string answer2 = (list.Count > 1) ? list[1] : global::GClass0.smethod_0("");
+			string answer2 = (list.Count > 1) ? list[1] : "";
 			int num = 0;
 			if (button.Style == style)
 			{
@@ -642,46 +634,45 @@ namespace Gssy.Capi.View
 			this.cmbSelect2.Background = Brushes.White;
 			this.cmbSelect2.Foreground = Brushes.Black;
 			button.Style = style2;
-			this.Answer1 = global::GClass0.smethod_0("");
-			this.Answer2 = global::GClass0.smethod_0("");
+			this.Answer1 = "";
+			this.Answer2 = "";
 			this.cmbSelect1.Focus();
 		}
 
-		// Token: 0x060002F4 RID: 756 RVA: 0x0005B988 File Offset: 0x00059B88
 		private bool method_4()
 		{
-			if (this.Answer1 == global::GClass0.smethod_0("") && (this.cmbSelect1.SelectedValue == null || (string)this.cmbSelect1.SelectedValue == global::GClass0.smethod_0("")))
+			if (this.Answer1 == "" && (this.cmbSelect1.SelectedValue == null || (string)this.cmbSelect1.SelectedValue == ""))
 			{
 				MessageBox.Show(SurveyMsg.MsgNotSelected, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 				this.cmbSelect1.Focus();
 				return true;
 			}
-			if (this.Answer2 == global::GClass0.smethod_0("") && (this.cmbSelect2.SelectedValue == null || (string)this.cmbSelect2.SelectedValue == global::GClass0.smethod_0("")))
+			if (this.Answer2 == "" && (this.cmbSelect2.SelectedValue == null || (string)this.cmbSelect2.SelectedValue == ""))
 			{
 				MessageBox.Show(SurveyMsg.MsgNotSelected, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 				this.cmbSelect2.Focus();
 				return true;
 			}
-			if (this.Answer1 == global::GClass0.smethod_0("") && this.oQuestion.QDefine.CONTROL_MASK == global::GClass0.smethod_0("9"))
+			if (this.Answer1 == "" && this.oQuestion.QDefine.CONTROL_MASK == "8")
 			{
 				DateTime date = DateTime.Now.Date;
-				if (Convert.ToDateTime(this.cmbSelect1.SelectedValue.ToString() + global::GClass0.smethod_0(",") + this.cmbSelect2.SelectedValue.ToString() + global::GClass0.smethod_0(".ĲȰ")) > date)
+				if (Convert.ToDateTime(this.cmbSelect1.SelectedValue.ToString() + "-" + this.cmbSelect2.SelectedValue.ToString() + "-01") > date)
 				{
 					MessageBox.Show(SurveyMsg.MsgNotAfterYM, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 					this.cmbSelect1.Focus();
 					return true;
 				}
 			}
-			else if (this.Answer1 == global::GClass0.smethod_0("") && this.oQuestion.QDefine.CONTROL_MASK == global::GClass0.smethod_0("8"))
+			else if (this.Answer1 == "" && this.oQuestion.QDefine.CONTROL_MASK == "9")
 			{
 				DateTime date2 = DateTime.Now.Date;
 				string text = date2.Year.ToString();
 				if (Convert.ToDateTime(string.Concat(new string[]
 				{
 					text,
-					global::GClass0.smethod_0(","),
+					"-",
 					this.cmbSelect1.SelectedValue.ToString(),
-					global::GClass0.smethod_0(","),
+					"-",
 					this.cmbSelect2.SelectedValue.ToString()
 				})) > date2)
 				{
@@ -690,11 +681,11 @@ namespace Gssy.Capi.View
 					return true;
 				}
 			}
-			if (this.Answer1 == global::GClass0.smethod_0(""))
+			if (this.Answer1 == "")
 			{
 				this.Answer1 = (string)this.cmbSelect1.SelectedValue;
 			}
-			if (this.Answer2 == global::GClass0.smethod_0(""))
+			if (this.Answer2 == "")
 			{
 				this.Answer2 = (string)this.cmbSelect2.SelectedValue;
 			}
@@ -703,7 +694,6 @@ namespace Gssy.Capi.View
 			return false;
 		}
 
-		// Token: 0x060002F5 RID: 757 RVA: 0x0005BC6C File Offset: 0x00059E6C
 		private List<VEAnswer> method_5()
 		{
 			List<VEAnswer> list = new List<VEAnswer>();
@@ -712,7 +702,7 @@ namespace Gssy.Capi.View
 				QUESTION_NAME = this.oQSingle1.QuestionName,
 				CODE = this.oQSingle1.SelectedCode
 			});
-			SurveyHelper.Answer = this.oQSingle1.QuestionName + global::GClass0.smethod_0("<") + this.oQSingle1.SelectedCode;
+			SurveyHelper.Answer = this.oQSingle1.QuestionName + "=" + this.oQSingle1.SelectedCode;
 			list.Add(new VEAnswer
 			{
 				QUESTION_NAME = this.oQSingle2.QuestionName,
@@ -721,15 +711,14 @@ namespace Gssy.Capi.View
 			SurveyHelper.Answer = string.Concat(new string[]
 			{
 				SurveyHelper.Answer,
-				global::GClass0.smethod_0("-"),
+				",",
 				this.oQSingle2.QuestionName,
-				global::GClass0.smethod_0("<"),
+				"=",
 				this.oQSingle2.SelectedCode
 			});
 			return list;
 		}
 
-		// Token: 0x060002F6 RID: 758 RVA: 0x0005BD58 File Offset: 0x00059F58
 		private void method_6(List<VEAnswer> list_0)
 		{
 			this.oQSingle1.BeforeSave();
@@ -738,7 +727,6 @@ namespace Gssy.Capi.View
 			this.oQSingle2.Save(this.MySurveyId, SurveyHelper.SurveySequence, false);
 		}
 
-		// Token: 0x060002F7 RID: 759 RVA: 0x0005BDAC File Offset: 0x00059FAC
 		private void btnNav_Click(object sender, RoutedEventArgs e)
 		{
 			if ((string)this.btnNav.Content != this.btnNav_Content)
@@ -769,7 +757,6 @@ namespace Gssy.Capi.View
 			this.btnNav.Content = this.btnNav_Content;
 		}
 
-		// Token: 0x060002F8 RID: 760 RVA: 0x0005BEA4 File Offset: 0x0005A0A4
 		private void timer_Tick(object sender, EventArgs e)
 		{
 			if (this.SecondsCountDown == 0)
@@ -783,7 +770,6 @@ namespace Gssy.Capi.View
 			this.btnNav.Content = this.SecondsCountDown.ToString();
 		}
 
-		// Token: 0x060002F9 RID: 761 RVA: 0x0000C878 File Offset: 0x0000AA78
 		private string method_7(string string_0, int int_0, int int_1 = -9999)
 		{
 			int num = int_1;
@@ -803,14 +789,12 @@ namespace Gssy.Capi.View
 			return string_0.Substring(num5, num - num5 + 1);
 		}
 
-		// Token: 0x060002FA RID: 762 RVA: 0x0000C8E8 File Offset: 0x0000AAE8
 		private string method_8(string string_0, int int_0 = 1)
 		{
 			int num = (int_0 < 0) ? 0 : int_0;
 			return string_0.Substring(0, (num > string_0.Length) ? string_0.Length : num);
 		}
 
-		// Token: 0x060002FB RID: 763 RVA: 0x0000C918 File Offset: 0x0000AB18
 		private string method_9(string string_0, int int_0, int int_1 = -9999)
 		{
 			int num = int_1;
@@ -826,25 +810,23 @@ namespace Gssy.Capi.View
 			return string_0.Substring(num2, (num2 + num > string_0.Length) ? (string_0.Length - num2) : num);
 		}
 
-		// Token: 0x060002FC RID: 764 RVA: 0x0000C96C File Offset: 0x0000AB6C
 		private string method_10(string string_0, int int_0 = 1)
 		{
 			int num = (int_0 < 0) ? 0 : int_0;
 			return string_0.Substring((num > string_0.Length) ? 0 : (string_0.Length - num));
 		}
 
-		// Token: 0x060002FD RID: 765 RVA: 0x0005BF0C File Offset: 0x0005A10C
 		private int method_11(string string_0)
 		{
-			if (string_0 == global::GClass0.smethod_0(""))
+			if (string_0 == "")
 			{
 				return 0;
 			}
-			if (string_0 == global::GClass0.smethod_0("1"))
+			if (string_0 == "0")
 			{
 				return 0;
 			}
-			if (string_0 == global::GClass0.smethod_0("/ı"))
+			if (string_0 == "-0")
 			{
 				return 0;
 			}
@@ -855,13 +837,11 @@ namespace Gssy.Capi.View
 			return Convert.ToInt32(string_0);
 		}
 
-		// Token: 0x060002FE RID: 766 RVA: 0x000025BC File Offset: 0x000007BC
 		private bool method_12(string string_0)
 		{
-			return new Regex(global::GClass0.smethod_0("Kļɏ̿ѭՌؤܧ࠲ॐ੯ଡడൔษཚၡᄯሪጽᐥ")).IsMatch(string_0);
+			return new Regex("^(\\-|\\+)?\\d+(\\.\\d+)?$").IsMatch(string_0);
 		}
 
-		// Token: 0x060002FF RID: 767 RVA: 0x00002D6A File Offset: 0x00000F6A
 		private void btnAttach_Click(object sender, RoutedEventArgs e)
 		{
 			SurveyHelper.AttachSurveyId = this.MySurveyId;
@@ -872,111 +852,80 @@ namespace Gssy.Capi.View
 			new EditAttachments().ShowDialog();
 		}
 
-		// Token: 0x040005AA RID: 1450
 		private string MySurveyId;
 
-		// Token: 0x040005AB RID: 1451
 		private string CurPageId;
 
-		// Token: 0x040005AC RID: 1452
 		private NavBase MyNav = new NavBase();
 
-		// Token: 0x040005AD RID: 1453
 		private PageNav oPageNav = new PageNav();
 
-		// Token: 0x040005AE RID: 1454
 		private LogicEngine oLogicEngine = new LogicEngine();
 
-		// Token: 0x040005AF RID: 1455
 		private BoldTitle oBoldTitle = new BoldTitle();
 
-		// Token: 0x040005B0 RID: 1456
 		private QBase oQuestion = new QBase();
 
-		// Token: 0x040005B1 RID: 1457
 		private QSingle oQSingle1 = new QSingle();
 
-		// Token: 0x040005B2 RID: 1458
 		private QSingle oQSingle2 = new QSingle();
 
-		// Token: 0x040005B3 RID: 1459
-		private string Answer1 = global::GClass0.smethod_0("");
+		private string Answer1 = "";
 
-		// Token: 0x040005B4 RID: 1460
-		private string Answer2 = global::GClass0.smethod_0("");
+		private string Answer2 = "";
 
-		// Token: 0x040005B5 RID: 1461
 		private bool PageLoaded;
 
-		// Token: 0x040005B6 RID: 1462
 		private int Button_Type;
 
-		// Token: 0x040005B7 RID: 1463
 		private int Button_Height;
 
-		// Token: 0x040005B8 RID: 1464
 		private double Button_Width;
 
-		// Token: 0x040005B9 RID: 1465
 		private int Button_FontSize;
 
-		// Token: 0x040005BA RID: 1466
 		private DispatcherTimer timer = new DispatcherTimer();
 
-		// Token: 0x040005BB RID: 1467
 		private int SecondsWait;
 
-		// Token: 0x040005BC RID: 1468
 		private int SecondsCountDown;
 
-		// Token: 0x040005BD RID: 1469
 		private string btnNav_Content = SurveyMsg.MsgbtnNav_Content;
 
-		// Token: 0x040005BE RID: 1470
 		private List<SurveyDetail> cmbList2Detail = new List<SurveyDetail>();
 
-		// Token: 0x0200009D RID: 157
 		[CompilerGenerated]
 		[Serializable]
 		private sealed class Class31
 		{
-			// Token: 0x0600073F RID: 1855 RVA: 0x00004347 File Offset: 0x00002547
 			internal int method_0(SurveyDetail surveyDetail_0, SurveyDetail surveyDetail_1)
 			{
 				return Comparer<int>.Default.Compare(surveyDetail_0.INNER_ORDER, surveyDetail_1.INNER_ORDER);
 			}
 
-			// Token: 0x06000740 RID: 1856 RVA: 0x00004347 File Offset: 0x00002547
 			internal int method_1(SurveyDetail surveyDetail_0, SurveyDetail surveyDetail_1)
 			{
 				return Comparer<int>.Default.Compare(surveyDetail_0.INNER_ORDER, surveyDetail_1.INNER_ORDER);
 			}
 
-			// Token: 0x06000741 RID: 1857 RVA: 0x00004347 File Offset: 0x00002547
 			internal int method_2(SurveyDetail surveyDetail_0, SurveyDetail surveyDetail_1)
 			{
 				return Comparer<int>.Default.Compare(surveyDetail_0.INNER_ORDER, surveyDetail_1.INNER_ORDER);
 			}
 
-			// Token: 0x06000742 RID: 1858 RVA: 0x00004347 File Offset: 0x00002547
 			internal int method_3(SurveyDetail surveyDetail_0, SurveyDetail surveyDetail_1)
 			{
 				return Comparer<int>.Default.Compare(surveyDetail_0.INNER_ORDER, surveyDetail_1.INNER_ORDER);
 			}
 
-			// Token: 0x04000CF3 RID: 3315
 			public static readonly P_CmbList2.Class31 instance = new P_CmbList2.Class31();
 
-			// Token: 0x04000CF4 RID: 3316
 			public static Comparison<SurveyDetail> compare0;
 
-			// Token: 0x04000CF5 RID: 3317
 			public static Comparison<SurveyDetail> compare1;
 
-			// Token: 0x04000CF6 RID: 3318
 			public static Comparison<SurveyDetail> compare2;
 
-			// Token: 0x04000CF7 RID: 3319
 			public static Comparison<SurveyDetail> compare3;
 		}
 	}

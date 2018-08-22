@@ -60,9 +60,9 @@ namespace Gssy.Capi.Class
 
         public void InitDetailID(string string_0, int int_0, List<SurveyDefine> list_0, List<SurveyDetail> list_1)
         {
-            if (!(base.QDefine.PARENT_CODE == GClass0.smethod_0("")) && int_0 != 0)
+            if (!(base.QDefine.PARENT_CODE == "") && int_0 != 0)
             {
-                if (!(base.QDefine.PARENT_CODE == GClass0.smethod_0("Cşɋ\u0345юՋق")) && int_0 > 0)
+                if (!(base.QDefine.PARENT_CODE == "DYNAMIC") && int_0 > 0)
                 {
                     IOrderedEnumerable<SurveyDetail> source = list_1.Where(method_1).OrderBy(Class72._003C_003E9.method_1);
                     base.QDetails = source.ToList();

@@ -21,16 +21,13 @@ using Microsoft.WindowsAPICodePack.Shell;
 
 namespace Gssy.Capi.View
 {
-	// Token: 0x0200004C RID: 76
 	public partial class PageMedia : Page
 	{
-		// Token: 0x060004FA RID: 1274 RVA: 0x0008C6DC File Offset: 0x0008A8DC
 		public PageMedia()
 		{
 			this.InitializeComponent();
 		}
 
-		// Token: 0x060004FB RID: 1275 RVA: 0x0008C760 File Offset: 0x0008A960
 		private void method_0(object sender, RoutedEventArgs e)
 		{
 			this.MySurveyId = SurveyHelper.SurveyID;
@@ -40,13 +37,13 @@ namespace Gssy.Capi.View
 			this.btnNav.Content = this.btnNav_Content;
 			this.oQuestion.Init(this.CurPageId, 0);
 			this.MyNav.GroupLevel = this.oQuestion.QDefine.GROUP_LEVEL;
-			if (this.MyNav.GroupLevel != global::GClass0.smethod_0(""))
+			if (this.MyNav.GroupLevel != "")
 			{
 				this.MyNav.GroupPageType = this.oQuestion.QDefine.GROUP_PAGE_TYPE;
 				this.MyNav.GroupCodeA = this.oQuestion.QDefine.GROUP_CODEA;
 				this.MyNav.CircleACurrent = SurveyHelper.CircleACurrent;
 				this.MyNav.CircleACount = SurveyHelper.CircleACount;
-				if (this.MyNav.GroupLevel == global::GClass0.smethod_0("C"))
+				if (this.MyNav.GroupLevel == "B")
 				{
 					this.MyNav.GroupCodeB = this.oQuestion.QDefine.GROUP_CODEB;
 					this.MyNav.CircleBCurrent = SurveyHelper.CircleBCurrent;
@@ -65,7 +62,7 @@ namespace Gssy.Capi.View
 				SurveyHelper.CircleACodeText = this.MyNav.CircleCodeTextA;
 				SurveyHelper.CircleACurrent = this.MyNav.CircleACurrent;
 				SurveyHelper.CircleACount = this.MyNav.CircleACount;
-				if (this.MyNav.GroupLevel == global::GClass0.smethod_0("C"))
+				if (this.MyNav.GroupLevel == "B")
 				{
 					list.Add(new VEAnswer
 					{
@@ -81,23 +78,23 @@ namespace Gssy.Capi.View
 			}
 			else
 			{
-				SurveyHelper.CircleACode = global::GClass0.smethod_0("");
-				SurveyHelper.CircleACodeText = global::GClass0.smethod_0("");
+				SurveyHelper.CircleACode = "";
+				SurveyHelper.CircleACodeText = "";
 				SurveyHelper.CircleACurrent = 0;
 				SurveyHelper.CircleACount = 0;
-				SurveyHelper.CircleBCode = global::GClass0.smethod_0("");
-				SurveyHelper.CircleBCodeText = global::GClass0.smethod_0("");
+				SurveyHelper.CircleBCode = "";
+				SurveyHelper.CircleBCodeText = "";
 				SurveyHelper.CircleBCurrent = 0;
 				SurveyHelper.CircleBCount = 0;
-				this.MyNav.GroupCodeA = global::GClass0.smethod_0("");
+				this.MyNav.GroupCodeA = "";
 				this.MyNav.CircleACurrent = 0;
 				this.MyNav.CircleACount = 0;
-				this.MyNav.GroupCodeB = global::GClass0.smethod_0("");
+				this.MyNav.GroupCodeB = "";
 				this.MyNav.CircleBCurrent = 0;
 				this.MyNav.CircleBCount = 0;
 			}
 			this.oLogicEngine.SurveyID = this.MySurveyId;
-			if (this.MyNav.GroupLevel != global::GClass0.smethod_0(""))
+			if (this.MyNav.GroupLevel != "")
 			{
 				this.oLogicEngine.CircleACode = SurveyHelper.CircleACode;
 				this.oLogicEngine.CircleACodeText = SurveyHelper.CircleACodeText;
@@ -113,16 +110,16 @@ namespace Gssy.Capi.View
 				this.btnNav_Click(this, e);
 			}
 			string question_TITLE = this.oQuestion.QDefine.QUESTION_TITLE;
-			this.txtQuestionTitle.Text = global::GClass0.smethod_0("");
+			this.txtQuestionTitle.Text = "";
 			BoldTitle boldTitle = new BoldTitle();
 			boldTitle.SpanTitle(this.MySurveyId, question_TITLE, SurveyHelper.CircleACode, SurveyHelper.CircleBCode);
 			foreach (classHtmlText classHtmlText in boldTitle.lSpan)
 			{
-				if (classHtmlText.TitleTextType == global::GClass0.smethod_0("?ŀȿ"))
+				if (classHtmlText.TitleTextType == "<B>")
 				{
 					Span span = new Span();
 					span.Inlines.Add(new Run(classHtmlText.TitleText));
-					span.Foreground = (Brush)base.FindResource(global::GClass0.smethod_0("\\Źɯͺѻբ٢݇ࡶॶੱ୩"));
+					span.Foreground = (Brush)base.FindResource("PressedBrush");
 					span.FontWeight = FontWeights.Bold;
 					this.txtQuestionTitle.Inlines.Add(span);
 				}
@@ -176,13 +173,13 @@ namespace Gssy.Capi.View
 			{
 				this.mediaElement.Height = this.mediaBorder.ActualHeight;
 			}
-			string str = Environment.CurrentDirectory + global::GClass0.smethod_0("Zňɡͧѫՠ");
+			string str = Environment.CurrentDirectory + "\\Media";
 			string text = this.oQuestion.QDefine.CONTROL_TOOLTIP;
-			if (this.oFunc.LEFT(text, 2) == global::GClass0.smethod_0("$ź") || text.IndexOf(global::GClass0.smethod_0("Yģ")) > -1)
+			if (this.oFunc.LEFT(text, 2) == "&{" || text.IndexOf("[\"") > -1)
 			{
 				text = this.oLogicEngine.strShowText(text, true);
 			}
-			this.strFullName = str + global::GClass0.smethod_0("]") + text;
+			this.strFullName = str + "\\" + text;
 			if (File.Exists(this.strFullName))
 			{
 				this.mediaElement.Source = new Uri(this.strFullName, UriKind.Relative);
@@ -198,7 +195,7 @@ namespace Gssy.Capi.View
 				MessageBox.Show(SurveyMsg.MsgNotMedia, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 				return;
 			}
-			if (SurveyMsg.FunctionAttachments == global::GClass0.smethod_0("^ŢɸͶѠպٽݿࡑॻ੺୬౯ൣ๧ཬၦᅳትፚᑰᕱᙷᝤ") && this.oQuestion.QDefine.IS_ATTACH == 1)
+			if (SurveyMsg.FunctionAttachments == "FunctionAttachments_true" && this.oQuestion.QDefine.IS_ATTACH == 1)
 			{
 				this.btnAttach.Visibility = Visibility.Visible;
 			}
@@ -215,7 +212,6 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x060004FC RID: 1276 RVA: 0x0008D098 File Offset: 0x0008B298
 		private void btnNav_Click(object sender, RoutedEventArgs e)
 		{
 			if ((string)this.btnNav.Content != this.btnNav_Content)
@@ -233,7 +229,6 @@ namespace Gssy.Capi.View
 			this.btnNav.Content = this.btnNav_Content;
 		}
 
-		// Token: 0x060004FD RID: 1277 RVA: 0x0008D134 File Offset: 0x0008B334
 		private void timer_Tick(object sender, EventArgs e)
 		{
 			if (this.SecondsCountDown == 0)
@@ -247,17 +242,16 @@ namespace Gssy.Capi.View
 			this.btnNav.Content = this.SecondsCountDown.ToString();
 		}
 
-		// Token: 0x060004FE RID: 1278 RVA: 0x0008D19C File Offset: 0x0008B39C
 		private void openBtn_Click(object sender, RoutedEventArgs e)
 		{
 			ShellContainer initialDirectoryShellContainer = KnownFolders.SampleVideos as ShellContainer;
 			CommonOpenFileDialog commonOpenFileDialog = new CommonOpenFileDialog();
 			commonOpenFileDialog.InitialDirectoryShellContainer = initialDirectoryShellContainer;
 			commonOpenFileDialog.EnsureReadOnly = true;
-			commonOpenFileDialog.Filters.Add(new CommonFileDialogFilter(global::GClass0.smethod_0("^Ņɑ̦уխٯݧࡲ"), global::GClass0.smethod_0("/Īɴͯѷ")));
-			commonOpenFileDialog.Filters.Add(new CommonFileDialogFilter(global::GClass0.smethod_0("HŞɎ̦уխٯݧࡲ"), global::GClass0.smethod_0("/ĪɢʹѨ")));
-			commonOpenFileDialog.Filters.Add(new CommonFileDialogFilter(global::GClass0.smethod_0("DŘȴ̦уխٯݧࡲ"), global::GClass0.smethod_0("/ĪɮͲв")));
-			commonOpenFileDialog.Filters.Add(new CommonFileDialogFilter(global::GClass0.smethod_0("^ŉɑ̦уխٯݧࡲ"), global::GClass0.smethod_0("/Īɴͣѷ")));
+			commonOpenFileDialog.Filters.Add(new CommonFileDialogFilter("WMV Files", "*.wmv"));
+			commonOpenFileDialog.Filters.Add(new CommonFileDialogFilter("AVI Files", "*.avi"));
+			commonOpenFileDialog.Filters.Add(new CommonFileDialogFilter("MP3 Files", "*.mp3"));
+			commonOpenFileDialog.Filters.Add(new CommonFileDialogFilter("WAV Files", "*.wav"));
 			if (commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok)
 			{
 				this.strFullName = commonOpenFileDialog.FileName;
@@ -267,7 +261,6 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x060004FF RID: 1279 RVA: 0x0008D2A0 File Offset: 0x0008B4A0
 		private void method_1()
 		{
 			if (this.playBtn.Content.ToString() == SurveyMsg.MsgContinue)
@@ -282,13 +275,11 @@ namespace Gssy.Capi.View
 			this.mediaElement.ToolTip = SurveyMsg.MsgPlayTip;
 		}
 
-		// Token: 0x06000500 RID: 1280 RVA: 0x00003670 File Offset: 0x00001870
 		private void playBtn_Click(object sender, RoutedEventArgs e)
 		{
 			this.method_1();
 		}
 
-		// Token: 0x06000501 RID: 1281 RVA: 0x0008D320 File Offset: 0x0008B520
 		private void StartBtn_Click(object sender, RoutedEventArgs e)
 		{
 			this.mediaElement.Source = new Uri(this.strFullName, UriKind.Relative);
@@ -297,13 +288,11 @@ namespace Gssy.Capi.View
 			this.mediaElement.ToolTip = SurveyMsg.MsgPauseTip;
 		}
 
-		// Token: 0x06000502 RID: 1282 RVA: 0x00003670 File Offset: 0x00001870
 		private void mediaElement_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 		{
 			this.method_1();
 		}
 
-		// Token: 0x06000503 RID: 1283 RVA: 0x0008D370 File Offset: 0x0008B570
 		private void mediaElement_MediaOpened(object sender, RoutedEventArgs e)
 		{
 			double totalSeconds = this.mediaElement.NaturalDuration.TimeSpan.TotalSeconds;
@@ -315,7 +304,6 @@ namespace Gssy.Capi.View
 			this.timerMedia.Start();
 		}
 
-		// Token: 0x06000504 RID: 1284 RVA: 0x0008D3FC File Offset: 0x0008B5FC
 		private void timerMedia_Tick(object sender, EventArgs e)
 		{
 			this.ProgressSlider.ValueChanged -= this.method_2;
@@ -323,12 +311,10 @@ namespace Gssy.Capi.View
 			this.ProgressSlider.ValueChanged += this.method_2;
 		}
 
-		// Token: 0x06000505 RID: 1285 RVA: 0x0000228F File Offset: 0x0000048F
 		private void method_2(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
 		}
 
-		// Token: 0x06000506 RID: 1286 RVA: 0x00003678 File Offset: 0x00001878
 		private void btnAttach_Click(object sender, RoutedEventArgs e)
 		{
 			SurveyHelper.AttachSurveyId = this.MySurveyId;
@@ -339,43 +325,30 @@ namespace Gssy.Capi.View
 			new EditAttachments().ShowDialog();
 		}
 
-		// Token: 0x0400094A RID: 2378
 		private string MySurveyId;
 
-		// Token: 0x0400094B RID: 2379
 		private string CurPageId;
 
-		// Token: 0x0400094C RID: 2380
 		private NavBase MyNav = new NavBase();
 
-		// Token: 0x0400094D RID: 2381
 		private UDPX oFunc = new UDPX();
 
-		// Token: 0x0400094E RID: 2382
 		private PageNav oPageNav = new PageNav();
 
-		// Token: 0x0400094F RID: 2383
 		private LogicEngine oLogicEngine = new LogicEngine();
 
-		// Token: 0x04000950 RID: 2384
 		private QDisplay oQuestion = new QDisplay();
 
-		// Token: 0x04000951 RID: 2385
-		private string strFullName = global::GClass0.smethod_0("");
+		private string strFullName = "";
 
-		// Token: 0x04000952 RID: 2386
 		private DispatcherTimer timer = new DispatcherTimer();
 
-		// Token: 0x04000953 RID: 2387
 		private int SecondsWait;
 
-		// Token: 0x04000954 RID: 2388
 		private int SecondsCountDown;
 
-		// Token: 0x04000955 RID: 2389
 		private string btnNav_Content = SurveyMsg.MsgbtnNav_Content;
 
-		// Token: 0x04000956 RID: 2390
 		private DispatcherTimer timerMedia = new DispatcherTimer();
 	}
 }

@@ -15,16 +15,13 @@ using Gssy.Capi.Entities;
 
 namespace Gssy.Capi.View
 {
-	// Token: 0x02000054 RID: 84
 	public partial class SurveyUserCode : Page
 	{
-		// Token: 0x0600058D RID: 1421 RVA: 0x000039E4 File Offset: 0x00001BE4
 		public SurveyUserCode()
 		{
 			this.InitializeComponent();
 		}
 
-		// Token: 0x0600058E RID: 1422 RVA: 0x0009495C File Offset: 0x00092B5C
 		private void method_0(object sender, RoutedEventArgs e)
 		{
 			this.MySurveyId = SurveyHelper.SurveyID;
@@ -76,7 +73,7 @@ namespace Gssy.Capi.View
 				this.txtFill.Text = autoFill.FillInt(this.oQuestion.QDefine);
 				this.btnNav_Click(this, e);
 			}
-			if (SurveyHelper.NavOperation == global::GClass0.smethod_0("FŢɡͪ"))
+			if (SurveyHelper.NavOperation == "Back")
 			{
 				int control_TYPE = this.oQuestion.QDefine.CONTROL_TYPE;
 				this.oQuestion.ReadAnswer(this.MySurveyId, SurveyHelper.SurveySequence);
@@ -90,13 +87,12 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x0600058F RID: 1423 RVA: 0x00094CC8 File Offset: 0x00092EC8
 		private void btnNav_Click(object sender, RoutedEventArgs e)
 		{
 			string text = this.txtFill.Text;
-			text = text.Replace(global::GClass0.smethod_0("^"), global::GClass0.smethod_0(""));
+			text = text.Replace("_", "");
 			this.oQuestion.FillText = text;
-			if (this.oQuestion.FillText == global::GClass0.smethod_0(""))
+			if (this.oQuestion.FillText == "")
 			{
 				MessageBox.Show(SurveyMsg.MsgNotFill, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 				this.txtFill.Focus();
@@ -113,7 +109,7 @@ namespace Gssy.Capi.View
 			VEAnswer veanswer = new VEAnswer();
 			veanswer.QUESTION_NAME = this.oQuestion.QuestionName;
 			veanswer.CODE = this.oQuestion.FillText;
-			SurveyHelper.Answer = this.oQuestion.QuestionName + global::GClass0.smethod_0("<") + this.oQuestion.FillText;
+			SurveyHelper.Answer = this.oQuestion.QuestionName + "=" + this.oQuestion.FillText;
 			list.Add(veanswer);
 			this.oLogicEngine.PageAnswer = list;
 			this.oLogicEngine.SurveyID = this.MySurveyId;
@@ -136,14 +132,13 @@ namespace Gssy.Capi.View
 			{
 				MessageBox.Show(SurveyHelper.ShowPageAnswer(list), SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Asterisk);
 			}
-			if (!(SurveyMsg.RecordIsOn == global::GClass0.smethod_0("]ūɮͣѹծـݻࡈ२ਗ਼୰౱൷๤")))
+			if (!(SurveyMsg.RecordIsOn == "RecordIsOn_true"))
 			{
 			}
 			this.MyNav.PageAnswer = list;
 			this.method_1();
 		}
 
-		// Token: 0x06000590 RID: 1424 RVA: 0x00094F0C File Offset: 0x0009310C
 		private void method_1()
 		{
 			int surveySequence = SurveyHelper.SurveySequence;
@@ -154,10 +149,10 @@ namespace Gssy.Capi.View
 			this.MyNav.NextPage(this.MySurveyId, surveySequence, this.CurPageId, roadMapVersion);
 			string text = this.oLogicEngine.Route(this.MyNav.RoadMap.FORM_NAME);
 			SurveyHelper.RoadMapVersion = this.MyNav.RoadMap.VERSION_ID.ToString();
-			string uriString = string.Format(global::GClass0.smethod_0("TłɁ͊К԰رݼ࡬५੶୰౻൶๢ོၻᅽረጽᐼᔣᘡ᝛ᡥ᥮᩽ᬦᱳᴷṻἫ⁼Ⅲ≯⍭"), text);
-			if (text.Substring(0, 1) == global::GClass0.smethod_0("@"))
+			string uriString = string.Format("pack://application:,,,/View/{0}.xaml", text);
+			if (text.Substring(0, 1) == "A")
 			{
-				uriString = string.Format(global::GClass0.smethod_0("[ŋɊ̓Нԉ؊݅ࡓ੍॒୉౼ൿ๩ཱུၴᅴሣጴᐻᔺᘺᝂ᡺᥷ᩦᭀᱽᵡṧὩ⁨ⅾ∦⍳␷╻☫❼⡢⥯⩭"), text);
+				uriString = string.Format("pack://application:,,,/ViewProject/{0}.xaml", text);
 			}
 			if (text == SurveyHelper.CurPageName)
 			{
@@ -172,29 +167,26 @@ namespace Gssy.Capi.View
 			SurveyHelper.NavCurPage = this.MyNav.RoadMap.PAGE_ID;
 			SurveyHelper.CurPageName = this.MyNav.RoadMap.FORM_NAME;
 			SurveyHelper.NavGoBackTimes = 0;
-			SurveyHelper.NavOperation = global::GClass0.smethod_0("HŪɶͮѣխ");
+			SurveyHelper.NavOperation = "Normal";
 			SurveyHelper.NavLoad = 0;
 		}
 
-		// Token: 0x06000591 RID: 1425 RVA: 0x00002581 File Offset: 0x00000781
 		private void txtFill_LostFocus(object sender, RoutedEventArgs e)
 		{
-			if (SurveyHelper.IsTouch == global::GClass0.smethod_0("EŸɞͦѽդٮݚࡰॱ੷୤"))
+			if (SurveyHelper.IsTouch == "IsTouch_true")
 			{
 				SurveyTaptip.HideInputPanel();
 			}
 		}
 
-		// Token: 0x06000592 RID: 1426 RVA: 0x0000259E File Offset: 0x0000079E
 		private void txtFill_GotFocus(object sender, RoutedEventArgs e)
 		{
-			if (SurveyHelper.IsTouch == global::GClass0.smethod_0("EŸɞͦѽդٮݚࡰॱ੷୤"))
+			if (SurveyHelper.IsTouch == "IsTouch_true")
 			{
 				SurveyTaptip.ShowInputPanel();
 			}
 		}
 
-		// Token: 0x06000593 RID: 1427 RVA: 0x00095068 File Offset: 0x00093268
 		private void txtFill_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.Key == Key.Return && this.btnNav.IsEnabled)
@@ -204,7 +196,7 @@ namespace Gssy.Capi.View
 			TextBox textBox = sender as TextBox;
 			if (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
 			{
-				if (textBox.Text.Contains(global::GClass0.smethod_0("/")) && e.Key == Key.Decimal)
+				if (textBox.Text.Contains(".") && e.Key == Key.Decimal)
 				{
 					e.Handled = true;
 					return;
@@ -219,7 +211,7 @@ namespace Gssy.Capi.View
 					e.Handled = true;
 					return;
 				}
-				if (textBox.Text.Contains(global::GClass0.smethod_0("/")) && e.Key == Key.OemPeriod)
+				if (textBox.Text.Contains(".") && e.Key == Key.OemPeriod)
 				{
 					e.Handled = true;
 					return;
@@ -229,7 +221,6 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x06000594 RID: 1428 RVA: 0x00090250 File Offset: 0x0008E450
 		private void txtFill_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			TextBox textBox = sender as TextBox;
@@ -247,22 +238,16 @@ namespace Gssy.Capi.View
 			}
 		}
 
-		// Token: 0x04000A18 RID: 2584
 		private string MySurveyId;
 
-		// Token: 0x04000A19 RID: 2585
 		private string CurPageId;
 
-		// Token: 0x04000A1A RID: 2586
 		private NavBase MyNav = new NavBase();
 
-		// Token: 0x04000A1B RID: 2587
 		private LogicEngine oLogicEngine = new LogicEngine();
 
-		// Token: 0x04000A1C RID: 2588
 		private UDPX oFunc = new UDPX();
 
-		// Token: 0x04000A1D RID: 2589
 		private QFill oQuestion = new QFill();
 	}
 }

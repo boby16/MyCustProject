@@ -5,10 +5,8 @@ using System.Text;
 
 namespace Gssy.Capi.Common
 {
-	// Token: 0x02000005 RID: 5
 	public class EncryptTool
 	{
-		// Token: 0x0600001F RID: 31 RVA: 0x000030FC File Offset: 0x000012FC
 		public static string Encrypt(string string_0, string string_1)
 		{
 			string result;
@@ -31,7 +29,6 @@ namespace Gssy.Capi.Common
 			return result;
 		}
 
-		// Token: 0x06000020 RID: 32 RVA: 0x000031BC File Offset: 0x000013BC
 		public static string Decrypt(string string_0, string string_1)
 		{
 			byte[] array = Convert.FromBase64String(string_0);
@@ -54,7 +51,6 @@ namespace Gssy.Capi.Common
 			return result;
 		}
 
-		// Token: 0x06000021 RID: 33 RVA: 0x0000327C File Offset: 0x0000147C
 		public static void EncryptTextToFile(string string_0, string string_1, byte[] byte_0, byte[] byte_1)
 		{
 			try
@@ -88,7 +84,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x06000022 RID: 34 RVA: 0x00003358 File Offset: 0x00001558
 		public static string DecryptTextFromFile(string string_0, byte[] byte_0, byte[] byte_1)
 		{
 			string result;

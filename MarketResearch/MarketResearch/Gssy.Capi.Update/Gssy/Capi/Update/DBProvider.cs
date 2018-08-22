@@ -5,12 +5,8 @@ using FirebirdSql.Data.FirebirdClient;
 
 namespace Gssy.Capi.Update
 {
-	// Token: 0x02000006 RID: 6
 	public class DBProvider
 	{
-		// Token: 0x17000009 RID: 9
-		// (get) Token: 0x06000017 RID: 23 RVA: 0x00002127 File Offset: 0x00000327
-		// (set) Token: 0x06000018 RID: 24 RVA: 0x0000212F File Offset: 0x0000032F
 		public DBType DatabaseType
 		{
 			get
@@ -23,9 +19,6 @@ namespace Gssy.Capi.Update
 			}
 		}
 
-		// Token: 0x1700000A RID: 10
-		// (get) Token: 0x06000019 RID: 25 RVA: 0x00002138 File Offset: 0x00000338
-		// (set) Token: 0x0600001A RID: 26 RVA: 0x00002140 File Offset: 0x00000340
 		public string ConnectionString
 		{
 			get
@@ -38,25 +31,21 @@ namespace Gssy.Capi.Update
 			}
 		}
 
-		// Token: 0x0600001B RID: 27 RVA: 0x00002149 File Offset: 0x00000349
 		public DBProvider()
 		{
 		}
 
-		// Token: 0x0600001C RID: 28 RVA: 0x00002168 File Offset: 0x00000368
 		public DBProvider(DBType dbtype_0)
 		{
 			this._DatabaseType = dbtype_0;
 		}
 
-		// Token: 0x0600001D RID: 29 RVA: 0x0000218E File Offset: 0x0000038E
 		public DBProvider(DBType dbtype_0, string string_0)
 		{
 			this._DatabaseType = dbtype_0;
 			this._ConnectionString = string_0;
 		}
 
-		// Token: 0x0600001E RID: 30 RVA: 0x00002710 File Offset: 0x00000910
 		private IDbConnection method_0()
 		{
 			DBType databaseType = this.DatabaseType;
@@ -79,7 +68,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x0600001F RID: 31 RVA: 0x00002758 File Offset: 0x00000958
 		private IDbCommand method_1(string string_0, IDbConnection idbConnection_0)
 		{
 			DBType databaseType = this.DatabaseType;
@@ -102,7 +90,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x06000020 RID: 32 RVA: 0x000027A4 File Offset: 0x000009A4
 		private IDataAdapter method_2(string string_0, string string_1)
 		{
 			DBType databaseType = this._DatabaseType;
@@ -125,7 +112,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x06000021 RID: 33 RVA: 0x000027E0 File Offset: 0x000009E0
 		private IDataAdapter method_3(IDbCommand idbCommand_0)
 		{
 			DBType databaseType = this.DatabaseType;
@@ -148,7 +134,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x06000022 RID: 34 RVA: 0x00002828 File Offset: 0x00000A28
 		public int ExecuteNonQuery(string string_0)
 		{
 			IDbConnection dbConnection = null;
@@ -179,7 +164,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x06000023 RID: 35 RVA: 0x00002890 File Offset: 0x00000A90
 		public IDataReader ExecuteReader(string string_0)
 		{
 			IDataReader result;
@@ -197,7 +181,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x06000024 RID: 36 RVA: 0x000028D4 File Offset: 0x00000AD4
 		public object ExecuteScalar(string string_0)
 		{
 			IDbConnection dbConnection = null;
@@ -228,7 +211,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x06000025 RID: 37 RVA: 0x0000293C File Offset: 0x00000B3C
 		public int ExecuteScalarInt(string string_0)
 		{
 			IDbConnection dbConnection = null;
@@ -259,7 +241,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x06000026 RID: 38 RVA: 0x000029AC File Offset: 0x00000BAC
 		public string ExecuteScalarString(string string_0)
 		{
 			IDbConnection dbConnection = null;
@@ -290,7 +271,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x06000027 RID: 39 RVA: 0x00002A18 File Offset: 0x00000C18
 		public DataSet ExecuteDataSet(string string_0, string string_1)
 		{
 			DataSet result;
@@ -308,7 +288,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x06000028 RID: 40 RVA: 0x00002A58 File Offset: 0x00000C58
 		public DataSet ExecuteDataSet(string string_0)
 		{
 			IDbConnection dbConnection = null;
@@ -341,7 +320,6 @@ namespace Gssy.Capi.Update
 			return result;
 		}
 
-		// Token: 0x06000029 RID: 41 RVA: 0x00002AC8 File Offset: 0x00000CC8
 		public DBProvider(int int_0)
 		{
 			this._DatabaseType = DBType.FireBird;
@@ -397,11 +375,11 @@ namespace Gssy.Capi.Update
 					SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder();
 					sqlConnectionStringBuilder.UserID = userID;
 					sqlConnectionStringBuilder.Password = password;
-					sqlConnectionStringBuilder.DataSource = GClass0.smethod_0("");
+					sqlConnectionStringBuilder.DataSource = "";
 					string text3 = GClass0.smethod_0("[Ųɴͳѡպن݃");
 					sqlConnectionStringBuilder.InitialCatalog = text3;
 					this._ConnectionString = sqlConnectionStringBuilder.ToString();
-					this._ConnectionString = GClass0.smethod_0("");
+					this._ConnectionString = "";
 					break;
 				}
 				default:
@@ -410,10 +388,8 @@ namespace Gssy.Capi.Update
 			}
 		}
 
-		// Token: 0x04000039 RID: 57
 		private DBType _DatabaseType = DBType.FireBird;
 
-		// Token: 0x0400003A RID: 58
-		private string _ConnectionString = GClass0.smethod_0("");
+		private string _ConnectionString = "";
 	}
 }

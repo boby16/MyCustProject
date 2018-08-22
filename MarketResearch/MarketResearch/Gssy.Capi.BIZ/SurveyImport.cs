@@ -105,27 +105,6 @@ namespace Gssy.Capi.BIZ
             }
         }
 
-        [Serializable]
-        [CompilerGenerated]
-        private sealed class Class11
-        {
-            public static readonly Class11 _003C_003E9 = new Class11();
-
-            public static Func<SurveyAnswer, bool> _003C_003E9__8_0;
-
-            public static Func<SurveyAnswer, Class0<string, string, int, string, string>> _003C_003E9__8_1;
-
-            internal bool method_0(SurveyAnswer surveyAnswer_0)
-            {
-                return surveyAnswer_0.SEQUENCE_ID == 90000;
-            }
-
-            internal Class0<string, string, int, string, string> method_1(SurveyAnswer surveyAnswer_0)
-            {
-                return new Class0<string, string, int, string, string>(surveyAnswer_0.QUESTION_NAME, surveyAnswer_0.CODE, surveyAnswer_0.MULTI_ORDER, surveyAnswer_0.SURVEY_GUID, surveyAnswer_0.SURVEY_ID);
-            }
-        }
-
         private SurveyMainDal oSurveyMainDal = new SurveyMainDal();
 
         private SurveyRandomDal oSurveyRandomDal = new SurveyRandomDal();
@@ -154,110 +133,110 @@ namespace Gssy.Capi.BIZ
             Class10 @class = new Class10();
             SurveyMain surveyMain = new SurveyMain();
             int num = 0;
-            @class.strQName = GClass0.smethod_0("");
-            @class.strQName = GClass0.smethod_0("Zŝɕ\u0350р՝\u065c\u074bࡅ");
+            @class.strQName = "";
+            @class.strQName = "SURVEY_ID";
             num = list_0.FindIndex(@class.method_0);
             if (num > -1)
             {
                 surveyMain.SURVEY_ID = list_0[num].CODE;
             }
-            @class.strQName = GClass0.smethod_0("\\Ōɚ\u0354яՊيݜࡋ\u0945");
+            @class.strQName = "VERSION_ID";
             num = list_0.FindIndex(@class.method_1);
             if (num > -1)
             {
                 surveyMain.VERSION_ID = list_0[num].CODE;
             }
-            @class.strQName = GClass0.smethod_0("Rŕɀ\u0356ќՋم");
+            @class.strQName = "USER_ID";
             num = list_0.FindIndex(@class.method_2);
             if (num > -1)
             {
                 surveyMain.USER_ID = list_0[num].CODE;
             }
-            @class.strQName = GClass0.smethod_0("Dŏɑ\u035dќՋم");
+            @class.strQName = "CITY_ID";
             num = list_0.FindIndex(@class.method_3);
             if (num > -1)
             {
                 surveyMain.CITY_ID = list_0[num].CODE;
             }
-            @class.strQName = GClass0.smethod_0("Yŝɉ\u0355ђ՚\u0650\u074aࡏ\u0944");
+            @class.strQName = "START_TIME";
             num = list_0.FindIndex(@class.method_4);
             if (num > -1)
             {
                 surveyMain.START_TIME = Convert.ToDateTime(list_0[num].CODE.ToString());
             }
-            @class.strQName = GClass0.smethod_0("Mŉɂ\u035aѐՊ\u064f\u0744");
+            @class.strQName = "END_TIME";
             num = list_0.FindIndex(@class.method_5);
             if (num > -1)
             {
                 surveyMain.END_TIME = Convert.ToDateTime(list_0[num].CODE.ToString());
             }
-            @class.strQName = GClass0.smethod_0("Cŏɞ\u0358є\u0559\u065d\u0749ࡕ\u0952ਗ਼\u0b50\u0c4a\u0d4fไ");
+            @class.strQName = "LAST_START_TIME";
             num = list_0.FindIndex(@class.method_6);
             if (num > -1)
             {
                 surveyMain.LAST_START_TIME = Convert.ToDateTime(list_0[num].CODE.ToString());
             }
-            @class.strQName = GClass0.smethod_0("Aōɘ\u035eіՍى\u0742\u085aॐ\u0a4a\u0b4f\u0c44");
+            @class.strQName = "LAST_END_TIME";
             num = list_0.FindIndex(@class.method_7);
             if (num > -1)
             {
                 surveyMain.LAST_END_TIME = Convert.ToDateTime(list_0[num].CODE.ToString());
             }
-            @class.strQName = GClass0.smethod_0("Hşɛ\u0357їՇق\u0741\u085c\u094b\u0a45");
+            @class.strQName = "CUR_PAGE_ID";
             num = list_0.FindIndex(@class.method_8);
             if (num > -1)
             {
                 surveyMain.CUR_PAGE_ID = list_0[num].CODE;
             }
-            @class.strQName = GClass0.smethod_0("Sņɜ\u034eрՎ\u0655\u0748ࡗ\u0944\u0a53\u0b57\u0c56\u0d46\u0e4cཕ");
+            @class.strQName = "CIRCLE_A_CURRENT";
             num = list_0.FindIndex(@class.method_9);
             if (num > -1)
             {
                 surveyMain.CIRCLE_A_CURRENT = Convert.ToInt32(list_0[num].CODE);
             }
-            @class.strQName = GClass0.smethod_0("Mńɞ\u0348цՌ\u0657\u0746\u0859\u0946\u0a4b\u0b56\u0c4c\u0d55");
+            @class.strQName = "CIRCLE_A_COUNT";
             num = list_0.FindIndex(@class.method_10);
             if (num > -1)
             {
                 surveyMain.CIRCLE_A_COUNT = Convert.ToInt32(list_0[num].CODE);
             }
-            @class.strQName = GClass0.smethod_0("Sņɜ\u034eрՎ\u0655\u074bࡗ\u0944\u0a53\u0b57\u0c56\u0d46\u0e4cཕ");
+            @class.strQName = "CIRCLE_B_CURRENT";
             num = list_0.FindIndex(@class.method_11);
             if (num > -1)
             {
                 surveyMain.CIRCLE_B_CURRENT = Convert.ToInt32(list_0[num].CODE);
             }
-            @class.strQName = GClass0.smethod_0("Mńɞ\u0348цՌ\u0657\u0745\u0859\u0946\u0a4b\u0b56\u0c4c\u0d55");
+            @class.strQName = "CIRCLE_B_COUNT";
             num = list_0.FindIndex(@class.method_12);
             if (num > -1)
             {
                 surveyMain.CIRCLE_B_COUNT = Convert.ToInt32(list_0[num].CODE);
             }
-            @class.strQName = GClass0.smethod_0("@śɘ\u0340ьՊيݑࡉ");
+            @class.strQName = "IS_FINISH";
             num = list_0.FindIndex(@class.method_13);
             if (num > -1)
             {
                 surveyMain.IS_FINISH = Convert.ToInt32(list_0[num].CODE);
             }
-            @class.strQName = GClass0.smethod_0("Xŏɘ\u035dтՈن\u0741\u085c\u094b\u0a45");
+            @class.strQName = "SEQUENCE_ID";
             num = list_0.FindIndex(@class.method_14);
             if (num > -1)
             {
                 surveyMain.SEQUENCE_ID = Convert.ToInt32(list_0[num].CODE);
             }
-            @class.strQName = GClass0.smethod_0("Xşɛ\u035eт՟\u065a\u0743ࡖ\u094b\u0a45");
+            @class.strQName = "SURVEY_GUID";
             num = list_0.FindIndex(@class.method_15);
             if (num > -1)
             {
                 surveyMain.SURVEY_GUID = list_0[num].CODE;
             }
-            @class.strQName = GClass0.smethod_0("JńɎ\u0343ыՐ\u065c\u074bࡅ");
+            @class.strQName = "CLIENT_ID";
             num = list_0.FindIndex(@class.method_16);
             if (num > -1)
             {
                 surveyMain.CLIENT_ID = list_0[num].CODE;
             }
-            @class.strQName = GClass0.smethod_0("Zśɇ\u034dуՆ\u0650ݜࡋ\u0945");
+            @class.strQName = "PROJECT_ID";
             num = list_0.FindIndex(@class.method_17);
             if (num > -1)
             {
@@ -273,15 +252,15 @@ namespace Gssy.Capi.BIZ
 
         public void ImportSurveyRandom(List<SurveyAnswer> list_0)
         {
-            IEnumerable<Class0<string, string, int, string, string>> enumerable = list_0.Where(Class11._003C_003E9.method_0).Select(Class11._003C_003E9.method_1);
-            foreach (Class0<string, string, int, string, string> item in enumerable)
+            var enumerable = list_0.Where(p=>p.SEQUENCE_ID == 90000);
+            foreach (var item in enumerable)
             {
                 SurveyRandom surveyRandom = new SurveyRandom();
                 surveyRandom.SURVEY_ID = item.SURVEY_ID;
                 surveyRandom.QUESTION_SET = item.QUESTION_NAME;
                 surveyRandom.QUESTION_NAME = item.QUESTION_NAME;
                 surveyRandom.CODE = item.CODE;
-                surveyRandom.PARENT_CODE = GClass0.smethod_0("");
+                surveyRandom.PARENT_CODE = "";
                 surveyRandom.RANDOM_INDEX = item.MULTI_ORDER;
                 surveyRandom.RANDOM_SET1 = 1;
                 surveyRandom.RANDOM_SET2 = 0;
@@ -345,11 +324,11 @@ namespace Gssy.Capi.BIZ
                 if (!flag)
                 {
                     string a = item.QUESTION_NAME.ToUpper();
-                    if (!(a == GClass0.smethod_0("Xşɛ\u035eт՟\u065a\u0743ࡖ\u094b\u0a45")))
+                    if (!(a == "SURVEY_GUID"))
                     {
-                        if (!(a == GClass0.smethod_0("Zŝɕ\u0350р՝\u065c\u074bࡅ")))
+                        if (!(a == "SURVEY_ID"))
                         {
-                            if (a == GClass0.smethod_0("Xşɛ\u035eт՟\u065a\u0747ࡌ\u0946\u0a44"))
+                            if (a == "SURVEY_CODE")
                             {
                                 flag = true;
                             }
@@ -373,10 +352,10 @@ namespace Gssy.Capi.BIZ
                     }
                     oSurveyAnswerDal.AddByModel(item);
                 }
-                if (item.QUESTION_NAME.ToUpper() == GClass0.smethod_0("\\Ōɚ\u0354яՊيݜࡋ\u0945"))
+                if (item.QUESTION_NAME.ToUpper() == "VERSION_ID")
                 {
                     item.SURVEY_GUID = string_0;
-                    item.QUESTION_NAME = GClass0.smethod_0("OŁɋ\u0343њՔقݖࡉ");
+                    item.QUESTION_NAME = "FILE_PATH";
                     item.CODE = string_1;
                     if (!item.BEGIN_DATE.HasValue)
                     {
@@ -405,17 +384,17 @@ namespace Gssy.Capi.BIZ
                     flag = true;
                     num++;
                 }
-                if (item.QUESTION_NAME == string_1 + GClass0.smethod_0("WŊɧ\u0375щբ\u0670ݪ"))
+                if (item.QUESTION_NAME == string_1 + "_MapMark")
                 {
                     flag = true;
                     num++;
                 }
-                if (item.QUESTION_NAME == string_1 + GClass0.smethod_0("Xŋɤ\u0374яլ٦"))
+                if (item.QUESTION_NAME == string_1 + "_MapLng")
                 {
                     flag = true;
                     num++;
                 }
-                if (item.QUESTION_NAME == string_1 + GClass0.smethod_0("Xŋɤ\u0374яգٵ"))
+                if (item.QUESTION_NAME == string_1 + "_MapLat")
                 {
                     flag = true;
                     num++;

@@ -1,9 +1,7 @@
 ﻿using System;
 
-// Token: 0x0200002B RID: 43
 public class GClass0
 {
-	// Token: 0x06000337 RID: 823 RVA: 0x00003A64 File Offset: 0x00001C64
 	public static string smethod_0(string string_0)
 	{
 		int length = string_0.Length;

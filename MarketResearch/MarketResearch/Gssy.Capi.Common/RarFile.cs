@@ -4,10 +4,8 @@ using System.IO;
 
 namespace Gssy.Capi.Common
 {
-	// Token: 0x02000012 RID: 18
 	public class RarFile
 	{
-		// Token: 0x06000081 RID: 129 RVA: 0x000042D0 File Offset: 0x000024D0
 		public bool Compress(string string_0, string string_1, string string_2, string string_3, bool bool_0 = true, bool bool_1 = true)
 		{
 			bool result = false;
@@ -18,8 +16,8 @@ namespace Gssy.Capi.Common
 				{
 					File.Delete(string_1 + string_2);
 				}
-				string text2 = bool_1 ? GClass0.smethod_0("$Įɰ̡") : GClass0.smethod_0("");
-				string text3 = bool_0 ? GClass0.smethod_0("&Ĩɡͳгԡ") : GClass0.smethod_0("");
+				string text2 = bool_1 ? GClass0.smethod_0("$Įɰ̡") : "";
+				string text3 = bool_0 ? GClass0.smethod_0("&Ĩɡͳгԡ") : "";
 				string string_4 = string.Concat(new string[]
 				{
 					GClass0.smethod_0("&ŤȤ̮Ѫձ"),
@@ -38,7 +36,6 @@ namespace Gssy.Capi.Common
 			return result;
 		}
 
-		// Token: 0x06000082 RID: 130 RVA: 0x000043D0 File Offset: 0x000025D0
 		public bool Extract(string string_0, string string_1, string string_2, string string_3)
 		{
 			bool result = false;
@@ -60,7 +57,6 @@ namespace Gssy.Capi.Common
 			return result;
 		}
 
-		// Token: 0x06000083 RID: 131 RVA: 0x00004464 File Offset: 0x00002664
 		public bool StartProcess(string string_0, string string_1, string string_2, ProcessWindowStyle processWindowStyle_0, bool bool_0 = false, int int_0 = 0, bool bool_1 = false)
 		{
 			try

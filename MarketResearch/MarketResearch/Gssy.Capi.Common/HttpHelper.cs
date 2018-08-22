@@ -9,10 +9,8 @@ using System.Text.RegularExpressions;
 
 namespace Gssy.Capi.Common
 {
-	// Token: 0x02000007 RID: 7
 	public class HttpHelper
 	{
-		// Token: 0x06000028 RID: 40 RVA: 0x000035CC File Offset: 0x000017CC
 		private HttpResult method_0(HttpItem httpItem_0)
 		{
 			HttpResult httpResult = new HttpResult();
@@ -50,7 +48,7 @@ namespace Gssy.Capi.Common
 					{
 						Match match = Regex.Match(Encoding.Default.GetString(array), GClass0.smethod_0("#ųɸͨѺԲق݆ࠫोਿଽ౰ൺ๰རၼᅫቹጱᐣᕑᙗ᜴ᡚ᤬ᨬ᭟ᰡᴥṜ"), RegexOptions.IgnoreCase);
 						string text = (match.Groups.Count > 2) ? match.Groups[2].Value.ToLower() : string.Empty;
-						text = text.Replace(GClass0.smethod_0("#"), GClass0.smethod_0("")).Replace(GClass0.smethod_0("&"), GClass0.smethod_0("")).Replace(GClass0.smethod_0(":"), GClass0.smethod_0("")).Replace(GClass0.smethod_0("cźɧ̪оԽرܺ࠯र"), GClass0.smethod_0("dŠɪ"));
+						text = text.Replace(GClass0.smethod_0("#"), "").Replace(GClass0.smethod_0("&"), "").Replace(GClass0.smethod_0(":"), "").Replace(GClass0.smethod_0("cźɧ̪оԽرܺ࠯र"), GClass0.smethod_0("dŠɪ"));
 						if (text.Length > 2)
 						{
 							this.encoding = Encoding.GetEncoding(text.Trim());
@@ -86,7 +84,6 @@ namespace Gssy.Capi.Common
 			return httpResult;
 		}
 
-		// Token: 0x06000029 RID: 41 RVA: 0x00003910 File Offset: 0x00001B10
 		private static MemoryStream smethod_0(Stream stream_0)
 		{
 			MemoryStream memoryStream = new MemoryStream();
@@ -99,7 +96,6 @@ namespace Gssy.Capi.Common
 			return memoryStream;
 		}
 
-		// Token: 0x0600002A RID: 42 RVA: 0x00003964 File Offset: 0x00001B64
 		private void method_1(HttpItem httpItem_0)
 		{
 			this.method_2(httpItem_0);
@@ -128,7 +124,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x0600002B RID: 43 RVA: 0x00003A98 File Offset: 0x00001C98
 		private void method_2(HttpItem httpItem_0)
 		{
 			if (!string.IsNullOrEmpty(httpItem_0.CerPath))
@@ -143,7 +138,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x0600002C RID: 44 RVA: 0x00003B10 File Offset: 0x00001D10
 		private void method_3(HttpItem httpItem_0)
 		{
 			if (!string.IsNullOrEmpty(httpItem_0.Cookie))
@@ -157,7 +151,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x0600002D RID: 45 RVA: 0x00003B78 File Offset: 0x00001D78
 		private void method_4(HttpItem httpItem_0)
 		{
 			if (this.request.Method.Trim().ToLower().Contains(GClass0.smethod_0("tŬɱ͵")))
@@ -185,7 +178,6 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x0600002E RID: 46 RVA: 0x00003C70 File Offset: 0x00001E70
 		private void method_5(HttpItem httpItem_0)
 		{
 			if (!string.IsNullOrEmpty(httpItem_0.ProxyIp))
@@ -210,13 +202,11 @@ namespace Gssy.Capi.Common
 			}
 		}
 
-		// Token: 0x0600002F RID: 47 RVA: 0x00003D44 File Offset: 0x00001F44
 		public bool CheckValidationResult(object object_0, X509Certificate x509Certificate_0, X509Chain x509Chain_0, SslPolicyErrors sslPolicyErrors_0)
 		{
 			return true;
 		}
 
-		// Token: 0x06000030 RID: 48 RVA: 0x00003D54 File Offset: 0x00001F54
 		public HttpResult GetHtml(HttpItem httpItem_0)
 		{
 			try
@@ -227,7 +217,7 @@ namespace Gssy.Capi.Common
 			{
 				return new HttpResult
 				{
-					Cookie = GClass0.smethod_0(""),
+					Cookie = "",
 					Header = null,
 					Html = ex.Message,
 					StatusDescription = GClass0.smethod_0("酊繨凇茇懵枧錘")
@@ -236,13 +226,10 @@ namespace Gssy.Capi.Common
 			return this.method_0(httpItem_0);
 		}
 
-		// Token: 0x0400001B RID: 27
 		private Encoding encoding = Encoding.Default;
 
-		// Token: 0x0400001C RID: 28
 		private HttpWebRequest request = null;
 
-		// Token: 0x0400001D RID: 29
 		private HttpWebResponse response = null;
 	}
 }

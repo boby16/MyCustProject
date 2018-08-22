@@ -12,16 +12,13 @@ using Gssy.Capi.Class;
 
 namespace Gssy.Capi.View
 {
-	// Token: 0x02000045 RID: 69
 	public partial class CircleGuide : Page
 	{
-		// Token: 0x060004B6 RID: 1206 RVA: 0x000034DD File Offset: 0x000016DD
 		public CircleGuide()
 		{
 			this.InitializeComponent();
 		}
 
-		// Token: 0x060004B7 RID: 1207 RVA: 0x00086784 File Offset: 0x00084984
 		private void method_0(object sender, RoutedEventArgs e)
 		{
 			this.MySurveyId = SurveyHelper.SurveyID;
@@ -32,20 +29,20 @@ namespace Gssy.Capi.View
 			new SurveyBiz().ClearPageAnswer(this.MySurveyId, SurveyHelper.SurveySequence);
 			string navOperation = SurveyHelper.NavOperation;
 			this.MyNav.GroupLevel = qdisplay.QDefine.GROUP_LEVEL;
-			if (this.MyNav.GroupLevel != global::GClass0.smethod_0(""))
+			if (this.MyNav.GroupLevel != "")
 			{
 				this.MyNav.GroupPageType = qdisplay.QDefine.GROUP_PAGE_TYPE;
 				this.MyNav.GroupCodeA = qdisplay.QDefine.GROUP_CODEA;
 				this.MyNav.CircleACurrent = SurveyHelper.CircleACurrent;
 				this.MyNav.CircleACount = SurveyHelper.CircleACount;
-				if (navOperation == global::GClass0.smethod_0("FŢɡͪ"))
+				if (navOperation == "Back")
 				{
-					if (this.MyNav.GroupLevel == global::GClass0.smethod_0("@") && this.MyNav.CircleACurrent > 1)
+					if (this.MyNav.GroupLevel == "A" && this.MyNav.CircleACurrent > 1)
 					{
 						this.MyNav.CircleACurrent = this.MyNav.CircleACurrent - 1;
 					}
 				}
-				else if (this.MyNav.GroupLevel == global::GClass0.smethod_0("@") && this.MyNav.CircleACurrent == 0)
+				else if (this.MyNav.GroupLevel == "A" && this.MyNav.CircleACurrent == 0)
 				{
 					this.MyNav.CircleACurrent = 1;
 				}
@@ -63,7 +60,7 @@ namespace Gssy.Capi.View
 				CircleBCount = this.MyNav.CircleBCount,
 				CircleBCurrent = this.MyNav.CircleBCurrent
 			}.CircleGuideLogic(this.CurPageId, 1);
-			if (array.Count<string>() > 0 && array[0].ToString() != global::GClass0.smethod_0(""))
+			if (array.Count<string>() > 0 && array[0].ToString() != "")
 			{
 				new RandomBiz().RebuildCircleGuide(this.MySurveyId, qdisplay.QDefine.QUESTION_NAME, array, qdisplay.QDefine.IS_RANDOM);
 			}
@@ -72,16 +69,15 @@ namespace Gssy.Capi.View
 			{
 				Thread.Sleep(page_COUNT_DOWN);
 			}
-			if (navOperation == global::GClass0.smethod_0("FŢɡͪ"))
+			if (navOperation == "Back")
 			{
 				this.method_2();
-				SurveyHelper.NavOperation = global::GClass0.smethod_0("FŢɡͪ");
+				SurveyHelper.NavOperation = "Back";
 				return;
 			}
 			this.method_1();
 		}
 
-		// Token: 0x060004B8 RID: 1208 RVA: 0x00086A54 File Offset: 0x00084C54
 		private void method_1()
 		{
 			int surveySequence = SurveyHelper.SurveySequence;
@@ -91,10 +87,10 @@ namespace Gssy.Capi.View
 				this.MyNav.NextPage(this.MySurveyId, surveySequence, this.CurPageId, roadMapVersion);
 				string text = this.oLogicEngine.Route(this.MyNav.RoadMap.FORM_NAME);
 				SurveyHelper.RoadMapVersion = this.MyNav.RoadMap.VERSION_ID.ToString();
-				string uriString = string.Format(global::GClass0.smethod_0("TłɁ͊К԰رݼ࡬५੶୰౻൶๢ོၻᅽረጽᐼᔣᘡ᝛ᡥ᥮᩽ᬦᱳᴷṻἫ⁼Ⅲ≯⍭"), text);
-				if (text.Substring(0, 1) == global::GClass0.smethod_0("@"))
+				string uriString = string.Format("pack://application:,,,/View/{0}.xaml", text);
+				if (text.Substring(0, 1) == "A")
 				{
-					uriString = string.Format(global::GClass0.smethod_0("[ŋɊ̓Нԉ؊݅ࡓ੍॒୉౼ൿ๩ཱུၴᅴሣጴᐻᔺᘺᝂ᡺᥷ᩦᭀᱽᵡṧὩ⁨ⅾ∦⍳␷╻☫❼⡢⥯⩭"), text);
+					uriString = string.Format("pack://application:,,,/ViewProject/{0}.xaml", text);
 				}
 				if (text == SurveyHelper.CurPageName)
 				{
@@ -123,20 +119,20 @@ namespace Gssy.Capi.View
 						text2,
 						SurveyMsg.MsgErrorEnd
 					}), SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
-					this.oLogicEngine.OutputResult(text2, global::GClass0.smethod_0("Nŭɻͣэխ٥ݳࡢप੏୭౦"));
+					this.oLogicEngine.OutputResult(text2, "CapiDebug.Log");
 					if (this.CurPageId == SurveyHelper.SurveyFirstPage)
 					{
 						MessageBox.Show(SurveyMsg.MsgErrorRoadmapTip + SurveyMsg.MsgErrorEnd, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 						return;
 					}
 					this.method_2();
-					SurveyHelper.NavOperation = global::GClass0.smethod_0("FŢɡͪ");
+					SurveyHelper.NavOperation = "Back";
 				}
 				SurveyHelper.SurveySequence = surveySequence + 1;
 				SurveyHelper.NavCurPage = this.MyNav.RoadMap.PAGE_ID;
 				SurveyHelper.CurPageName = this.MyNav.RoadMap.FORM_NAME;
 				SurveyHelper.NavGoBackTimes = 0;
-				SurveyHelper.NavOperation = global::GClass0.smethod_0("HŪɶͮѣխ");
+				SurveyHelper.NavOperation = "Normal";
 				SurveyHelper.NavLoad = 0;
 			}
 			catch (Exception)
@@ -157,7 +153,7 @@ namespace Gssy.Capi.View
 					text3,
 					SurveyMsg.MsgErrorEnd
 				}), SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
-				this.oLogicEngine.OutputResult(text3, global::GClass0.smethod_0("Nŭɻͣэխ٥ݳࡢप੏୭౦"));
+				this.oLogicEngine.OutputResult(text3, "CapiDebug.Log");
 				if (this.CurPageId == SurveyHelper.SurveyFirstPage)
 				{
 					MessageBox.Show(SurveyMsg.MsgErrorRoadmapTip + SurveyMsg.MsgErrorEnd, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
@@ -165,16 +161,15 @@ namespace Gssy.Capi.View
 				else
 				{
 					this.method_2();
-					SurveyHelper.NavOperation = global::GClass0.smethod_0("FŢɡͪ");
+					SurveyHelper.NavOperation = "Back";
 				}
 			}
 		}
 
-		// Token: 0x060004B9 RID: 1209 RVA: 0x00086DC8 File Offset: 0x00084FC8
 		private void method_2()
 		{
 			int surveySequence = SurveyHelper.SurveySequence;
-			if (!(this.MySurveyId == global::GClass0.smethod_0("")) && !(this.CurPageId == SurveyHelper.SurveyFirstPage))
+			if (!(this.MySurveyId == "") && !(this.CurPageId == SurveyHelper.SurveyFirstPage))
 			{
 				string roadMapVersion = SurveyHelper.RoadMapVersion;
 				this.MyNav.PrePage(this.MySurveyId, surveySequence, roadMapVersion);
@@ -182,10 +177,10 @@ namespace Gssy.Capi.View
 				SurveyHelper.CircleACurrent = this.MyNav.Sequence.CIRCLE_A_CURRENT;
 				SurveyHelper.CircleBCount = this.MyNav.Sequence.CIRCLE_B_COUNT;
 				SurveyHelper.CircleBCurrent = this.MyNav.Sequence.CIRCLE_B_CURRENT;
-				string uriString = string.Format(global::GClass0.smethod_0("TłɁ͊К԰رݼ࡬५੶୰౻൶๢ོၻᅽረጽᐼᔣᘡ᝛ᡥ᥮᩽ᬦᱳᴷṻἫ⁼Ⅲ≯⍭"), this.MyNav.RoadMap.FORM_NAME);
-				if (this.MyNav.RoadMap.FORM_NAME.Substring(0, 1) == global::GClass0.smethod_0("@"))
+				string uriString = string.Format("pack://application:,,,/View/{0}.xaml", this.MyNav.RoadMap.FORM_NAME);
+				if (this.MyNav.RoadMap.FORM_NAME.Substring(0, 1) == "A")
 				{
-					uriString = string.Format(global::GClass0.smethod_0("[ŋɊ̓Нԉ؊݅ࡓ੍॒୉౼ൿ๩ཱུၴᅴሣጴᐻᔺᘺᝂ᡺᥷ᩦᭀᱽᵡṧὩ⁨ⅾ∦⍳␷╻☫❼⡢⥯⩭"), this.MyNav.RoadMap.FORM_NAME);
+					uriString = string.Format("pack://application:,,,/ViewProject/{0}.xaml", this.MyNav.RoadMap.FORM_NAME);
 				}
 				if (this.MyNav.RoadMap.FORM_NAME == SurveyHelper.CurPageName)
 				{
@@ -201,24 +196,19 @@ namespace Gssy.Capi.View
 				SurveyHelper.CurPageName = this.MyNav.RoadMap.FORM_NAME;
 				return;
 			}
-			SurveyHelper.NavOperation = global::GClass0.smethod_0("HŪɶͮѣխ");
+			SurveyHelper.NavOperation = "Normal";
 			MessageBox.Show(SurveyMsg.MsgFirstPage, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Asterisk);
 			this.method_1();
 		}
 
-		// Token: 0x040008DB RID: 2267
 		private string MySurveyId;
 
-		// Token: 0x040008DC RID: 2268
 		private string CurPageId;
 
-		// Token: 0x040008DD RID: 2269
 		private NavBase MyNav = new NavBase();
 
-		// Token: 0x040008DE RID: 2270
 		private PageNav oPageNav = new PageNav();
 
-		// Token: 0x040008DF RID: 2271
 		public LogicEngine oLogicEngine = new LogicEngine();
 	}
 }

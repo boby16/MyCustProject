@@ -34,17 +34,17 @@ namespace Gssy.Capi.BIZ
             }
         }
 
-        private string QChildQuestion = GClass0.smethod_0("");
+        private string QChildQuestion = "";
 
-        public string OtherCode = GClass0.smethod_0("");
+        public string OtherCode = "";
 
-        public string FillText = GClass0.smethod_0("");
+        public string FillText = "";
 
-        public string NoneCode = GClass0.smethod_0("");
+        public string NoneCode = "";
 
-        public string NoneCodeText = GClass0.smethod_0("");
+        public string NoneCodeText = "";
 
-        public string SelectedCode = GClass0.smethod_0("");
+        public string SelectedCode = "";
 
         private SurveyAnswerDal oSurveyAnswerDal = new SurveyAnswerDal();
 
@@ -133,18 +133,18 @@ namespace Gssy.Capi.BIZ
         public void Init(string string_0, int int_0, bool GetDetail = true)
         {
             QInitDateTime = DateTime.Now;
-            string _003F40_003F = GClass0.smethod_0("");
+            string _003F40_003F = "";
             QDefine = oSurveyDefineDal.GetByPageId(string_0, int_0);
             QuestionName = QDefine.QUESTION_NAME;
             ParentCode = QDefine.PARENT_CODE;
-            if (QDefine.DETAIL_ID != GClass0.smethod_0("") && GetDetail)
+            if (QDefine.DETAIL_ID != "" && GetDetail)
             {
-                if (QDefine.PARENT_CODE == GClass0.smethod_0("") || int_0 == 0)
+                if (QDefine.PARENT_CODE == "" || int_0 == 0)
                 {
                     QDetails = oSurveyDetailDal.GetDetails(QDefine.DETAIL_ID, out _003F40_003F);
                     OtherCode = _003F40_003F;
                 }
-                else if (!(QDefine.PARENT_CODE == GClass0.smethod_0("Cşɋ\u0345юՋق")) && int_0 > 0)
+                else if (!(QDefine.PARENT_CODE == "DYNAMIC") && int_0 > 0)
                 {
                     QDetails = oSurveyDetailDal.GetList(QDefine.DETAIL_ID, QDefine.PARENT_CODE);
                 }
@@ -153,9 +153,9 @@ namespace Gssy.Capi.BIZ
 
         public void InitCircle()
         {
-            QChildQuestion = ((QDefine.GROUP_LEVEL == GClass0.smethod_0("C")) ? QDefine.GROUP_CODEB : QDefine.GROUP_CODEA);
+            QChildQuestion = ((QDefine.GROUP_LEVEL == "B") ? QDefine.GROUP_CODEB : QDefine.GROUP_CODEA);
             QCircleDefine = oSurveyDefineDal.GetByName(QChildQuestion);
-            if (QCircleDefine.DETAIL_ID != GClass0.smethod_0(""))
+            if (QCircleDefine.DETAIL_ID != "")
             {
                 QCircleDetails = oSurveyDetailDal.GetDetails(QCircleDefine.DETAIL_ID);
             }
@@ -171,8 +171,8 @@ namespace Gssy.Capi.BIZ
                     return ParentCode;
                 }
             }
-            ParentCode = GClass0.smethod_0("");
-            return GClass0.smethod_0("");
+            ParentCode = "";
+            return "";
         }
 
         public void BeforeSave()
@@ -190,7 +190,7 @@ namespace Gssy.Capi.BIZ
             surveyAnswer.MODIFY_DATE = DateTime.Now;
             List<SurveyAnswer> list = new List<SurveyAnswer>();
             list.Add(surveyAnswer);
-            if (FillText != GClass0.smethod_0(""))
+            if (FillText != "")
             {
                 SurveyAnswer surveyAnswer2 = new SurveyAnswer();
                 surveyAnswer2.QUESTION_NAME = QuestionName + GClass0.smethod_0("[Ōɖ\u0349");
@@ -219,7 +219,7 @@ namespace Gssy.Capi.BIZ
 
         public string ReadAnswerByQuestionName(string string_0, string string_1)
         {
-            string text = GClass0.smethod_0("");
+            string text = "";
             SurveyAnswer one = oSurveyAnswerDal.GetOne(string_0, string_1);
             return one.CODE;
         }
@@ -246,8 +246,8 @@ namespace Gssy.Capi.BIZ
 
         public string GetInnerCodeText(string string_0 = "")
         {
-            string result = GClass0.smethod_0("");
-            if (string_0 == GClass0.smethod_0(""))
+            string result = "";
+            if (string_0 == "")
             {
                 string_0 = SelectedCode;
             }
@@ -269,7 +269,7 @@ namespace Gssy.Capi.BIZ
 
         public void ResetOtherCode()
         {
-            OtherCode = GClass0.smethod_0("");
+            OtherCode = "";
             foreach (SurveyDetail qDetail in QDetails)
             {
                 if (qDetail.IS_OTHER == 1)
@@ -287,14 +287,14 @@ namespace Gssy.Capi.BIZ
 
         public void InitDetailID(string string_0, int int_0)
         {
-            string _003F40_003F = GClass0.smethod_0("");
-            if (QDefine.DETAIL_ID != GClass0.smethod_0(""))
+            string _003F40_003F = "";
+            if (QDefine.DETAIL_ID != "")
             {
-                if (QDefine.PARENT_CODE == GClass0.smethod_0("") || int_0 == 0)
+                if (QDefine.PARENT_CODE == "" || int_0 == 0)
                 {
                     QDetails = oSurveyDetailDal.GetDetails(QDefine.DETAIL_ID, out _003F40_003F);
                 }
-                else if (!(QDefine.PARENT_CODE == GClass0.smethod_0("Cşɋ\u0345юՋق")) && int_0 > 0)
+                else if (!(QDefine.PARENT_CODE == "DYNAMIC") && int_0 > 0)
                 {
                     QDetails = oSurveyDetailDal.GetList(QDefine.DETAIL_ID, QDefine.PARENT_CODE);
                 }
@@ -304,7 +304,7 @@ namespace Gssy.Capi.BIZ
         public void InitRelation(string string_0, int int_0)
         {
             QInitDateTime = DateTime.Now;
-            string _003F40_003F = GClass0.smethod_0("");
+            string _003F40_003F = "";
             QDefine = oSurveyDefineDal.GetByPageId(string_0, int_0);
             QuestionName = QDefine.QUESTION_NAME;
             ParentCode = QDefine.PARENT_CODE;
@@ -335,7 +335,7 @@ namespace Gssy.Capi.BIZ
             @class.Level1Code = string_0;
             IOrderedEnumerable<SurveyDetail> source = QDetails.Where(@class.method_0).OrderBy(Class3._003C_003E9.method_0);
             QGroupDetails = source.ToList();
-            OtherCode = GClass0.smethod_0("");
+            OtherCode = "";
             foreach (SurveyDetail qGroupDetail in QGroupDetails)
             {
                 if (qGroupDetail.IS_OTHER == 1)

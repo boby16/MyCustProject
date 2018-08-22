@@ -11,7 +11,7 @@
 	BorderBrush="#6A6A6A"
 	BorderThickness="0.5"
 	Icon="resources/capi.ico" xmlns:capi="clr-namespace:Gssy.Capi"
-	Loaded="method_0">
+	Loaded="CStart_Load">
 	<Grid
 		Name="LayoutRoot">
 		<Grid

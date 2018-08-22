@@ -49,23 +49,23 @@ namespace Gssy.Capi.Class
             navBase_0.RecordFileName = SurveyHelper.RecordFileName;
             navBase_0.RecordStartTime = SurveyHelper.RecordStartTime;
             SurveyRoadMap byPageId = oSurveyRoadMapDal.GetByPageId(navCurPage, roadMapVersion);
-            string text = GClass0.smethod_0("\tŪɁ\u0355хՉفݤࡗ\u0948\u0a44\u0b7aఽ\u0d5e\u0e75ཀྵၹᅵችፄᑢᕴᙦᝧᠱᥔ\u1a7d\u1b7f\u1c7aᵴṆ\u1f7e\u2067ⅹ∫⍕④╦♫❧⡧⤢");
-            string value = GClass0.smethod_0("\"") + byPageId.FORM_NAME.ToUpper() + GClass0.smethod_0("\"");
+            string text = "#CircleGuide#CircleStart#EmptyJump#Recode#";
+            string value = "#" + byPageId.FORM_NAME.ToUpper() + "#";
             bool flag = text.ToUpper().Contains(value);
             if (SurveyHelper.AutoCapture && !flag)
             {
-                string str = SurveyHelper.SurveyID + GClass0.smethod_0("^") + SurveyHelper.NavCurPage + ((SurveyHelper.CircleACode == GClass0.smethod_0("")) ? GClass0.smethod_0("") : (GClass0.smethod_0("]ŀ") + SurveyHelper.CircleACode)) + ((SurveyHelper.CircleBCode == GClass0.smethod_0("")) ? GClass0.smethod_0("") : (GClass0.smethod_0("]Ń") + SurveyHelper.CircleBCode)) + GClass0.smethod_0("*ũɲ\u0366");
-                str = Directory.GetCurrentDirectory() + GClass0.smethod_0("[Ŗɭ\u036bѷխ\u065d") + str;
+                string str = SurveyHelper.SurveyID + "_" + SurveyHelper.NavCurPage + ((SurveyHelper.CircleACode == "") ? "" : ("_A" + SurveyHelper.CircleACode)) + ((SurveyHelper.CircleBCode == "") ? "" : ("_B" + SurveyHelper.CircleBCode)) + ".jpg";
+                str = Directory.GetCurrentDirectory() + "\\Photo\\" + str;
                 if (File.Exists(str))
                 {
-                    str = SurveyHelper.SurveyID + GClass0.smethod_0("^") + SurveyHelper.NavCurPage + ((SurveyHelper.CircleACode == GClass0.smethod_0("")) ? GClass0.smethod_0("") : (GClass0.smethod_0("]ŀ") + SurveyHelper.CircleACode)) + ((SurveyHelper.CircleBCode == GClass0.smethod_0("")) ? GClass0.smethod_0("") : (GClass0.smethod_0("]Ń") + SurveyHelper.CircleBCode)) + GClass0.smethod_0("^") + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + GClass0.smethod_0("*ũɲ\u0366");
-                    str = Directory.GetCurrentDirectory() + GClass0.smethod_0("[Ŗɭ\u036bѷխ\u065d") + str;
+                    str = SurveyHelper.SurveyID + "_" + SurveyHelper.NavCurPage + ((SurveyHelper.CircleACode == "") ? "" : ("_A" + SurveyHelper.CircleACode)) + ((SurveyHelper.CircleBCode == "") ? "" : ("_B" + SurveyHelper.CircleBCode)) + "_" + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + ".jpg";
+                    str = Directory.GetCurrentDirectory() + "\\Photo\\" + str;
                 }
                 method_0(str, (int)SurveyHelper.Screen_LeftTop);
             }
             try
             {
-                if (navBase_0.GroupLevel == GClass0.smethod_0(""))
+                if (navBase_0.GroupLevel == "")
                 {
                     navBase_0.NextPage(surveyID, surveySequence, navCurPage, roadMapVersion);
                 }
@@ -76,26 +76,26 @@ namespace Gssy.Capi.Class
                     SurveyHelper.CircleACurrent = navBase_0.CircleACurrent;
                     if (navBase_0.IsLastA && (navBase_0.GroupPageType == 0 || navBase_0.GroupPageType == 2))
                     {
-                        SurveyHelper.CircleACode = GClass0.smethod_0("");
-                        SurveyHelper.CircleACodeText = GClass0.smethod_0("");
+                        SurveyHelper.CircleACode = "";
+                        SurveyHelper.CircleACodeText = "";
                     }
-                    if (navBase_0.GroupLevel == GClass0.smethod_0("C"))
+                    if (navBase_0.GroupLevel == "B")
                     {
                         SurveyHelper.CircleBCount = navBase_0.CircleBCount;
                         SurveyHelper.CircleBCurrent = navBase_0.CircleBCurrent;
                         if (navBase_0.IsLastB && (navBase_0.GroupPageType == 10 || navBase_0.GroupPageType == 12 || navBase_0.GroupPageType == 30 || navBase_0.GroupPageType == 32))
                         {
-                            SurveyHelper.CircleBCode = GClass0.smethod_0("");
-                            SurveyHelper.CircleBCodeText = GClass0.smethod_0("");
+                            SurveyHelper.CircleBCode = "";
+                            SurveyHelper.CircleBCodeText = "";
                         }
                     }
                 }
                 string text2 = oLogicEngine.Route(navBase_0.RoadMap.FORM_NAME);
                 SurveyHelper.RoadMapVersion = navBase_0.RoadMap.VERSION_ID.ToString();
-                string uriString = string.Format(GClass0.smethod_0("TłɁ\u034aК\u0530رݼ\u086c५\u0a76୰౻\u0d76\u0e62\u0f7cၻᅽረጽᐼᔣᘡ\u175bᡥ\u196e\u1a7dᬦᱳ\u1d37ṻἫ⁼Ⅲ≯⍭"), text2);
-                if (text2.Substring(0, 1) == GClass0.smethod_0("@"))
+                string uriString = string.Format("pack://application:,,,/View/{0}.xaml", text2);
+                if (text2.Substring(0, 1) == "A")
                 {
-                    uriString = string.Format(GClass0.smethod_0("[ŋɊ\u0343Нԉ؊\u0745ࡓ\u0952\u0a4d\u0b49౼ൿ\u0e69\u0f75\u1074ᅴሣጴᐻᔺᘺᝂ\u187a\u1977\u1a66\u1b40\u1c7d\u1d61ṧὩ\u2068ⅾ∦⍳\u2437╻☫❼⡢⥯⩭"), text2);
+                    uriString = string.Format("pack://application:,,,/ViewProject/{0}.xaml", text2);
                 }
                 if (text2 == SurveyHelper.CurPageName)
                 {
@@ -107,7 +107,7 @@ namespace Gssy.Capi.Class
                     {
                         string text3 = string.Format(SurveyMsg.MsgErrorJump, surveyID, navCurPage, navBase_0.RoadMap.VERSION_ID, navBase_0.RoadMap.PAGE_ID, navBase_0.RoadMap.FORM_NAME);
                         MessageBox.Show(SurveyMsg.MsgErrorRoadmap + Environment.NewLine + Environment.NewLine + text3 + SurveyMsg.MsgErrorEnd, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
-                        oLogicEngine.OutputResult(text3, GClass0.smethod_0("Nŭɻ\u0363эխ٥ݳ\u0862प\u0a4f୭౦"));
+                        oLogicEngine.OutputResult(text3, "CapiDebug.Log");
                         return false;
                     }
                     navigationService_0.RemoveBackEntry();
@@ -117,14 +117,14 @@ namespace Gssy.Capi.Class
                 SurveyHelper.NavCurPage = navBase_0.RoadMap.PAGE_ID;
                 SurveyHelper.CurPageName = text2;
                 SurveyHelper.NavGoBackTimes = 0;
-                SurveyHelper.NavOperation = GClass0.smethod_0("HŪɶ\u036eѣխ");
+                SurveyHelper.NavOperation = "Normal";
                 SurveyHelper.NavLoad = 0;
             }
             catch (Exception)
             {
                 string text4 = string.Format(SurveyMsg.MsgErrorJump, surveyID, navCurPage, navBase_0.RoadMap.VERSION_ID, navBase_0.RoadMap.PAGE_ID, navBase_0.RoadMap.FORM_NAME);
                 MessageBox.Show(SurveyMsg.MsgErrorRoadmap + Environment.NewLine + Environment.NewLine + text4 + SurveyMsg.MsgErrorEnd, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
-                oLogicEngine.OutputResult(text4, GClass0.smethod_0("Nŭɻ\u0363эխ٥ݳ\u0862प\u0a4f୭౦"));
+                oLogicEngine.OutputResult(text4, "CapiDebug.Log");
                 return false;
             }
             return true;
@@ -141,7 +141,7 @@ namespace Gssy.Capi.Class
 
         public bool CheckLogic(string string_0)
         {
-            if (string_0 == GClass0.smethod_0("Aŉɀ\u034aћՑه\u0742") && SurveyHelper.AutoFill)
+            if (string_0 == "INFO_REC" && SurveyHelper.AutoFill)
             {
                 return true;
             }

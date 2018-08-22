@@ -5,10 +5,8 @@ using System.Text;
 
 namespace Gssy.Capi.Common
 {
-	// Token: 0x02000014 RID: 20
 	public class SecurityManager
 	{
-		// Token: 0x06000088 RID: 136 RVA: 0x00004668 File Offset: 0x00002868
 		public static string Encrypt(string string_0)
 		{
 			string result;
@@ -23,7 +21,6 @@ namespace Gssy.Capi.Common
 			return result;
 		}
 
-		// Token: 0x06000089 RID: 137 RVA: 0x000046A0 File Offset: 0x000028A0
 		public static string Encrypt(string string_0, string string_1, string string_2)
 		{
 			string result;
@@ -52,7 +49,6 @@ namespace Gssy.Capi.Common
 			return result;
 		}
 
-		// Token: 0x0600008A RID: 138 RVA: 0x0000477C File Offset: 0x0000297C
 		public static string Decrypt(string string_0)
 		{
 			string result;
@@ -67,7 +63,6 @@ namespace Gssy.Capi.Common
 			return result;
 		}
 
-		// Token: 0x0600008B RID: 139 RVA: 0x000047B4 File Offset: 0x000029B4
 		public static string Decrypt(string string_0, string string_1, string string_2)
 		{
 			string result;
@@ -97,10 +92,8 @@ namespace Gssy.Capi.Common
 			return result;
 		}
 
-		// Token: 0x04000046 RID: 70
 		private const string DEFAULT_SALT = "Dylan_Depp";
 
-		// Token: 0x04000047 RID: 71
 		private const string DEFAULT_PWD = "7C401";
 	}
 }

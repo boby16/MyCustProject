@@ -7,10 +7,8 @@ using Microsoft.Win32;
 
 namespace Gssy.Capi.Common
 {
-	// Token: 0x02000006 RID: 6
 	public class ExcelHelper
 	{
-		// Token: 0x06000025 RID: 37 RVA: 0x0000344C File Offset: 0x0000164C
 		public bool CheckExcelInstall()
 		{
 			RegistryKey localMachine = Registry.LocalMachine;
@@ -53,11 +51,9 @@ namespace Gssy.Capi.Common
 			return false;
 		}
 
-		// Token: 0x06000026 RID: 38
 		[DllImport("User32.dll", CharSet = CharSet.Auto)]
 		private static extern int GetWindowThreadProcessId(IntPtr intptr_0, out int int_0);
 
-		// Token: 0x06000027 RID: 39 RVA: 0x00003598 File Offset: 0x00001798
 		public void KillExcelProcess(Application application_0)
 		{
 			IntPtr intptr_ = new IntPtr(application_0.Hwnd);

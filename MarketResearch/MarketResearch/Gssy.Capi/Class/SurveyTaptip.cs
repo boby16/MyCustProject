@@ -56,10 +56,10 @@ namespace Gssy.Capi.Class
         {
             try
             {
-                object arg = GClass0.smethod_0("~Ćɧ\u036aы\u0557\u0650\u0744ࡔख़ਓ୴ౘ\u0d5c\u0e4aཝ\u1071ᅯቄፇᑄᕇᙉᜆᡣ᥍ᩏᭇ᱒ᵼṲί⁾Ⅾ≴⍩⑶╾♣✶⡦⥼⩲⭠ⱴ\u2d74\u2e53⽧っㅧ㉗㍞㑨㕪㙓㝯㡵㤪㩦㭺㱤");
+                object arg = "C:\\Program Files\\Common Files\\microsoft shared\\ink\\TabTip.exe";
                 if (Class73._003C_003Ep__0 == null)
                 {
-                    Class73._003C_003Ep__0 = CallSite<Func<CallSite, Type, object, object>>.Create(Binder.InvokeMember(CSharpBinderFlags.None, GClass0.smethod_0("CŽɭͰѶղ"), null, typeof(SurveyTaptip), new CSharpArgumentInfo[2]
+                    Class73._003C_003Ep__0 = CallSite<Func<CallSite, Type, object, object>>.Create(Binder.InvokeMember(CSharpBinderFlags.None, "Exists", null, typeof(SurveyTaptip), new CSharpArgumentInfo[2]
                     {
                         CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.UseCompileTimeType | CSharpArgumentInfoFlags.IsStaticType, null),
                         CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.None, null)
@@ -69,7 +69,7 @@ namespace Gssy.Capi.Class
                 {
                     if (Class73._003C_003Ep__3 == null)
                     {
-                        Class73._003C_003Ep__3 = CallSite<Action<CallSite, Type, object>>.Create(Binder.InvokeMember(CSharpBinderFlags.ResultDiscarded, GClass0.smethod_0("VŰɢͰѵ"), null, typeof(SurveyTaptip), new CSharpArgumentInfo[2]
+                        Class73._003C_003Ep__3 = CallSite<Action<CallSite, Type, object>>.Create(Binder.InvokeMember(CSharpBinderFlags.ResultDiscarded, "Start", null, typeof(SurveyTaptip), new CSharpArgumentInfo[2]
                         {
                             CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.UseCompileTimeType | CSharpArgumentInfoFlags.IsStaticType, null),
                             CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.None, null)
@@ -89,7 +89,7 @@ namespace Gssy.Capi.Class
         public static void HideInputPanel()
         {
             IntPtr intPtr = new IntPtr(0);
-            intPtr = FindWindow(GClass0.smethod_0("Xŀɛ\u0367ѽՓنݫ\u0860०\u0a58\u0b51౬൪\u0e67\u0f6dၶ"), null);
+            intPtr = FindWindow("IPTip_Main_Window", null);
             if (!(intPtr == IntPtr.Zero))
             {
                 PostMessage_1(intPtr, 274, 61536u, 0u);
@@ -99,15 +99,15 @@ namespace Gssy.Capi.Class
         public static int SwitchInputPanel()
         {
             IntPtr intPtr = new IntPtr(0);
-            intPtr = FindWindow(GClass0.smethod_0("Xŀɛ\u0367ѽՓنݫ\u0860०\u0a58\u0b51౬൪\u0e67\u0f6dၶ"), null);
+            intPtr = FindWindow("IPTip_Main_Window", null);
             if (intPtr == IntPtr.Zero)
             {
                 try
                 {
-                    object arg = GClass0.smethod_0("~Ćɧ\u036aы\u0557\u0650\u0744ࡔख़ਓ୴ౘ\u0d5c\u0e4aཝ\u1071ᅯቄፇᑄᕇᙉᜆᡣ᥍ᩏᭇ᱒ᵼṲί⁾Ⅾ≴⍩⑶╾♣✶⡦⥼⩲⭠ⱴ\u2d74\u2e53⽧っㅧ㉗㍞㑨㕪㙓㝯㡵㤪㩦㭺㱤");
+                    object arg = "C:\\Program Files\\Common Files\\microsoft shared\\ink\\TabTip.exe";
                     if (Class74._003C_003Ep__0 == null)
                     {
-                        Class74._003C_003Ep__0 = CallSite<Func<CallSite, Type, object, object>>.Create(Binder.InvokeMember(CSharpBinderFlags.None, GClass0.smethod_0("CŽɭͰѶղ"), null, typeof(SurveyTaptip), new CSharpArgumentInfo[2]
+                        Class74._003C_003Ep__0 = CallSite<Func<CallSite, Type, object, object>>.Create(Binder.InvokeMember(CSharpBinderFlags.None, "Exists", null, typeof(SurveyTaptip), new CSharpArgumentInfo[2]
                         {
                             CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.UseCompileTimeType | CSharpArgumentInfoFlags.IsStaticType, null),
                             CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.None, null)
@@ -117,7 +117,7 @@ namespace Gssy.Capi.Class
                     {
                         if (Class74._003C_003Ep__3 == null)
                         {
-                            Class74._003C_003Ep__3 = CallSite<Action<CallSite, Type, object>>.Create(Binder.InvokeMember(CSharpBinderFlags.ResultDiscarded, GClass0.smethod_0("VŰɢͰѵ"), null, typeof(SurveyTaptip), new CSharpArgumentInfo[2]
+                            Class74._003C_003Ep__3 = CallSite<Action<CallSite, Type, object>>.Create(Binder.InvokeMember(CSharpBinderFlags.ResultDiscarded, "Start", null, typeof(SurveyTaptip), new CSharpArgumentInfo[2]
                             {
                                 CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.UseCompileTimeType | CSharpArgumentInfoFlags.IsStaticType, null),
                                 CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.None, null)
