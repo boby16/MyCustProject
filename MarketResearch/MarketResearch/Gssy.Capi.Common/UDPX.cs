@@ -1561,7 +1561,7 @@ namespace Gssy.Capi.Common
 			string text = "";
 			string[] array = string_0.Split(new char[]
 			{
-				Convert.ToChar(GClass0.smethod_0("\v"))
+				Convert.ToChar("\\n")
 			}, 100);
 			int num = -1;
 			for (int i = 0; i < array.Length - 1; i++)
@@ -1580,7 +1580,7 @@ namespace Gssy.Capi.Common
 					}
 					return text;
 				}
-				Console.Write(text.Substring(0, 10) + GClass0.smethod_0("\v"));
+				Console.Write(text.Substring(0, 10) + "\\n");
 			}
             return text;
 		}
