@@ -24,7 +24,7 @@ namespace ns0
 			{
 				if (Class0.resourceMan == null)
 				{
-					Class0.resourceMan = new ResourceManager(GClass0.smethod_0("bŗɐ͛Џգپݮࡴल੎୪౽൹๣ཱིျᅄቡ፽ᑡᕵᙽ᝺ᡤᥩ᩸ᬤᱛᵭṴὩ⁰ⅶ≠⍧⑲"), typeof(Class0).Assembly);
+					Class0.resourceMan = new ResourceManager("Gssy.Capi.Update.Properties.ResourcesB", typeof(Class0).Assembly);
 				}
 				return Class0.resourceMan;
 			}

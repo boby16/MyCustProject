@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 
@@ -9,26 +9,26 @@ namespace Gssy.Capi.Update
 		public bool Compress(string string_0, string string_1, string string_2, string string_3, bool bool_0 = true, bool bool_1 = true)
 		{
 			bool result = false;
-			string text = Environment.CurrentDirectory + GClass0.smethod_0("Słɤͮї՝٠ݦࡕ१੷ପ౦ൺ๤");
+			string text = Environment.CurrentDirectory + "\\Lib\\WinRar.exe";
 			if (Directory.Exists(string_1) && File.Exists(text))
 			{
 				if (File.Exists(string_1 + string_2))
 				{
 					File.Delete(string_1 + string_2);
 				}
-				string text2 = bool_1 ? GClass0.smethod_0("$Įɰ̡") : "";
-				string text3 = bool_0 ? GClass0.smethod_0("&Ĩɡͳгԡ") : "";
+				string text2 = bool_1 ? " -r " : "";
+				string text3 = bool_0 ? " -ep1 " : "";
 				string string_4 = string.Concat(new string[]
 				{
-					GClass0.smethod_0("&ŤȤ̮Ѫձ"),
+					" a -hp",
 					string_3,
 					text2,
 					text3,
-					GClass0.smethod_0("(Īɿ̥Щլةܡ"),
+					" -y -o+ ",
 					string_2,
-					GClass0.smethod_0("!"),
+					" ",
 					string_0,
-					GClass0.smethod_0("%ĺɭͷѭ")
+					" >nul"
 				});
 				this.StartProcess(text, string_1, string_4, ProcessWindowStyle.Minimized, true, 0, false);
 				result = File.Exists(string_1 + string_2);
@@ -39,18 +39,18 @@ namespace Gssy.Capi.Update
 		public bool Extract(string string_0, string string_1, string string_2, string string_3)
 		{
 			bool result = false;
-			string text = Environment.CurrentDirectory + GClass0.smethod_0("Słɤͮї՝٠ݦࡕ१੷ପ౦ൺ๤");
+			string text = Environment.CurrentDirectory + "\\Lib\\WinRar.exe";
 			if (File.Exists(string_0) && File.Exists(text))
 			{
 				string string_4 = string.Concat(new string[]
 				{
-					GClass0.smethod_0("&ŽȤ̮Ѫձ"),
+					" x -hp",
 					string_3,
-					GClass0.smethod_0("(Īɿ̥Щլةܡ"),
+					" -y -o+ ",
 					string_0,
-					GClass0.smethod_0("!"),
+					" ",
 					string_2,
-					GClass0.smethod_0("!")
+					" "
 				});
 				result = this.StartProcess(text, string_1, string_4, ProcessWindowStyle.Minimized, true, 0, false);
 			}

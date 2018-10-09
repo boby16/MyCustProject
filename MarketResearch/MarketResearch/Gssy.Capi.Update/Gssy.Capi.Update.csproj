@@ -53,7 +53,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GClass0.cs" />
     <Compile Include="Gssy\Capi\Class\SurveyMsg.cs" />
     <Compile Include="Gssy\Capi\Update\alioss.cs" />
     <Compile Include="Gssy\Capi\Update\App.xaml.cs">

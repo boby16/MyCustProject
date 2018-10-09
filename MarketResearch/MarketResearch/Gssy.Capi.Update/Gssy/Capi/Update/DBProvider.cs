@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using FirebirdSql.Data.FirebirdClient;
@@ -325,10 +325,10 @@ namespace Gssy.Capi.Update
 			this._DatabaseType = DBType.FireBird;
 			if (int_0 == 1 || int_0 == 2)
 			{
-				string text = GClass0.smethod_0("Wųɥͱѓ՝ٸݾࡽ९ੰ୚ౢ൧๡༪၅ᅆቃ");
-				string text2 = GClass0.smethod_0("Uűɻͯё՟پݸࡿ७੾ୂేപๅཆ၃");
-				string userID = GClass0.smethod_0("ZŽɵͰѠսه݀ࡀ");
-				string password = GClass0.smethod_0("9ĺȸ̼кՕٰݶࡵ१੸");
+				string text = "Data\\SurveyRead.FDB";
+				string text2 = "Data\\SurveyDB.FDB";
+				string userID = "SurveyDBA";
+				string password = "2014=Survey";
 				switch (this.DatabaseType)
 				{
 				case DBType.FireBird:
@@ -343,9 +343,9 @@ namespace Gssy.Capi.Update
 						UserID = userID,
 						Password = password,
 						Database = text3,
-						Charset = GClass0.smethod_0("^ńɀ͋шՂـݛࡅ॑੒"),
+						Charset = "UNICODE_FSS",
 						Dialect = 3,
-						ClientLibrary = GClass0.smethod_0("mŨɬͥѥգ١ܪࡧ८੭"),
+						ClientLibrary = "fbembed.dll",
 						ServerType = FbServerType.Embedded
 					}.ToString();
 					return;
@@ -360,10 +360,10 @@ namespace Gssy.Capi.Update
 					FbConnectionStringBuilder fbConnectionStringBuilder = new FbConnectionStringBuilder();
 					fbConnectionStringBuilder.UserID = userID;
 					fbConnectionStringBuilder.Password = password;
-					fbConnectionStringBuilder.Charset = GClass0.smethod_0("^ńɀ͋шՂـݛࡅ॑੒");
+					fbConnectionStringBuilder.Charset = "UNICODE_FSS";
 					fbConnectionStringBuilder.Dialect = 3;
-					string str = GClass0.smethod_0("nēɴ͠ѕՖٝݿࡥ॒੓୦ర൞๽ཫၳᄷቕ፸ᑴᕼᙸ᝶ᡎᥖᩣ᭼ᱷᴣṏὪ⁺Ⅰ∦⍊⑩╧♭❯⡧⥝");
-					fbConnectionStringBuilder.DataSource = GClass0.smethod_0("eŧɤͧѩլ٬ݱࡵ");
+					string str = "D:\\Gssy\\Gssy.Capi.Mobile\\Gssy.Capi.Mobile\\";
+					fbConnectionStringBuilder.DataSource = "localhost";
 					fbConnectionStringBuilder.Database = str + text3;
 					this._ConnectionString = fbConnectionStringBuilder.ToString();
 					return;
@@ -376,7 +376,7 @@ namespace Gssy.Capi.Update
 					sqlConnectionStringBuilder.UserID = userID;
 					sqlConnectionStringBuilder.Password = password;
 					sqlConnectionStringBuilder.DataSource = "";
-					string text3 = GClass0.smethod_0("[Ųɴͳѡպن݃");
+					string text3 = "SurveyDB";
 					sqlConnectionStringBuilder.InitialCatalog = text3;
 					this._ConnectionString = sqlConnectionStringBuilder.ToString();
 					this._ConnectionString = "";

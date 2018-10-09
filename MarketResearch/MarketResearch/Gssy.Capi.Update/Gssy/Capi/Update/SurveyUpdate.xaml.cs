@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,17 +32,17 @@ namespace Gssy.Capi.Update
 
 		private void method_0(object sender, RoutedEventArgs e)
 		{
-			this.method_5(GClass0.smethod_0("NŻɴͿЫՇ٢ݲࡨ"));
-			this.VersionID = this.oSurveyConfigBiz.GetByCodeTextRead(GClass0.smethod_0("_ŭɵ͵Ѭի٭݋ࡅ"));
-			string byCodeText = this.oSurveyConfigBiz.GetByCodeText(GClass0.smethod_0("VņɇͬѦդ"));
-			this.txtPCCode.Text = ((byCodeText == null) ? GClass0.smethod_0("9昮覽籬п") : byCodeText);
-			this.txtMsg.Text = GClass0.smethod_0("彔卋砎嶋癋戮ة") + this.VersionID + GClass0.smethod_0("(");
-			this.txtProjectName.Text = SurveyMsg.MsgProjectName + GClass0.smethod_0(".襠䰅旷憲Ԩ");
+			this.method_5("Gssy.Capi");
+			this.VersionID = this.oSurveyConfigBiz.GetByCodeTextRead("VersionID");
+			string byCodeText = this.oSurveyConfigBiz.GetByCodeText("PCCode");
+			this.txtPCCode.Text = ((byCodeText == null) ? "<未设置>" : byCodeText);
+			this.txtMsg.Text = "当前程序版本(" + this.VersionID + ")";
+			this.txtProjectName.Text = SurveyMsg.MsgProjectName + "(补丁更新)";
 		}
 
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
-			if (MessageBox.Show(GClass0.smethod_0("迁伽擢暥惙䩏娔䠋膖翙禾尥窈眀傅絁眤䱰盥磑畡伏") + Environment.NewLine + Environment.NewLine + GClass0.smethod_0("昿唩穠袩泌拮塼懽涸ॄੇ୕్眈傍"), GClass0.smethod_0("牎昩擰暳籬躥"), MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
+			if (MessageBox.Show("这个更新操作将会覆盖现在的程序版本，并无法恢复！" + Environment.NewLine + Environment.NewLine + "是否确认检查并更新CAPI程序？", "版本更新确认", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
 			{
 				this.btnSave.IsEnabled = false;
 				this.bw = new BackgroundWorker();
@@ -78,45 +78,45 @@ namespace Gssy.Capi.Update
 			}
 			catch (Exception)
 			{
-				this.bw.ReportProgress(90, GClass0.smethod_0("朤臰跒悮指垨偠ܫ菱懅淡瑒狞"));
-				MessageBox.Show(GClass0.smethod_0("朤臰跒悮指垨偠菱懅淡瑒狞"), GClass0.smethod_0("牌是擶暱"), MessageBoxButton.OK, MessageBoxImage.Asterisk);
+				this.bw.ReportProgress(90, "未能连接服务器,请检查网络！");
+				MessageBox.Show("未能连接服务器，请检查网络！", "版本更新", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 				stopwatch.Stop();
 				return;
 			}
 			if (!flag)
 			{
-				this.bw.ReportProgress(90, GClass0.smethod_0("孑冠攊冧剭壶规思"));
-				MessageBox.Show(GClass0.smethod_0("孑冠攊冧剭壶规思"), GClass0.smethod_0("牌是擶暱"), MessageBoxButton.OK, MessageBoxImage.Asterisk);
+				this.bw.ReportProgress(90, "存储服务器已过期！");
+				MessageBox.Show("存储服务器已过期！", "版本更新", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 				stopwatch.Stop();
 				return;
 			}
 			string str = "";
-			int num = this.VersionID.ToLower().IndexOf(GClass0.smethod_0("w"));
+			int num = this.VersionID.ToLower().IndexOf("v");
 			if (num > -1)
 			{
 				str = this.VersionID.Substring(0, num);
 			}
-			else if (this.VersionID.IndexOf(GClass0.smethod_0("浈諗灉")) > -1)
+			else if (this.VersionID.IndexOf("测试版") > -1)
 			{
-				str = GClass0.smethod_0("浈諗灉");
+				str = "测试版";
 			}
-			else if (this.VersionID.IndexOf(GClass0.smethod_0("漗砸灉")) > -1)
+			else if (this.VersionID.IndexOf("演示版") > -1)
 			{
-				str = GClass0.smethod_0("漗砸灉");
+				str = "演示版";
 			}
-			else if (this.VersionID.IndexOf(GClass0.smethod_0("歠帍灉")) > -1)
+			else if (this.VersionID.IndexOf("正式版") > -1)
 			{
-				str = GClass0.smethod_0("歠帍灉");
+				str = "正式版";
 			}
-			else if (this.VersionID.IndexOf(GClass0.smethod_0("辆厫灉")) > -1)
+			else if (this.VersionID.IndexOf("辅助版") > -1)
 			{
-				str = GClass0.smethod_0("辆厫灉");
+				str = "辅助版";
 			}
-			ObjectListing objectListing = ossClient.ListObjects(alioss.bucketNameUpdate, alioss.bucketDirUpdate + GClass0.smethod_0(".") + str);
+			ObjectListing objectListing = ossClient.ListObjects(alioss.bucketNameUpdate, alioss.bucketDirUpdate + "/" + str);
 			if (objectListing.ObjectSummaries.Count<OssObjectSummary>() == 0)
 			{
-				this.bw.ReportProgress(90, GClass0.smethod_0("朣昁灏搪拱悴掄䧴"));
-				MessageBox.Show(GClass0.smethod_0("朣昁灏搪拱悴掄䧴"), GClass0.smethod_0("牌是擶暱"), MessageBoxButton.OK, MessageBoxImage.Asterisk);
+				this.bw.ReportProgress(90, "未有版本更新文件！");
+				MessageBox.Show("未有版本更新文件！", "版本更新", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 				stopwatch.Stop();
 				return;
 			}
@@ -127,10 +127,10 @@ namespace Gssy.Capi.Update
 			string text4 = "";
 			foreach (OssObjectSummary ossObjectSummary in objectListing.ObjectSummaries)
 			{
-				if (!(ossObjectSummary.Key == alioss.bucketDirUpdate + GClass0.smethod_0(".")))
+				if (!(ossObjectSummary.Key == alioss.bucketDirUpdate + "/"))
 				{
-					text = ossObjectSummary.Key.Replace(alioss.bucketDirUpdate + GClass0.smethod_0("."), "");
-					text4 = text.Replace(GClass0.smethod_0("*űɣͳ"), "").ToLower();
+					text = ossObjectSummary.Key.Replace(alioss.bucketDirUpdate + "/", "");
+					text4 = text.Replace(".rar", "").ToLower();
 					key = ossObjectSummary.Key;
 					if (string.Compare(text4, text3) > 0)
 					{
@@ -140,44 +140,44 @@ namespace Gssy.Capi.Update
 			}
 			if (text3 == text2)
 			{
-				this.bw.ReportProgress(90, GClass0.smethod_0("彙卄忺緈戩戅掴畋漮"));
-				MessageBox.Show(GClass0.smethod_0("彙卄忺緈戩戅掴畋漮"), GClass0.smethod_0("牌是擶暱"), MessageBoxButton.OK, MessageBoxImage.Asterisk);
+				this.bw.ReportProgress(90, "当前已经是最新版本！");
+				MessageBox.Show("当前已经是最新版本！", "版本更新", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 				stopwatch.Stop();
 				return;
 			}
-			string text5 = Environment.CurrentDirectory + GClass0.smethod_0("VōɧͰѨթ٫ݢࡦढ़");
+			string text5 = Environment.CurrentDirectory + "\\Download\\";
 			if (!Directory.Exists(text5))
 			{
 				Directory.CreateDirectory(text5);
 			}
 			if (!Directory.Exists(text5))
 			{
-				this.bw.ReportProgress(90, GClass0.smethod_0("曱撴嬲踧ﬀ"));
+				this.bw.ReportProgress(90, "更新失败！");
 				MessageBox.Show(string.Concat(new string[]
 				{
-					GClass0.smethod_0("曤撿灆搡懺杋鄊躈續沀䓰刼䈉噛太"),
+					"更新版本时所需要的文件夹不存在！",
 					Environment.NewLine,
 					Environment.NewLine,
-					GClass0.smethod_0("详嘸擻暾噀蓦蹇龎奁埲烌䗣䈎梃䃵嘻"),
+					"请在更新前自行预先建立以下文件夹：",
 					Environment.NewLine,
 					text5
-				}), GClass0.smethod_0("曰撳嬳踤"), MessageBoxButton.OK, MessageBoxImage.Asterisk);
+				}), "更新失败", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 				stopwatch.Stop();
 				return;
 			}
 			RarFile rarFile = new RarFile();
 			string path = text5 + text;
-			this.bw.ReportProgress(40, string.Format(GClass0.smethod_0("丂蹵枀䷰Хտسݿࠡ"), text));
+			this.bw.ReportProgress(40, string.Format("下载文件 {0} ", text));
 			FileStream fileStream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite, FileShare.Read);
 			GetObjectRequest getObjectRequest = new GetObjectRequest(alioss.bucketNameUpdate, key);
 			ossClient.GetObject(getObjectRequest, fileStream);
 			fileStream.Close();
-			this.bw.ReportProgress(80, string.Format(GClass0.smethod_0("觪劃枀䷰Хտسݿࠡ"), text));
+			this.bw.ReportProgress(80, string.Format("解压文件 {0} ", text));
 			this.strRarFile = path;
 			this.strRarOutputFolder = Environment.CurrentDirectory + "\\";
 			rarFile.Extract(this.strRarFile, this.strRarOutputFolder, this.strRarOutputFolder, this.strRarPassword);
-			this.bw.ReportProgress(95, GClass0.smethod_0("牎昩擰暳䨸福") + text3);
-			this.bw.ReportProgress(95, string.Format(GClass0.smethod_0("夊甋妀愛ﬆ蔞揾ܧࡽव੹ଣ痐㴃"), stopwatch.Elapsed.TotalSeconds.ToString(GClass0.smethod_0("Dĳ"))));
+			this.bw.ReportProgress(95, "版本更新为：" + text3);
+			this.bw.ReportProgress(95, string.Format("处理完成，耗时 {0} 秒。", stopwatch.Elapsed.TotalSeconds.ToString("F2")));
 			stopwatch.Stop();
 		}
 
@@ -191,18 +191,18 @@ namespace Gssy.Capi.Update
 
 		private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			this.VersionID = this.oSurveyConfigBiz.GetByCodeTextRead(GClass0.smethod_0("_ŭɵ͵Ѭի٭݋ࡅ"));
+			this.VersionID = this.oSurveyConfigBiz.GetByCodeTextRead("VersionID");
 			this.method_2(100.0);
 			this.btnSave.IsEnabled = true;
 			this.method_3();
 			MessageBox.Show(string.Concat(new string[]
 			{
-				GClass0.smethod_0("夁甂妏愒ﬀ"),
+				"处理完成！",
 				Environment.NewLine,
 				Environment.NewLine,
-				GClass0.smethod_0("盫卉灋搮﬛"),
+				"目前版本：",
 				this.VersionID
-			}), GClass0.smethod_0("牌是擶暱"), MessageBoxButton.OK, MessageBoxImage.Asterisk);
+			}), "版本更新", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 		}
 
 		private void method_1()
@@ -239,14 +239,14 @@ namespace Gssy.Capi.Update
 		{
 			MessageBox.Show(string.Concat(new string[]
 			{
-				GClass0.smethod_0("\u0001Āȿ̾нԼ跾篡盆羜梗氹椺渕笢༲ၖᄾቜጠᑞᔢᙒᜤᠩᤠ吪䷻ᰬᴤ緓備ဃ"),
+				"      该系统的技术支持由 G.S.S.Y. (中国) 提供。",
 				Environment.NewLine,
 				Environment.NewLine,
-				GClass0.smethod_0("NōɌ͋ъՉ洌箜皹翡砬氠值䏯เ༘ၰᄎቲገᑴᔀᙶ᝷穆䴍研籚ⱐ厪儅凵䝤徂∋⍥␙╧☛❩⠟⥫⩤䥓砚寅怦록뮆拒촰紶듇滀뷝롘盀뛮뉸痈獧打愿䦫퀨ᔼΈ㤠琫㴝췹ূᯬۋ⼝טͷˀ⹏缝偙儳剏匵呉唷噁圹堶㬅์êመ틡활ᄵ⿓ᑔ㧵㉽὿૝㢌⟾ᲀీ㸫崃"),
+				"      此系统的版权属于 G.S.S.Y. 成员所有。任何人未经G.S.S.Y. 成员的书面许可，不能对该软件进行任何形式的逆向工程、破译以及修改任何信息。G.S.S.Y. 成员对上述行为保留对其追究法律责任的权利。",
 				Environment.NewLine,
 				Environment.NewLine,
-				GClass0.smethod_0("\ašȋͷЍձ؏ݹ࠱ाਵୟ౳൳๷ཹှᄶስጴᑖᕿᙰ᝹ᡣᩪ᭿ᱸᵳṪὦ⁇⅗≔〉①╭♬")
-			}), GClass0.smethod_0("牌晀嫲攏"), MessageBoxButton.OK, MessageBoxImage.Asterisk);
+				" G.S.S.Y. (China)   Email：gssycn@QQ.com"
+			}), "版权声明", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 		}
 
 		private void method_5(string string_0)
@@ -266,7 +266,7 @@ namespace Gssy.Capi.Update
 
 		private string strRarOutputFolder = "";
 
-		private string strRarPassword = GClass0.smethod_0("Nśɔ͟Ыէ٢ݲࡨ");
+		private string strRarPassword = "GSSY.capi";
 
 		private string VersionID = "";
 

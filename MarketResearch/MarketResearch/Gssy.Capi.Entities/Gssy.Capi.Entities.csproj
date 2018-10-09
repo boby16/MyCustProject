@@ -37,7 +37,6 @@
     <Compile Include="BaiduJson\JGeocoding.cs" />
     <Compile Include="BaiduJson\JGeocoding_Location.cs" />
     <Compile Include="BaiduJson\JGeocoding_Result.cs" />
-    <Compile Include="GClass0.cs" />
     <Compile Include="janswer.cs" />
     <Compile Include="jdetail.cs" />
     <Compile Include="jlogicresult.cs" />
