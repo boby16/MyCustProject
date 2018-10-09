@@ -1,0 +1,820 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C57C8AC-5F34-4594-8546-F134D5A3A577}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gssy.Capi</RootNamespace>
+    <AssemblyName>Gssy.Capi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationIcon>Gssy.Capi.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aliyun.OpenServices">
+      <HintPath>..\Library\Aliyun.OpenServices.dll</HintPath>
+    </Reference>
+    <Reference Include="DirectShowLib-2005">
+      <HintPath>..\Library\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>..\Library\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.BIZ">
+      <HintPath>..\Gssy.Capi.BIZ\obj\Debug\Gssy.Capi.BIZ.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.Common">
+      <HintPath>..\Gssy.Capi.Common\obj\Debug\Gssy.Capi.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.DAL">
+      <HintPath>..\Gssy.Capi.DAL\obj\Debug\Gssy.Capi.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.Entities">
+      <HintPath>..\Gssy.Capi.Entities\bin\Debug\Gssy.Capi.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.DirectX.DirectSound">
+      <HintPath>..\Library\Microsoft.DirectX.DirectSound.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Library\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\Library\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
+      <HintPath>..\Library\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\Library\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\Library\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\源系统\Capi_ZD17916\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SoundChat">
+      <HintPath>..\Library\SoundChat.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\Library\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFMediaKit">
+      <HintPath>..\Library\WPFMediaKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\Library\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutoDo.xaml.cs">
+      <DependentUpon>AutoDo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BIZ\classListBorder.cs" />
+    <Compile Include="BIZ\classListButton.cs" />
+    <Compile Include="BIZ\classMatixBorder.cs" />
+    <Compile Include="BIZ\classMatixButton.cs" />
+    <Compile Include="Business\QDisplay.cs" />
+    <Compile Include="Class\AutoFill.cs" />
+    <Compile Include="Class\BoldTitle.cs" />
+    <Compile Include="Class\PageNav.cs" />
+    <Compile Include="Class\Persent2.cs" />
+    <Compile Include="Class\Persent4.cs" />
+    <Compile Include="Class\Persent5.cs" />
+    <Compile Include="Class\ProgressConverter.cs" />
+    <Compile Include="Class\QMemDisplay.cs" />
+    <Compile Include="Class\QMemFill.cs" />
+    <Compile Include="Class\QMemSingle.cs" />
+    <Compile Include="Class\SurveyHelper.cs" />
+    <Compile Include="Class\SurveyMsg.cs" />
+    <Compile Include="Class\SurveyTaptip.cs" />
+    <Compile Include="Control\MaskedTextBox.cs" />
+    <Compile Include="Control\UCProgress.xaml.cs">
+      <DependentUpon>UCProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CStart.xaml.cs">
+      <DependentUpon>CStart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ns0\Class2.Designer.cs">
+      <DependentUpon>Class2.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QEdit\CheckPsw.xaml.cs">
+      <DependentUpon>CheckPsw.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QEdit\DebugCheck.xaml.cs">
+      <DependentUpon>DebugCheck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QEdit\EditAnswer.xaml.cs">
+      <DependentUpon>EditAnswer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QEdit\EditAnswerSingle.xaml.cs">
+      <DependentUpon>EditAnswerSingle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QEdit\EditAttachments.xaml.cs">
+      <DependentUpon>EditAttachments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QEdit\FillMode.xaml.cs">
+      <DependentUpon>FillMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QEdit\ReloadData.xaml.cs">
+      <DependentUpon>ReloadData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartOne.xaml.cs">
+      <DependentUpon>StartOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyAuto.xaml.cs">
+      <DependentUpon>SurveyAuto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CircleGuide.xaml.cs">
+      <DependentUpon>CircleGuide.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CircleStart.xaml.cs">
+      <DependentUpon>CircleStart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Display.xaml.cs">
+      <DependentUpon>Display.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DisplayPic.xaml.cs">
+      <DependentUpon>DisplayPic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EmptyJump.xaml.cs">
+      <DependentUpon>EmptyJump.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EndSummary.xaml.cs">
+      <DependentUpon>EndSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EndTerminate.xaml.cs">
+      <DependentUpon>EndTerminate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Fill.xaml.cs">
+      <DependentUpon>Fill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FillDec.xaml.cs">
+      <DependentUpon>FillDec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FillInt.xaml.cs">
+      <DependentUpon>FillInt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FillLong.xaml.cs">
+      <DependentUpon>FillLong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FillMap.xaml.cs">
+      <DependentUpon>FillMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FillPassword.xaml.cs">
+      <DependentUpon>FillPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FillWebCam.xaml.cs">
+      <DependentUpon>FillWebCam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GridMultiple_LoopC_FixCol1.xaml.cs">
+      <DependentUpon>GridMultiple_LoopC_FixCol1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GridMultiple_LoopC_FixRow1.xaml.cs">
+      <DependentUpon>GridMultiple_LoopC_FixRow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GridMultiple_LoopR_FixCol1.xaml.cs">
+      <DependentUpon>GridMultiple_LoopR_FixCol1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GridMultiple_LoopR_FixRow1.xaml.cs">
+      <DependentUpon>GridMultiple_LoopR_FixRow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GridSingle_LoopC_FixCol1.xaml.cs">
+      <DependentUpon>GridSingle_LoopC_FixCol1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GridSingle_LoopC_FixRow1.xaml.cs">
+      <DependentUpon>GridSingle_LoopC_FixRow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GridSingle_LoopR_FixCol1.xaml.cs">
+      <DependentUpon>GridSingle_LoopR_FixCol1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GridSingle_LoopR_FixRow1.xaml.cs">
+      <DependentUpon>GridSingle_LoopR_FixRow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MatrixSingle.xaml.cs">
+      <DependentUpon>MatrixSingle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MatrixSingleExt.xaml.cs">
+      <DependentUpon>MatrixSingleExt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiple.xaml.cs">
+      <DependentUpon>Multiple.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MultipleEntry.xaml.cs">
+      <DependentUpon>MultipleEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MultipleGroup.xaml.cs">
+      <DependentUpon>MultipleGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MultiplePic.xaml.cs">
+      <DependentUpon>MultiplePic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MultipleSearch.xaml.cs">
+      <DependentUpon>MultipleSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MultipleText.xaml.cs">
+      <DependentUpon>MultipleText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageCallApp.xaml.cs">
+      <DependentUpon>PageCallApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageMedia.xaml.cs">
+      <DependentUpon>PageMedia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageSingleList.xaml.cs">
+      <DependentUpon>PageSingleList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageSingleListItem.xaml.cs">
+      <DependentUpon>PageSingleListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageSingleOther.xaml.cs">
+      <DependentUpon>PageSingleOther.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PicDefine.xaml.cs">
+      <DependentUpon>PicDefine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PicMultiple.xaml.cs">
+      <DependentUpon>PicMultiple.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PicSingle.xaml.cs">
+      <DependentUpon>PicSingle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_AutoNextFill.xaml.cs">
+      <DependentUpon>P_AutoNextFill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_AutoNextFillDec.xaml.cs">
+      <DependentUpon>P_AutoNextFillDec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_AutoNextFillInt.xaml.cs">
+      <DependentUpon>P_AutoNextFillInt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_BPTO.xaml.cs">
+      <DependentUpon>P_BPTO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_ChipGame.xaml.cs">
+      <DependentUpon>P_ChipGame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_CmbList2.xaml.cs">
+      <DependentUpon>P_CmbList2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_Fill2.xaml.cs">
+      <DependentUpon>P_Fill2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_Fill3.xaml.cs">
+      <DependentUpon>P_Fill3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_FillDec2.xaml.cs">
+      <DependentUpon>P_FillDec2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_FillDec3.xaml.cs">
+      <DependentUpon>P_FillDec3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_FillIntSingle.xaml.cs">
+      <DependentUpon>P_FillIntSingle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_FillSingle.xaml.cs">
+      <DependentUpon>P_FillSingle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_RankBrand.xaml.cs">
+      <DependentUpon>P_RankBrand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_RankBrand_H.xaml.cs">
+      <DependentUpon>P_RankBrand_H.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\P_RankBrand_Skip.xaml.cs">
+      <DependentUpon>P_RankBrand_Skip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Recode.xaml.cs">
+      <DependentUpon>Recode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RecodeInfo.xaml.cs">
+      <DependentUpon>RecodeInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relation1.xaml.cs">
+      <DependentUpon>Relation1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relation5.xaml.cs">
+      <DependentUpon>Relation5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RelationList.xaml.cs">
+      <DependentUpon>RelationList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RelationList3.xaml.cs">
+      <DependentUpon>RelationList3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RelationList4.xaml.cs">
+      <DependentUpon>RelationList4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Single.xaml.cs">
+      <DependentUpon>Single.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SingleEntry.xaml.cs">
+      <DependentUpon>SingleEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SingleGroup.xaml.cs">
+      <DependentUpon>SingleGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SinglePic.xaml.cs">
+      <DependentUpon>SinglePic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SinglePoint.xaml.cs">
+      <DependentUpon>SinglePoint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SingleQuota.xaml.cs">
+      <DependentUpon>SingleQuota.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SingleSearch.xaml.cs">
+      <DependentUpon>SingleSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SurveyCheckRecord.xaml.cs">
+      <DependentUpon>SurveyCheckRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SurveyCity.xaml.cs">
+      <DependentUpon>SurveyCity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SurveyCloud.xaml.cs">
+      <DependentUpon>SurveyCloud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SurveyCode.xaml.cs">
+      <DependentUpon>SurveyCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SurveyDelete.xaml.cs">
+      <DependentUpon>SurveyDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SurveyQuery.xaml.cs">
+      <DependentUpon>SurveyQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SurveyRange.xaml.cs">
+      <DependentUpon>SurveyRange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SurveyUserCode.xaml.cs">
+      <DependentUpon>SurveyUserCode.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ns0\Class1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ns0\Class2.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Class2.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AutoDo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\UCProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CStart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QEdit\CheckPsw.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QEdit\DebugCheck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QEdit\EditAnswer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QEdit\EditAnswerSingle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QEdit\EditAttachments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QEdit\FillMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QEdit\ReloadData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resources\languages\en-us.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resources\languages\zh-cn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartOne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SurveyAuto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="theme\basecontrol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="theme\buttoncontrol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="theme\customer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="theme\theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CircleGuide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CircleStart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Display.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DisplayPic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EmptyJump.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EndSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EndTerminate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Fill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FillDec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FillInt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FillLong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FillMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FillPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FillWebCam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GridMultiple_LoopC_FixCol1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GridMultiple_LoopC_FixRow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GridMultiple_LoopR_FixCol1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GridMultiple_LoopR_FixRow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GridSingle_LoopC_FixCol1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GridSingle_LoopC_FixRow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GridSingle_LoopR_FixCol1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GridSingle_LoopR_FixRow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MatrixSingle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MatrixSingleExt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiple.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MultipleEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MultipleGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MultiplePic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MultipleSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MultipleText.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageCallApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageMedia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageSingleList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageSingleListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageSingleOther.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PicDefine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PicMultiple.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PicSingle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_AutoNextFill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_AutoNextFillDec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_AutoNextFillInt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_BPTO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_ChipGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_CmbList2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_Fill2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_Fill3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_FillDec2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_FillDec3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_FillIntSingle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_FillSingle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_RankBrand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_RankBrand_H.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\P_RankBrand_Skip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Recode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RecodeInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Relation1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Relation5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RelationList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RelationList3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RelationList4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Single.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SingleEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SingleGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SinglePic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SinglePoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SingleQuota.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SingleSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SurveyCheckRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SurveyCity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SurveyCloud.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SurveyCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SurveyDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SurveyQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SurveyRange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SurveyUserCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\autodo.png" />
+    <Resource Include="resources\capi.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\del.png" />
+    <Resource Include="resources\gssylogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\loading.gif" />
+    <Resource Include="resources\pic\_female.png" />
+    <Resource Include="resources\pic\_male.png" />
+    <Resource Include="resources\setting.png" />
+    <SplashScreen Include="resources\splashscreen.png" />
+    <Resource Include="resources\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gssy.Capi.ico" />
+    <Resource Include="resources\background.png" />
+    <Resource Include="resources\logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

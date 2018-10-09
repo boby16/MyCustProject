@@ -436,11 +436,11 @@ namespace Gssy.Capi.BIZ
             {
                 text3 = logicExplain.LEFT(text2, num);
                 text4 = logicExplain.MID(text2, num + 1, -9999);
-                text = text4 + GClass0.smethod_0("'") + text3 + GClass0.smethod_0("$Ś") + string_0 + GClass0.smethod_0("\\");
+                text = text4 + GClass0.smethod_0("'") + text3 + GClass0.smethod_0("$Ś") + string_0 + "]";
             }
             else
             {
-                text = text3 + GClass0.smethod_0("$Ś") + string_0 + GClass0.smethod_0("\\");
+                text = text3 + GClass0.smethod_0("$Ś") + string_0 + "]";
             }
             string text5 = logicExplain.CleanFormula(text);
             if (text5.Length > 0)

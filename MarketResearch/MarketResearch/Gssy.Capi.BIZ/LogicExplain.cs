@@ -147,7 +147,7 @@ namespace Gssy.Capi.BIZ
             {
                 if (bool_0 && !method_89(text2))
                 {
-                    text2 = "#[" + text2 + GClass0.smethod_0("\\");
+                    text2 = "#[" + text2 + "]";
                 }
                 int num = 0;
                 int num2 = 0;
@@ -169,7 +169,7 @@ namespace Gssy.Capi.BIZ
                         }
                         else if (a == "#[")
                         {
-                            num = text2.IndexOf(GClass0.smethod_0("\\"), num2 + 1);
+                            num = text2.IndexOf("]", num2 + 1);
                             if (num < 0)
                             {
                                 num = text2.Length;
@@ -180,7 +180,7 @@ namespace Gssy.Capi.BIZ
                         }
                         else if (a == "$[")
                         {
-                            num = text2.IndexOf(GClass0.smethod_0("\\"), num2 + 1);
+                            num = text2.IndexOf("]", num2 + 1);
                             if (num < 0)
                             {
                                 num = text2.Length;
@@ -3642,7 +3642,7 @@ namespace Gssy.Capi.BIZ
                 {
                     text2 = MID(text2, 1, -9999);
                 }
-                if (method_133(text2, 1) == GClass0.smethod_0("\\"))
+                if (method_133(text2, 1) == "]")
                 {
                     text2 = LEFT(text2, text2.Length - 1);
                 }
@@ -3667,7 +3667,7 @@ namespace Gssy.Capi.BIZ
                 {
                     if (a == GClass0.smethod_0("Z"))
                     {
-                        if (RightBrackets(text, 0, GClass0.smethod_0("Z"), GClass0.smethod_0("\\")) == text.Length - 1)
+                        if (RightBrackets(text, 0, GClass0.smethod_0("Z"), "]") == text.Length - 1)
                         {
                             text = MID(text, 1, text.Length - 2);
                         }
@@ -3719,7 +3719,7 @@ namespace Gssy.Capi.BIZ
                                 break;
                         }
                     }
-                    else if (!(a == GClass0.smethod_0("\\")))
+                    else if (!(a == "]"))
                     {
                         if (a == GClass0.smethod_0(")"))
                         {
@@ -4435,7 +4435,7 @@ namespace Gssy.Capi.BIZ
             {
                 if (item.TitleTextType == "")
                 {
-                    text2 = ((!(text2 == "")) ? (text2 + GClass0.smethod_0("$Ś") + item.TitleText + GClass0.smethod_0("\\")) : (GClass0.smethod_0("Z") + item.TitleText + GClass0.smethod_0("\\")));
+                    text2 = ((!(text2 == "")) ? (text2 + GClass0.smethod_0("$Ś") + item.TitleText + "]") : (GClass0.smethod_0("Z") + item.TitleText + "]"));
                 }
             }
             if (logicExplain_0.LoopLogicFormula(text2) > 0.0)
@@ -5751,7 +5751,7 @@ namespace Gssy.Capi.BIZ
                     text = text.Replace(GClass0.smethod_0("〉"), GClass0.smethod_0("="));
                     text = text.Replace(GClass0.smethod_0("〈"), GClass0.smethod_0("?"));
                     text = text.Replace(GClass0.smethod_0("Ｚ"), GClass0.smethod_0("Z"));
-                    text = text.Replace(GClass0.smethod_0("＼"), GClass0.smethod_0("\\"));
+                    text = text.Replace(GClass0.smethod_0("＼"), "]");
                     text = text.Replace(GClass0.smethod_0("ｚ"), GClass0.smethod_0("z"));
                     text = text.Replace(GClass0.smethod_0("｜"), GClass0.smethod_0("|"));
                     text = text.Replace(GClass0.smethod_0("］"), GClass0.smethod_0("]"));
@@ -6003,10 +6003,10 @@ namespace Gssy.Capi.BIZ
                 text2 = MID(string_0, num, 2);
                 if (text2 == "#[" || text2 == "$[")
                 {
-                    num2 = RightBrackets(string_0, num, text2, GClass0.smethod_0("\\"));
+                    num2 = RightBrackets(string_0, num, text2, "]");
                     num += 2;
                     text3 = method_132(string_0, num, num2 - 1);
-                    text = text + GClass0.smethod_0("$Ś") + text3 + GClass0.smethod_0("\\");
+                    text = text + GClass0.smethod_0("$Ś") + text3 + "]";
                     num = num2 + 1;
                 }
                 else if (text2 == GClass0.smethod_0("!ź") || text2 == GClass0.smethod_0("&ź"))
@@ -6014,7 +6014,7 @@ namespace Gssy.Capi.BIZ
                     num2 = RightBrackets(string_0, num, text2, GClass0.smethod_0("|"));
                     num += 2;
                     text3 = method_132(string_0, num, num2 - 1);
-                    text = text + GClass0.smethod_0("$Ś") + text3 + GClass0.smethod_0("\\");
+                    text = text + GClass0.smethod_0("$Ś") + text3 + "]";
                     num = num2 + 1;
                 }
                 else if (text2 == GClass0.smethod_0("$ź"))
@@ -6030,7 +6030,7 @@ namespace Gssy.Capi.BIZ
                         num2 = item.IndexOf(GClass0.smethod_0(";"));
                         if (num2 >= 0)
                         {
-                            text = text + GClass0.smethod_0("$Ś") + LEFT(item, num2) + GClass0.smethod_0("\\");
+                            text = text + GClass0.smethod_0("$Ś") + LEFT(item, num2) + "]";
                             text4 = GetTextQuestion(MID(item, num2 + 1, -9999), "");
                             if (text4.Length > 0)
                             {
@@ -6054,7 +6054,7 @@ namespace Gssy.Capi.BIZ
                     {
                         num2 = RightBrackets(string_0, num, GClass0.smethod_0(")"), GClass0.smethod_0("("));
                         text3 = method_132(string_0, num, num2);
-                        text = text + GClass0.smethod_0("$Ś") + text3 + GClass0.smethod_0("\\");
+                        text = text + GClass0.smethod_0("$Ś") + text3 + "]";
                         num = num2 + 1;
                     }
                     else
@@ -6092,7 +6092,7 @@ namespace Gssy.Capi.BIZ
                     string a2 = MID(text, num, length);
                     if (a == GClass0.smethod_0("Z"))
                     {
-                        num = RightBrackets(text, num, GClass0.smethod_0("Z"), GClass0.smethod_0("\\"));
+                        num = RightBrackets(text, num, GClass0.smethod_0("Z"), "]");
                     }
                     else if (a == GClass0.smethod_0(")"))
                     {

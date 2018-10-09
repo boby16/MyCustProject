@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <Style x:Key="WindowBaseStyle">
+        <Setter Property="Control.FontFamily" Value="SimSun" />
+        <Setter Property="Control.Background" Value="{DynamicResource WindowBackgroundBrush}" />
+        <Setter Property="Control.Foreground" Value="#FFFFFFFF" />
+    </Style>
+    <Style x:Key="WindowStyle">
+        <Setter Property="Control.FontFamily" Value="SimSun" />
+        <Setter Property="Control.Background" Value="{DynamicResource WindowBackgroundBrush}" />
+        <Setter Property="Control.Foreground" Value="#FF000000" />
+    </Style>
+    <Style x:Key="TitleTextStyle">
+        <Setter Property="Control.FontSize" Value="28pt" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center" />
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="TitleMediumStyle">
+        <Setter Property="Control.FontSize" Value="26" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center" />
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="TitleSmallStyle">
+        <Setter Property="Control.FontSize" Value="20" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center" />
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="TitleGroupStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="TextBlock.FontSize" Value="18pt" />
+        <Setter Property="TextBlock.FontWeight" Value="Bold" />
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+        <Setter Property="FrameworkElement.Width" Value="280" />
+        <Setter Property="TextBlock.TextAlignment" Value="Right" />
+        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+    </Style>
+    <Style x:Key="GirdTitleMediumStyle">
+        <Setter Property="Control.FontSize" Value="26" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Right" />
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+        <Setter Property="FrameworkElement.Margin" Value="0,0,10,0" />
+    </Style>
+    <Style x:Key="ContentTextStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Control.FontSize" Value="24pt" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+    </Style>
+    <Style x:Key="ContentMediumStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Control.FontSize" Value="20pt" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+    </Style>
+    <Style x:Key="ContentSmallStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Control.FontSize" Value="18pt" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+    </Style>
+    <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Control.FontSize" Value="28pt" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="FrameworkElement.Height" Value="48" />
+        <Setter Property="FrameworkElement.Width" Value="300" />
+        <Setter Property="Control.Template" Value="{DynamicResource TextBoxTemplate}" />
+    </Style>
+    <Style x:Key="TextBoxLongStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Control.FontSize" Value="28pt" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="FrameworkElement.Height" Value="48" />
+        <Setter Property="FrameworkElement.Width" Value="500" />
+        <Setter Property="Control.Template" Value="{DynamicResource TextBoxTemplate}" />
+    </Style>
+    <Style x:Key="TextBoxMediumStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Control.FontSize" Value="24pt" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="FrameworkElement.Height" Value="40" />
+        <Setter Property="FrameworkElement.Width" Value="200" />
+        <Setter Property="Control.Template" Value="{DynamicResource TextBoxTemplate}" />
+    </Style>
+    <Style x:Key="TextBoxSmallStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Control.FontSize" Value="18pt" />
+        <Setter Property="FrameworkElement.Height" Value="30" />
+        <Setter Property="FrameworkElement.Width" Value="120" />
+        <Setter Property="Control.Template" Value="{DynamicResource TextBoxTemplate}" />
+    </Style>
+    <Style x:Key="TextBoxVerySmallStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Control.FontSize" Value="14pt" />
+        <Setter Property="FrameworkElement.Height" Value="26" />
+        <Setter Property="FrameworkElement.Width" Value="120" />
+        <Setter Property="Control.Template" Value="{DynamicResource TextBoxTemplate}" />
+    </Style>
+    <Style x:Key="TextBoxGroupStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Control.FontSize" Value="14pt" />
+        <Setter Property="FrameworkElement.Height" Value="26" />
+        <Setter Property="FrameworkElement.Width" Value="120" />
+        <Setter Property="Control.Template" Value="{DynamicResource TextBoxTemplate}" />
+    </Style>
+    <Style x:Key="CmbListStyle" TargetType="{x:Type ComboBox}">
+        <Setter Property="FrameworkElement.Width" Value="300" />
+        <Setter Property="Control.FontSize" Value="26" />
+        <Setter Property="Control.Background" Value="#FFFFFFFF" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="ComboBox.IsReadOnly" Value="True" />
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Left" />
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+        <Setter Property="ComboBox.IsEditable" Value="False" />
+        <Setter Property="Control.Template" Value="{DynamicResource ComboBoxTemplate}" />
+    </Style>
+    <Style x:Key="RadioButtonStyle" TargetType="{x:Type RadioButton}">
+        <Setter Property="Control.Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Control.FontSize" Value="16" />
+        <Setter Property="UIElement.RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="CheckBoxStyle" TargetType="{x:Type CheckBox}">
+        <Setter Property="Control.Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Control.FontSize" Value="16" />
+        <Setter Property="UIElement.RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="60" />
+            </Grid.ColumnDefinitions>
+            <Rectangle Name="Rectangle" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="5" RadiusY="5" Fill="{DynamicResource NormalBrush}" Stroke="{DynamicResource NormalBorderBrush}" />
+            <Rectangle Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="5" RadiusY="5" Fill="#FFFFFFFF" Stroke="{DynamicResource NormalBorderBrush}" />
+            <Path Name="Arrow" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{DynamicResource GlyphBrush}" Data="M0,0L4,4 8,0z" Height="50" Width="50" Stretch="Uniform" Margin="5" />
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="UIElement.IsMouseOver" Value="True">
+                <Setter Value="{DynamicResource MouseOverBrush}" TargetName="Rectangle" Property="Shape.Fill" />
+            </Trigger>
+            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                <Setter Value="{DynamicResource PressedBrush}" TargetName="Rectangle" Property="Shape.Fill" />
+            </Trigger>
+            <Trigger Property="UIElement.IsEnabled" Value="False">
+                <Setter Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Rectangle" Property="Shape.Fill" />
+                <Setter Value="{DynamicResource DisabledBorderBrush}" TargetName="Rectangle" Property="Shape.Stroke" />
+                <Setter Value="{DynamicResource DisabledForegroundBrush}" Property="Control.Foreground" />
+                <Setter Value="{DynamicResource DisabledForegroundBrush}" TargetName="Arrow" Property="Shape.Fill" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+        <Border Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Control.Background}" />
+    </ControlTemplate>
+    <Style x:Key="SimpleComboBox" TargetType="{x:Type ComboBox}">
+        <Setter Property="UIElement.SnapsToDevicePixels" Value="True" />
+        <Setter Property="FrameworkElement.MinWidth" Value="400" />
+        <Setter Property="Control.FontSize" Value="32" />
+        <Setter Property="Control.Background" Value="#FFFFFFFF" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="ComboBox.IsReadOnly" Value="True" />
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Left" />
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+        <Setter Property="ComboBox.IsEditable" Value="False" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}">
+                    <Grid>
+                        <ToggleButton Name="ToggleButton" Grid.Column="2" Template="{DynamicResource ComboBoxToggleButton}" Focusable="False" ClickMode="Press" IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                        <ContentPresenter Name="ContentSite" HorizontalAlignment="Left" Margin="3,3,23,3" VerticalAlignment="Center" Content="{TemplateBinding ComboBox.SelectionBoxItem}" ContentTemplate="{TemplateBinding ComboBox.SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemsControl.ItemTemplateSelector}" IsHitTestVisible="False" />
+                        <TextBox Name="PART_EditableTextBox" Visibility="Hidden" Template="{DynamicResource ComboBoxTextBox}" HorizontalAlignment="Left" Margin="3,3,23,3" VerticalAlignment="Center" Focusable="True" Background="#00FFFFFF" IsReadOnly="{TemplateBinding ComboBox.IsReadOnly}" Style="{x:Null}" />
+                        <Popup Name="Popup" IsOpen="{TemplateBinding ComboBox.IsDropDownOpen}" Placement="Bottom" Focusable="False" AllowsTransparency="True" PopupAnimation="Slide">
+                            <Grid Name="DropDown" MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}" MinWidth="{TemplateBinding FrameworkElement.ActualWidth}" SnapsToDevicePixels="True">
+                                <Border Name="DropDownBorder" Background="#FFFFFFFF" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1" />
+                                <ScrollViewer Margin="4,6,4,6" Style="{DynamicResource SimpleScrollViewer}" SnapsToDevicePixels="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ItemsControl.HasItems" Value="False">
+                            <Setter TargetName="DropDownBorder" Property="FrameworkElement.MinHeight" Value="95" />
+                        </Trigger>
+                        <Trigger Property="UIElement.IsEnabled" Value="False">
+                            <Setter Value="{DynamicResource DisabledForegroundBrush}" Property="Control.Foreground" />
+                        </Trigger>
+                        <Trigger Property="ItemsControl.IsGrouping" Value="True">
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+                        </Trigger>
+                        <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="True">
+                            <Setter TargetName="DropDownBorder" Property="Border.CornerRadius" Value="4" />
+                            <Setter TargetName="DropDownBorder" Property="FrameworkElement.Margin" Value="0,2,0,0" />
+                        </Trigger>
+                        <Trigger Property="ComboBox.IsEditable" Value="True">
+                            <Setter Property="Control.IsTabStop" Value="False" />
+                            <Setter TargetName="PART_EditableTextBox" Property="UIElement.Visibility" Value="Visible" />
+                            <Setter TargetName="ContentSite" Property="UIElement.Visibility" Value="Hidden" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SimpleComboBoxItem" TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="UIElement.SnapsToDevicePixels" Value="True" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <Grid SnapsToDevicePixels="True">
+                        <Border Name="Border" Background="{TemplateBinding Control.Background}" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" />
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ComboBoxItem.IsHighlighted" Value="True">
+                            <Setter Value="{DynamicResource SelectedBackgroundBrush}" TargetName="Border" Property="Border.Background" />
+                        </Trigger>
+                        <Trigger Property="UIElement.IsEnabled" Value="False">
+                            <Setter Value="{DynamicResource DisabledForegroundBrush}" Property="Control.Foreground" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SimpleScrollViewer" TargetType="{x:Type ScrollViewer}" BasedOn="{x:Null}">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                    <Grid Background="{TemplateBinding Control.Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="50" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ScrollContentPresenter Grid.Column="0" Grid.Row="0" Margin="{TemplateBinding Control.Padding}" Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}" />
+                        <ScrollBar Name="PART_HorizontalScrollBar" Visibility="{TemplateBinding ScrollViewer.ComputedHorizontalScrollBarVisibility}" Grid.Column="0" Grid.Row="1" Width="50" Orientation="Horizontal" ViewportSize="{TemplateBinding ScrollViewer.ViewportWidth}" Minimum="0" Maximum="{TemplateBinding ScrollViewer.ScrollableWidth}" Value="{Binding Path=HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                        <ScrollBar Name="PART_VerticalScrollBar" Visibility="{TemplateBinding ScrollViewer.ComputedVerticalScrollBarVisibility}" Grid.Column="1" Grid.Row="0" Orientation="Vertical" ViewportSize="{TemplateBinding ScrollViewer.ViewportHeight}" Minimum="0" Maximum="{TemplateBinding ScrollViewer.ScrollableHeight}" Value="{Binding Path=VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

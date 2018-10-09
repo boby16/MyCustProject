@@ -1,0 +1,136 @@
+<Window
+	x:Class="Gssy.Capi.View.SurveyCloud" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	Title="{DynamicResource LSystemTitle}"
+	Height="768"
+	Width="1024"
+	WindowState="Maximized"
+	WindowStyle="None"
+	Style="{StaticResource WindowBaseStyle}" xmlns:view="clr-namespace:Gssy.Capi.View"
+	Loaded="method_0">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="5*" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			Grid.Row="0"
+			Text="{DynamicResource LFrmUpTitle}"
+			Style="{StaticResource TitleTextStyle}"
+			Margin="50" />
+		<Grid
+			Row="1"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Stretch">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="5*" />
+				<ColumnDefinition
+					Width="6*" />
+			</Grid.ColumnDefinitions>
+			<TextBlock
+				Grid.Row="0"
+				Grid.ColumnSpan="2"
+				Text="{DynamicResource LFrmUpTip}"
+				Style="{StaticResource TitleMediumStyle}"
+				Foreground="{DynamicResource PressedBrush}"
+				HorizontalAlignment="Center" />
+			<TextBlock
+				Grid.Row="1"
+				Margin="0,30,0,30"
+				Text="{DynamicResource LFrmUpLast}"
+				Style="{StaticResource TitleMediumStyle}"
+				HorizontalAlignment="Right" />
+			<TextBlock
+				Name="txtLastFile"
+				Grid.Row="1"
+				Grid.Column="1"
+				Text="000"
+				Style="{StaticResource TitleMediumStyle}"
+				HorizontalAlignment="Left" />
+			<TextBlock
+				Grid.Row="2"
+				Margin="0,0,0,30"
+				Text="{DynamicResource LFrmUpMachine}"
+				Style="{StaticResource TitleMediumStyle}"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Top" />
+			<TextBlock
+				Name="txtPCCode"
+				Grid.Row="2"
+				Grid.Column="1"
+				Text="000"
+				Style="{StaticResource TitleMediumStyle}"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top" />
+			<TextBlock
+				Grid.Row="3"
+				Margin="0,0,0,30"
+				Text="{DynamicResource LFrmUpInfo}"
+				Style="{StaticResource TitleMediumStyle}"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Top" />
+			<TextBlock
+				Name="txtMsg"
+				Grid.Row="3"
+				Grid.Column="1"
+				Text="000"
+				Style="{StaticResource TitleMediumStyle}"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				TextWrapping="Wrap" />
+		</Grid>
+		<StackPanel
+			Grid.Row="2"
+			Orientation="Horizontal"
+			Margin="5,20,5,20"
+			HorizontalAlignment="Right">
+			<TextBlock
+				Name="txtMsgBar"
+				Margin="50,0,10,0"
+				Text=""
+				Style="{StaticResource ContentTextStyle}"
+				VerticalAlignment="Center" />
+			<ProgressBar
+				Name="progressBar1"
+				Height="30"
+				Margin="5,0,20,0"
+				Width="300"
+				HorizontalAlignment="Right" />
+		</StackPanel>
+		<DockPanel
+			Grid.Row="3"
+			Margin="5,0,5,0">
+			<Image
+				Style="{StaticResource ImgLogo}" />
+			<Button
+				Name="btnExit"
+				Content="{DynamicResource LBtnReturn}"
+				Width="300"
+				Margin="20,5,0,20"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnExit_Click" />
+			<Button
+				Name="btnSave"
+				Content="{DynamicResource LBtnUpload}"
+				Margin="20,5,20,20"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnSave_Click" />
+		</DockPanel>
+	</Grid>
+</Window>

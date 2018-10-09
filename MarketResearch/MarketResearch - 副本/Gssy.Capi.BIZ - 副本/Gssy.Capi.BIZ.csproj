@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2EB996E0-A14E-4EBE-9F7D-AF18E929B9B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gssy.Capi.BIZ</RootNamespace>
+    <AssemblyName>Gssy.Capi.BIZ</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aliyun.OpenServices">
+      <HintPath>..\..\MarketResearchV1.0\Library\Aliyun.OpenServices.dll</HintPath>
+    </Reference>
+    <Reference Include="DirectShowLib-2005">
+      <HintPath>..\Library\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.Common">
+      <HintPath>..\Gssy.Capi.Common\obj\Debug\Gssy.Capi.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.DAL">
+      <HintPath>..\Gssy.Capi.DAL\obj\Debug\Gssy.Capi.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="Gssy.Capi.Entities">
+      <HintPath>..\Gssy.Capi.Entities\bin\Debug\Gssy.Capi.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="alioss.cs" />
+    <Compile Include="AttachBiz.cs" />
+    <Compile Include="AutoAnswer.cs" />
+    <Compile Include="BaiduMapHelper.cs" />
+    <Compile Include="CheckExpiredClass.cs" />
+    <Compile Include="classHtmlText.cs" />
+    <Compile Include="classLoopA.cs" />
+    <Compile Include="classLoopB.cs" />
+    <Compile Include="classLoopQuestion.cs" />
+    <Compile Include="classMatixMultipleAnswers.cs" />
+    <Compile Include="classMultipleAnswers.cs" />
+    <Compile Include="ControlCircleSingle.cs" />
+    <Compile Include="CustomerBiz.cs" />
+    <Compile Include="GClass0.cs" />
+    <Compile Include="LimitBiz.cs" />
+    <Compile Include="LoadReadTable.cs" />
+    <Compile Include="LogicAnswer.cs" />
+    <Compile Include="LogicEngine.cs" />
+    <Compile Include="LogicExplain.cs" />
+    <Compile Include="NavBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QBase.cs" />
+    <Compile Include="QBPTO.cs" />
+    <Compile Include="QCircle.cs" />
+    <Compile Include="QDisplay.cs" />
+    <Compile Include="QFill.cs" />
+    <Compile Include="QMatrixFill.cs" />
+    <Compile Include="QMatrixMultiple.cs" />
+    <Compile Include="QMatrixSingle.cs" />
+    <Compile Include="QMultiple.cs" />
+    <Compile Include="QSingle.cs" />
+    <Compile Include="QSingleExtend.cs" />
+    <Compile Include="QuotaManager.cs" />
+    <Compile Include="RandomBiz.cs" />
+    <Compile Include="RandomEngine.cs" />
+    <Compile Include="SurveyBiz.cs" />
+    <Compile Include="SurveyConfigBiz.cs" />
+    <Compile Include="SurveyExport.cs" />
+    <Compile Include="SurveyImport.cs" />
+    <Compile Include="SurveytoXml.cs" />
+    <Compile Include="SyncTable.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
