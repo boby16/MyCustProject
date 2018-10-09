@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Gssy.Capi.DAL;
 using Gssy.Capi.Entities;
@@ -43,7 +43,7 @@ namespace Gssy.Capi.BIZ
 					this.QDetails = this.oSurveyDetailDal.GetDetails(this.QDefine.DETAIL_ID, out otherCode);
 					this.OtherCode = otherCode;
 				}
-				else if (!(this.QDefine.PARENT_CODE == GClass0.smethod_0("CşɋͅюՋق")))
+				else if (!(this.QDefine.PARENT_CODE == "DYNAMIC"))
 				{
 					this.QDetails = this.oSurveyDetailDal.GetList(this.QDefine.DETAIL_ID, this.QDefine.PARENT_CODE);
 				}

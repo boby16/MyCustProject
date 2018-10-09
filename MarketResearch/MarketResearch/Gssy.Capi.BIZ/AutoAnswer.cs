@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Gssy.Capi.DAL;
@@ -46,15 +46,15 @@ namespace Gssy.Capi.BIZ
 		public void SurveyInit(string string_0, string string_1, int int_0, string string_2, string string_3)
 		{
 			this.oRandom.RandomSurveyMain(string_0);
-			string string_4 = GClass0.smethod_0("4ĵȵ̷в԰");
+			string string_4 = "201401";
 			string string_5 = "1001";
 			this.oSurvey.AddSurvey(string_0, string_1, string_2, string_4, string_5, string_3);
 			QFill qfill = new QFill();
-			qfill.Init(GClass0.smethod_0("Xşɛ͞т՟ٚ݇ࡌॆ੄"), 0);
+			qfill.Init("SURVEY_CODE", 0);
 			qfill.FillText = string_0;
 			qfill.BeforeSave();
 			qfill.Save(string_0, int_0);
-			this.oSurveyAnswerDal.AddOneNoUpdate(string_0, GClass0.smethod_0("Jşɚ͍ѕՙقݖࡌॗੑ"), string_3, int_0);
+			this.oSurveyAnswerDal.AddOneNoUpdate(string_0, "AUSER_GROUP", string_3, int_0);
 		}
 
 		public string GetChildByIndex(string string_0, int int_0)
@@ -91,326 +91,326 @@ namespace Gssy.Capi.BIZ
 		public string QuestionInfo()
 		{
 			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.Append(GClass0.smethod_0("\vĈȉ̎ЏԌ؍ܒࠓऐ਑ଖగഔจུၓᅗቒፆᑛᕥᙅ᝹ᡷᥳ᩹ᬻ᱓ᵷṾὸ⁤ⅸ≵⍧⑻╾♾✯⠳⤰⨱⬶ⰷⴴ⸵⼺〻ㄸ㈹㌾㐿㔼"));
+			stringBuilder.Append("============== SurveyDefine Information ==============");
 			stringBuilder.AppendLine();
 			if (this.MySurveyDefine.ID > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("臣厠紑僱ХԤدܢࠡ"));
+				stringBuilder.Append("自动编号  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.ID.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.ANSWER_ORDER > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("颓矤趚勲鱽安إܤ࠯ढਡ"));
+				stringBuilder.Append("题目输出顺序  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.ANSWER_ORDER.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.PAGE_ID != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("顽縑凱̥Фԯآܡ"));
+				stringBuilder.Append("页编号  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.PAGE_ID);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.QUESTION_NAME != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("闧馐紑僱ХԤدܢࠡ"));
+				stringBuilder.Append("问题编号  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.QUESTION_NAME);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.QUESTION_TITLE != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("串馐骟嵴ХԤدܢࠡ"));
+				stringBuilder.Append("主题题干  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.QUESTION_TITLE);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.QUESTION_TYPE > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("串馐骟咍ХԤدܢࠡ"));
+				stringBuilder.Append("主题题型  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.QUESTION_TYPE.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.QUESTION_USE > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("辘僰韧鮐䭸瀮إܤ࠯ढਡ"));
+				stringBuilder.Append("输出问题使用  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.QUESTION_USE.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.ANSWER_USE > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("辞僶韥鮒罝浀䥸爮ࠥतਯଢడ"));
+				stringBuilder.Append("输出问题答案使用  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.ANSWER_USE.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.COMBINE_INDEX > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("绉唄骓疎彙鶐笥堓ࠥतਯଢడ"));
+				stringBuilder.Append("组合题的子题索引  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.COMBINE_INDEX.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.DETAIL_ID != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("逅揢驳剺葜稑縇ܥࠤयਢଡ"));
+				stringBuilder.Append("选择项关联编码  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.DETAIL_ID);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.PARENT_CODE != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("夕義鈄懥鱲眼坺蝜眑焇ਥତయഢม"));
+				stringBuilder.Append("多级选择项父关联编码  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.PARENT_CODE);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.QUESTION_CONTENT != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("剦馐骟嵴ХԤدܢࠡ"));
+				stringBuilder.Append("副题题干  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.QUESTION_CONTENT);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.SPSS_TITLE != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("_śə͚Ш鶟塴ܥࠤयਢଡ"));
+				stringBuilder.Append("SPSS 题干  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.SPSS_TITLE);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.SPSS_CASE > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("_śə͚Ш鶟再ܥࠤयਢଡ"));
+				stringBuilder.Append("SPSS 题型  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.SPSS_CASE.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.SPSS_VARIABLE > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("]ŝɟ͘Ъ囑韇筼徍थਤଯఢഡ"));
+				stringBuilder.Append("SPSS 变量类型  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.SPSS_VARIABLE.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.SPSS_PRINT_DECIMAIL > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("^Ŝɘ͙Щ备捷䡋ࠥतਯଢడ"));
+				stringBuilder.Append("SPSS 小数位  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.SPSS_PRINT_DECIMAIL.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.MIN_COUNT > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("夔鄄骔疏挊夆阁旮浶थਤଯఢഡ"));
+				stringBuilder.Append("多选题的最小选择数  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.MIN_COUNT.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.MAX_COUNT > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("夔鄄骔疏挊尮阁旮浶थਤଯఢഡ"));
+				stringBuilder.Append("多选题的最大选择数  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.MAX_COUNT.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.IS_RANDOM > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("冊釦鈄魵戤儬邆怲殕嬑ਥତయഢม"));
+				stringBuilder.Append("内部选项是否随机排列  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.IS_RANDOM.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.PAGE_COUNT_DOWN > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("项說柼匛慸ԧ翔ܥࠤयਢଡ"));
+				stringBuilder.Append("页计时倒数 秒  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.PAGE_COUNT_DOWN.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.CONTROL_TYPE > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("掫俽璎署厃暠吰ܥࠤयਢଡ"));
+				stringBuilder.Append("控件的类型控制  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.CONTROL_TYPE.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.CONTROL_FONTSIZE > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("掫俽璎塞䭛尠娉ܥࠤयਢଡ"));
+				stringBuilder.Append("控件的字体大小  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.CONTROL_FONTSIZE.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.CONTROL_HEIGHT > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("掭俿璌駟媠ԥؤܯࠢड"));
+				stringBuilder.Append("控件的高度  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.CONTROL_HEIGHT.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.CONTROL_WIDTH > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("掭俿璌墺媠ԥؤܯࠢड"));
+				stringBuilder.Append("控件的宽度  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.CONTROL_WIDTH.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.CONTROL_MASK != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("掫俽Ȫ̈́ѩմ٭ܥࠤयਢଡ"));
+				stringBuilder.Append("控件 Mask  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.CONTROL_MASK);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.TITLE_FONTSIZE > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("闠馕樋鮓犎幞䥛帠吉थਤଯఢഡ"));
+				stringBuilder.Append("问题标题的字体大小  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.TITLE_FONTSIZE.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.CONTROL_TOOLTIP != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("推俸ȭ͘Ѥե٥ݜ࡮ॶਥତయഢม"));
+				stringBuilder.Append("控件 ToolTip  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.CONTROL_TOOLTIP);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.NOTE != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("夕淹觤攁ЮԢج愵焰醑粌媂垿ഥฤ༯ဢᄡ"));
+				stringBuilder.Append("备注说明 / 显示题的内容  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.NOTE);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.LIMIT_LOGIC != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("亜厥鑜儽犎锲覙撠娰थਤଯఢഡ"));
+				stringBuilder.Append("互动限制的逻辑控制  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.LIMIT_LOGIC);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.GROUP_LEVEL != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("御犥骑緌窠圭إܤ࠯ढਡ"));
+				stringBuilder.Append("循环题组级别  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.GROUP_LEVEL);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.GROUP_CODEA != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("徻犿骗緊瘻媦疤䧩瀈ॉਧ坄థതฯ༢အ"));
+				stringBuilder.Append("循环题组父循环代码A 层  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.GROUP_CODEA);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.GROUP_CODEB != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("徻犿骗緊瘻媦疤䧩瀈ॊਧ坄థതฯ༢အ"));
+				stringBuilder.Append("循环题组父循环代码B 层  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.GROUP_CODEB);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.GROUP_PAGE_TYPE > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("闼馉唸岥瞡鶕磈䤦纎䙄畦睼宍ഥฤ༯ဢᄡ"));
+				stringBuilder.Append("问题在循环题组中的位置类型  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.GROUP_PAGE_TYPE.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.MT_GROUP_MSG != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("徦犤骒緍鲐䫦晩ܥࠤयਢଡ"));
+				stringBuilder.Append("循环题组题信息  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.MT_GROUP_MSG);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.MT_GROUP_COUNT != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("徧犣骓緎釧鶐捷雉ࠥतਯଢడ"));
+				stringBuilder.Append("循环题组问题数量  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.MT_GROUP_COUNT);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.SUMMARY_USE > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("昦售晟誇ХԤدܢࠡ"));
+				stringBuilder.Append("是否摘要  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.SUMMARY_USE.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.SUMMARY_TITLE != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("摑袉樀鮞ХԤدܢࠡ"));
+				stringBuilder.Append("摘要标题  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.SUMMARY_TITLE);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.SUMMARY_INDEX > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("摑袉缥尓ХԤدܢࠡ"));
+				stringBuilder.Append("摘要索引  ,  ");
 				stringBuilder.Append(this.MySurveyDefine.SUMMARY_INDEX.ToString());
 				stringBuilder.AppendLine();
 			}
-			stringBuilder.Append(GClass0.smethod_0("\nċȈ̉Ўԏ،܍ࠒओਐ଑ఖഗฉཻၒᅔቓፁᑚᕰᙎᝁ᡻ᥓ᭬᩼᰻ᵓṷ὾⁸Ⅴ≸⍵⑧╻♾❾⠯⤳⨰⬱ⰶⴷ⸴⼵〺ㄻ㈸㌹㐾㔿㘼"));
+			stringBuilder.Append("============== SurveyRoadMap Information ==============");
 			stringBuilder.AppendLine();
 			if (this.MySurveyRoadMap.ID > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("臣厠紑僱ХԤدܢࠡ"));
+				stringBuilder.Append("自动编号  ,  ");
 				stringBuilder.Append(this.MySurveyRoadMap.ID.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyRoadMap.VERSION_ID > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("跤琻灁搤笑囱إܤ࠯ढਡ"));
+				stringBuilder.Append("路由版本编号  ,  ");
 				stringBuilder.Append(this.MySurveyRoadMap.VERSION_ID.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyRoadMap.PART_NAME != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("闧剿倁鏮ХԤدܢࠡ"));
+				stringBuilder.Append("问卷分部  ,  ");
 				stringBuilder.Append(this.MySurveyRoadMap.PART_NAME);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyRoadMap.PAGE_NOTE != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("顽諳搈̥Фԯآܡ"));
+				stringBuilder.Append("页说明  ,  ");
 				stringBuilder.Append(this.MySurveyRoadMap.PAGE_NOTE);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyRoadMap.PAGE_ID != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("顼ĨɎ͂ХԤدܢࠡ"));
+				stringBuilder.Append("页 ID  ,  ");
 				stringBuilder.Append(this.MySurveyRoadMap.PAGE_ID);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyRoadMap.ROUTE_LOGIC != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("项賸赦軦焹锼覗ܥࠤयਢଡ"));
+				stringBuilder.Append("页跳转路由逻辑  ,  ");
 				stringBuilder.Append(this.MySurveyRoadMap.ROUTE_LOGIC);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyRoadMap.GROUP_ROUTE_LOGIC != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("徤犢糈総喏裺襤霼螗थਤଯఢഡ"));
+				stringBuilder.Append("循环组组内跳转逻辑  ,  ");
 				stringBuilder.Append(this.MySurveyRoadMap.GROUP_ROUTE_LOGIC);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyRoadMap.FORM_NAME != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("顼笃岈國ХԤدܢࠡ"));
+				stringBuilder.Append("页程序名  ,  ");
 				stringBuilder.Append(this.MySurveyRoadMap.FORM_NAME);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyRoadMap.IS_JUMP > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("春唯凧軴譪ԥؤܯࠢड"));
+				stringBuilder.Append("是否可跳转  ,  ");
 				stringBuilder.Append(this.MySurveyRoadMap.IS_JUMP.ToString());
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyRoadMap.NOTE != "")
 			{
-				stringBuilder.Append(GClass0.smethod_0("夀淮ȥ̤ЯԢء"));
+				stringBuilder.Append("备注  ,  ");
 				stringBuilder.Append(this.MySurveyRoadMap.NOTE);
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.QUESTION_TYPE == 2 || this.MySurveyDefine.QUESTION_TYPE == 3)
 			{
-				stringBuilder.Append(GClass0.smethod_0("\vĈȉ̎ЏԌ؍ܒࠓऐ਑ଖగഔจུၓᅗቒፆᑛᕥᙅᝫ᡿ᥴᩰᬻ᱓ᵷṾὸ⁤ⅸ≵⍧⑻╾♾✯⠳⤰⨱⬶ⰷⴴ⸵⼺〻ㄸ㈹㌾㐿㔼"));
+				stringBuilder.Append("============== SurveyDetail Information ==============");
 				stringBuilder.AppendLine();
-				stringBuilder.Append(GClass0.smethod_0("缄礐Ȱ̯Тԭج砝瀋沎洤ଧపഥ栫嬥䅴志"));
+				stringBuilder.Append("编码  ,  编码文本 , 是否其他");
 				stringBuilder.AppendLine();
 				foreach (SurveyDetail surveyDetail in this.lSurveyDetail)
 				{
-					stringBuilder.Append(string.Format(GClass0.smethod_0("jĠɲ̮ЭԠثܪࡲह੺ଦ఩ത๸༰ၼ"), surveyDetail.CODE, surveyDetail.CODE_TEXT, surveyDetail.IS_OTHER.ToString()));
+					stringBuilder.Append(string.Format("{0}  ,  {1} , {2}", surveyDetail.CODE, surveyDetail.CODE_TEXT, surveyDetail.IS_OTHER.ToString()));
 					stringBuilder.AppendLine();
 				}
 			}
 			if (this.lSurveyLogic.Count > 0)
 			{
-				stringBuilder.Append(GClass0.smethod_0("\bĉȎ̏Ќԍؒܓࠐऑਖଗఔകงཱུၐᅖቕፇᑘᕬᙰ᝹ᡴ᥿ᨻ᭓ᱷᵾṸὤ⁸ⅵ≧⍻⑾╾☯✳⠰⤱⨶⬷ⰴⴵ⸺⼻〸ㄹ㈾㌿㐼"));
+				stringBuilder.Append("============== SurveyLogic Information ==============");
 				stringBuilder.AppendLine();
 				foreach (SurveyLogic surveyLogic in this.lSurveyLogic)
 				{
-					stringBuilder.Append(GClass0.smethod_0("逰躛卥將徝䭏إܤ࠯ढਡ"));
+					stringBuilder.Append("逻辑公式定义  ,  ");
 					stringBuilder.Append(surveyLogic.FORMULA);
 					stringBuilder.AppendLine();
-					stringBuilder.Append(GClass0.smethod_0("揙砲䷦捩ХԤدܢࠡ"));
+					stringBuilder.Append("提示信息  ,  ");
 					stringBuilder.Append(surveyLogic.LOGIC_MESSAGE);
 					stringBuilder.AppendLine();
-					stringBuilder.Append(GClass0.smethod_0("進躙懈賶ХԤدܢࠡ"));
+					stringBuilder.Append("逻辑描述  ,  ");
 					stringBuilder.Append(surveyLogic.NOTE);
 					stringBuilder.AppendLine();
-					stringBuilder.Append(GClass0.smethod_0("兏誵畯壷籤躭分霝蟁थਤଯఢഡ"));
+					stringBuilder.Append("允许督导确认后通过  ,  ");
 					stringBuilder.Append(surveyLogic.IS_ALLOW_PASS.ToString());
 					stringBuilder.AppendLine();
 					stringBuilder.AppendLine();
@@ -418,23 +418,23 @@ namespace Gssy.Capi.BIZ
 			}
 			if (this.MySurveyDefine.GROUP_LEVEL == "A")
 			{
-				stringBuilder.Append(GClass0.smethod_0(" ġȦ̧Фԥتܫࠨऩਮଯబഭฯཝၸᅾች፯ᑰᕚᙦᝨᡡᥫᩮᬢᱚ") + this.MySurveyDefine.GROUP_CODEA + GClass0.smethod_0("AĻɓͷѾո٤ݸࡵ१੻୾౾യำ༰ေᄶሷጴᐵᔺᘻ᜸ᠹ᤾ᨿᬼ"));
+				stringBuilder.Append("============== SurveyRandom [" + this.MySurveyDefine.GROUP_CODEA + "] Information ==============");
 				stringBuilder.AppendLine();
 				foreach (SurveyRandom surveyRandom in this.lSurveyRandomA)
 				{
 					stringBuilder.Append(surveyRandom.CODE);
-					stringBuilder.Append(GClass0.smethod_0("#Įȡ"));
+					stringBuilder.Append(" , ");
 				}
 				stringBuilder.AppendLine();
 			}
 			if (this.MySurveyDefine.GROUP_LEVEL == "B")
 			{
-				stringBuilder.Append(GClass0.smethod_0(" ġȦ̧Фԥتܫࠨऩਮଯబഭฯཝၸᅾች፯ᑰᕚᙦᝨᡡᥫᩮᬢᱚ") + this.MySurveyDefine.GROUP_CODEB + GClass0.smethod_0("AĻɓͷѾո٤ݸࡵ१੻୾౾യำ༰ေᄶሷጴᐵᔺᘻ᜸ᠹ᤾ᨿᬼ"));
+				stringBuilder.Append("============== SurveyRandom [" + this.MySurveyDefine.GROUP_CODEB + "] Information ==============");
 				stringBuilder.AppendLine();
 				foreach (SurveyRandom surveyRandom2 in this.lSurveyRandomB)
 				{
 					stringBuilder.Append(surveyRandom2.CODE);
-					stringBuilder.Append(GClass0.smethod_0("#Įȡ"));
+					stringBuilder.Append(" , ");
 				}
 				stringBuilder.AppendLine();
 			}
@@ -524,8 +524,8 @@ namespace Gssy.Capi.BIZ
 			this.MyAnswer = qsingle.SelectedCode;
 			if (qsingle.OtherCode != "")
 			{
-				qsingle.FillText = GClass0.smethod_0("兵俔ȡ") + this.MySurveyDefine.QUESTION_NAME;
-				this.MyAnswer = this.MyAnswer + GClass0.smethod_0("#Įȡ") + qsingle.FillText;
+				qsingle.FillText = "其他 " + this.MySurveyDefine.QUESTION_NAME;
+				this.MyAnswer = this.MyAnswer + " , " + qsingle.FillText;
 			}
 			qsingle.QuestionName = string_1;
 			qsingle.BeforeSave();
@@ -549,12 +549,12 @@ namespace Gssy.Capi.BIZ
 			foreach (SurveyDetail surveyDetail in qmultiple.QDetails)
 			{
 				qmultiple.SelectedValues.Add(surveyDetail.CODE);
-				this.MyAnswer = this.MyAnswer + surveyDetail.CODE + GClass0.smethod_0("#Įȡ");
+				this.MyAnswer = this.MyAnswer + surveyDetail.CODE + " , ";
 			}
 			if (qmultiple.OtherCode != "")
 			{
-				qmultiple.FillText = GClass0.smethod_0("兵俔ȡ") + this.MySurveyDefine.QUESTION_NAME;
-				this.MyAnswer = this.MyAnswer + GClass0.smethod_0("#Įȡ") + qmultiple.FillText;
+				qmultiple.FillText = "其他 " + this.MySurveyDefine.QUESTION_NAME;
+				this.MyAnswer = this.MyAnswer + " , " + qmultiple.FillText;
 			}
 			qmultiple.QuestionName = string_1;
 			qmultiple.BeforeSave();
@@ -570,15 +570,15 @@ namespace Gssy.Capi.BIZ
 
 		private void method_0()
 		{
-			this.DAnswer.Add(GClass0.smethod_0("Qİ"), "5");
-			this.DAnswer.Add(GClass0.smethod_0("Qĳ"), "2");
-			this.DAnswer.Add(GClass0.smethod_0("QĲ"), "3");
-			this.DAnswer.Add(GClass0.smethod_0("Qĵ"), "1");
-			this.DAnswer.Add(GClass0.smethod_0("QĶ"), "1");
-			this.DAnswer.Add(GClass0.smethod_0("QĹ"), "1");
-			this.DAnswer.Add(GClass0.smethod_0("Qĸ"), "1");
-			this.DAnswer.Add(GClass0.smethod_0("Pĳȱ"), "2");
-			this.DAnswer.Add(GClass0.smethod_0("PĳȲ"), GClass0.smethod_0("1ĸ"));
+			this.DAnswer.Add("S1", "5");
+			this.DAnswer.Add("S2", "2");
+			this.DAnswer.Add("S3", "3");
+			this.DAnswer.Add("S4", "1");
+			this.DAnswer.Add("S7", "1");
+			this.DAnswer.Add("S8", "1");
+			this.DAnswer.Add("S9", "1");
+			this.DAnswer.Add("S10", "2");
+			this.DAnswer.Add("S13", "39");
 		}
 
 		private RandomBiz oRandom = new RandomBiz();

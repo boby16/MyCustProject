@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Gssy.Capi.DAL;
 using Gssy.Capi.Entities;
@@ -28,7 +28,7 @@ namespace Gssy.Capi.BIZ
 				if (flag)
 				{
 					surveyConfig.CODE_TEXT = "2";
-					surveyConfig.CODE_NOTE = GClass0.smethod_0("吉橡怓冝С") + DateTime.Now.ToString();
+					surveyConfig.CODE_NOTE = "同步成功 " + DateTime.Now.ToString();
 					this.oSurveyConfigDal.UpdateToRead(surveyConfig);
 				}
 			}

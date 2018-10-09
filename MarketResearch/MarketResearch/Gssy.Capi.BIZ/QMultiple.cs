@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Gssy.Capi.DAL;
@@ -68,7 +68,7 @@ namespace Gssy.Capi.BIZ
 					this.AddFillCode = addFillCode;
 					this.AddFillCodeTitle = addFillCodeTitle;
 				}
-				else if (!(this.QDefine.PARENT_CODE == GClass0.smethod_0("CşɋͅюՋق")) && int_0 > 0)
+				else if (!(this.QDefine.PARENT_CODE == "DYNAMIC") && int_0 > 0)
 				{
 					this.QDetails = this.oSurveyDetailDal.GetList(this.QDefine.DETAIL_ID, this.QDefine.PARENT_CODE);
 				}
@@ -218,7 +218,7 @@ namespace Gssy.Capi.BIZ
 				{
 					this.QDetails = this.oSurveyDetailDal.GetDetails(this.QDefine.DETAIL_ID, out text, out text2, out text3, out text4, out text5);
 				}
-				else if (!(this.QDefine.PARENT_CODE == GClass0.smethod_0("CşɋͅюՋق")) && int_0 > 0)
+				else if (!(this.QDefine.PARENT_CODE == "DYNAMIC") && int_0 > 0)
 				{
 					this.QDetails = this.oSurveyDetailDal.GetList(this.QDefine.DETAIL_ID, this.QDefine.PARENT_CODE);
 				}

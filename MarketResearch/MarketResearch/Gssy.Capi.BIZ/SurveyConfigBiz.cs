@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Gssy.Capi.DAL;
 
 namespace Gssy.Capi.BIZ

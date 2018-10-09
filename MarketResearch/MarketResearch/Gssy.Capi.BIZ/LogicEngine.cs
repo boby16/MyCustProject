@@ -1,4 +1,4 @@
-﻿using Gssy.Capi.Common;
+using Gssy.Capi.Common;
 using Gssy.Capi.DAL;
 using Gssy.Capi.Entities;
 using System;
@@ -27,7 +27,7 @@ namespace Gssy.Capi.BIZ
 
         public int CircleBCurrent = 0;
 
-        public string VersionId = GClass0.smethod_0("1");
+        public string VersionId = "0";
 
         public List<VEAnswer> PageAnswer = new List<VEAnswer>();
 
@@ -104,7 +104,7 @@ namespace Gssy.Capi.BIZ
                 foreach (SurveyLogic item in list)
                 {
                     bool flag2 = true;
-                    if (item.NOTE == GClass0.smethod_0("[") && flag)
+                    if (item.NOTE == "Z" && flag)
                     {
                         flag2 = false;
                     }
@@ -176,7 +176,7 @@ namespace Gssy.Capi.BIZ
                 foreach (SurveyLogic item in list)
                 {
                     bool flag2 = true;
-                    if (item.NOTE == GClass0.smethod_0("[") && flag)
+                    if (item.NOTE == "Z" && flag)
                     {
                         flag2 = false;
                     }
@@ -225,12 +225,12 @@ namespace Gssy.Capi.BIZ
         public bool Result(string string_0)
         {
             LogicExplain logicExplain = new LogicExplain();
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("tųɲͱѰկٮݭ\u086c५੪୩౨൧\u0e66ཥ\u1064ᅣቢ፡ᑠᕟᙞ\u175dᡜᥛ\u1a5a᭙᱘\u1d57Ṗὕ\u2054⅓≒⍑\u2450╏♎❍⡌⥋⩊⭉ⱈⵇ\u2e46⽅いㅃ㉂㍁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("xŷɶ\u0375Ѵճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㐸㕁㙐㜿"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult(string_0, "lg_Answer.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Result.LOG", true);
+            logicExplain.OutputResult(string_0, "lg_Result.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<BR>", "lg_Result.LOG", true);
             string text = logicExplain.CleanFormula(string_0);
             if (text.Length <= 0)
             {
@@ -249,12 +249,12 @@ namespace Gssy.Capi.BIZ
         public double doubleResult(string string_0)
         {
             LogicExplain logicExplain = new LogicExplain();
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("tųɲͱѰկٮݭ\u086c५੪୩౨൧\u0e66ཥ\u1064ᅣቢ፡ᑠᕟᙞ\u175dᡜᥛ\u1a5a᭙᱘\u1d57Ṗὕ\u2054⅓≒⍑\u2450╏♎❍⡌⥋⩊⭉ⱈⵇ\u2e46⽅いㅃ㉂㍁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("xŷɶ\u0375Ѵճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㐸㕁㙐㜿"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult(string_0, "lg_Answer.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Result.LOG", true);
+            logicExplain.OutputResult(string_0, "lg_Result.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<BR>", "lg_Result.LOG", true);
             string text = logicExplain.CleanFormula(string_0);
             if (text.Length <= 0)
             {
@@ -268,12 +268,12 @@ namespace Gssy.Capi.BIZ
         public string stringResult(string string_0)
         {
             LogicExplain logicExplain = new LogicExplain();
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("tųɲͱѰկٮݭ\u086c५੪୩౨൧\u0e66ཥ\u1064ᅣቢ፡ᑠᕟᙞ\u175dᡜᥛ\u1a5a᭙᱘\u1d57Ṗὕ\u2054⅓≒⍑\u2450╏♎❍⡌⥋⩊⭉ⱈⵇ\u2e46⽅いㅃ㉂㍁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("xŷɶ\u0375Ѵճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㐸㕁㙐㜿"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult(string_0, "lg_Answer.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Result.LOG", true);
+            logicExplain.OutputResult(string_0, "lg_Result.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<BR>", "lg_Result.LOG", true);
             string text = logicExplain.CleanFormula(string_0);
             if (text.Length <= 0)
             {
@@ -282,7 +282,7 @@ namespace Gssy.Capi.BIZ
             text = ReplaceSpecialFlag(text);
             logicExplain.SetData(method_0(text), true);
             string text2 = logicExplain.SimpleCalculation(text);
-            if (text.ToUpper().IndexOf(GClass0.smethod_0("/ŉɆ\u034cтՒ\u0640ݜࡗपਢ")) > -1)
+            if (text.ToUpper().IndexOf("$CODETEXT(#") > -1)
             {
                 string textQuestion = logicExplain.GetTextQuestion(text2, "");
                 logicExplain = new LogicExplain();
@@ -295,12 +295,12 @@ namespace Gssy.Capi.BIZ
         public List<string> listResult(string string_0, string string_1 = ",")
         {
             LogicExplain logicExplain = new LogicExplain();
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("tųɲͱѰկٮݭ\u086c५੪୩౨൧\u0e66ཥ\u1064ᅣቢ፡ᑠᕟᙞ\u175dᡜᥛ\u1a5a᭙᱘\u1d57Ṗὕ\u2054⅓≒⍑\u2450╏♎❍⡌⥋⩊⭉ⱈⵇ\u2e46⽅いㅃ㉂㍁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("xŷɶ\u0375Ѵճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㐸㕁㙐㜿"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult(string_0, "lg_Answer.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Result.LOG", true);
+            logicExplain.OutputResult(string_0, "lg_Result.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<BR>", "lg_Result.LOG", true);
             string text = logicExplain.CleanFormula(string_0);
             if (text.Length <= 0)
             {
@@ -319,19 +319,19 @@ namespace Gssy.Capi.BIZ
         {
             string text = "";
             LogicExplain logicExplain = new LogicExplain();
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("tųɲͱѰկٮݭ\u086c५੪୩౨൧\u0e66ཥ\u1064ᅣቢ፡ᑠᕟᙞ\u175dᡜᥛ\u1a5a᭙᱘\u1d57Ṗὕ\u2054⅓≒⍑\u2450╏♎❍⡌⥋⩊⭉ⱈⵇ\u2e46⽅いㅃ㉂㍁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("xŷɶ\u0375Ѵճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㐸㕁㙐㜿"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult(string_0, "lg_Answer.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Result.LOG", true);
+            logicExplain.OutputResult(string_0, "lg_Result.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<BR>", "lg_Result.LOG", true);
             string text2 = logicExplain.CleanFormula(string_0);
             if (text2.Length > 0)
             {
                 text2 = ReplaceSpecialFlag(text2);
                 logicExplain.SetData(method_0(text2), true);
                 text = logicExplain.OptionCalculation(text2);
-                if (text2.ToUpper().IndexOf(GClass0.smethod_0("/ŉɆ\u034cтՒ\u0640ݜࡗपਢ")) > -1)
+                if (text2.ToUpper().IndexOf("$CODETEXT(#") > -1)
                 {
                     string textQuestion = logicExplain.GetTextQuestion(text, "");
                     logicExplain = new LogicExplain();
@@ -359,15 +359,15 @@ namespace Gssy.Capi.BIZ
 
         public string Route(string string_0)
         {
-            if (string_0.Contains(GClass0.smethod_0(";")))
+            if (string_0.Contains(":"))
             {
                 LogicExplain logicExplain = new LogicExplain();
-                logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-                logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-                logicExplain.OutputResult(GClass0.smethod_0("tųɲͱѰկٮݭ\u086c५੪୩౨൧\u0e66ཥ\u1064ᅣቢ፡ᑠᕟᙞ\u175dᡜᥛ\u1a5a᭙᱘\u1d57Ṗὕ\u2054⅓≒⍑\u2450╏♎❍⡌⥋⩊⭉ⱈⵇ\u2e46⽅いㅃ㉂㍁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-                logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                logicExplain.OutputResult(GClass0.smethod_0("xŷɶ\u0375Ѵճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㐸㕁㙐㜿"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+                logicExplain.OutputResult(string_0, "lg_Answer.LOG", true);
+                logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+                logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Result.LOG", true);
+                logicExplain.OutputResult(string_0, "lg_Result.LOG", true);
+                logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<BR>", "lg_Result.LOG", true);
                 string text = logicExplain.CleanFormula(string_0);
                 if (text.Length <= 0)
                 {
@@ -387,17 +387,17 @@ namespace Gssy.Capi.BIZ
             string_ = ReplaceSpecialFlag(string_);
             string text = string_;
             string textQuestion = logicExplain.GetTextQuestion(string_, "");
-            if (textQuestion.Length > 0 || string_.IndexOf(GClass0.smethod_0("Yģ")) > -1)
+            if (textQuestion.Length > 0 || string_.IndexOf("[\"") > -1)
             {
-                logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-                logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-                logicExplain.OutputResult(GClass0.smethod_0("tųɲͱѰկٮݭ\u086c५੪୩౨൧\u0e66ཥ\u1064ᅣቢ፡ᑠᕟᙞ\u175dᡜᥛ\u1a5a᭙᱘\u1d57Ṗὕ\u2054⅓≒⍑\u2450╏♎❍⡌⥋⩊⭉ⱈⵇ\u2e46⽅いㅃ㉂㍁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-                logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                logicExplain.OutputResult(string_0, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                logicExplain.OutputResult(GClass0.smethod_0("xŷɶ\u0375Ѵճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㐸㕁㙐㜿"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+                logicExplain.OutputResult(string_0, "lg_Answer.LOG", true);
+                logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+                logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Result.LOG", true);
+                logicExplain.OutputResult(string_0, "lg_Result.LOG", true);
+                logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<BR>", "lg_Result.LOG", true);
                 logicExplain.SetData(method_0(textQuestion), true);
                 text = logicExplain.TextFormula(string_);
-                if (string_.ToUpper().IndexOf(GClass0.smethod_0("/ŉɆ\u034cтՒ\u0640ݜࡗपਢ")) > -1)
+                if (string_.ToUpper().IndexOf("$CODETEXT(#") > -1)
                 {
                     textQuestion = logicExplain.GetTextQuestion(text, "");
                     logicExplain = new LogicExplain();
@@ -405,42 +405,42 @@ namespace Gssy.Capi.BIZ
                     text = logicExplain.TextFormula(text);
                 }
             }
-            return text.Replace(GClass0.smethod_0("8Łɐ\u033f"), Environment.NewLine);
+            return text.Replace("<BR>", Environment.NewLine);
         }
 
         public List<classHtmlText> listShowText(string string_0)
         {
             LogicExplain logicExplain = new LogicExplain();
             string string_ = strShowText(string_0, true);
-            return logicExplain.SplitTextToList(string_, GClass0.smethod_0("?ŀȿ"), GClass0.smethod_0("8Ĭɀ\u033f"));
+            return logicExplain.SplitTextToList(string_, "<B>", "</B>");
         }
 
         public List<string> listLoopLevel(string string_0, string string_1)
         {
             List<string> result = new List<string>();
             LogicExplain logicExplain = new LogicExplain();
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("徯犫噾䴯\ufb1b"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("徬犪崑壿鲚福") + string_1 + GClass0.smethod_0("＜Ħ噸䴩换䯴亂") + string_0, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("tųɲͱѰկٮݭ\u086c५੪୩౨൧\u0e66ཥ\u1064ᅣቢ፡ᑠᕟᙞ\u175dᡜᥛ\u1a5a᭙᱘\u1d57Ṗὕ\u2054⅓≒⍑\u2450╏♎❍⡌⥋⩊⭉ⱈⵇ\u2e46⽅いㅃ㉂㍁"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("\u0004ŵɤ\u030bѴճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㑄㕃㙂㝁"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("徯犫噾䴯\ufb1b"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("徬犪崑壿鲚福") + string_1 + GClass0.smethod_0("＜Ħ噸䴩换䯴亂") + string_0, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            logicExplain.OutputResult(GClass0.smethod_0("xŷɶ\u0375Ѵճٲݱ\u0870९੮୭౬൫\u0e6aཀྵ\u1068ᅧቦ፥ᑤᕣᙢᝡᡠᥟ\u1a5e᭝ᱜ\u1d5bṚὙ⁘⅗≖⍕\u2454╓♒❑⡐⥏⩎⭍ⱌⵋ\u2e4a⽉えㅇ㉆㍅㐸㕁㙐㜿"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult("循环命中：", "lg_Answer.LOG", true);
+            logicExplain.OutputResult("循环引导题：" + string_1 + "； 命中条件：" + string_0, "lg_Answer.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Answer.LOG", true);
+            logicExplain.OutputResult("<BR>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", "lg_Result.LOG", true);
+            logicExplain.OutputResult("循环命中：", "lg_Result.LOG", true);
+            logicExplain.OutputResult("循环引导题：" + string_1 + "； 命中条件：" + string_0, "lg_Result.LOG", true);
+            logicExplain.OutputResult("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<BR>", "lg_Result.LOG", true);
             string text = "";
             string text2 = logicExplain.CleanFormula(string_1);
-            int num = text2.IndexOf(GClass0.smethod_0("-"));
+            int num = text2.IndexOf(",");
             string text3 = text2;
             string text4 = "";
             if (num > 1)
             {
                 text3 = logicExplain.LEFT(text2, num);
                 text4 = logicExplain.MID(text2, num + 1, -9999);
-                text = text4 + GClass0.smethod_0("'") + text3 + GClass0.smethod_0("$Ś") + string_0 + "]";
+                text = text4 + "&" + text3 + "&[" + string_0 + "]";
             }
             else
             {
-                text = text3 + GClass0.smethod_0("$Ś") + string_0 + "]";
+                text = text3 + "&[" + string_0 + "]";
             }
             string text5 = logicExplain.CleanFormula(text);
             if (text5.Length > 0)
@@ -454,8 +454,8 @@ namespace Gssy.Capi.BIZ
 
         public string ComplexRouteFormula(string string_0, LogicExplain logicExplain_0)
         {
-            string string_ = GClass0.smethod_0(";");
-            string string_2 = GClass0.smethod_0(":");
+            string string_ = ":";
+            string string_2 = ";";
             string string_3 = logicExplain_0.DeleteOuterSymbol(string_0);
             List<string> list = logicExplain_0.ParaToList(string_3, string_2, false);
             foreach (string item in list)
@@ -479,19 +479,19 @@ namespace Gssy.Capi.BIZ
 
         private Dictionary<string, string> method_0(string string_0)
         {
-            string b = GClass0.smethod_0("Yģ");
-            string value = GClass0.smethod_0(" Ŝ");
+            string b = "[\"";
+            string value = "\"]";
             string b2 = "#[";
-            string b3 = GClass0.smethod_0("!ź");
-            string b4 = GClass0.smethod_0("&ź");
-            string value2 = GClass0.smethod_0("|");
+            string b3 = "#{";
+            string b4 = "${";
+            string value2 = "}";
             string[] array = new string[5]
             {
-                GClass0.smethod_0("#ŉɑ\u034cцՐة"),
-                GClass0.smethod_0("!ŋɗ\u034aЩ"),
-                GClass0.smethod_0(".Łɉ\u0351уՃ\u064dݏࡇऩ"),
-                GClass0.smethod_0(",ŉɉ\u0343эՏهܩ"),
-                GClass0.smethod_0(",ŉɉ\u0351іՆفܩ")
+                "$OTHER(",
+                "$OTH(",
+                "$HAVEFILE(",
+                "$NOFILE(",
+                "$NOTREC("
             };
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
             LogicExplain logicExplain = new LogicExplain();
@@ -534,7 +534,7 @@ namespace Gssy.Capi.BIZ
                     else
                     {
                         text = logicExplain.MID(string_0, num, 1);
-                        if (text == GClass0.smethod_0("%"))
+                        if (text == "$")
                         {
                             bool flag = false;
                             string[] array2 = array;
@@ -548,12 +548,12 @@ namespace Gssy.Capi.BIZ
                                 if (text3 == text4.ToUpper())
                                 {
                                     flag = true;
-                                    num2 = logicExplain.RightBrackets(string_0, num, GClass0.smethod_0(")"), GClass0.smethod_0("("));
+                                    num2 = logicExplain.RightBrackets(string_0, num, "(", ")");
                                     num += text3.Length;
-                                    text2 = string_0.Substring(num, num2 - num).Replace(GClass0.smethod_0("!"), "").Trim();
-                                    if (!dictionary.ContainsKey(text3 + text2 + GClass0.smethod_0("(")))
+                                    text2 = string_0.Substring(num, num2 - num).Replace(" ", "").Trim();
+                                    if (!dictionary.ContainsKey(text3 + text2 + ")"))
                                     {
-                                        dictionary.Add(text3 + text2 + GClass0.smethod_0("("), method_1(text3, text2));
+                                        dictionary.Add(text3 + text2 + ")", method_1(text3, text2));
                                     }
                                     text2 = "";
                                     num = num2 + 2;
@@ -567,7 +567,7 @@ namespace Gssy.Capi.BIZ
                             num2 = 0;
                             if (logicExplain.isLetter(logicExplain.MID(string_0, num + 1, 1)))
                             {
-                                num2 = string_0.IndexOf(GClass0.smethod_0(")"), num + 1);
+                                num2 = string_0.IndexOf("(", num + 1);
                             }
                             if (num2 > 0)
                             {
@@ -623,11 +623,11 @@ namespace Gssy.Capi.BIZ
         {
             string text = "";
             string b = "#";
-            string b2 = GClass0.smethod_0("_");
+            string b2 = "^";
             LogicExplain logicExplain = new LogicExplain();
-            List<string> list = logicExplain.ParaToList(string_1, GClass0.smethod_0("-"), false);
+            List<string> list = logicExplain.ParaToList(string_1, ",", false);
             string text2 = "";
-            if (string_0 == GClass0.smethod_0("#ŉɑ\u034cцՐة") || string_0 == GClass0.smethod_0("!ŋɗ\u034aЩ"))
+            if (string_0 == "$OTHER(" || string_0 == "$OTH(")
             {
                 if (list.Count > 0)
                 {
@@ -640,22 +640,22 @@ namespace Gssy.Capi.BIZ
                     }
                 }
             }
-            else if (string_0 == GClass0.smethod_0(".Łɉ\u0351уՃ\u064dݏࡇऩ"))
+            else if (string_0 == "$HAVEFILE(")
             {
                 if (list.Count > 0)
                 {
                     text = method_14(list[0]);
                 }
             }
-            else if (string_0 == GClass0.smethod_0(",ŉɉ\u0343эՏهܩ"))
+            else if (string_0 == "$NOFILE(")
             {
-                text = GClass0.smethod_0("0");
+                text = "1";
                 if (list.Count > 0)
                 {
-                    text = ((method_14(list[0]) == GClass0.smethod_0("0")) ? GClass0.smethod_0("1") : GClass0.smethod_0("0"));
+                    text = ((method_14(list[0]) == "1") ? "0" : "1");
                 }
             }
-            else if (string_0 == GClass0.smethod_0(",ŉɉ\u0351іՆفܩ"))
+            else if (string_0 == "$NOTREC(")
             {
                 text = method_15();
             }
@@ -666,10 +666,10 @@ namespace Gssy.Capi.BIZ
         {
             string text = string_0.Trim();
             string b = "#";
-            string b2 = GClass0.smethod_0("_");
-            string b3 = GClass0.smethod_0("!ź");
-            string b4 = GClass0.smethod_0("&ź");
-            string text2 = GClass0.smethod_0("-");
+            string b2 = "^";
+            string b3 = "#{";
+            string b4 = "${";
+            string text2 = ",";
             string text3 = "";
             if (text.Length > 0)
             {
@@ -755,7 +755,7 @@ namespace Gssy.Capi.BIZ
         {
             LogicAnswer logicAnswer = new LogicAnswer();
             string[] detailsByQName = logicAnswer.GetDetailsByQName(string_0);
-            return string.Join(GClass0.smethod_0("-"), detailsByQName);
+            return string.Join(",", detailsByQName);
         }
 
         private string method_8(string string_0)
@@ -765,14 +765,14 @@ namespace Gssy.Capi.BIZ
             logicAnswer.CircleACode = CircleACode;
             logicAnswer.CircleBCode = CircleBCode;
             string[] option = logicAnswer.GetOption(string_0);
-            return string.Join(GClass0.smethod_0("-"), option);
+            return string.Join(",", option);
         }
 
         internal string method_9(string string_0, string string_1, string string_2 = "、")
         {
             string text = "";
             LogicAnswer logicAnswer = new LogicAnswer();
-            List<string> list = oFunc.StringToList(string_1, GClass0.smethod_0("-"));
+            List<string> list = oFunc.StringToList(string_1, ",");
             foreach (string item in list)
             {
                 string detailsText = logicAnswer.GetDetailsText(string_0, item);
@@ -829,14 +829,14 @@ namespace Gssy.Capi.BIZ
 
         public string ReplaceSpecialFlag(string string_0)
         {
-            string text = string_0.Replace(GClass0.smethod_0(",ŜɅ\u034aрՆكݜ"), CircleACodeText);
-            text = text.Replace(GClass0.smethod_0(",ŜɅ\u034aрՆ\u0640ݜ"), CircleBCodeText);
-            text = text.Replace(GClass0.smethod_0("+ŜɅ\u034aрՆكݜ"), CircleACode);
-            text = text.Replace(GClass0.smethod_0("+ŜɅ\u034aрՆ\u0640ݜ"), CircleBCode);
-            text = text.Replace(GClass0.smethod_0("'Řɣ\u035c"), CircleACurrent.ToString());
-            text = text.Replace(GClass0.smethod_0("'Řɠ\u035c"), CircleBCurrent.ToString());
-            text = text.Replace(GClass0.smethod_0("*œɄ\u0349ѐՊ\u0657\u0743\u085c"), CircleACount.ToString());
-            return text.Replace(GClass0.smethod_0("*œɄ\u0349ѐՊ\u0657\u0740\u085c"), CircleBCount.ToString());
+            string text = string_0.Replace("$[CODEA]", CircleACodeText);
+            text = text.Replace("$[CODEB]", CircleBCodeText);
+            text = text.Replace("#[CODEA]", CircleACode);
+            text = text.Replace("#[CODEB]", CircleBCode);
+            text = text.Replace("#[a]", CircleACurrent.ToString());
+            text = text.Replace("#[b]", CircleBCurrent.ToString());
+            text = text.Replace("#[COUNTA]", CircleACount.ToString());
+            return text.Replace("#[COUNTB]", CircleBCount.ToString());
         }
 
         internal List<string> method_12(List<string> list_0)
@@ -862,9 +862,9 @@ namespace Gssy.Capi.BIZ
 
         internal string method_14(string string_0)
         {
-            string text = GClass0.smethod_0("1");
+            string text = "0";
             string b = "#";
-            string b2 = GClass0.smethod_0("_");
+            string b2 = "^";
             LogicExplain logicExplain = new LogicExplain();
             string a = string_0.Substring(0, 1);
             string text2 = string_0;
@@ -881,17 +881,17 @@ namespace Gssy.Capi.BIZ
                 }
             }
             AttachBiz attachBiz = new AttachBiz();
-            return attachBiz.ExistsByQName(SurveyID, text2) ? GClass0.smethod_0("0") : GClass0.smethod_0("1");
+            return attachBiz.ExistsByQName(SurveyID, text2) ? "1" : "0";
         }
 
         internal string method_15()
         {
-            string byCodeTextRead = oSurveyConfigBiz.GetByCodeTextRead(GClass0.smethod_0("XŬɫ\u0368Ѵա\u064dݰࡍ९"));
-            string byCodeTextRead2 = oSurveyConfigBiz.GetByCodeTextRead(GClass0.smethod_0("]ūɮ\u0363ѹծ\u0640ݻࡕॳ੫୪౪൬\u0e66"));
-            string result = GClass0.smethod_0("1");
-            if (byCodeTextRead == GClass0.smethod_0("]ūɮ\u0363ѹծ\u0640ݻࡈ२ਗ਼୰\u0c71\u0d77\u0e64") && byCodeTextRead2 != GClass0.smethod_0("pűɷ\u0364"))
+            string byCodeTextRead = oSurveyConfigBiz.GetByCodeTextRead("RecordIsOn");
+            string byCodeTextRead2 = oSurveyConfigBiz.GetByCodeTextRead("RecordIsRunning");
+            string result = "0";
+            if (byCodeTextRead == "RecordIsOn_true" && byCodeTextRead2 != "true")
             {
-                result = GClass0.smethod_0("0");
+                result = "1";
             }
             return result;
         }

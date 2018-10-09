@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Gssy.Capi.DAL;
 using Gssy.Capi.Entities;
@@ -41,7 +41,7 @@ namespace Gssy.Capi.BIZ
 		public void GetExtendDetails(string string_0)
 		{
 			this.ExtendCodePlace = this.QDefine.MIN_COUNT;
-			string string_ = string.Format(GClass0.smethod_0("äǓ˙ϑӐ׆ڑޚ࢏ৈ૟௃ೆඊ໺࿝ვᇐዀᏝᓧᗇᛕេ᣶᧲᪽ᯋᳳ᷿ừ´₷⇒⋐⏀ⓒ◛⛝⟏⣆⧊⪭⮱ⲫⶭ⻲⾸ヺㆡ㊥㏥㓭㗦㚡㟣㠐㤚㨘㭜㰒㴔㹙㽐䁗䄅䈐䌘䐖䔑䘅䝐䠋䤇䨞䬘䰂䴄上伜假儃初匐吆唌嘅圿堤奯娠孼尽崨帶張恷慶扽捴搀攷昽朵栬椺橭欩氳派測漦瀣焙爾獵琾畢瘧眲硐祓稝筯籎絈繏罝聎腲艐荀葒蕛虝蜐衸襆詈譞豎贊蹭轭遳酧鉬鍨鑼镫陥需頢餾騺魧鰩鵧鸾鼸ꁖꅸꉱꌴꐳꕑꙞꝔꡊ꤮ꨰꬬ갬굱긺꽵뀠넦눬댤둢딢똨"), new object[]
+			string string_ = string.Format("Select * from SurveyDetail Where DETAIL_ID = '{0}' and code in ( select distinct extend_{1} from  ( Select extend_{1} from SurveyDetail Where DETAIL_ID = '{2}' And  CODE = '{3}' ) a )", new object[]
 			{
 				this.QDefine.DETAIL_ID,
 				this.ExtendCodePlace.ToString(),

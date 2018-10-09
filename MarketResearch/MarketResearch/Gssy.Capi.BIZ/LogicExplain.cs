@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace Gssy.Capi.BIZ
 {
     public class LogicExplain
     {
-        private string sySeqSplit = GClass0.smethod_0("*Ħȕ\u0311Бԕ");
+        private string sySeqSplit = ",#";
 
         private const char syDataSplit = ',';
 
@@ -95,11 +95,11 @@ namespace Gssy.Capi.BIZ
 
         private string[] _aryQnFunc = new string[5]
         {
-            GClass0.smethod_0("#ŉɑ\u034cцՐة"),
-            GClass0.smethod_0("!ŋɗ\u034aЩ"),
-            GClass0.smethod_0("-ŀɆ\u0350рՂيݎࡄ"),
-            GClass0.smethod_0("#ňɊ\u0342ъՎل"),
-            GClass0.smethod_0("#ňɊ\u0350ёՇق")
+            "$OTHER(",
+            "$OTH(",
+            "$HAVEFILE",
+            "$NOFILE",
+            "$NOTREC"
         };
 
         private Dictionary<string, string> _dictQn = new Dictionary<string, string>();
@@ -120,17 +120,17 @@ namespace Gssy.Capi.BIZ
 
         private List<string> _listShowCode = new List<string>();
 
-        private string _strTextSplit = GClass0.smethod_0("\u3000");
+        private string _strTextSplit = "、";
 
         private string method_0(string string_0)
         {
             string text = DeleteOuterSymbol(string_0);
             method_101(string_0, 0);
             string text2 = "";
-            List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), false);
+            List<string> list = ParaToList(string_0, ",", false);
             foreach (string item in list)
             {
-                text2 = text2 + GClass0.smethod_0("-") + method_17(item);
+                text2 = text2 + "," + method_17(item);
             }
             if (LEFT(text2, 1) == ','.ToString())
             {
@@ -155,11 +155,11 @@ namespace Gssy.Capi.BIZ
                 {
                     string a = MID(text2, num2, 2);
                     string text3 = "";
-                    if (!(a == GClass0.smethod_0("$ź")))
+                    if (!(a == "&{"))
                     {
-                        if (a == GClass0.smethod_0("Yģ"))
+                        if (a == "[\"")
                         {
-                            num = text2.IndexOf(GClass0.smethod_0(" Ŝ"), num2 + 1);
+                            num = text2.IndexOf("\"]", num2 + 1);
                             if (num < 0)
                             {
                                 num = text2.Length;
@@ -206,7 +206,7 @@ namespace Gssy.Capi.BIZ
                     }
                     else
                     {
-                        num = RightBrackets(text2, num2, GClass0.smethod_0("$ź"), GClass0.smethod_0("|"));
+                        num = RightBrackets(text2, num2, "&{", "}");
                         text3 = method_132(text2, num2 + 2, num - 1);
                         text3 = method_2(text3);
                         num2 = num;
@@ -216,19 +216,19 @@ namespace Gssy.Capi.BIZ
                 }
                 while (num2 < text2.Length);
             }
-            OutputResult(GClass0.smethod_0("=Ģȣ\u0320СԦاܤ\u0825पਫନ\u0c29മฯ༬"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            OutputResult(GClass0.smethod_0("辖僾构搮\ufb1b") + text, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("----------------", "lg_Result.LOG", true);
+            OutputResult("输出文本：" + text, "lg_Result.LOG", true);
             return text;
         }
 
         private string method_2(string string_0)
         {
             string string_ = string_0.Trim();
-            List<string> list = ParaToList(string_, GClass0.smethod_0(":"), false);
+            List<string> list = ParaToList(string_, ";", false);
             foreach (string item in list)
             {
-                OutputResult(GClass0.smethod_0("KľȻ\u0339捨䯾惸摤涂渨藓炕\uf31b") + item, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                int formulaSplitLocation = GetFormulaSplitLocation(item, GClass0.smethod_0(";"));
+                OutputResult("F203条件替换文本运算：" + item, "lg_Result.LOG", true);
+                int formulaSplitLocation = GetFormulaSplitLocation(item, ":");
                 if (formulaSplitLocation <= -1)
                 {
                     return method_1(item, false);
@@ -248,14 +248,14 @@ namespace Gssy.Capi.BIZ
         private string method_3(string string_0)
         {
             _ShowQuestion = "";
-            _strTextSplit = GClass0.smethod_0("\u3000");
+            _strTextSplit = "、";
             _listShowCode.Clear();
             string text = "";
-            string text2 = GClass0.smethod_0("\u3000");
-            List<string> list = ParaToList(string_0, GClass0.smethod_0(";"), false);
+            string text2 = "、";
+            List<string> list = ParaToList(string_0, ":", false);
             if (method_100(string_0) == 2)
             {
-                if (LEFT(list[list.Count() - 1], 1) != "#" && LEFT(list[list.Count() - 1], 1) != GClass0.smethod_0("%"))
+                if (LEFT(list[list.Count() - 1], 1) != "#" && LEFT(list[list.Count() - 1], 1) != "$")
                 {
                     text2 = list[list.Count() - 1];
                     list.RemoveAt(list.Count() - 1);
@@ -266,7 +266,7 @@ namespace Gssy.Capi.BIZ
                 logicExplain.SetData(_dictData, false);
                 if (text3 != text4)
                 {
-                    text3 = GClass0.smethod_0("Z") + text3 + GClass0.smethod_0("_ħ") + text4;
+                    text3 = "[" + text3 + "]&" + text4;
                 }
                 string string_ = CleanFormula(text3);
                 if (logicExplain.LoopLogicFormula(string_) > 0.0)
@@ -275,9 +275,9 @@ namespace Gssy.Capi.BIZ
                     {
                         foreach (classLoopQuestion item2 in item.B)
                         {
-                            if (item2.Qn[GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64")] == GClass0.smethod_0("0"))
+                            if (item2.Qn["ResultIsTrue"] == "1")
                             {
-                                text = text + GClass0.smethod_0("-") + item2.Qn[text4];
+                                text = text + "," + item2.Qn[text4];
                             }
                         }
                     }
@@ -306,7 +306,7 @@ namespace Gssy.Capi.BIZ
                 _strTextSplit = text2;
                 if (method_117(_strTextSplit))
                 {
-                    text2 = GClass0.smethod_0("\u3000");
+                    text2 = "、";
                 }
                 string[] string_2 = text.Split(',');
                 _listShowCode = method_129(string_2);
@@ -325,13 +325,13 @@ namespace Gssy.Capi.BIZ
             if (_ShowQuestion.Length > 0)
             {
                 bool flag;
-                string text2 = (flag = method_117(_strTextSplit)) ? GClass0.smethod_0("\u3000") : _strTextSplit;
+                string text2 = (flag = method_117(_strTextSplit)) ? "、" : _strTextSplit;
                 foreach (string item in _listShowCode)
                 {
                     string text3 = method_145(_ShowQuestion, item);
                     if (flag)
                     {
-                        text = text + text2 + method_137(text3, _strTextSplit, GClass0.smethod_0("1"));
+                        text = text + text2 + method_137(text3, _strTextSplit, "0");
                     }
                     else if (text3 != "")
                     {
@@ -359,13 +359,13 @@ namespace Gssy.Capi.BIZ
             {
                 return "";
             }
-            if (GetFormulaSplitLocation(string_0, GClass0.smethod_0("zģɤ\u033fмԼ")) <= 0)
+            if (GetFormulaSplitLocation(string_0, "|&`<>=") <= 0)
             {
-                if (GetFormulaSplitLocation(string_0, GClass0.smethod_0(".Ĩȯ\u032e")) <= 0)
+                if (GetFormulaSplitLocation(string_0, "*+-/") <= 0)
                 {
                     return method_14(string_0);
                 }
-                return method_12(string_0, GClass0.smethod_0("*"), 0.0).ToString();
+                return method_12(string_0, "+", 0.0).ToString();
             }
             return method_7(string_0).ToString();
         }
@@ -377,17 +377,17 @@ namespace Gssy.Capi.BIZ
             int length = text.Length;
             if (length > 0)
             {
-                OutputResult(GClass0.smethod_0("2ŏɞ\u0335Щԩ昳墭箩啇璣\uf419\u0c43\uf21c") + _nTotalLoopA + GClass0.smethod_0("(ģɀ\u033c") + _nTotalLoopB, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                OutputResult("<BR># 总循环层级：A＝" + _nTotalLoopA + ", B=" + _nTotalLoopB, "lg_Result.LOG", true);
                 for (int i = 0; i < _nTotalLoopA; i++)
                 {
                     _nCurrentLoopA = i;
                     for (int j = 0; j < _nTotalLoopB; j++)
                     {
                         _nCurrentLoopB = j;
-                        OutputResult(GClass0.smethod_0("1Ŏə\u0334孚坅妭璩呇瞣\uf519\u0b43\uf31c") + (i + 1) + GClass0.smethod_0("(ģɀ\u033c") + (j + 1), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                        if (method_8(text, GClass0.smethod_0("}"), false))
+                        OutputResult("<BR>当前循环层级：A＝" + (i + 1) + ", B=" + (j + 1), "lg_Result.LOG", true);
+                        if (method_8(text, "|", false))
                         {
-                            _LoopQn.A[i].B[j].Qn[GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64")] = GClass0.smethod_0("0");
+                            _LoopQn.A[i].B[j].Qn["ResultIsTrue"] = "1";
                             num += 1.0;
                         }
                     }
@@ -405,12 +405,12 @@ namespace Gssy.Capi.BIZ
             int length = text.Length;
             if (length > 0)
             {
-                string string_2 = GClass0.smethod_0("}");
+                string string_2 = "|";
                 bool bool_ = false;
                 int formulaSplitLocation;
                 do
                 {
-                    formulaSplitLocation = GetFormulaSplitLocation(text, GClass0.smethod_0("\u007fĤɡ"));
+                    formulaSplitLocation = GetFormulaSplitLocation(text, "|&`");
                     if (formulaSplitLocation <= -1)
                     {
                         flag2 = ((text.Length != length) ? method_8(text, string_2, bool_) : method_10(text));
@@ -428,18 +428,18 @@ namespace Gssy.Capi.BIZ
                 while (formulaSplitLocation > 0);
             }
             flag = method_9(flag2, string_1, bool_0);
-            OutputResult(GClass0.smethod_0("Mĺȸ\u0325崊扄阾袕蟓犕\uf51b") + string_0 + GClass0.smethod_0("#Ŀȡ") + flag2.ToString(), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("F01-复杂逻辑运算：" + string_0 + " = " + flag2.ToString(), "lg_Result.LOG", true);
             return flag;
         }
 
         private bool method_9(bool bool_0, string string_0, bool bool_1)
         {
             bool result = false;
-            if (!(string_0 == GClass0.smethod_0("}")))
+            if (!(string_0 == "|"))
             {
-                if (!(string_0 == GClass0.smethod_0("'")))
+                if (!(string_0 == "&"))
                 {
-                    if (string_0 == GClass0.smethod_0(" "))
+                    if (string_0 == "!")
                     {
                         result = (bool_0 ^ bool_1);
                     }
@@ -462,7 +462,7 @@ namespace Gssy.Capi.BIZ
             string text = DeleteOuterSymbol(string_0);
             if (text.Length > 0)
             {
-                int formulaSplitLocation = GetFormulaSplitLocation(text, GClass0.smethod_0(";ĸȸ\u032eШԯخ"));
+                int formulaSplitLocation = GetFormulaSplitLocation(text, "<>=*+-/");
                 result = ((formulaSplitLocation > -1) ? method_11(text) : ((!method_117(text)) ? method_16(text) : method_123(text)));
             }
             return result;
@@ -475,35 +475,35 @@ namespace Gssy.Capi.BIZ
             if (text.Length > 0)
             {
                 string string_ = text;
-                string text2 = GClass0.smethod_0("?");
+                string text2 = ">";
                 double num = 0.0;
-                int formulaSplitLocation = GetFormulaSplitLocation(text, GClass0.smethod_0("?ļȼ"));
+                int formulaSplitLocation = GetFormulaSplitLocation(text, "<>=");
                 int num2 = 1;
                 if (formulaSplitLocation > -1)
                 {
                     string_ = LEFT(text, formulaSplitLocation);
-                    text2 = GClass0.smethod_0("?ļȼ");
+                    text2 = "<>=";
                     if (text2.IndexOf(MID(text, formulaSplitLocation + 1, 1)) > -1)
                     {
                         num2 = 2;
                     }
                     text2 = MID(text, formulaSplitLocation, num2);
                     string string_2 = MID(text, formulaSplitLocation + num2, -9999);
-                    num = method_12(string_2, GClass0.smethod_0("*"), 0.0);
+                    num = method_12(string_2, "+", 0.0);
                 }
-                double num3 = method_12(string_, GClass0.smethod_0("*"), 0.0);
+                double num3 = method_12(string_, "+", 0.0);
                 string a = text2;
-                if (!(a == GClass0.smethod_0("?")))
+                if (!(a == ">"))
                 {
-                    if (!(a == GClass0.smethod_0("=")))
+                    if (!(a == "<"))
                     {
-                        if (!(a == GClass0.smethod_0("<")))
+                        if (!(a == "="))
                         {
-                            if (!(a == GClass0.smethod_0(">Ŀ")))
+                            if (!(a == "<>"))
                             {
-                                if (!(a == GClass0.smethod_0("<ļ")))
+                                if (!(a == ">="))
                                 {
-                                    if (a == GClass0.smethod_0(">ļ"))
+                                    if (a == "<=")
                                     {
                                         result = (num3 <= num);
                                     }
@@ -542,16 +542,16 @@ namespace Gssy.Capi.BIZ
             double num = 0.0;
             string text = DeleteOuterSymbol(string_0);
             int length = text.Length;
-            if (length != 1 || !GClass0.smethod_0(".Ĩȯ\u032e").Contains(text))
+            if (length != 1 || !"*+-/".Contains(text))
             {
                 if (length > 0)
                 {
-                    string string_2 = GClass0.smethod_0("*");
+                    string string_2 = "+";
                     double double_ = 0.0;
                     int formulaSplitLocation;
                     do
                     {
-                        formulaSplitLocation = GetFormulaSplitLocation(text, GClass0.smethod_0(".Ĩȯ\u032e"));
+                        formulaSplitLocation = GetFormulaSplitLocation(text, "*+-/");
                         if (formulaSplitLocation != 0)
                         {
                             if (formulaSplitLocation <= 0)
@@ -581,20 +581,20 @@ namespace Gssy.Capi.BIZ
                 }
                 result = method_13(double_0, string_1, num);
             }
-            OutputResult(GClass0.smethod_0("Mĺȿ\u0325崊扄捵圸蟓犕\uf51b") + text + GClass0.smethod_0("#Ŀȡ") + result.ToString(), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("F06-复杂数值运算：" + text + " = " + result.ToString(), "lg_Result.LOG", true);
             return result;
         }
 
         private double method_13(double double_0, string string_0, double double_1)
         {
             double result = 0.0;
-            if (!(string_0 == GClass0.smethod_0("*")))
+            if (!(string_0 == "+"))
             {
-                if (!(string_0 == GClass0.smethod_0(",")))
+                if (!(string_0 == "-"))
                 {
-                    if (!(string_0 == GClass0.smethod_0("+")))
+                    if (!(string_0 == "*"))
                     {
-                        if (string_0 == GClass0.smethod_0(".") && double_1 != 0.0)
+                        if (string_0 == "/" && double_1 != 0.0)
                         {
                             result = double_0 / double_1;
                         }
@@ -624,7 +624,7 @@ namespace Gssy.Capi.BIZ
             {
                 string text2 = LEFT(text, 1);
                 string a = LEFT(text, 2);
-                result = (method_89(text) ? method_1(text, false) : ((a == GClass0.smethod_0("&ź") || a == GClass0.smethod_0("!ź")) ? method_96(LEFT(text, text.Length - 1)) : ((text2 == GClass0.smethod_0("%")) ? method_27(text) : ((GetFormulaSplitLocation(text, GClass0.smethod_0(".Ĩȯ\u032e")) > -1) ? method_12(text, GClass0.smethod_0("*"), 0.0).ToString() : ((!method_116(text2)) ? method_15(text) : text)))));
+                result = (method_89(text) ? method_1(text, false) : ((a == "${" || a == "#{") ? method_96(LEFT(text, text.Length - 1)) : ((text2 == "$") ? method_27(text) : ((GetFormulaSplitLocation(text, "*+-/") > -1) ? method_12(text, "+", 0.0).ToString() : ((!method_116(text2)) ? method_15(text) : text)))));
             }
             return result;
         }
@@ -635,7 +635,7 @@ namespace Gssy.Capi.BIZ
             string text = DeleteOuterSymbol(string_0);
             if (text.Length > 0)
             {
-                result = ((text.IndexOf(GClass0.smethod_0(")")) <= -1) ? method_96(text) : method_124(method_16(text)).ToString());
+                result = ((text.IndexOf("(") <= -1) ? method_96(text) : method_124(method_16(text)).ToString());
             }
             return result;
         }
@@ -646,7 +646,7 @@ namespace Gssy.Capi.BIZ
             string text = DeleteOuterSymbol(string_0);
             if (text.Length > 0)
             {
-                if (text.IndexOf(GClass0.smethod_0(")")) <= -1)
+                if (text.IndexOf("(") <= -1)
                 {
                     result = (method_89(text) ? method_123(method_1(text, false)) : ((!method_117(text)) ? method_123(method_96(text)) : method_123(text)));
                 }
@@ -663,7 +663,7 @@ namespace Gssy.Capi.BIZ
                         string text2 = MID(text, num + 1, -9999);
                         text2 = LEFT(text2, text2.Length - 1);
                         string_ = method_17(string_);
-                        result = method_18(string_, text2, GClass0.smethod_0("}"), false);
+                        result = method_18(string_, text2, "|", false);
                     }
                 }
             }
@@ -676,13 +676,13 @@ namespace Gssy.Capi.BIZ
             string text2 = DeleteOuterSymbol(string_0);
             if (text2.Length > 0)
             {
-                List<string> list = ParaToList(text2, GClass0.smethod_0("}"), false);
+                List<string> list = ParaToList(text2, "|", false);
                 foreach (string item in list)
                 {
                     string text3 = "";
                     string text4 = LEFT(item, 1);
                     string a = LEFT(item, 2);
-                    text = string.Concat(str2: (GetFormulaSplitLocation(item, GClass0.smethod_0(".Ĩȯ\u032e")) <= 0) ? ((!(a == GClass0.smethod_0("Yģ"))) ? ((!(a == GClass0.smethod_0("&ź")) && !(a == GClass0.smethod_0("!ź"))) ? ((!(a == GClass0.smethod_0("$ź"))) ? ((!(text4 == GClass0.smethod_0("%"))) ? ((item.IndexOf(GClass0.smethod_0("\u007f")) <= -1) ? ((!method_116(text4) && !(text4 == GClass0.smethod_0(",")) && !(text4 == GClass0.smethod_0("*"))) ? method_96(item) : method_12(item, GClass0.smethod_0("*"), 0.0).ToString()) : method_114(item)) : method_27(item)) : method_1(item, false)) : method_96(LEFT(item, item.Length - 1))) : method_1(item, false)) : method_12(item, GClass0.smethod_0("*"), 0.0).ToString(), str0: text, str1: GClass0.smethod_0("-"));
+                    text = string.Concat(str2: (GetFormulaSplitLocation(item, "*+-/") <= 0) ? ((!(a == "[\"")) ? ((!(a == "${") && !(a == "#{")) ? ((!(a == "&{")) ? ((!(text4 == "$")) ? ((item.IndexOf("~") <= -1) ? ((!method_116(text4) && !(text4 == "-") && !(text4 == "+")) ? method_96(item) : method_12(item, "+", 0.0).ToString()) : method_114(item)) : method_27(item)) : method_1(item, false)) : method_96(LEFT(item, item.Length - 1))) : method_1(item, false)) : method_12(item, "+", 0.0).ToString(), str0: text, str1: ",");
                 }
             }
             if (LEFT(text, 1) == ','.ToString())
@@ -697,12 +697,12 @@ namespace Gssy.Capi.BIZ
             string text = DeleteOuterSymbol(string_1);
             int length = text.Length;
             bool flag = false;
-            string string_3 = GClass0.smethod_0("}");
+            string string_3 = "|";
             bool bool_ = false;
             int formulaSplitLocation;
             do
             {
-                formulaSplitLocation = GetFormulaSplitLocation(text, GClass0.smethod_0("\u007fĤɡ"));
+                formulaSplitLocation = GetFormulaSplitLocation(text, "|&`");
                 if (formulaSplitLocation <= -1)
                 {
                     flag = ((text.Length != length) ? method_18(string_0, text, string_3, bool_) : method_19(string_0, text));
@@ -739,52 +739,52 @@ namespace Gssy.Capi.BIZ
                             {
                                 string text3 = LEFT(text, 1);
                                 string a = MID(text, 1, 1);
-                                int formulaSplitLocation = GetFormulaSplitLocation(text, GClass0.smethod_0("\u007f"));
+                                int formulaSplitLocation = GetFormulaSplitLocation(text, "~");
                                 if (formulaSplitLocation > -1)
                                 {
-                                    double double_ = method_12(LEFT(text, formulaSplitLocation), GClass0.smethod_0("*"), 0.0);
-                                    double double_2 = method_12(MID(text, formulaSplitLocation + 1, -9999), GClass0.smethod_0("*"), 0.0);
+                                    double double_ = method_12(LEFT(text, formulaSplitLocation), "+", 0.0);
+                                    double double_2 = method_12(MID(text, formulaSplitLocation + 1, -9999), "+", 0.0);
                                     flag = method_20(string_0, double_, double_2);
                                 }
-                                else if (text3 == GClass0.smethod_0("$"))
+                                else if (text3 == "%")
                                 {
                                     flag = (string_0.Length > 0);
                                 }
-                                else if (text3 == GClass0.smethod_0("%"))
+                                else if (text3 == "$")
                                 {
                                     text2 = method_27(text);
-                                    flag = method_24(string_0, text2, GClass0.smethod_0("}"));
+                                    flag = method_24(string_0, text2, "|");
                                 }
                                 else if (text.IndexOf(',') > -1)
                                 {
-                                    flag = method_24(string_0, text, GClass0.smethod_0("}"));
+                                    flag = method_24(string_0, text, "|");
                                 }
-                                else if (method_116(text3) || text3 == GClass0.smethod_0("*") || text3 == GClass0.smethod_0(","))
+                                else if (method_116(text3) || text3 == "+" || text3 == "-")
                                 {
-                                    double double_3 = method_12(text, GClass0.smethod_0("*"), 0.0);
+                                    double double_3 = method_12(text, "+", 0.0);
                                     flag = method_21(string_0, double_3);
                                 }
-                                else if (text3 == GClass0.smethod_0("?"))
+                                else if (text3 == ">")
                                 {
-                                    double double_3 = (!(a == GClass0.smethod_0("<"))) ? method_12(MID(text, 1, -9999), GClass0.smethod_0("*"), 0.0) : (method_12(MID(text, 2, -9999), GClass0.smethod_0("*"), 0.0) - 1.0);
+                                    double double_3 = (!(a == "=")) ? method_12(MID(text, 1, -9999), "+", 0.0) : (method_12(MID(text, 2, -9999), "+", 0.0) - 1.0);
                                     flag = method_22(string_0, double_3);
                                 }
-                                else if (text3 == GClass0.smethod_0("="))
+                                else if (text3 == "<")
                                 {
-                                    double double_3 = (!(a == GClass0.smethod_0("<"))) ? method_12(MID(text, 1, -9999), GClass0.smethod_0("*"), 0.0) : (method_12(MID(text, 2, -9999), GClass0.smethod_0("*"), 0.0) + 1.0);
+                                    double double_3 = (!(a == "=")) ? method_12(MID(text, 1, -9999), "+", 0.0) : (method_12(MID(text, 2, -9999), "+", 0.0) + 1.0);
                                     flag = method_23(string_0, double_3);
                                 }
                                 else
                                 {
                                     string string_2;
-                                    if (text3 == GClass0.smethod_0("A"))
+                                    if (text3 == "@")
                                     {
-                                        string_2 = GClass0.smethod_0("'");
+                                        string_2 = "&";
                                         text = MID(text, 1, -9999);
                                     }
                                     else
                                     {
-                                        string_2 = GClass0.smethod_0("}");
+                                        string_2 = "|";
                                     }
                                     text2 = method_6(text);
                                     flag = method_24(string_0, text2, string_2);
@@ -795,7 +795,7 @@ namespace Gssy.Capi.BIZ
                         }
                         return true;
                     }
-                    return method_25(string_0, string_1, GClass0.smethod_0("@ŕɖ\u0343э"));
+                    return method_25(string_0, string_1, "EQUAL");
                 }
                 return false;
             }
@@ -885,7 +885,7 @@ namespace Gssy.Capi.BIZ
                     {
                         string[] array = string_0.Split(',');
                         string[] array2 = string_1.Split(',');
-                        if (!(string_2 == GClass0.smethod_0("'")))
+                        if (!(string_2 == "&"))
                         {
                             string[] array3 = array;
                             foreach (string b in array3)
@@ -944,13 +944,13 @@ namespace Gssy.Capi.BIZ
                 if (string_0.Length <= 0 || text.Length != 0)
                 {
                     bool flag = false;
-                    string string_3 = GClass0.smethod_0("}");
+                    string string_3 = "|";
                     bool bool_ = false;
                     int length = text.Length;
                     int num = 0;
                     do
                     {
-                        num = GetFormulaSplitLocation(text, GClass0.smethod_0("\u007fĤɡ"));
+                        num = GetFormulaSplitLocation(text, "|&`");
                         if (num <= -1)
                         {
                             if (text.Length == length)
@@ -972,7 +972,7 @@ namespace Gssy.Capi.BIZ
                         string_3 = text2;
                     }
                     while (num > 0);
-                    OutputResult(GClass0.smethod_0("JĹȾ\u0324崅扅掁怩提蚀\uf518\u0b7a") + string_0 + GClass0.smethod_0("\u007fġ") + string_2 + GClass0.smethod_0("\"ź") + string_1 + GClass0.smethod_0("yģȿ\u0321") + result.ToString(), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                    OutputResult("F24-复杂文本比较：{" + string_0 + "} " + string_2 + " {" + string_1 + "} = " + result.ToString(), "lg_Result.LOG", true);
                     return result;
                 }
                 return false;
@@ -984,15 +984,15 @@ namespace Gssy.Capi.BIZ
         {
             bool result = false;
             string text = method_6(string_1);
-            if (string_2 == GClass0.smethod_0("@ŕɖ\u0343э"))
+            if (string_2 == "EQUAL")
             {
                 result = (string_0 == text);
             }
-            else if (string_2 == GClass0.smethod_0("HŊɉ\u0344"))
+            else if (string_2 == "LIKE")
             {
                 result = string_0.Contains(text);
             }
-            else if (string_2 == GClass0.smethod_0("Kŏ"))
+            else if (string_2 == "IN")
             {
                 result = text.Contains(string_0);
             }
@@ -1003,297 +1003,297 @@ namespace Gssy.Capi.BIZ
         {
             string text = "";
             string text2 = DeleteOuterSymbol(string_0);
-            if (text2.Length > 0 && LEFT(text2, 1) == GClass0.smethod_0("%"))
+            if (text2.Length > 0 && LEFT(text2, 1) == "$")
             {
-                int num = text2.IndexOf(GClass0.smethod_0(")"));
+                int num = text2.IndexOf("(");
                 string text3 = MID(text2, 1, num - 1);
                 text3 = text3.ToUpper();
                 string text4 = MID(text2, num + 1, -9999);
                 text4 = LEFT(text4, text4.Length - 1);
-                if (text3 == GClass0.smethod_0("Mōɕ"))
+                if (text3 == "NOT")
                 {
                     text = method_28(text4);
                 }
-                else if (text3 == GClass0.smethod_0("@Ōɀ") || text3 == GClass0.smethod_0("Fŋɖ\u034cѕ"))
+                else if (text3 == "CNA" || text3 == "COUNT")
                 {
                     text = method_29(text4);
                 }
-                else if (text3 == GClass0.smethod_0("PŗɌ"))
+                else if (text3 == "SUM")
                 {
                     text = method_44(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Oōɓ") || text3 == GClass0.smethod_0("@ōɓ"))
+                else if (text3 == "LOR" || text3 == "COR")
                 {
                     text = method_45(text4);
                 }
-                else if (text3 == GClass0.smethod_0("@Ōɍ") || text3 == GClass0.smethod_0("M") || text3 == GClass0.smethod_0("HŌɍ\u0351"))
+                else if (text3 == "CNL" || text3 == "L" || text3 == "LOOP")
                 {
                     text = method_43(text4);
                 }
-                else if (text3 == GClass0.smethod_0("@Ŋɖ\u034eуՕ") || text3 == GClass0.smethod_0("G"))
+                else if (text3 == "FORMAT" || text3 == "F")
                 {
                     text = method_33(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Mœ") || text3 == GClass0.smethod_0("BņɅ"))
+                else if (text3 == "OR" || text3 == "ADD")
                 {
                     text = method_34(text4);
                 }
-                else if (text3 == GClass0.smethod_0("GŇɍ"))
+                else if (text3 == "DEL")
                 {
                     text = method_38(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Oņɇ\u0351"))
+                else if (text3 == "KEEP")
                 {
                     text = method_39(text4);
                 }
-                else if (text3 == GClass0.smethod_0("BŌɅ"))
+                else if (text3 == "AND")
                 {
                     text = method_35(text4);
                 }
-                else if (text3 == GClass0.smethod_0("[ōɓ"))
+                else if (text3 == "XOR")
                 {
                     text = method_36(text4);
                 }
-                else if (text3 == GClass0.smethod_0("JŐɋ\u0347ѓ") || text3 == GClass0.smethod_0("LŖɉ"))
+                else if (text3 == "OTHER" || text3 == "OTH")
                 {
-                    text = method_56(text4, GClass0.smethod_0("%") + text3 + GClass0.smethod_0(")"));
+                    text = method_56(text4, "$" + text3 + "(");
                 }
-                else if (text3 == GClass0.smethod_0("Kňɂ\u0340ѐՆ\u065aݕ"))
+                else if (text3 == "CODETEXT")
                 {
                     text = method_57(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Fōɓ") || text3 == GClass0.smethod_0("CŃɉ\u0357тՏل"))
+                else if (text3 == "EOR" || text3 == "DELSAME")
                 {
                     text = method_37(text4);
                 }
-                else if (text3 == GClass0.smethod_0("HŊɐ\u034dїՌ"))
+                else if (text3 == "NOTNUM")
                 {
                     text = method_47(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Dņɜ\u0344юՌي\u0746ࡑ\u0944"))
+                else if (text3 == "NOTCHINESE")
                 {
                     text = method_49(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Iŉɑ\u0353ьՐم"))
+                else if (text3 == "NOTWORD")
                 {
                     text = method_48(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Fňɒ\u0340щՂ\u064bݍ"))
+                else if (text3 == "NOTEMAIL")
                 {
                     text = method_50(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Iŉɑ\u034cїՖ\u0651"))
+                else if (text3 == "NOTHTTP")
                 {
                     text = method_51(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Fňɒ\u0346хՑ\u064cݎ"))
+                else if (text3 == "NOTCARNO")
                 {
                     text = method_52(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Kŋɗ\u034bх"))
+                else if (text3 == "NOTID")
                 {
                     text = method_54(text4);
                 }
-                else if (text3 == GClass0.smethod_0("HŊɐ\u0355ыՏ"))
+                else if (text3 == "NOTVIN")
                 {
                     text = method_53(text4);
                 }
-                else if (text3 == GClass0.smethod_0("@łɖ\u0344") || text3 == GClass0.smethod_0("E"))
+                else if (text3 == "DATE" || text3 == "D")
                 {
                     text = method_65(text4);
                 }
-                else if (text3 == GClass0.smethod_0("PŊɏ\u0344") || text3 == GClass0.smethod_0("U"))
+                else if (text3 == "TIME" || text3 == "T")
                 {
                     text = method_66(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Lņɒ\u0340ѐՊ\u064f\u0744") || text3 == GClass0.smethod_0("Fŕ"))
+                else if (text3 == "DATETIME" || text3 == "DT")
                 {
                     text = method_67(text4);
                 }
-                else if (text3 == GClass0.smethod_0("PŃɀ\u034fчՃ\u0658") || text3 == GClass0.smethod_0("UŅ"))
+                else if (text3 == "WEEKDAY" || text3 == "WD")
                 {
                     text = method_79(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Qŋɇ\u0343ј"))
+                else if (text3 == "TODAY")
                 {
                     text = method_68(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Mōɖ"))
+                else if (text3 == "NOW")
                 {
                     text = method_69(text4);
                 }
-                else if (text3 == GClass0.smethod_0("FŌɅ"))
+                else if (text3 == "END")
                 {
                     text = method_80(text4);
                 }
-                else if (text3 == GClass0.smethod_0("VŐɂ\u0350ѕ"))
+                else if (text3 == "START")
                 {
                     text = method_81(text4);
                 }
-                else if (text3 == GClass0.smethod_0("HŌɌ\u0346"))
+                else if (text3 == "LONG")
                 {
                     text = method_82(text4);
                 }
-                else if (text3 == GClass0.smethod_0("JŌɕ") || text3 == GClass0.smethod_0("@Ōɕ\u034f") || text3 == GClass0.smethod_0("[Ňɒ\u0348сՀ\u064cݕࡏ") || text3 == GClass0.smethod_0("CňɌ\u034dѓ"))
+                else if (text3 == "INT" || text3 == "DOWN" || text3 == "ROUNDDOWN" || text3 == "FLOOR")
                 {
                     text = method_30(text4, 0.0);
                 }
-                else if (text3 == GClass0.smethod_0("Wŋɖ\u034cх"))
+                else if (text3 == "ROUND")
                 {
                     text = method_30(text4, 0.5);
                 }
-                else if (text3 == GClass0.smethod_0("Wő") || text3 == GClass0.smethod_0("Uŉɐ\u034aч\u0557\u0651"))
+                else if (text3 == "UP" || text3 == "ROUNDUP")
                 {
                     text = method_30(text4, 0.999999999999999);
                 }
-                else if (text3 == GClass0.smethod_0("Rśɒ"))
+                else if (text3 == "QYS")
                 {
                     text = method_31(text4);
                 }
-                else if (text3 == GClass0.smethod_0("NōɅ"))
+                else if (text3 == "MOD")
                 {
                     text = method_32(text4);
                 }
-                else if (text3 == GClass0.smethod_0("NŃə"))
+                else if (text3 == "MAX")
                 {
                     text = method_40(text4, true);
                 }
-                else if (text3 == GClass0.smethod_0("Nŋɏ"))
+                else if (text3 == "MIN")
                 {
                     text = method_40(text4, false);
                 }
-                else if (text3 == GClass0.smethod_0("TńɊ\u0347эՌ") || text3 == GClass0.smethod_0("VłɌ\u0345"))
+                else if (text3 == "RANDOM" || text3 == "RAND")
                 {
                     text = method_41(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Płɉ\u0344"))
+                else if (text3 == "TAKE")
                 {
                     text = method_42(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Wōɑ"))
+                else if (text3 == "TOP")
                 {
                     text = method_46(text4, true, false);
                 }
-                else if (text3 == GClass0.smethod_0("Hłɑ\u0355"))
+                else if (text3 == "LAST")
                 {
                     text = method_46(text4, false, false);
                 }
-                else if (text3 == GClass0.smethod_0("UŇɋ\u034fїՍ\u0651") || text3 == GClass0.smethod_0("UŇɋ\u034fюՃ\u0659"))
+                else if (text3 == "RANKTOP" || text3 == "RANKMAX")
                 {
                     text = method_46(text4, true, true);
                 }
-                else if (text3 == GClass0.smethod_0("ZņɈ\u034eшՂ\u0651ݕ") || text3 == GClass0.smethod_0("UŇɋ\u034fюՋ\u064f"))
+                else if (text3 == "RANKLAST" || text3 == "RANKMIN")
                 {
                     text = method_46(text4, false, true);
                 }
-                else if (text3 == GClass0.smethod_0("PŖɓ") || text3 == GClass0.smethod_0("R") || text3 == GClass0.smethod_0("Uőɖ\u034aьՆ"))
+                else if (text3 == "STR" || text3 == "S" || text3 == "STRING")
                 {
                     text = method_55(text4);
                 }
-                else if (text3 == GClass0.smethod_0("OŇɏ") || text3 == GClass0.smethod_0("JŀɊ\u0344іՉ"))
+                else if (text3 == "LEN" || text3 == "LENGTH")
                 {
                     text = method_58(text4);
                 }
-                else if (text3 == GClass0.smethod_0("UŃɍ") || text3 == GClass0.smethod_0("SŅɏ\u0357ф"))
+                else if (text3 == "VAL" || text3 == "VALUE")
                 {
                     text = method_59(text4);
                 }
-                else if (text3 == GClass0.smethod_0("HņɄ\u0355"))
+                else if (text3 == "LEFT")
                 {
                     text = method_60(text4);
                 }
-                else if (text3 == GClass0.smethod_0("NŋɅ"))
+                else if (text3 == "MID")
                 {
                     text = method_61(text4);
                 }
-                else if (text3 == GClass0.smethod_0("PŗɃ"))
+                else if (text3 == "SUB")
                 {
                     text = method_62(text4);
                 }
-                else if (text3 == GClass0.smethod_0("WōɄ\u034aѕ"))
+                else if (text3 == "RIGHT")
                 {
                     text = method_63(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Pőɋ\u034c"))
+                else if (text3 == "TRIM")
                 {
                     text = method_64(text4, "");
                 }
-                else if (text3 == GClass0.smethod_0("IŐɑ\u034bь"))
+                else if (text3 == "LTRIM")
                 {
-                    text = method_64(text4, GClass0.smethod_0("M"));
+                    text = method_64(text4, "L");
                 }
-                else if (text3 == GClass0.smethod_0("WŐɑ\u034bь"))
+                else if (text3 == "RTRIM")
                 {
-                    text = method_64(text4, GClass0.smethod_0("S"));
+                    text = method_64(text4, "R");
                 }
-                else if (text3 == GClass0.smethod_0("]ņɃ\u0353") || text3 == GClass0.smethod_0("[œ"))
+                else if (text3 == "YEAR" || text3 == "YR")
                 {
                     text = method_70(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Hŋɍ\u0356щ") || text3 == GClass0.smethod_0("Oŉ"))
+                else if (text3 == "MONTH" || text3 == "MH")
                 {
                     text = method_71(text4);
                 }
-                else if (text3 == GClass0.smethod_0("GŃɘ") || text3 == GClass0.smethod_0("FŘ"))
+                else if (text3 == "DAY" || text3 == "DY")
                 {
                     text = method_72(text4);
                 }
-                else if (text3 == GClass0.smethod_0("LŌɗ\u0353") || text3 == GClass0.smethod_0("Jœ"))
+                else if (text3 == "HOUR" || text3 == "HR")
                 {
                     text = method_73(text4);
                 }
-                else if (text3 == GClass0.smethod_0("KŌɊ\u0356іՄ") || text3 == GClass0.smethod_0("Oŏ"))
+                else if (text3 == "MINUTE" || text3 == "MN")
                 {
                     text = method_74(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Uŀɇ\u034cьՅ") || text3 == GClass0.smethod_0("Qł"))
+                else if (text3 == "SECOND" || text3 == "SC")
                 {
                     text = method_75(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Iŉɑ\u0340тՖل"))
+                else if (text3 == "NOTDATE")
                 {
                     text = method_76(text4);
                 }
-                else if (text3 == GClass0.smethod_0("Iŉɑ\u0350ъՏل"))
+                else if (text3 == "NOTTIME")
                 {
                     text = method_77(text4);
                 }
-                else if (text3 == GClass0.smethod_0("EŅɝ\u034cцՒ\u0640ݐࡊ\u094f\u0a44"))
+                else if (text3 == "NOTDATETIME")
                 {
                     text = method_78(text4);
                 }
-                else if (text3 == GClass0.smethod_0("GŐ") || text3 == GClass0.smethod_0("@ŕɖ\u0343э"))
+                else if (text3 == "EQ" || text3 == "EQUAL")
                 {
-                    text = method_83(text4, GClass0.smethod_0("@ŕɖ\u0343э"));
+                    text = method_83(text4, "EQUAL");
                 }
-                else if (text3 == GClass0.smethod_0("HŊɉ\u0344"))
+                else if (text3 == "LIKE")
                 {
-                    text = method_83(text4, GClass0.smethod_0("HŊɉ\u0344"));
+                    text = method_83(text4, "LIKE");
                 }
-                else if (text3 == GClass0.smethod_0("Kŏ"))
+                else if (text3 == "IN")
                 {
-                    text = method_83(text4, GClass0.smethod_0("Kŏ"));
+                    text = method_83(text4, "IN");
                 }
-                else if (text3 == GClass0.smethod_0("@ņɐ\u0340тՊ\u064e\u0744"))
+                else if (text3 == "HAVEFILE")
                 {
                     text = method_84(text4);
                 }
-                else if (text3 == GClass0.smethod_0("HŊɂ\u034aюՄ"))
+                else if (text3 == "NOFILE")
                 {
                     text = method_85(text4);
                 }
-                else if (text3 == GClass0.smethod_0("HŊɐ\u0351чՂ"))
+                else if (text3 == "NOTREC")
                 {
                     text = method_86();
                 }
                 else
                 {
                     text = "";
-                    MessageBox.Show(GClass0.smethod_0("衬躽崍\u0321") + text2 + GClass0.smethod_0("'伫璁勹慳Ԣإ") + text3 + GClass0.smethod_0("!ĨȮ\u0326话戮夃哓㠃"), GClass0.smethod_0("凹摳霛裮"), MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    OutputResult(GClass0.smethod_0("Nķȿ\u0328豬誽复ܡ") + text2 + GClass0.smethod_0("'伫璁勹慳Ԣإ") + text3 + GClass0.smethod_0("!ĨȮ\u0326话戮夃哓㠃"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                    MessageBox.Show("表达式 " + text2 + " 中的函数 $" + text3 + "( ) 还未开发。", "函数错误", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    OutputResult("F09-表达式 " + text2 + " 中的函数 $" + text3 + "( ) 还未开发。", "lg_Result.LOG", true);
                 }
             }
-            OutputResult(GClass0.smethod_0("AĶȼ\u0329嗾恲亂") + text2 + GClass0.smethod_0("#Ŀȡ") + text, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("F09-函数：" + text2 + " = " + text, "lg_Result.LOG", true);
             return text;
         }
 
@@ -1303,13 +1303,13 @@ namespace Gssy.Capi.BIZ
             string text = DeleteOuterSymbol(string_0);
             if (text.Length > 0)
             {
-                flag = method_8(text.Trim(), GClass0.smethod_0("}"), false);
+                flag = method_8(text.Trim(), "|", false);
             }
             if (!flag)
             {
-                return GClass0.smethod_0("0");
+                return "1";
             }
-            return GClass0.smethod_0("1");
+            return "0";
         }
 
         private string method_29(string string_0)
@@ -1318,7 +1318,7 @@ namespace Gssy.Capi.BIZ
             string text = DeleteOuterSymbol(string_0);
             if (text.Length > 0)
             {
-                int formulaSplitLocation = GetFormulaSplitLocation(text, GClass0.smethod_0("-"));
+                int formulaSplitLocation = GetFormulaSplitLocation(text, ",");
                 string text2;
                 string string_;
                 if (formulaSplitLocation > -1)
@@ -1329,15 +1329,15 @@ namespace Gssy.Capi.BIZ
                 else
                 {
                     string_ = text.Trim();
-                    text2 = GClass0.smethod_0("$").Trim();
+                    text2 = "%".Trim();
                 }
                 string_ = method_17(string_);
                 if (string_ == "")
                 {
-                    return GClass0.smethod_0("1");
+                    return "0";
                 }
                 string[] array = string_.Split(',');
-                if (text2 == GClass0.smethod_0("$"))
+                if (text2 == "%")
                 {
                     num = array.Count();
                 }
@@ -1346,7 +1346,7 @@ namespace Gssy.Capi.BIZ
                     string[] array2 = array;
                     foreach (string string_2 in array2)
                     {
-                        if (method_18(string_2, text2, GClass0.smethod_0("}"), false))
+                        if (method_18(string_2, text2, "|", false))
                         {
                             num++;
                         }
@@ -1358,27 +1358,27 @@ namespace Gssy.Capi.BIZ
 
         private string method_30(string string_0, double double_0 = 0.5)
         {
-            string result = GClass0.smethod_0("1");
+            string result = "0";
             string text = DeleteOuterSymbol(string_0);
             if (text.Length > 0)
             {
                 int num = 0;
                 int num2 = 0;
-                int formulaSplitLocation = GetFormulaSplitLocation(text, GClass0.smethod_0("-"));
+                int formulaSplitLocation = GetFormulaSplitLocation(text, ",");
                 string string_;
                 if (formulaSplitLocation > -1)
                 {
                     string_ = LEFT(text, formulaSplitLocation).Trim();
                     string text2 = MID(text, formulaSplitLocation + 1, -9999).Trim();
-                    if (text2 == GClass0.smethod_0("/") || text2 == GClass0.smethod_0(",ı") || text2 == GClass0.smethod_0("2į"))
+                    if (text2 == "." || text2 == ".0" || text2 == "0.")
                     {
-                        text2 = GClass0.smethod_0("1");
+                        text2 = "0";
                     }
-                    else if (LEFT(text2, 1) == GClass0.smethod_0("/"))
+                    else if (LEFT(text2, 1) == ".")
                     {
                         text2 = MID(text2, 1, -9999);
                     }
-                    else if (MID(text2, text2.Length - 1, -9999) == GClass0.smethod_0("/"))
+                    else if (MID(text2, text2.Length - 1, -9999) == ".")
                     {
                         text2 = LEFT(text2, text2.Length - 1);
                     }
@@ -1388,7 +1388,7 @@ namespace Gssy.Capi.BIZ
                 {
                     string_ = text.Trim();
                 }
-                double num3 = method_12(string_, GClass0.smethod_0("*"), 0.0);
+                double num3 = method_12(string_, "+", 0.0);
                 bool flag = false;
                 if (num3 < 0.0)
                 {
@@ -1409,22 +1409,22 @@ namespace Gssy.Capi.BIZ
 
         private string method_31(string string_0)
         {
-            string result = GClass0.smethod_0("1");
+            string result = "0";
             string text = DeleteOuterSymbol(string_0);
             if (text.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string text2 = list[0];
                 string text3 = (list.Count > 1) ? list[1] : "";
-                if (text2 == "" || text2 == GClass0.smethod_0("1") || text3 == "" || text3 == GClass0.smethod_0("1"))
+                if (text2 == "" || text2 == "0" || text3 == "" || text3 == "0")
                 {
-                    return GClass0.smethod_0("1");
+                    return "0";
                 }
-                double num = method_12(text2, GClass0.smethod_0("*"), 0.0);
+                double num = method_12(text2, "+", 0.0);
                 if (num != 0.0)
                 {
                     double num2 = 0.0;
-                    double num3 = method_12(text3, GClass0.smethod_0("*"), 0.0);
+                    double num3 = method_12(text3, "+", 0.0);
                     if (num3 != 0.0)
                     {
                         num2 = num % num3;
@@ -1437,26 +1437,26 @@ namespace Gssy.Capi.BIZ
 
         private string method_32(string string_0)
         {
-            string result = GClass0.smethod_0("1");
+            string result = "0";
             string text = DeleteOuterSymbol(string_0);
             if (text.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string text2 = list[0];
                 string text3 = (list.Count > 1) ? list[1] : "";
-                if (text3 == "" || text3 == GClass0.smethod_0("1"))
+                if (text3 == "" || text3 == "0")
                 {
-                    return GClass0.smethod_0("1");
+                    return "0";
                 }
-                double num = method_12(text2, GClass0.smethod_0("*"), 0.0);
-                double num2 = method_12(text3, GClass0.smethod_0("*"), 0.0);
+                double num = method_12(text2, "+", 0.0);
+                double num2 = method_12(text3, "+", 0.0);
                 if (text2 == "" || num == 0.0)
                 {
                     return num2.ToString();
                 }
                 if (num2 == 0.0)
                 {
-                    return GClass0.smethod_0("1");
+                    return "0";
                 }
                 double num3 = 0.0;
                 num3 = num % num2;
@@ -1478,7 +1478,7 @@ namespace Gssy.Capi.BIZ
                 string text3 = "";
                 int num = 1;
                 int num2 = 0;
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 text3 = method_6(list[0]);
                 if (text3.Length > 0)
                 {
@@ -1505,17 +1505,17 @@ namespace Gssy.Capi.BIZ
                         if (list.Count() > 2)
                         {
                             num3 = method_139(num3, num2, 0, 45);
-                            text = text + GClass0.smethod_0("-") + method_137(num3.ToString(), num.ToString() + GClass0.smethod_0("/") + num2.ToString(), GClass0.smethod_0("1"));
+                            text = text + "," + method_137(num3.ToString(), num.ToString() + "." + num2.ToString(), "0");
                         }
                         else
                         {
-                            string text4 = method_137(((int)num3).ToString(), num.ToString() + GClass0.smethod_0(",ı"), GClass0.smethod_0("1"));
+                            string text4 = method_137(((int)num3).ToString(), num.ToString() + ".0", "0");
                             string text5 = method_143(Convert.ToDouble(item));
                             if (text5.Length > 0)
                             {
-                                text4 = text4 + GClass0.smethod_0("/") + text5;
+                                text4 = text4 + "." + text5;
                             }
-                            text = text + GClass0.smethod_0("-") + text4;
+                            text = text + "," + text4;
                         }
                     }
                     text = MID(text, 1, -9999);
@@ -1531,13 +1531,13 @@ namespace Gssy.Capi.BIZ
             if (text.Length > 0)
             {
                 string text2 = "";
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 foreach (string item in list)
                 {
                     string text3 = method_17(item);
                     if (text3 != "")
                     {
-                        text2 = text2 + GClass0.smethod_0("-") + text3;
+                        text2 = text2 + "," + text3;
                     }
                 }
                 if (text2.Length > 0)
@@ -1562,7 +1562,7 @@ namespace Gssy.Capi.BIZ
             {
                 List<string> list = new List<string>();
                 bool flag = true;
-                List<string> list2 = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list2 = ParaToList(string_0, ",", true);
                 foreach (string item in list2)
                 {
                     string text2 = method_17(item);
@@ -1619,7 +1619,7 @@ namespace Gssy.Capi.BIZ
             {
                 bool flag = true;
                 List<string> list = new List<string>();
-                List<string> list2 = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list2 = ParaToList(string_0, ",", true);
                 foreach (string item2 in list2)
                 {
                     string text2 = method_17(item2);
@@ -1660,7 +1660,7 @@ namespace Gssy.Capi.BIZ
             if (text2.Length > 0)
             {
                 Dictionary<string, int> dictionary = new Dictionary<string, int>();
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 foreach (string item in list)
                 {
                     string text3 = method_17(item);
@@ -1685,7 +1685,7 @@ namespace Gssy.Capi.BIZ
                 {
                     if (key2 != "" && dictionary[key2] < num)
                     {
-                        text = text + GClass0.smethod_0("-") + key2;
+                        text = text + "," + key2;
                     }
                 }
                 if (text.Length > 1 && LEFT(text, 1) == ','.ToString())
@@ -1704,7 +1704,7 @@ namespace Gssy.Capi.BIZ
             {
                 bool flag = true;
                 List<string> list = new List<string>();
-                List<string> list2 = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list2 = ParaToList(string_0, ",", true);
                 foreach (string item in list2)
                 {
                     string text2 = method_17(item);
@@ -1750,7 +1750,7 @@ namespace Gssy.Capi.BIZ
             {
                 bool flag = true;
                 Dictionary<string, bool> dictionary = new Dictionary<string, bool>();
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 foreach (string item in list)
                 {
                     string text3 = method_17(item);
@@ -1787,7 +1787,7 @@ namespace Gssy.Capi.BIZ
                 {
                     if (dictionary[key2])
                     {
-                        text = text + GClass0.smethod_0("-") + key2;
+                        text = text + "," + key2;
                     }
                 }
                 if (text.Length > 0)
@@ -1807,7 +1807,7 @@ namespace Gssy.Capi.BIZ
             {
                 string text2 = "";
                 int num = 1;
-                List<string> list = ParaToList(string_0, GClass0.smethod_0(";"), true);
+                List<string> list = ParaToList(string_0, ":", true);
                 if (list.Count() > 1)
                 {
                     num = method_126(list[1]);
@@ -1817,13 +1817,13 @@ namespace Gssy.Capi.BIZ
                     }
                     string_0 = list[0];
                 }
-                List<string> list2 = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list2 = ParaToList(string_0, ",", true);
                 foreach (string item in list2)
                 {
                     string text3 = method_17(item);
                     if (text3 != "")
                     {
-                        text2 = text2 + GClass0.smethod_0("-") + text3;
+                        text2 = text2 + "," + text3;
                     }
                 }
                 if (text2.Length > 0)
@@ -1840,7 +1840,7 @@ namespace Gssy.Capi.BIZ
                     }
                     for (int i = 0; i < num; i++)
                     {
-                        text = text + GClass0.smethod_0("-") + list_[i];
+                        text = text + "," + list_[i];
                     }
                     if (LEFT(text, 1) == ','.ToString())
                     {
@@ -1859,7 +1859,7 @@ namespace Gssy.Capi.BIZ
             if (string_.Length > 0)
             {
                 string text2 = "";
-                List<string> list = ParaToList(string_0, GClass0.smethod_0(";"), true);
+                List<string> list = ParaToList(string_0, ":", true);
                 int num = 1;
                 if (list.Count() > 1)
                 {
@@ -1871,13 +1871,13 @@ namespace Gssy.Capi.BIZ
                     string_0 = list[0];
                 }
                 string text3 = (list.Count() > 2) ? list[2] : "";
-                List<string> list2 = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list2 = ParaToList(string_0, ",", true);
                 foreach (string item in list2)
                 {
                     string text4 = method_114(item);
                     if (text4 != "")
                     {
-                        text2 = text2 + GClass0.smethod_0("-") + text4;
+                        text2 = text2 + "," + text4;
                     }
                 }
                 if (LEFT(text2, 1) == ','.ToString())
@@ -1896,7 +1896,7 @@ namespace Gssy.Capi.BIZ
                     {
                         for (int i = 0; i < num; i++)
                         {
-                            text = text + GClass0.smethod_0("-") + list_[i];
+                            text = text + "," + list_[i];
                         }
                         if (LEFT(text, 1) == ','.ToString())
                         {
@@ -1922,7 +1922,7 @@ namespace Gssy.Capi.BIZ
                         {
                             if (list3.Contains(item2))
                             {
-                                text = text + GClass0.smethod_0("-") + item2;
+                                text = text + "," + item2;
                             }
                         }
                         if (LEFT(text, 1) == ','.ToString())
@@ -1944,7 +1944,7 @@ namespace Gssy.Capi.BIZ
                 string text3 = "";
                 int num = 1;
                 int num2 = 1;
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 text3 = method_6(list[0]);
                 if (text3.Length > 0)
                 {
@@ -1968,7 +1968,7 @@ namespace Gssy.Capi.BIZ
                     int num3 = (num + num2 - 1 > list2.Count()) ? list2.Count() : (num + num2 - 1);
                     for (int i = num - 1; i < num3; i++)
                     {
-                        text = text + GClass0.smethod_0("-") + list2[i];
+                        text = text + "," + list2[i];
                     }
                     if (LEFT(text, 1) == ','.ToString())
                     {
@@ -1981,7 +1981,7 @@ namespace Gssy.Capi.BIZ
 
         private string method_43(string string_0)
         {
-            string result = GClass0.smethod_0("1");
+            string result = "0";
             string text = DeleteOuterSymbol(string_0);
             if (text.Length > 0)
             {
@@ -1995,7 +1995,7 @@ namespace Gssy.Capi.BIZ
 
         private string method_44(string string_0)
         {
-            string result = GClass0.smethod_0("1");
+            string result = "0";
             if (string_0.Length > 0)
             {
                 LogicExplain logicExplain = new LogicExplain();
@@ -2010,9 +2010,9 @@ namespace Gssy.Capi.BIZ
                         logicExplain._nCurrentLoopB = 0;
                         foreach (classLoopQuestion item2 in item.B)
                         {
-                            if (item2.Qn[GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64")] == GClass0.smethod_0("0"))
+                            if (item2.Qn["ResultIsTrue"] == "1")
                             {
-                                num += logicExplain.method_12(text.Trim(), GClass0.smethod_0("*"), 0.0);
+                                num += logicExplain.method_12(text.Trim(), "+", 0.0);
                             }
                             logicExplain._nCurrentLoopB++;
                         }
@@ -2039,7 +2039,7 @@ namespace Gssy.Capi.BIZ
                     {
                         foreach (classLoopQuestion item2 in item.B)
                         {
-                            if (item2.Qn[GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64")] == GClass0.smethod_0("0") && !list.Contains(item2.Qn[text]))
+                            if (item2.Qn["ResultIsTrue"] == "1" && !list.Contains(item2.Qn[text]))
                             {
                                 list.Add(item2.Qn[text]);
                             }
@@ -2056,8 +2056,8 @@ namespace Gssy.Capi.BIZ
             string text = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0(";"), true);
-                string text2 = GClass0.smethod_0("0");
+                List<string> list = ParaToList(string_0, ":", true);
+                string text2 = "1";
                 if (list.Count() > 2)
                 {
                     text2 = list[list.Count() - 1];
@@ -2067,7 +2067,7 @@ namespace Gssy.Capi.BIZ
                 string text4 = list[1];
                 LogicExplain logicExplain = new LogicExplain();
                 logicExplain.SetData(_dictData, false);
-                text3 = GClass0.smethod_0("Z") + text3 + GClass0.smethod_0("_ħ") + text4;
+                text3 = "[" + text3 + "]&" + text4;
                 if (logicExplain.LoopLogicFormula(text3) > 0.0)
                 {
                     Dictionary<string, double> dictionary = new Dictionary<string, double>();
@@ -2075,7 +2075,7 @@ namespace Gssy.Capi.BIZ
                     {
                         foreach (classLoopQuestion item2 in item.B)
                         {
-                            if (item2.Qn[GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64")] == GClass0.smethod_0("0"))
+                            if (item2.Qn["ResultIsTrue"] == "1")
                             {
                                 string key2 = item2.Qn[key];
                                 double num = method_125(item2.Qn[text4]);
@@ -2097,36 +2097,36 @@ namespace Gssy.Capi.BIZ
                     logicExplain = new LogicExplain();
                     logicExplain.SetData(_dictData, false);
                     logicExplain.method_101(text2, 0);
-                    List<string> list2 = ParaToList(text2.Replace(GClass0.smethod_0("}"), GClass0.smethod_0("-")), GClass0.smethod_0("-"), true);
+                    List<string> list2 = ParaToList(text2.Replace("|", ","), ",", true);
                     foreach (string item3 in list2)
                     {
                         bool flag = true;
                         int num2 = 1;
                         int num3 = dictionary2.Count;
                         string text5 = "";
-                        if (LEFT(item3, 2) == GClass0.smethod_0("<ļ"))
+                        if (LEFT(item3, 2) == ">=")
                         {
                             num2 = method_126(logicExplain.method_14(MID(item3, 2, -9999)));
                             num2 = ((num2 <= 0) ? 1 : num2);
                         }
-                        else if (LEFT(item3, 1) == GClass0.smethod_0("?"))
+                        else if (LEFT(item3, 1) == ">")
                         {
                             num2 = method_126(logicExplain.method_14(MID(item3, 1, -9999))) + 1;
                             num2 = ((num2 <= 0) ? 1 : num2);
                         }
-                        else if (LEFT(item3, 2) == GClass0.smethod_0(">ļ"))
+                        else if (LEFT(item3, 2) == "<=")
                         {
                             num3 = method_126(logicExplain.method_14(MID(item3, 2, -9999)));
                             num3 = ((num3 < dictionary2.Count) ? num3 : dictionary2.Count);
                         }
-                        else if (LEFT(item3, 1) == GClass0.smethod_0("="))
+                        else if (LEFT(item3, 1) == "<")
                         {
                             num3 = method_126(logicExplain.method_14(MID(item3, 1, -9999))) - 1;
                             num3 = ((num3 < dictionary2.Count) ? num3 : dictionary2.Count);
                         }
                         else
                         {
-                            List<string> list3 = ParaToList(item3, GClass0.smethod_0("\u007f"), false);
+                            List<string> list3 = ParaToList(item3, "~", false);
                             if (list3.Count > 1)
                             {
                                 num2 = method_126(logicExplain.method_14(list3[0]));
@@ -2136,7 +2136,7 @@ namespace Gssy.Capi.BIZ
                             }
                             else
                             {
-                                List<string> list4 = ParaToList(item3, GClass0.smethod_0("'"), false);
+                                List<string> list4 = ParaToList(item3, "&", false);
                                 if (list4.Count > 1)
                                 {
                                     text2 = logicExplain.method_14(list4[0]);
@@ -2157,7 +2157,7 @@ namespace Gssy.Capi.BIZ
                                     }
                                     if (flag2)
                                     {
-                                        text5 = GClass0.smethod_0("-") + text5;
+                                        text5 = "," + text5;
                                         if (text.IndexOf(text5) < 0)
                                         {
                                             text += text5;
@@ -2173,7 +2173,7 @@ namespace Gssy.Capi.BIZ
                                     {
                                         if (dictionary2.ContainsKey(item5))
                                         {
-                                            text5 = GClass0.smethod_0("-") + dictionary2[item5];
+                                            text5 = "," + dictionary2[item5];
                                             if (text.IndexOf(text5) < 0)
                                             {
                                                 text += text5;
@@ -2188,7 +2188,7 @@ namespace Gssy.Capi.BIZ
                         {
                             for (int i = num2; i <= num3; i++)
                             {
-                                text5 = GClass0.smethod_0("-") + dictionary2[i.ToString()];
+                                text5 = "," + dictionary2[i.ToString()];
                                 if (text.IndexOf(text5) < 0)
                                 {
                                     text += text5;
@@ -2207,16 +2207,16 @@ namespace Gssy.Capi.BIZ
 
         private string method_47(string string_0)
         {
-            string text = GClass0.smethod_0("0");
+            string text = "1";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 if (list.Count() > 2)
                 {
                     string text2 = method_6(list[0]);
                     if (!method_117(text2))
                     {
-                        return GClass0.smethod_0("0");
+                        return "1";
                     }
                     string text3 = "";
                     string text4 = "";
@@ -2227,80 +2227,80 @@ namespace Gssy.Capi.BIZ
                         text4 = list2[1];
                     }
                     int num = 0;
-                    text = GClass0.smethod_0("1");
+                    text = "0";
                     int num2 = 0;
-                    if (LEFT(list[1], 2) == GClass0.smethod_0("<ļ"))
+                    if (LEFT(list[1], 2) == ">=")
                     {
                         num2 = method_126(MID(list[1], 2, -9999));
-                        text = ((text3.Length < num2 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                        text = ((text3.Length < num2 || !(text == "0")) ? "1" : "0");
                     }
-                    else if (LEFT(list[1], 2) == GClass0.smethod_0(">ļ"))
+                    else if (LEFT(list[1], 2) == "<=")
                     {
                         num2 = method_126(MID(list[1], 2, -9999));
-                        text = ((text3.Length > num2 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                        text = ((text3.Length > num2 || !(text == "0")) ? "1" : "0");
                     }
-                    else if (LEFT(list[1], 1) == GClass0.smethod_0("?"))
+                    else if (LEFT(list[1], 1) == ">")
                     {
                         num2 = method_126(MID(list[1], 1, -9999));
-                        text = ((text3.Length <= num2 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                        text = ((text3.Length <= num2 || !(text == "0")) ? "1" : "0");
                     }
-                    else if (LEFT(list[1], 1) == GClass0.smethod_0("="))
+                    else if (LEFT(list[1], 1) == "<")
                     {
                         num2 = method_126(MID(list[1], 1, -9999));
-                        text = ((text3.Length >= num2 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                        text = ((text3.Length >= num2 || !(text == "0")) ? "1" : "0");
                     }
-                    else if (list[1].IndexOf(GClass0.smethod_0("\u007f")) > -1)
+                    else if (list[1].IndexOf("~") > -1)
                     {
-                        num = list[1].IndexOf(GClass0.smethod_0("\u007f"));
+                        num = list[1].IndexOf("~");
                         num2 = method_126(LEFT(list[1], num));
-                        text = ((text3.Length < num2 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
-                        if (text == GClass0.smethod_0("1"))
+                        text = ((text3.Length < num2 || !(text == "0")) ? "1" : "0");
+                        if (text == "0")
                         {
                             num2 = method_126(MID(list[1], num + 1, -9999));
-                            text = ((text3.Length > num2 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                            text = ((text3.Length > num2 || !(text == "0")) ? "1" : "0");
                         }
                     }
                     else
                     {
                         num2 = method_126(list[1]);
-                        text = ((text3.Length != num2 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                        text = ((text3.Length != num2 || !(text == "0")) ? "1" : "0");
                     }
                     int num3 = 0;
-                    if (LEFT(list[2], 2) == GClass0.smethod_0("<ļ"))
+                    if (LEFT(list[2], 2) == ">=")
                     {
                         num3 = method_126(MID(list[2], 2, -9999));
-                        text = ((text4.Length < num3 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                        text = ((text4.Length < num3 || !(text == "0")) ? "1" : "0");
                     }
-                    else if (LEFT(list[2], 2) == GClass0.smethod_0(">ļ"))
+                    else if (LEFT(list[2], 2) == "<=")
                     {
                         num3 = method_126(MID(list[2], 2, -9999));
-                        text = ((text4.Length > num3 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                        text = ((text4.Length > num3 || !(text == "0")) ? "1" : "0");
                     }
-                    else if (LEFT(list[2], 1) == GClass0.smethod_0("?"))
+                    else if (LEFT(list[2], 1) == ">")
                     {
                         num3 = method_126(MID(list[2], 1, -9999));
-                        text = ((text4.Length <= num3 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                        text = ((text4.Length <= num3 || !(text == "0")) ? "1" : "0");
                     }
-                    else if (LEFT(list[2], 1) == GClass0.smethod_0("="))
+                    else if (LEFT(list[2], 1) == "<")
                     {
                         num3 = method_126(MID(list[2], 1, -9999));
-                        text = ((text4.Length >= num3 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                        text = ((text4.Length >= num3 || !(text == "0")) ? "1" : "0");
                     }
-                    else if (list[2].IndexOf(GClass0.smethod_0("\u007f")) > -1)
+                    else if (list[2].IndexOf("~") > -1)
                     {
-                        num = list[2].IndexOf(GClass0.smethod_0("\u007f"));
+                        num = list[2].IndexOf("~");
                         num3 = method_126(LEFT(list[2], num));
-                        text = ((text4.Length < num3 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
-                        if (text == GClass0.smethod_0("1"))
+                        text = ((text4.Length < num3 || !(text == "0")) ? "1" : "0");
+                        if (text == "0")
                         {
                             num3 = method_126(MID(list[2], num + 1, -9999));
-                            text = ((text4.Length > num3 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                            text = ((text4.Length > num3 || !(text == "0")) ? "1" : "0");
                         }
                     }
                     else
                     {
                         num3 = method_126(list[2]);
-                        text = ((text4.Length != num3 || !(text == GClass0.smethod_0("1"))) ? GClass0.smethod_0("0") : GClass0.smethod_0("1"));
+                        text = ((text4.Length != num3 || !(text == "0")) ? "1" : "0");
                     }
                 }
             }
@@ -2311,7 +2311,7 @@ namespace Gssy.Capi.BIZ
         {
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string a = "";
                 string string_ = list[0];
                 string_ = method_1(string_, true);
@@ -2319,24 +2319,24 @@ namespace Gssy.Capi.BIZ
                 {
                     a = list[1];
                 }
-                if (a == GClass0.smethod_0("0"))
+                if (a == "1")
                 {
                     string_ = CleanString(string_);
                     string_ = string_.ToUpper();
                 }
                 if (isEnglishWord(string_))
                 {
-                    return GClass0.smethod_0("1");
+                    return "0";
                 }
             }
-            return GClass0.smethod_0("0");
+            return "1";
         }
 
         private string method_49(string string_0)
         {
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string a = "";
                 string string_ = list[0];
                 string_ = method_1(string_, true);
@@ -2344,42 +2344,42 @@ namespace Gssy.Capi.BIZ
                 {
                     a = list[1];
                 }
-                if (a == GClass0.smethod_0("0"))
+                if (a == "1")
                 {
                     string_ = CleanString(string_);
                     string_ = string_.ToUpper();
                 }
                 if (isWord(string_))
                 {
-                    return GClass0.smethod_0("1");
+                    return "0";
                 }
             }
-            return GClass0.smethod_0("0");
+            return "1";
         }
 
         private string method_50(string string_0)
         {
             if (string_0.Length > 0 && method_118(method_1(string_0, true)))
             {
-                return GClass0.smethod_0("1");
+                return "0";
             }
-            return GClass0.smethod_0("0");
+            return "1";
         }
 
         private string method_51(string string_0)
         {
             if (string_0.Length > 0 && method_119(method_1(string_0, true)))
             {
-                return GClass0.smethod_0("1");
+                return "0";
             }
-            return GClass0.smethod_0("0");
+            return "1";
         }
 
         private string method_52(string string_0)
         {
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string a = "";
                 string string_ = list[0];
                 string_ = method_1(string_, true);
@@ -2387,24 +2387,24 @@ namespace Gssy.Capi.BIZ
                 {
                     a = list[1];
                 }
-                if (a == GClass0.smethod_0("0"))
+                if (a == "1")
                 {
                     string_ = CleanString(string_);
                     string_ = string_.ToUpper();
                 }
                 if (method_120(string_))
                 {
-                    return GClass0.smethod_0("1");
+                    return "0";
                 }
             }
-            return GClass0.smethod_0("0");
+            return "1";
         }
 
         private string method_53(string string_0)
         {
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string a = "";
                 string string_ = list[0];
                 string_ = method_1(string_, true);
@@ -2412,24 +2412,24 @@ namespace Gssy.Capi.BIZ
                 {
                     a = list[1];
                 }
-                if (a == GClass0.smethod_0("0"))
+                if (a == "1")
                 {
                     string_ = CleanString(string_);
                     string_ = string_.ToUpper();
                 }
                 if (method_121(string_))
                 {
-                    return GClass0.smethod_0("1");
+                    return "0";
                 }
             }
-            return GClass0.smethod_0("0");
+            return "1";
         }
 
         private string method_54(string string_0)
         {
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string a = "";
                 string string_ = list[0];
                 string_ = method_1(string_, true);
@@ -2437,27 +2437,27 @@ namespace Gssy.Capi.BIZ
                 {
                     a = list[1];
                 }
-                if (a == GClass0.smethod_0("0"))
+                if (a == "1")
                 {
                     string_ = CleanString(string_);
                     string_ = string_.ToUpper();
                 }
                 if (method_122(string_))
                 {
-                    return GClass0.smethod_0("1");
+                    return "0";
                 }
             }
-            return GClass0.smethod_0("0");
+            return "1";
         }
 
         private string method_55(string string_0)
         {
             string text = "";
-            OutputResult(GClass0.smethod_0("0ŉɘ\u0337彟縡䠴轭螺嘌\uf518\u0b7a") + string_0 + GClass0.smethod_0("|"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("<BR>字符串表达式：{" + string_0 + "}", "lg_Result.LOG", true);
             string text2 = DeleteOuterSymbol(string_0);
             if (text2.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 foreach (string item in list)
                 {
                     string text3 = method_6(item);
@@ -2467,14 +2467,14 @@ namespace Gssy.Capi.BIZ
                     }
                 }
             }
-            OutputResult(GClass0.smethod_0("6ŋɚ\u0339挆篍磗悟\uf718ॺ") + text + GClass0.smethod_0("|"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-            OutputResult("", GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("<BR>最终结果：{" + text + "}", "lg_Result.LOG", true);
+            OutputResult("", "lg_Result.LOG", true);
             return text;
         }
 
         private string method_56(string string_0, string string_1)
         {
-            string string_2 = string_1 + string_0.Replace(GClass0.smethod_0("!"), "") + GClass0.smethod_0("(");
+            string string_2 = string_1 + string_0.Replace(" ", "") + ")";
             return method_96(string_2);
         }
 
@@ -2483,14 +2483,14 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0(";"), true);
+                List<string> list = ParaToList(string_0, ":", true);
                 string string_ = list[0].Trim();
                 string text = (list.Count() > 1) ? list[1].Trim() : "";
-                string string_2 = (list.Count() > 2) ? list[2].Trim() : GClass0.smethod_0("\u3000");
+                string string_2 = (list.Count() > 2) ? list[2].Trim() : "、";
                 if (text != "")
                 {
                     text = method_6(text);
-                    OutputResult(GClass0.smethod_0("2ŏɞ\u0335ЮՊ٧ݣ\u0863\u0951\u0a61\u0b7b\u0c76ഩ") + string_0 + GClass0.smethod_0("$僱杻疎䨤玌礑缇蟕犓瓐沞\uf31b") + text, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                    OutputResult("<BR>$CodeText(" + string_0 + ")函数的中的编码运算结果：" + text, "lg_Result.LOG", true);
                     result = method_146(string_, text, string_2);
                 }
             }
@@ -2499,7 +2499,7 @@ namespace Gssy.Capi.BIZ
 
         private string method_58(string string_0)
         {
-            string result = GClass0.smethod_0("1");
+            string result = "0";
             if (string_0.Length > 0)
             {
                 result = ((!method_89(string_0)) ? method_17(string_0).ToString() : method_1(string_0, false));
@@ -2513,7 +2513,7 @@ namespace Gssy.Capi.BIZ
             string text = method_1(string_0, true);
             if (!method_117(text))
             {
-                text = GClass0.smethod_0("1");
+                text = "0";
             }
             return text;
         }
@@ -2523,11 +2523,11 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
-                string string_2 = (list.Count() > 1) ? list[1] : GClass0.smethod_0("0");
+                string string_2 = (list.Count() > 1) ? list[1] : "1";
                 string_ = method_6(string_);
-                int num = Convert.ToInt32(method_12(string_2, GClass0.smethod_0("*"), 0.0));
+                int num = Convert.ToInt32(method_12(string_2, "+", 0.0));
                 if (num <= 0)
                 {
                     num = 1;
@@ -2542,17 +2542,17 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
                 string string_2 = (list.Count() > 1) ? list[1] : "";
                 string string_3 = (list.Count() > 2) ? list[2] : "";
                 string_ = method_6(string_);
-                int num = Convert.ToInt32(method_12(string_2, GClass0.smethod_0("*"), 0.0)) - 1;
+                int num = Convert.ToInt32(method_12(string_2, "+", 0.0)) - 1;
                 if (num < 0)
                 {
                     num = 0;
                 }
-                int num2 = Convert.ToInt32(method_12(string_3, GClass0.smethod_0("*"), 0.0));
+                int num2 = Convert.ToInt32(method_12(string_3, "+", 0.0));
                 if (num2 <= 0)
                 {
                     num2 = -9999;
@@ -2567,17 +2567,17 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
                 string string_2 = (list.Count() > 1) ? list[1] : "";
                 string string_3 = (list.Count() > 2) ? list[2] : "";
                 string_ = method_6(string_);
-                int num = Convert.ToInt32(method_12(string_2, GClass0.smethod_0("*"), 0.0)) - 1;
+                int num = Convert.ToInt32(method_12(string_2, "+", 0.0)) - 1;
                 if (num < 0)
                 {
                     num = 0;
                 }
-                int num2 = Convert.ToInt32(method_12(string_3, GClass0.smethod_0("*"), 0.0)) - 1;
+                int num2 = Convert.ToInt32(method_12(string_3, "+", 0.0)) - 1;
                 if (num2 <= 0)
                 {
                     num2 = -9999;
@@ -2592,11 +2592,11 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
-                string string_2 = (list.Count() > 1) ? list[1] : GClass0.smethod_0("0");
+                string string_2 = (list.Count() > 1) ? list[1] : "1";
                 string_ = method_6(string_);
-                int num = Convert.ToInt32(method_12(string_2, GClass0.smethod_0("*"), 0.0));
+                int num = Convert.ToInt32(method_12(string_2, "+", 0.0));
                 if (num <= 0)
                 {
                     num = 1;
@@ -2611,24 +2611,24 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                ParaToList(string_0, GClass0.smethod_0("-"), true);
+                ParaToList(string_0, ",", true);
                 string text = method_6(string_0);
-                result = ((string_1 == GClass0.smethod_0("M")) ? text.TrimStart() : ((!(string_1 == GClass0.smethod_0("S"))) ? text.Trim() : text.TrimEnd()));
+                result = ((string_1 == "L") ? text.TrimStart() : ((!(string_1 == "R")) ? text.Trim() : text.TrimEnd()));
             }
             return result;
         }
 
         private string method_65(string string_0)
         {
-            string result = GClass0.smethod_0("1");
+            string result = "0";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
                 string text = (list.Count() > 1) ? list[1] : "";
                 string text2 = (list.Count() > 2) ? list[2].Trim().ToUpper() : "";
                 string text3 = (list.Count() > 3) ? list[3].Trim().ToUpper() : "";
-                List<string> list2 = ParaToList(string_, GClass0.smethod_0("."), true);
+                List<string> list2 = ParaToList(string_, "/", true);
                 string text4 = list2[0];
                 string text5 = (list2.Count() > 1) ? list2[1] : "";
                 string text6 = (list2.Count() > 2) ? list2[2] : "";
@@ -2639,8 +2639,8 @@ namespace Gssy.Capi.BIZ
                 if (text4 != "" && text5 != "" && text6 != "" && list2.Count() == 3)
                 {
                     text8 = method_113(method_6(text4));
-                    text9 = method_135(method_6(text5), GClass0.smethod_0("1"), 2, true);
-                    text10 = method_135(method_6(text6), GClass0.smethod_0("1"), 2, true);
+                    text9 = method_135(method_6(text5), "0", 2, true);
+                    text10 = method_135(method_6(text6), "0", 2, true);
                 }
                 else if (text4 != "" && list2.Count() == 1)
                 {
@@ -2654,20 +2654,20 @@ namespace Gssy.Capi.BIZ
                     text7 = method_6(text4);
                     text8 = method_105(text7, 4);
                     text9 = method_106(text7, 2, false);
-                    text10 = method_135(method_6(text6), GClass0.smethod_0("1"), 2, true);
+                    text10 = method_135(method_6(text6), "0", 2, true);
                 }
                 else if (text4 != "" && text5 == "" && list2.Count() == 2)
                 {
                     text7 = method_6(text4);
                     text8 = method_105(text7, 4);
                     text9 = method_106(text7, 2, false);
-                    text10 = GClass0.smethod_0("2ı");
+                    text10 = "00";
                 }
                 else if (text4 != "" && text5 != "" && text6 == "" && list2.Count() == 3)
                 {
                     text8 = method_113(method_6(text4));
-                    text9 = method_135(method_6(text5), GClass0.smethod_0("1"), 2, true);
-                    text10 = GClass0.smethod_0("2ı");
+                    text9 = method_135(method_6(text5), "0", 2, true);
+                    text10 = "00";
                 }
                 else if (text4 != "" && text5 != "" && list2.Count() == 2)
                 {
@@ -2686,63 +2686,63 @@ namespace Gssy.Capi.BIZ
                 else if (text4 == "" && text5 != "" && text6 != "" && list2.Count() == 3)
                 {
                     text8 = "";
-                    text9 = method_135(method_6(text5), GClass0.smethod_0("1"), 2, true);
-                    text10 = method_135(method_6(text6), GClass0.smethod_0("1"), 2, true);
+                    text9 = method_135(method_6(text5), "0", 2, true);
+                    text10 = method_135(method_6(text6), "0", 2, true);
                 }
                 text7 = "";
-                if (text == GClass0.smethod_0("0"))
+                if (text == "1")
                 {
-                    if (text2.Contains(GClass0.smethod_0("X")))
+                    if (text2.Contains("Y"))
                     {
-                        text7 = text7 + text8 + GClass0.smethod_0("幵");
+                        text7 = text7 + text8 + "年";
                     }
-                    if (text2.Contains(GClass0.smethod_0("L")))
+                    if (text2.Contains("M"))
                     {
-                        text7 = text7 + method_136(text9) + GClass0.smethod_0("有");
+                        text7 = text7 + method_136(text9) + "月";
                     }
-                    if (text2.Contains(GClass0.smethod_0("E")))
+                    if (text2.Contains("D"))
                     {
-                        text7 = text7 + method_136(text10) + GClass0.smethod_0("旤");
+                        text7 = text7 + method_136(text10) + "日";
                     }
-                    if ((text7 == "") & !text2.Contains(GClass0.smethod_0("V")))
+                    if ((text7 == "") & !text2.Contains("W"))
                     {
-                        text7 = text8 + GClass0.smethod_0("幵") + method_136(text9) + GClass0.smethod_0("有") + method_136(text10) + GClass0.smethod_0("旤");
+                        text7 = text8 + "年" + method_136(text9) + "月" + method_136(text10) + "日";
                     }
                     if (text3 == "")
                     {
-                        text3 = GClass0.smethod_0("Aĳ");
+                        text3 = "C2";
                     }
-                    if (text2.Contains(GClass0.smethod_0("V")))
+                    if (text2.Contains("W"))
                     {
-                        text7 += method_79(text8 + text9 + text10 + GClass0.smethod_0("-") + text3);
+                        text7 += method_79(text8 + text9 + text10 + "," + text3);
                     }
                 }
                 else
                 {
-                    if (text2.Contains(GClass0.smethod_0("X")))
+                    if (text2.Contains("Y"))
                     {
                         text7 = text7 + text8 + text;
                     }
-                    if (text2.Contains(GClass0.smethod_0("L")))
+                    if (text2.Contains("M"))
                     {
                         text7 = text7 + text9 + text;
                     }
-                    if (text2.Contains(GClass0.smethod_0("E")))
+                    if (text2.Contains("D"))
                     {
                         text7 = text7 + text10 + text;
                     }
                     text7 = LEFT(text7, text7.Length - 1);
-                    if ((text7 == "") & !text2.Contains(GClass0.smethod_0("V")))
+                    if ((text7 == "") & !text2.Contains("W"))
                     {
                         text7 = text8 + text + text9 + text + text10;
                     }
                     if (text3 == "")
                     {
-                        text3 = GClass0.smethod_0("LĶ");
+                        text3 = "N7";
                     }
-                    if (text2.Contains(GClass0.smethod_0("V")))
+                    if (text2.Contains("W"))
                     {
-                        text7 += method_79(text8 + text9 + text10 + GClass0.smethod_0("-") + text3);
+                        text7 += method_79(text8 + text9 + text10 + "," + text3);
                     }
                 }
                 result = text7;
@@ -2752,15 +2752,15 @@ namespace Gssy.Capi.BIZ
 
         private string method_66(string string_0)
         {
-            string result = GClass0.smethod_0("1");
+            string result = "0";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string text = (list.Count() > 1) ? list[1].Trim() : "";
                 string text2 = (list.Count() > 2) ? list[2].Trim().ToUpper() : "";
-                bool flag = list.Count() > 3 && method_8(list[3], GClass0.smethod_0("}"), false);
+                bool flag = list.Count() > 3 && method_8(list[3], "|", false);
                 string a = (list.Count() > 4) ? list[4].Trim().ToUpper() : "";
-                List<string> list2 = ParaToList(list[0], GClass0.smethod_0(";"), false);
+                List<string> list2 = ParaToList(list[0], ":", false);
                 string text3 = list2[0];
                 string text4 = (list2.Count() > 1) ? list2[1] : "";
                 string text5 = (list2.Count() > 2) ? list2[2] : "";
@@ -2770,9 +2770,9 @@ namespace Gssy.Capi.BIZ
                 string text9 = "";
                 if (text3 != "" && text4 != "" && text5 != "" && list2.Count() == 3)
                 {
-                    text7 = method_135(method_6(text3), GClass0.smethod_0("1"), 2, true);
-                    text8 = method_135(method_6(text4), GClass0.smethod_0("1"), 2, true);
-                    text9 = method_135(method_6(text5), GClass0.smethod_0("1"), 2, true);
+                    text7 = method_135(method_6(text3), "0", 2, true);
+                    text8 = method_135(method_6(text4), "0", 2, true);
+                    text9 = method_135(method_6(text5), "0", 2, true);
                 }
                 else if (text3 != "" && list2.Count() == 1)
                 {
@@ -2786,40 +2786,40 @@ namespace Gssy.Capi.BIZ
                     text6 = method_6(text3);
                     text7 = method_108(text6, 2);
                     text8 = method_109(text6, 2, false);
-                    text9 = method_135(method_6(text5), GClass0.smethod_0("1"), 2, true);
+                    text9 = method_135(method_6(text5), "0", 2, true);
                 }
                 else if (text3 != "" && text4 == "" && list2.Count() == 2)
                 {
                     text6 = method_6(text3);
                     text7 = method_108(text6, 2);
                     text8 = method_109(text6, 2, false);
-                    text9 = GClass0.smethod_0("2ı");
+                    text9 = "00";
                 }
                 else if (text3 != "" && text4 != "" && text5 == "" && list2.Count() == 3)
                 {
-                    text7 = method_135(method_6(text3), GClass0.smethod_0("1"), 2, true);
-                    text8 = method_135(method_6(text4), GClass0.smethod_0("1"), 2, true);
-                    text9 = GClass0.smethod_0("2ı");
+                    text7 = method_135(method_6(text3), "0", 2, true);
+                    text8 = method_135(method_6(text4), "0", 2, true);
+                    text9 = "00";
                 }
                 else if (text3 != "" && text4 != "" && list2.Count() == 2)
                 {
                     text6 = method_6(text4);
-                    text7 = method_135(method_6(text3), GClass0.smethod_0("1"), 2, true);
+                    text7 = method_135(method_6(text3), "0", 2, true);
                     text8 = method_109(text6, 2, true);
                     text9 = method_110(text6, 2);
                 }
                 else if (text3 == "" && text4 != "" && list2.Count() == 2)
                 {
                     text6 = method_6(text4);
-                    text7 = GClass0.smethod_0("2ı");
+                    text7 = "00";
                     text8 = method_109(text6, 2, true);
                     text9 = method_110(text6, 2);
                 }
                 else if (text3 == "" && text4 != "" && text5 != "" && list2.Count() == 3)
                 {
-                    text7 = GClass0.smethod_0("2ı");
-                    text8 = method_135(method_6(text4), GClass0.smethod_0("1"), 2, true);
-                    text9 = method_135(method_6(text5), GClass0.smethod_0("1"), 2, true);
+                    text7 = "00";
+                    text8 = method_135(method_6(text4), "0", 2, true);
+                    text9 = method_135(method_6(text5), "0", 2, true);
                 }
                 int num = method_126(text7);
                 if (flag && num > 0 && num < 12)
@@ -2832,42 +2832,42 @@ namespace Gssy.Capi.BIZ
                 if (a != "" && num > 12)
                 {
                     flag2 = false;
-                    text7 = method_135((num - 12).ToString(), GClass0.smethod_0("1"), 2, true);
+                    text7 = method_135((num - 12).ToString(), "0", 2, true);
                 }
                 if (text == "")
                 {
-                    text6 = GClass0.smethod_0("2į") + text7 + text8 + text9;
+                    text6 = "0." + text7 + text8 + text9;
                 }
-                else if (text == GClass0.smethod_0("0"))
+                else if (text == "1")
                 {
-                    if (text2.Contains(GClass0.smethod_0("I")))
+                    if (text2.Contains("H"))
                     {
-                        text6 = text6 + method_136(text7) + GClass0.smethod_0("旷");
+                        text6 = text6 + method_136(text7) + "时";
                     }
-                    if (text2.Contains(GClass0.smethod_0("L")))
+                    if (text2.Contains("M"))
                     {
-                        text6 = text6 + method_136(text8) + GClass0.smethod_0("切");
+                        text6 = text6 + method_136(text8) + "分";
                     }
-                    if (text2.Contains(GClass0.smethod_0("R")))
+                    if (text2.Contains("S"))
                     {
-                        text6 = text6 + method_136(text9) + GClass0.smethod_0("秓");
+                        text6 = text6 + method_136(text9) + "秒";
                     }
                     if (text6 == "")
                     {
-                        text6 = method_136(text7) + GClass0.smethod_0("旷") + method_136(text8) + GClass0.smethod_0("切") + method_136(text9) + GClass0.smethod_0("秓");
+                        text6 = method_136(text7) + "时" + method_136(text8) + "分" + method_136(text9) + "秒";
                     }
                 }
-                else if (text == GClass0.smethod_0("1"))
+                else if (text == "0")
                 {
-                    if (text2.Contains(GClass0.smethod_0("I")))
+                    if (text2.Contains("H"))
                     {
                         text6 += text7;
                     }
-                    if (text2.Contains(GClass0.smethod_0("L")))
+                    if (text2.Contains("M"))
                     {
                         text6 += text8;
                     }
-                    if (text2.Contains(GClass0.smethod_0("R")))
+                    if (text2.Contains("S"))
                     {
                         text6 += text9;
                     }
@@ -2878,15 +2878,15 @@ namespace Gssy.Capi.BIZ
                 }
                 else
                 {
-                    if (text2.Contains(GClass0.smethod_0("I")))
+                    if (text2.Contains("H"))
                     {
                         text6 = text6 + text7 + text;
                     }
-                    if (text2.Contains(GClass0.smethod_0("L")))
+                    if (text2.Contains("M"))
                     {
                         text6 = text6 + text8 + text;
                     }
-                    if (text2.Contains(GClass0.smethod_0("R")))
+                    if (text2.Contains("S"))
                     {
                         text6 = text6 + text9 + text;
                     }
@@ -2898,13 +2898,13 @@ namespace Gssy.Capi.BIZ
                 }
                 if (a != "")
                 {
-                    if (a == GClass0.smethod_0("B"))
+                    if (a == "C")
                     {
-                        text6 = (flag2 ? (GClass0.smethod_0("丈剉") + text6) : (GClass0.smethod_0("三剉") + text6));
+                        text6 = (flag2 ? ("上午" + text6) : ("下午" + text6));
                     }
-                    else if (a == GClass0.smethod_0("D"))
+                    else if (a == "E")
                     {
-                        text6 = (flag2 ? (text6 + GClass0.smethod_0("CŌ")) : (text6 + GClass0.smethod_0("RŌ")));
+                        text6 = (flag2 ? (text6 + "AM") : (text6 + "PM"));
                     }
                 }
                 result = text6;
@@ -2917,14 +2917,14 @@ namespace Gssy.Capi.BIZ
             string text = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string text2 = list[0];
                 string text3 = (list.Count() > 1) ? list[1] : "";
                 string str = (list.Count() > 2) ? list[2] : "";
-                text = ((!(text2.ToUpper() == GClass0.smethod_0(",œɉ\u0341х՚تܨ"))) ? method_65(text2) : method_68(""));
+                text = ((!(text2.ToUpper() == "$TODAY()")) ? method_65(text2) : method_68(""));
                 if (text3 != "")
                 {
-                    text = ((!(LEFT(text3, 5).ToUpper() == GClass0.smethod_0("!ŊɌ\u0355Щ"))) ? (text + MID(method_66(text3 + GClass0.smethod_0("/Įȭ") + str), 1, -9999)) : (text + MID(method_69(""), 1, -9999)));
+                    text = ((!(LEFT(text3, 5).ToUpper() == "$NOW(")) ? (text + MID(method_66(text3 + ",,," + str), 1, -9999)) : (text + MID(method_69(""), 1, -9999)));
                 }
             }
             return text;
@@ -2933,27 +2933,27 @@ namespace Gssy.Capi.BIZ
         private string method_68(string string_0 = "")
         {
             string text = "";
-            List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+            List<string> list = ParaToList(string_0, ",", true);
             string text2 = (list.Count() > 0) ? list[0] : "";
             string text3 = (list.Count() > 1) ? list[1].Trim().ToUpper() : "";
             string text4 = (list.Count() > 2) ? list[2].Trim().ToUpper() : "";
-            if (text2 == GClass0.smethod_0("0"))
+            if (text2 == "1")
             {
-                if (text3.Contains(GClass0.smethod_0("X")))
+                if (text3.Contains("Y"))
                 {
-                    text += GClass0.smethod_0("|Žɺͻ婵");
+                    text += "yyyy年";
                 }
-                if (text3.Contains(GClass0.smethod_0("L")))
+                if (text3.Contains("M"))
                 {
-                    text += GClass0.smethod_0("O昉");
+                    text += "M月";
                 }
-                if (text3.Contains(GClass0.smethod_0("E")))
+                if (text3.Contains("D"))
                 {
-                    text += GClass0.smethod_0("f擤");
+                    text += "d日";
                 }
-                if ((text == "") & !text3.Contains(GClass0.smethod_0("V")))
+                if ((text == "") & !text3.Contains("W"))
                 {
-                    text = GClass0.smethod_0("pűɾͿ婱Չ愋ݦ淤");
+                    text = "yyyy年M月d日";
                 }
                 if (text != "")
                 {
@@ -2961,31 +2961,31 @@ namespace Gssy.Capi.BIZ
                 }
                 if (text4 == "")
                 {
-                    text4 = GClass0.smethod_0("Aĳ");
+                    text4 = "C2";
                 }
-                if (text3.Contains(GClass0.smethod_0("V")))
+                if (text3.Contains("W"))
                 {
-                    text += method_79(DateTime.Today.ToString(GClass0.smethod_0("qžɿͼщՎ٦ݥ")) + GClass0.smethod_0("-") + text4);
+                    text += method_79(DateTime.Today.ToString("yyyyMMdd") + "," + text4);
                 }
             }
             else
             {
-                if (text3.Contains(GClass0.smethod_0("X")))
+                if (text3.Contains("Y"))
                 {
-                    text = text + GClass0.smethod_0("}źɻ\u0378") + text2;
+                    text = text + "yyyy" + text2;
                 }
-                if (text3.Contains(GClass0.smethod_0("L")))
+                if (text3.Contains("M"))
                 {
-                    text = text + GClass0.smethod_0("L") + text2;
+                    text = text + "M" + text2;
                 }
-                if (text3.Contains(GClass0.smethod_0("E")))
+                if (text3.Contains("D"))
                 {
-                    text = text + GClass0.smethod_0("e") + text2;
+                    text = text + "d" + text2;
                 }
                 text = LEFT(text, text.Length - 1);
-                if ((text == "") & !text3.Contains(GClass0.smethod_0("V")))
+                if ((text == "") & !text3.Contains("W"))
                 {
-                    text = GClass0.smethod_0("}źɻ\u0378") + text2 + GClass0.smethod_0("OŌ") + text2 + GClass0.smethod_0("fť");
+                    text = "yyyy" + text2 + "MM" + text2 + "dd";
                 }
                 if (text != "")
                 {
@@ -2993,11 +2993,11 @@ namespace Gssy.Capi.BIZ
                 }
                 if (text4 == "")
                 {
-                    text4 = GClass0.smethod_0("LĶ");
+                    text4 = "N7";
                 }
-                if (text3.Contains(GClass0.smethod_0("V")))
+                if (text3.Contains("W"))
                 {
-                    text += method_79(DateTime.Today.ToString(GClass0.smethod_0("qžɿͼщՎ٦ݥ")) + GClass0.smethod_0("-") + text4);
+                    text += method_79(DateTime.Today.ToString("yyyyMMdd") + "," + text4);
                 }
             }
             return text;
@@ -3011,90 +3011,90 @@ namespace Gssy.Capi.BIZ
             string text3 = "";
             if (string_0 != "")
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 text = ((list.Count() > 0) ? list[0].Trim() : "");
                 text2 = ((list.Count() > 1) ? list[1].Trim().ToUpper() : "");
                 a = ((list.Count() > 2) ? list[2].Trim().ToUpper() : "");
             }
-            string text4 = (a == "") ? GClass0.smethod_0("I") : GClass0.smethod_0("i");
+            string text4 = (a == "") ? "H" : "h";
             if (!(text == ""))
             {
-                if (text == GClass0.smethod_0("0"))
+                if (text == "1")
                 {
-                    if (text2.Contains(GClass0.smethod_0("I")))
+                    if (text2.Contains("H"))
                     {
-                        text3 = text3 + text4 + GClass0.smethod_0("旷");
+                        text3 = text3 + text4 + "时";
                     }
-                    if (text2.Contains(GClass0.smethod_0("L")))
+                    if (text2.Contains("M"))
                     {
-                        text3 += GClass0.smethod_0("o匇");
+                        text3 += "m分";
                     }
-                    if (text2.Contains(GClass0.smethod_0("R")))
+                    if (text2.Contains("S"))
                     {
-                        text3 += GClass0.smethod_0("q磓");
+                        text3 += "s秒";
                     }
                     if (text3 == "")
                     {
-                        text3 = text4 + GClass0.smethod_0("旳ũ倅ͱ緓");
+                        text3 = text4 + "时m分s秒";
                     }
                     text3 = DateTime.Now.ToString(text3);
                 }
-                else if (text == GClass0.smethod_0("1"))
+                else if (text == "0")
                 {
-                    if (text2.Contains(GClass0.smethod_0("I")))
+                    if (text2.Contains("H"))
                     {
                         text3 = text3 + text4 + text4;
                     }
-                    if (text2.Contains(GClass0.smethod_0("L")))
+                    if (text2.Contains("M"))
                     {
-                        text3 += GClass0.smethod_0("oŬ");
+                        text3 += "mm";
                     }
-                    if (text2.Contains(GClass0.smethod_0("R")))
+                    if (text2.Contains("S"))
                     {
-                        text3 += GClass0.smethod_0("qŲ");
+                        text3 += "ss";
                     }
                     if (text3 == "")
                     {
-                        text3 = text4 + text4 + GClass0.smethod_0("iŮɱͲ");
+                        text3 = text4 + text4 + "mmss";
                     }
                     text3 = DateTime.Now.ToString(text3);
                 }
                 else
                 {
-                    if (text2.Contains(GClass0.smethod_0("I")))
+                    if (text2.Contains("H"))
                     {
                         text3 = text3 + text4 + text4 + text;
                     }
-                    if (text2.Contains(GClass0.smethod_0("L")))
+                    if (text2.Contains("M"))
                     {
-                        text3 = text3 + GClass0.smethod_0("oŬ") + text;
+                        text3 = text3 + "mm" + text;
                     }
-                    if (text2.Contains(GClass0.smethod_0("R")))
+                    if (text2.Contains("S"))
                     {
-                        text3 = text3 + GClass0.smethod_0("qŲ") + text;
+                        text3 = text3 + "ss" + text;
                     }
                     text3 = LEFT(text3, text3.Length - 1);
                     if (text3 == "")
                     {
-                        text3 = text4 + text4 + text + GClass0.smethod_0("oŬ") + text + GClass0.smethod_0("qŲ");
+                        text3 = text4 + text4 + text + "mm" + text + "ss";
                     }
                     text3 = DateTime.Now.ToString(text3);
                 }
                 if (a != "")
                 {
-                    bool flag = (DateTime.Now.ToString(GClass0.smethod_0("Jŉ")) == DateTime.Now.ToString(GClass0.smethod_0("jũ"))) ? true : false;
-                    if (a == GClass0.smethod_0("B"))
+                    bool flag = (DateTime.Now.ToString("HH") == DateTime.Now.ToString("hh")) ? true : false;
+                    if (a == "C")
                     {
-                        text3 = (flag ? (GClass0.smethod_0("丈剉") + text3) : (GClass0.smethod_0("三剉") + text3));
+                        text3 = (flag ? ("上午" + text3) : ("下午" + text3));
                     }
-                    else if (a == GClass0.smethod_0("D"))
+                    else if (a == "E")
                     {
-                        text3 = (flag ? (text3 + GClass0.smethod_0("CŌ")) : (text3 + GClass0.smethod_0("RŌ")));
+                        text3 = (flag ? (text3 + "AM") : (text3 + "PM"));
                     }
                 }
                 return text3;
             }
-            return GClass0.smethod_0("2į") + DateTime.Now.ToString(text4 + text4 + GClass0.smethod_0("iŮɱͲ"));
+            return "0." + DateTime.Now.ToString(text4 + text4 + "mmss");
         }
 
         private string method_70(string string_0)
@@ -3102,11 +3102,11 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
                 string a = (list.Count() > 1) ? list[1] : "";
                 result = method_6(string_);
-                result = ((a == GClass0.smethod_0("3")) ? method_105(result, 2) : ((!(a == GClass0.smethod_0("1"))) ? method_105(result, 4) : method_105(result, 0)));
+                result = ((a == "2") ? method_105(result, 2) : ((!(a == "0")) ? method_105(result, 4) : method_105(result, 0)));
             }
             return result;
         }
@@ -3116,11 +3116,11 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
                 string a = (list.Count() > 1) ? list[1] : "";
                 result = method_6(string_);
-                result = ((!(a == GClass0.smethod_0("3"))) ? method_106(result, 1, false) : method_106(result, 2, false));
+                result = ((!(a == "2")) ? method_106(result, 1, false) : method_106(result, 2, false));
             }
             return result;
         }
@@ -3130,11 +3130,11 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
                 string a = (list.Count() > 1) ? list[1] : "";
                 result = method_6(string_);
-                result = ((!(a == GClass0.smethod_0("3"))) ? method_107(result, 1) : method_107(result, 2));
+                result = ((!(a == "2")) ? method_107(result, 1) : method_107(result, 2));
             }
             return result;
         }
@@ -3144,11 +3144,11 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
                 string a = (list.Count() > 1) ? list[1] : "";
                 result = method_6(string_);
-                result = ((!(a == GClass0.smethod_0("3"))) ? method_108(result, 1) : method_108(result, 2));
+                result = ((!(a == "2")) ? method_108(result, 1) : method_108(result, 2));
             }
             return result;
         }
@@ -3158,11 +3158,11 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
                 string a = (list.Count() > 1) ? list[1] : "";
                 result = method_6(string_);
-                result = ((!(a == GClass0.smethod_0("3"))) ? method_109(result, 1, false) : method_109(result, 2, false));
+                result = ((!(a == "2")) ? method_109(result, 1, false) : method_109(result, 2, false));
             }
             return result;
         }
@@ -3172,24 +3172,24 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_ = list[0];
                 string a = (list.Count() > 1) ? list[1] : "";
                 result = method_6(string_);
-                result = ((!(a == GClass0.smethod_0("3"))) ? method_110(result, 1) : method_110(result, 2));
+                result = ((!(a == "2")) ? method_110(result, 1) : method_110(result, 2));
             }
             return result;
         }
 
         private string method_76(string string_0)
         {
-            string result = GClass0.smethod_0("0");
+            string result = "1";
             if (string_0.Length > 0)
             {
                 string text = method_6(string_0);
-                if (text.IndexOf(GClass0.smethod_0(".")) > -1)
+                if (text.IndexOf("/") > -1)
                 {
-                    int num = text.IndexOf(GClass0.smethod_0("!"));
+                    int num = text.IndexOf(" ");
                     if (num > -1)
                     {
                         text = LEFT(text, num).Trim();
@@ -3197,13 +3197,13 @@ namespace Gssy.Capi.BIZ
                 }
                 else
                 {
-                    if (text.IndexOf(GClass0.smethod_0(";")) > -1)
+                    if (text.IndexOf(":") > -1)
                     {
-                        OutputResult(GClass0.smethod_0("凨摤ȷ\u035cѾդ\u064bݯ\u0879३ਣଣ忋桸腫汤䇿枀矦琝\ueb1b") + string_0 + GClass0.smethod_0("%Ĺȣ\u032dЮ"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                        return GClass0.smethod_0("0");
+                        OutputResult("函数$NotDate()参数转换出的日期：" + string_0 + " = //", "lg_Result.LOG", true);
+                        return "1";
                     }
                     text = LEFT(text, 8);
-                    int num2 = text.IndexOf(GClass0.smethod_0("/"));
+                    int num2 = text.IndexOf(".");
                     if (num2 > -1)
                     {
                         text = LEFT(text, num2);
@@ -3211,12 +3211,12 @@ namespace Gssy.Capi.BIZ
                     string text2 = LEFT(text, text.Length - 4);
                     string text3 = method_133(LEFT(text, text.Length - 2), 2);
                     string text4 = method_133(text, 2);
-                    text = text2 + GClass0.smethod_0(".") + text3 + GClass0.smethod_0(".") + text4;
+                    text = text2 + "/" + text3 + "/" + text4;
                 }
-                OutputResult(GClass0.smethod_0("凨摤ȷ\u035cѾդ\u064bݯ\u0879३ਣଣ忋桸腫汤䇿枀矦琝\ueb1b") + string_0 + GClass0.smethod_0("#Ŀȡ") + text, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                OutputResult("函数$NotDate()参数转换出的日期：" + string_0 + " = " + text, "lg_Result.LOG", true);
                 if (method_138(text))
                 {
-                    result = GClass0.smethod_0("1");
+                    result = "0";
                 }
             }
             return result;
@@ -3224,13 +3224,13 @@ namespace Gssy.Capi.BIZ
 
         private string method_77(string string_0)
         {
-            string result = GClass0.smethod_0("0");
+            string result = "1";
             if (string_0.Length > 0)
             {
                 string text = method_6(string_0);
-                if (text.IndexOf(GClass0.smethod_0(";")) > -1)
+                if (text.IndexOf(":") > -1)
                 {
-                    int num = text.IndexOf(GClass0.smethod_0("!"));
+                    int num = text.IndexOf(" ");
                     if (num > -1)
                     {
                         text = MID(text, num + 1, -9999).Trim();
@@ -3239,22 +3239,22 @@ namespace Gssy.Capi.BIZ
                 else
                 {
                     text = method_133(text, 7);
-                    int num2 = text.IndexOf(GClass0.smethod_0("/"));
+                    int num2 = text.IndexOf(".");
                     if (num2 <= -1)
                     {
-                        OutputResult(GClass0.smethod_0("凨摤ȷ\u035cѾդ\u065bݧ\u0860३ਣଣ忋桸腫汤䇿枀矵蛶\ueb1b") + string_0 + GClass0.smethod_0("%Ĺȣ\u0338л"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                        return GClass0.smethod_0("0");
+                        OutputResult("函数$NotTime()参数转换出的时间：" + string_0 + " = ::", "lg_Result.LOG", true);
+                        return "1";
                     }
                     text = MID(text, num2 + 1, -9999);
                     string text2 = LEFT(text, 2);
                     string text3 = MID(text, 2, 2);
                     string text4 = MID(text, 4, 2);
-                    text = text2 + GClass0.smethod_0(";") + text3 + GClass0.smethod_0(";") + text4;
+                    text = text2 + ":" + text3 + ":" + text4;
                 }
-                OutputResult(GClass0.smethod_0("凨摤ȷ\u035cѾդ\u065bݧ\u0860३ਣଣ忋桸腫汤䇿枀矵蛶\ueb1b") + string_0 + GClass0.smethod_0("#Ŀȡ") + text, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                OutputResult("函数$NotTime()参数转换出的时间：" + string_0 + " = " + text, "lg_Result.LOG", true);
                 if (method_138(text))
                 {
-                    result = GClass0.smethod_0("1");
+                    result = "0";
                 }
             }
             return result;
@@ -3262,14 +3262,14 @@ namespace Gssy.Capi.BIZ
 
         private string method_78(string string_0)
         {
-            string result = GClass0.smethod_0("0");
+            string result = "1";
             if (string_0.Length > 0)
             {
                 string text = method_112(string_0);
-                OutputResult(GClass0.smethod_0("処摪Ƚ\u0356Ѹբ\u0651ݵ\u0867ॷ\u0a45\u0b79\u0c62൫ล༥䏉瑺鵥灪䗽掂珠瀛緵賶\ue51b") + string_0 + GClass0.smethod_0("#Ŀȡ") + text, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                OutputResult("函数$NotDateTime()参数转换出的日期时间：" + string_0 + " = " + text, "lg_Result.LOG", true);
                 if (method_138(text))
                 {
-                    result = GClass0.smethod_0("1");
+                    result = "0";
                 }
             }
             return result;
@@ -3280,14 +3280,14 @@ namespace Gssy.Capi.BIZ
             string text = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string text2 = list[0];
-                string a = (list.Count() > 1) ? list[1].Trim().ToUpper() : GClass0.smethod_0("LĶ");
+                string a = (list.Count() > 1) ? list[1].Trim().ToUpper() : "N7";
                 string text3 = method_6(text2);
                 string text4 = "";
                 string text5 = "";
                 string text6 = "";
-                if (text3.IndexOf(GClass0.smethod_0(".")) > -1)
+                if (text3.IndexOf("/") > -1)
                 {
                     text4 = method_105(text3, 4);
                     text5 = method_106(text3, 2, false);
@@ -3296,7 +3296,7 @@ namespace Gssy.Capi.BIZ
                 else
                 {
                     text3 = LEFT(text3, 8);
-                    int num = text3.IndexOf(GClass0.smethod_0("/"));
+                    int num = text3.IndexOf(".");
                     if (num > -1)
                     {
                         text3 = LEFT(text3, num);
@@ -3305,10 +3305,10 @@ namespace Gssy.Capi.BIZ
                     text5 = method_133(LEFT(text3, text3.Length - 2), 2);
                     text6 = method_133(text3, 2);
                 }
-                text3 = text4 + GClass0.smethod_0(".") + text5 + GClass0.smethod_0(".") + text6;
+                text3 = text4 + "/" + text5 + "/" + text6;
                 int num2 = Convert.ToInt16(Convert.ToDateTime(text3).DayOfWeek);
-                text = ((a == GClass0.smethod_0("LĶ")) ? ((num2 == 0) ? GClass0.smethod_0("6") : num2.ToString()) : ((a == GClass0.smethod_0("Lı")) ? num2.ToString() : ((a == GClass0.smethod_0("Aİ")) ? method_111(num2) : ((a == GClass0.smethod_0("Aĳ")) ? (GClass0.smethod_0("呩") + method_111(num2)) : ((!(a == GClass0.smethod_0("AĲ"))) ? ((num2 == 0) ? GClass0.smethod_0("6") : num2.ToString()) : (GClass0.smethod_0("昝昞") + method_111(num2)))))));
-                OutputResult(GClass0.smethod_0("凨摤ȷ\u0345Ѵյ٤\u074a\u086cॵਣଣ忋桸腫汤䇿枀琜琝\ueb1b") + text2 + GClass0.smethod_0("#Ŀȡ") + text3 + GClass0.smethod_0("z") + text + GClass0.smethod_0("|"), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                text = ((a == "N7") ? ((num2 == 0) ? "7" : num2.ToString()) : ((a == "N0") ? num2.ToString() : ((a == "C1") ? method_111(num2) : ((a == "C2") ? ("周" + method_111(num2)) : ((!(a == "C3")) ? ((num2 == 0) ? "7" : num2.ToString()) : ("星期" + method_111(num2)))))));
+                OutputResult("函数$WeekDay()参数转换出的星期：" + text2 + " = " + text3 + "{" + text + "}", "lg_Result.LOG", true);
             }
             return text;
         }
@@ -3318,11 +3318,11 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string text = method_112(method_6(list[0]));
                 string string_ = (list.Count() > 1) ? method_6(list[1]) : "";
-                string text2 = (list.Count() > 2) ? list[2].ToUpper().Trim() : GClass0.smethod_0("Fŕ");
-                OutputResult(GClass0.smethod_0("凮摢ȵ\u0355сՊإܥ寉決蕥桪巽箂儅囏痵蓶\ued1b") + list[0] + GClass0.smethod_0("#Ŀȡ") + text, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                string text2 = (list.Count() > 2) ? list[2].ToUpper().Trim() : "DT";
+                OutputResult("函数$END()参数转换出的开始时间：" + list[0] + " = " + text, "lg_Result.LOG", true);
                 if (method_138(text))
                 {
                     DateTime dateTime = Convert.ToDateTime(text);
@@ -3338,13 +3338,13 @@ namespace Gssy.Capi.BIZ
                     int num2 = method_126(text6);
                     int num3 = method_126(text7);
                     int num4 = method_126(text8);
-                    string str = text3 + GClass0.smethod_0(".") + text4 + GClass0.smethod_0(".") + text5 + GClass0.smethod_0("!") + text6 + GClass0.smethod_0(";") + text7 + GClass0.smethod_0(";") + text8;
-                    OutputResult(GClass0.smethod_0("凬摠ȫ\u034bуՈأܣ寋汸蕫桤巿简毵驽\uef1b") + list[1] + GClass0.smethod_0("#Ŀȡ") + str, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                    string str = text3 + "/" + text4 + "/" + text5 + " " + text6 + ":" + text7 + ":" + text8;
+                    OutputResult("函数$END()参数转换出的时长：" + list[1] + " = " + str, "lg_Result.LOG", true);
                     DateTime dateTime2 = dateTime.AddYears(value).AddMonths(months).AddDays((double)num)
                         .AddHours((double)num2)
                         .AddMinutes((double)num3)
                         .AddSeconds((double)num4);
-                    result = (text2.Contains(GClass0.smethod_0("D")) ? ((text2.Contains(GClass0.smethod_0("E")) && !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("sŰɱ;ЩՈىܬ\u0866॥")) : ((text2.Contains(GClass0.smethod_0("E")) || !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("jūɨ\u0369РՃ\u0640ܣ\u086f८\u0a29\u0b40\u0c4f\u0d3c\u0e68ཀྵ\u1039ᅱቲ")) : dateTime2.ToString(GClass0.smethod_0("@ŏȼ\u0368ѩԹٱݲ")))) : (text2.Contains(GClass0.smethod_0("B")) ? ((text2.Contains(GClass0.smethod_0("E")) && !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("pűɾͿ婱Չ愋ݦ淤")) : ((text2.Contains(GClass0.smethod_0("E")) || !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("iŶɷ\u0374婸Ն愂ݭ淭\u094f濰୨౩弅\u0e71盓")) : dateTime2.ToString(GClass0.smethod_0("N擳ɩ儅ѱ糓")))) : ((text2.Contains(GClass0.smethod_0("E")) && !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("qžɿͼщՎ٦ݥ")) : ((text2.Contains(GClass0.smethod_0("E")) || !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("vŷɴ\u0375цՇ٭ݬ\u0829\u094e\u0a4d୩౮൱\u0e72")) : (GClass0.smethod_0("2į") + dateTime2.ToString(GClass0.smethod_0("Nōɩ\u036eѱղ")))))));
+                    result = (text2.Contains("E") ? ((text2.Contains("D") && !text2.Contains("T")) ? dateTime2.ToString("yyyy/MM/dd") : ((text2.Contains("D") || !text2.Contains("T")) ? dateTime2.ToString("yyyy/MM/dd HH:mm:ss") : dateTime2.ToString("HH:mm:ss"))) : (text2.Contains("C") ? ((text2.Contains("D") && !text2.Contains("T")) ? dateTime2.ToString("yyyy年M月d日") : ((text2.Contains("D") || !text2.Contains("T")) ? dateTime2.ToString("yyyy年M月d日H时mm分s秒") : dateTime2.ToString("H时m分s秒"))) : ((text2.Contains("D") && !text2.Contains("T")) ? dateTime2.ToString("yyyyMMdd") : ((text2.Contains("D") || !text2.Contains("T")) ? dateTime2.ToString("yyyyMMdd.HHmmss") : ("0." + dateTime2.ToString("HHmmss"))))));
                 }
             }
             return result;
@@ -3355,11 +3355,11 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string text = method_112(method_6(list[0]));
                 string string_ = (list.Count() > 1) ? method_6(list[1]) : "";
-                string text2 = (list.Count() > 2) ? list[2].ToUpper().Trim() : GClass0.smethod_0("Fŕ");
-                OutputResult(GClass0.smethod_0("凨摤ȷ\u0341хՑ\u065dݚ\u0825थ姉湺荥湪忽禂滖癛矵蛶\ueb1b") + list[0] + GClass0.smethod_0("#Ŀȡ") + text, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                string text2 = (list.Count() > 2) ? list[2].ToUpper().Trim() : "DT";
+                OutputResult("函数$START()参数转换出的结束时间：" + list[0] + " = " + text, "lg_Result.LOG", true);
                 if (method_138(text))
                 {
                     DateTime dateTime = Convert.ToDateTime(text);
@@ -3375,13 +3375,13 @@ namespace Gssy.Capi.BIZ
                     int num4 = method_126(text6);
                     int num5 = method_126(text7);
                     int num6 = method_126(text8);
-                    string str = text3 + GClass0.smethod_0(".") + text4 + GClass0.smethod_0(".") + text5 + GClass0.smethod_0("!") + text6 + GClass0.smethod_0(";") + text7 + GClass0.smethod_0(";") + text8;
-                    OutputResult(GClass0.smethod_0("凮摢ȵ\u0343ћՏ\u065fݘ\u0823ण始湸荫湤忿禀痵葽\ued1b") + list[1] + GClass0.smethod_0("#Ŀȡ") + str, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                    string str = text3 + "/" + text4 + "/" + text5 + " " + text6 + ":" + text7 + ":" + text8;
+                    OutputResult("函数$START()参数转换出的时长：" + list[1] + " = " + str, "lg_Result.LOG", true);
                     DateTime dateTime2 = dateTime.AddYears(-num).AddMonths(-num2).AddDays((double)(-num3))
                         .AddHours((double)(-num4))
                         .AddMinutes((double)(-num5))
                         .AddSeconds((double)(-num6));
-                    result = (text2.Contains(GClass0.smethod_0("D")) ? ((text2.Contains(GClass0.smethod_0("E")) && !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("sŰɱ;ЩՈىܬ\u0866॥")) : ((text2.Contains(GClass0.smethod_0("E")) || !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("jūɨ\u0369РՃ\u0640ܣ\u086f८\u0a29\u0b40\u0c4f\u0d3c\u0e68ཀྵ\u1039ᅱቲ")) : dateTime2.ToString(GClass0.smethod_0("@ŏȼ\u0368ѩԹٱݲ")))) : (text2.Contains(GClass0.smethod_0("B")) ? ((text2.Contains(GClass0.smethod_0("E")) && !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("pűɾͿ婱Չ愋ݦ淤")) : ((text2.Contains(GClass0.smethod_0("E")) || !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("iŶɷ\u0374婸Ն愂ݭ淭\u094f濰୨౩弅\u0e71盓")) : dateTime2.ToString(GClass0.smethod_0("N擳ɩ儅ѱ糓")))) : ((text2.Contains(GClass0.smethod_0("E")) && !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("qžɿͼщՎ٦ݥ")) : ((text2.Contains(GClass0.smethod_0("E")) || !text2.Contains(GClass0.smethod_0("U"))) ? dateTime2.ToString(GClass0.smethod_0("vŷɴ\u0375цՇ٭ݬ\u0829\u094e\u0a4d୩౮൱\u0e72")) : (GClass0.smethod_0("2į") + dateTime2.ToString(GClass0.smethod_0("Nōɩ\u036eѱղ")))))));
+                    result = (text2.Contains("E") ? ((text2.Contains("D") && !text2.Contains("T")) ? dateTime2.ToString("yyyy/MM/dd") : ((text2.Contains("D") || !text2.Contains("T")) ? dateTime2.ToString("yyyy/MM/dd HH:mm:ss") : dateTime2.ToString("HH:mm:ss"))) : (text2.Contains("C") ? ((text2.Contains("D") && !text2.Contains("T")) ? dateTime2.ToString("yyyy年M月d日") : ((text2.Contains("D") || !text2.Contains("T")) ? dateTime2.ToString("yyyy年M月d日H时mm分s秒") : dateTime2.ToString("H时m分s秒"))) : ((text2.Contains("D") && !text2.Contains("T")) ? dateTime2.ToString("yyyyMMdd") : ((text2.Contains("D") || !text2.Contains("T")) ? dateTime2.ToString("yyyyMMdd.HHmmss") : ("0." + dateTime2.ToString("HHmmss"))))));
                 }
             }
             return result;
@@ -3392,19 +3392,19 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string text = method_112(method_6(list[0]));
                 string text2 = (list.Count() > 1) ? method_112(method_6(list[1])) : "";
-                string string_ = (list.Count() > 2) ? list[2].Trim() : GClass0.smethod_0("B");
+                string string_ = (list.Count() > 2) ? list[2].Trim() : "C";
                 string string_2 = (list.Count() > 3) ? list[3].Trim() : "";
-                OutputResult(GClass0.smethod_0("凩摣ȶ\u035dџՁىܥ\u0825嫉潺葥潪峽碂倅䧏瓵蟶\uec1b") + list[0] + GClass0.smethod_0("#Ŀȡ") + text, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                OutputResult(GClass0.smethod_0("凩摣ȶ\u035dџՁىܥ\u0825嫉潺葥潪峽碂燖睛瓵蟶\uec1b") + list[1] + GClass0.smethod_0("#Ŀȡ") + text2, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                OutputResult("函数$LONG()参数转换出的开始时间：" + list[0] + " = " + text, "lg_Result.LOG", true);
+                OutputResult("函数$LONG()参数转换出的结束时间：" + list[1] + " = " + text2, "lg_Result.LOG", true);
                 if (method_138(text) && method_138(text2))
                 {
                     DateTime dateTime = Convert.ToDateTime(text);
                     DateTime dateTime2 = Convert.ToDateTime(text2);
                     TimeSpan timeSpan_ = (dateTime2 > dateTime) ? (dateTime2 - dateTime) : (dateTime - dateTime2);
-                    OutputResult(GClass0.smethod_0("凯摡ȴ\u0343сՃ\u064bܣ\u0823芨熟嫽窂棳魻༣ဿᄡ") + timeSpan_.ToString(), GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
+                    OutputResult("函数$LONG()计算出的时长 = " + timeSpan_.ToString(), "lg_Result.LOG", true);
                     result = method_140(timeSpan_, string_, string_2);
                 }
             }
@@ -3413,15 +3413,15 @@ namespace Gssy.Capi.BIZ
 
         private string method_83(string string_0, string string_1 = "EQUAL")
         {
-            string result = GClass0.smethod_0("1");
+            string result = "0";
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), true);
+                List<string> list = ParaToList(string_0, ",", true);
                 string string_2 = method_6(list[0]);
                 string string_3 = (list.Count() > 1) ? list[1] : "";
                 if (method_25(string_2, string_3, string_1))
                 {
-                    return GClass0.smethod_0("0");
+                    return "1";
                 }
             }
             return result;
@@ -3429,19 +3429,19 @@ namespace Gssy.Capi.BIZ
 
         private string method_84(string string_0)
         {
-            string string_ = GClass0.smethod_0(".Łɉ\u0351уՃ\u064dݏࡇऩ") + string_0 + GClass0.smethod_0("(");
+            string string_ = "$HAVEFILE(" + string_0 + ")";
             return method_96(string_);
         }
 
         private string method_85(string string_0)
         {
-            string string_ = GClass0.smethod_0(",ŉɉ\u0343эՏهܩ") + string_0 + GClass0.smethod_0("(");
+            string string_ = "$NOFILE(" + string_0 + ")";
             return method_96(string_);
         }
 
         private string method_86()
         {
-            return method_96(GClass0.smethod_0("-ņɈ\u0352їՁ\u0640ܪ\u0828"));
+            return method_96("$NOTREC()");
         }
 
         private List<string> method_87(string string_0, int int_0 = 0)
@@ -3449,14 +3449,14 @@ namespace Gssy.Capi.BIZ
             List<string> list = new List<string>();
             string[] array = new string[8]
             {
-                GClass0.smethod_0("!Ňɍ\u034eЩ"),
-                GClass0.smethod_0("'Ŏȩ"),
-                GClass0.smethod_0("\"ŉɋ\u034cђԩ"),
-                GClass0.smethod_0("!ŗɖ\u034fЩ"),
-                GClass0.smethod_0("!ňɌ\u0350Щ"),
-                GClass0.smethod_0("!ŇɌ\u0350Щ"),
-                GClass0.smethod_0("!ŐɌ\u0352Щ"),
-                GClass0.smethod_0("\"ŉɅ\u0350іԩ")
+                "$CNL(",
+                "$L(",
+                "$LOOP(",
+                "$SUM(",
+                "$LOR(",
+                "$COR(",
+                "$TOP(",
+                "$LAST("
             };
             string text = "";
             string text2 = (int_0 == 1) ? GetTextQuestion(string_0, "") : string_0;
@@ -3478,7 +3478,7 @@ namespace Gssy.Capi.BIZ
                     }
                     if (text6 == text5)
                     {
-                        num = RightBrackets(text2, num, GClass0.smethod_0(")"), GClass0.smethod_0("("));
+                        num = RightBrackets(text2, num, "(", ")");
                         flag = false;
                         break;
                     }
@@ -3488,9 +3488,9 @@ namespace Gssy.Capi.BIZ
                     goto IL_04ca;
                 }
                 text3 = MID(text2, num, 2);
-                if (text3 == GClass0.smethod_0("Yģ"))
+                if (text3 == "[\"")
                 {
-                    num = text2.IndexOf(GClass0.smethod_0(" Ŝ"), num + 1);
+                    num = text2.IndexOf("\"]", num + 1);
                     if (num < 0)
                     {
                         num = text2.Length;
@@ -3503,10 +3503,10 @@ namespace Gssy.Capi.BIZ
                 }
                 else
                 {
-                    if (!(text3 == GClass0.smethod_0("!ź")) && !(text3 == GClass0.smethod_0("&ź")))
+                    if (!(text3 == "#{") && !(text3 == "${"))
                     {
                         text3 = MID(text2, num, 1);
-                        if (text3 == GClass0.smethod_0("%"))
+                        if (text3 == "$")
                         {
                             bool flag2 = false;
                             string[] aryQnFunc = _aryQnFunc;
@@ -3520,9 +3520,9 @@ namespace Gssy.Capi.BIZ
                                 if (text7 == text5.ToUpper())
                                 {
                                     flag2 = true;
-                                    num2 = RightBrackets(text2, num, GClass0.smethod_0(")"), GClass0.smethod_0("("));
+                                    num2 = RightBrackets(text2, num, "(", ")");
                                     num += text7.Length;
-                                    text4 = text2.Substring(num, num2 - num + 1).Replace(GClass0.smethod_0("!"), "").Trim();
+                                    text4 = text2.Substring(num, num2 - num + 1).Replace(" ", "").Trim();
                                     if (!list.Contains(text4))
                                     {
                                         list.Add(text7 + text4);
@@ -3543,7 +3543,7 @@ namespace Gssy.Capi.BIZ
                             num2 = 0;
                             if (isLetter(MID(text2, num + 1, 1)))
                             {
-                                num2 = text2.IndexOf(GClass0.smethod_0(")"), num + 1);
+                                num2 = text2.IndexOf("(", num + 1);
                             }
                             if (num2 > 0)
                             {
@@ -3589,7 +3589,7 @@ namespace Gssy.Capi.BIZ
                         }
                         text4 = "";
                     }
-                    num2 = text2.IndexOf(GClass0.smethod_0("|"), num);
+                    num2 = text2.IndexOf("}", num);
                     if (num2 < 0)
                     {
                         num2 = text2.Length - 1;
@@ -3626,8 +3626,8 @@ namespace Gssy.Capi.BIZ
             }
             if (list.Count > 0)
             {
-                OutputResult(GClass0.smethod_0("8Łɐ\u033f") + string_0 + GClass0.smethod_0("霌袊膽僟䫭䬌麞燫纀牗扊\uf41b"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
-                OutputResult(method_130(list, GClass0.smethod_0(".ġ"), ""), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+                OutputResult("<BR>" + string_0 + "需要获取以下题目的答案：", "lg_Answer.LOG", true);
+                OutputResult(method_130(list, ", ", ""), "lg_Answer.LOG", true);
             }
             return list;
         }
@@ -3638,7 +3638,7 @@ namespace Gssy.Capi.BIZ
             string text2 = string_0;
             if (string_0.Length > 0)
             {
-                if (LEFT(text2, 1) == GClass0.smethod_0("Z"))
+                if (LEFT(text2, 1) == "[")
                 {
                     text2 = MID(text2, 1, -9999);
                 }
@@ -3651,7 +3651,7 @@ namespace Gssy.Capi.BIZ
                     text = _dictData[text2];
                 }
             }
-            OutputResult(string_0 + GClass0.smethod_0("#Ŀȡ") + text, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult(string_0 + " = " + text, "lg_Answer.LOG", true);
             return text;
         }
 
@@ -3663,23 +3663,23 @@ namespace Gssy.Capi.BIZ
                 int length = text.Length;
                 string a = LEFT(text, 1);
                 string a2 = LEFT(text, 2);
-                while (a2 != GClass0.smethod_0("Yģ") && (a == GClass0.smethod_0("Z") || a == GClass0.smethod_0(")") || a == GClass0.smethod_0("z")))
+                while (a2 != "[\"" && (a == "[" || a == "(" || a == "{"))
                 {
-                    if (a == GClass0.smethod_0("Z"))
+                    if (a == "[")
                     {
-                        if (RightBrackets(text, 0, GClass0.smethod_0("Z"), "]") == text.Length - 1)
+                        if (RightBrackets(text, 0, "[", "]") == text.Length - 1)
                         {
                             text = MID(text, 1, text.Length - 2);
                         }
                     }
-                    else if (a == GClass0.smethod_0(")"))
+                    else if (a == "(")
                     {
-                        if (RightBrackets(text, 0, GClass0.smethod_0(")"), GClass0.smethod_0("(")) == text.Length - 1)
+                        if (RightBrackets(text, 0, "(", ")") == text.Length - 1)
                         {
                             text = MID(text, 1, text.Length - 2);
                         }
                     }
-                    else if (a == GClass0.smethod_0("z") && RightBrackets(text, 0, GClass0.smethod_0("z"), GClass0.smethod_0("|")) == text.Length - 1)
+                    else if (a == "{" && RightBrackets(text, 0, "{", "}") == text.Length - 1)
                     {
                         text = MID(text, 1, text.Length - 2);
                     }
@@ -3702,11 +3702,11 @@ namespace Gssy.Capi.BIZ
             int num3 = 0;
             do
             {
-                if (!(MID(string_0, num2, 2) == GClass0.smethod_0("Yģ")))
+                if (!(MID(string_0, num2, 2) == "[\""))
                 {
                     string text = MID(string_0, num2, 1);
                     string a = text;
-                    if (a == GClass0.smethod_0("Z"))
+                    if (a == "[")
                     {
                         switch (num)
                         {
@@ -3721,7 +3721,7 @@ namespace Gssy.Capi.BIZ
                     }
                     else if (!(a == "]"))
                     {
-                        if (a == GClass0.smethod_0(")"))
+                        if (a == "(")
                         {
                             switch (num)
                             {
@@ -3734,9 +3734,9 @@ namespace Gssy.Capi.BIZ
                                     break;
                             }
                         }
-                        else if (!(a == GClass0.smethod_0("(")))
+                        else if (!(a == ")"))
                         {
-                            if (a == GClass0.smethod_0("z"))
+                            if (a == "{")
                             {
                                 switch (num)
                                 {
@@ -3749,7 +3749,7 @@ namespace Gssy.Capi.BIZ
                                         break;
                                 }
                             }
-                            else if (!(a == GClass0.smethod_0("|")))
+                            else if (!(a == "}"))
                             {
                                 if (string_1.IndexOf(text) > -1 && num == 0)
                                 {
@@ -3786,7 +3786,7 @@ namespace Gssy.Capi.BIZ
                 }
                 else
                 {
-                    num2 = string_0.IndexOf(GClass0.smethod_0(" Ŝ"), num2 + 2);
+                    num2 = string_0.IndexOf("\"]", num2 + 2);
                     if (num2 < 0)
                     {
                         return -1;
@@ -3808,9 +3808,9 @@ namespace Gssy.Capi.BIZ
             int num = 0;
             int num2 = 0;
             int num3 = -1;
-            if (!(LEFT(text, 1) == GClass0.smethod_0("%")))
+            if (!(LEFT(text, 1) == "$"))
             {
-                return text.IndexOf(GClass0.smethod_0(")"));
+                return text.IndexOf("(");
             }
             for (int i = 0; i < string_0.Length; i++)
             {
@@ -3818,9 +3818,9 @@ namespace Gssy.Capi.BIZ
                 num3++;
                 string text2 = c.ToString();
                 string a = text2;
-                if (!(a == GClass0.smethod_0(")")))
+                if (!(a == "("))
                 {
-                    if (a == GClass0.smethod_0("(") && num == 2)
+                    if (a == ")" && num == 2)
                     {
                         num2--;
                         if (num2 == 1)
@@ -3852,44 +3852,44 @@ namespace Gssy.Capi.BIZ
 
         private bool method_89(string string_0)
         {
-            if (!string_0.Contains(GClass0.smethod_0("+ĥ")))
+            if (!string_0.Contains(")$"))
             {
-                if (!string_0.Contains(GClass0.smethod_0("$ź")))
+                if (!string_0.Contains("&{"))
                 {
-                    List<string> list = ParaToList(string_0, GClass0.smethod_0("\u007f"), false);
+                    List<string> list = ParaToList(string_0, "~", false);
                     if (list.Count <= 1)
                     {
-                        list = ParaToList(string_0, GClass0.smethod_0("?"), false);
+                        list = ParaToList(string_0, ">", false);
                         if (list.Count <= 1)
                         {
-                            list = ParaToList(string_0, GClass0.smethod_0("="), false);
+                            list = ParaToList(string_0, "<", false);
                             if (list.Count <= 1)
                             {
-                                list = ParaToList(string_0, GClass0.smethod_0("<"), false);
+                                list = ParaToList(string_0, "=", false);
                                 if (list.Count <= 1)
                                 {
-                                    list = ParaToList(string_0, GClass0.smethod_0("<ļ"), false);
+                                    list = ParaToList(string_0, ">=", false);
                                     if (list.Count <= 1)
                                     {
-                                        list = ParaToList(string_0, GClass0.smethod_0(">ļ"), false);
+                                        list = ParaToList(string_0, "<=", false);
                                         if (list.Count <= 1)
                                         {
-                                            list = ParaToList(string_0, GClass0.smethod_0(">Ŀ"), false);
+                                            list = ParaToList(string_0, "<>", false);
                                             if (list.Count <= 1)
                                             {
-                                                list = ParaToList(string_0, GClass0.smethod_0("*"), false);
+                                                list = ParaToList(string_0, "+", false);
                                                 if (list.Count <= 1)
                                                 {
-                                                    list = ParaToList(string_0, GClass0.smethod_0(","), false);
+                                                    list = ParaToList(string_0, "-", false);
                                                     if (list.Count <= 1)
                                                     {
-                                                        list = ParaToList(string_0, GClass0.smethod_0("+"), false);
+                                                        list = ParaToList(string_0, "*", false);
                                                         if (list.Count <= 1)
                                                         {
-                                                            list = ParaToList(string_0, GClass0.smethod_0("."), false);
+                                                            list = ParaToList(string_0, "/", false);
                                                             if (list.Count <= 1)
                                                             {
-                                                                if (!string_0.Contains(GClass0.smethod_0("Yģ")))
+                                                                if (!string_0.Contains("[\""))
                                                                 {
                                                                     if (!string_0.Contains("$["))
                                                                     {
@@ -3897,17 +3897,17 @@ namespace Gssy.Capi.BIZ
                                                                         {
                                                                             string[] array = new string[11]
                                                                             {
-                                                                                GClass0.smethod_0("'őȩ"),
-                                                                                GClass0.smethod_0("!ŗɗ\u0350Щ"),
-                                                                                GClass0.smethod_0(",Ŕɒ\u0357эՍمܩ"),
-                                                                                GClass0.smethod_0("!ŗɖ\u0340Щ"),
-                                                                                GClass0.smethod_0("!ŉɊ\u0346Щ"),
-                                                                                GClass0.smethod_0("#ŔɌ\u0343ыՖة"),
-                                                                                GClass0.smethod_0("\"őɖ\u034aяԩ"),
-                                                                                GClass0.smethod_0("#Ŋɑ\u0356ъՏة"),
-                                                                                GClass0.smethod_0("#Ŕɑ\u0356ъՏة"),
-                                                                                GClass0.smethod_0("#ŉɑ\u034cцՐة"),
-                                                                                GClass0.smethod_0(" Ōɖ\u0349")
+                                                                                "$S(",
+                                                                                "$STR(",
+                                                                                "$STRING(",
+                                                                                "$SUB(",
+                                                                                "$MID(",
+                                                                                "$RIGHT(",
+                                                                                "$TRIM(",
+                                                                                "$LTRIM(",
+                                                                                "$RTRIM(",
+                                                                                "$OTHER(",
+                                                                                "$OTH"
                                                                             };
                                                                             string[] array2 = array;
                                                                             int num = 0;
@@ -3962,14 +3962,14 @@ namespace Gssy.Capi.BIZ
         private int method_90(string string_0, int int_0)
         {
             int num = int_0;
-            if (MID(string_0, int_0, 1) == GClass0.smethod_0("%"))
+            if (MID(string_0, int_0, 1) == "$")
             {
-                num = string_0.IndexOf(GClass0.smethod_0(")"), int_0);
+                num = string_0.IndexOf("(", int_0);
                 if (num < 0)
                 {
                     return int_0;
                 }
-                if (MID(string_0, RightBrackets(string_0, num, GClass0.smethod_0(")"), GClass0.smethod_0("(")), 1) != GClass0.smethod_0("("))
+                if (MID(string_0, RightBrackets(string_0, num, "(", ")"), 1) != ")")
                 {
                     return int_0;
                 }
@@ -3993,7 +3993,7 @@ namespace Gssy.Capi.BIZ
             {
                 return num;
             }
-            return RightBrackets(string_0, num, GClass0.smethod_0(")"), GClass0.smethod_0("("));
+            return RightBrackets(string_0, num, "(", ")");
         }
 
         private void method_92(string string_0, string string_1)
@@ -4019,7 +4019,7 @@ namespace Gssy.Capi.BIZ
                 {
                     classLoopQuestion item2 = new classLoopQuestion();
                     _LoopQn.A[num2].B.Add(item2);
-                    _LoopQn.A[num2].B[num3].Qn.Add(GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64"), GClass0.smethod_0("1"));
+                    _LoopQn.A[num2].B[num3].Qn.Add("ResultIsTrue", "0");
                     _LoopQn.A[num2].B[num3].Qn.Add(string_0, value);
                     num3++;
                 }
@@ -4033,7 +4033,7 @@ namespace Gssy.Capi.BIZ
                     {
                         classLoopQuestion item3 = new classLoopQuestion();
                         item4.B.Add(item3);
-                        item4.B[num3].Qn.Add(GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64"), GClass0.smethod_0("1"));
+                        item4.B[num3].Qn.Add("ResultIsTrue", "0");
                         item4.B[num3].Qn.Add(string_0, "");
                     }
                 }
@@ -4165,7 +4165,7 @@ namespace Gssy.Capi.BIZ
                     {
                         if (text2.Length > 0)
                         {
-                            if (text2 != c.ToString() && text2 != GClass0.smethod_0("!"))
+                            if (text2 != c.ToString() && text2 != " ")
                             {
                                 text += method_98(text2);
                             }
@@ -4178,12 +4178,12 @@ namespace Gssy.Capi.BIZ
                         text2 += value.ToString();
                     }
                 }
-                if (text2.Length > 0 && text2 != c.ToString() && text2 != GClass0.smethod_0("!"))
+                if (text2.Length > 0 && text2 != c.ToString() && text2 != " ")
                 {
                     text += method_98(text2);
                 }
             }
-            OutputResult(GClass0.smethod_0("栂僂儕圌\ufb1b") + text + GClass0.smethod_0("8Łɐ\u033f"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("标准化后：" + text + "<BR>", "lg_Answer.LOG", true);
             return text;
         }
 
@@ -4194,14 +4194,14 @@ namespace Gssy.Capi.BIZ
             if (method_117(text2))
             {
                 double num = Convert.ToDouble(text2);
-                int num2 = text2.IndexOf(GClass0.smethod_0("/"));
+                int num2 = text2.IndexOf(".");
                 text = ((text2.Length > 9) ? text2 : num.ToString());
                 if (num2 > 0 && num2 < text2.Length - 1)
                 {
                     string text3 = LEFT(text2, num2);
                     string text4 = MID(text2, num2 + 1, -9999);
-                    num2 = text.IndexOf(GClass0.smethod_0("/"));
-                    text = ((num2 != -1) ? string_0 : (method_133(method_115(GClass0.smethod_0("1"), text3.Length) + text, text3.Length) + GClass0.smethod_0("/") + method_115(GClass0.smethod_0("1"), text4.Length)));
+                    num2 = text.IndexOf(".");
+                    text = ((num2 != -1) ? string_0 : (method_133(method_115("0", text3.Length) + text, text3.Length) + "." + method_115("0", text4.Length)));
                 }
             }
             else
@@ -4220,7 +4220,7 @@ namespace Gssy.Capi.BIZ
                 do
                 {
                     string text2 = MID(string_0, num, 1);
-                    if (!(text2 == GClass0.smethod_0("%")))
+                    if (!(text2 == "$"))
                     {
                         text2 = JoinQnName(text2, text);
                         if (text2 == "")
@@ -4231,7 +4231,7 @@ namespace Gssy.Capi.BIZ
                     }
                     else
                     {
-                        num = string_0.IndexOf(GClass0.smethod_0(")"), num + 1);
+                        num = string_0.IndexOf("(", num + 1);
                     }
                     num++;
                 }
@@ -4244,7 +4244,7 @@ namespace Gssy.Capi.BIZ
         {
             int result = 0;
             string a = LEFT(string_0, 1);
-            if (a == GClass0.smethod_0("%"))
+            if (a == "$")
             {
                 string[] aryQnFunc = _aryQnFunc;
                 foreach (string text in aryQnFunc)
@@ -4256,7 +4256,7 @@ namespace Gssy.Capi.BIZ
                         {
                             result = 2;
                         }
-                        else if (a == GClass0.smethod_0("_"))
+                        else if (a == "^")
                         {
                             result = 1;
                         }
@@ -4268,7 +4268,7 @@ namespace Gssy.Capi.BIZ
             {
                 result = 2;
             }
-            else if (a == GClass0.smethod_0("_"))
+            else if (a == "^")
             {
                 result = 1;
             }
@@ -4290,7 +4290,7 @@ namespace Gssy.Capi.BIZ
                     _LoopQn.A.Add(item);
                     classLoopQuestion item2 = new classLoopQuestion();
                     _LoopQn.A[0].B.Add(item2);
-                    _LoopQn.A[0].B[0].Qn.Add(GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64"), GClass0.smethod_0("1"));
+                    _LoopQn.A[0].B[0].Qn.Add("ResultIsTrue", "0");
                 }
                 else
                 {
@@ -4326,13 +4326,13 @@ namespace Gssy.Capi.BIZ
         {
             if (string_0.Length > 0)
             {
-                List<string> list = ParaToList(string_0, GClass0.smethod_0("-"), false);
+                List<string> list = ParaToList(string_0, ",", false);
                 string text;
                 string string_;
                 if (list.Count() > 1 && list[1].Length > 0)
                 {
                     text = CleanFormula(list[1]);
-                    string_ = CleanFormula(GClass0.smethod_0("Z") + list[0] + GClass0.smethod_0("_ħ") + text);
+                    string_ = CleanFormula("[" + list[0] + "]&" + text);
                 }
                 else
                 {
@@ -4408,7 +4408,7 @@ namespace Gssy.Capi.BIZ
                 for (int i = 0; i < list.Count(); i++)
                 {
                     string key = list[i].ToString();
-                    dictionary[key] = dictionary[key] + GClass0.smethod_0("-") + dictionary_0.Keys.ElementAt(i);
+                    dictionary[key] = dictionary[key] + "," + dictionary_0.Keys.ElementAt(i);
                 }
                 for (int i = 1; i <= dictionary.Count(); i++)
                 {
@@ -4429,13 +4429,13 @@ namespace Gssy.Capi.BIZ
         private string method_104(string string_0, LogicExplain logicExplain_0)
         {
             string text = "";
-            List<classHtmlText> list = SplitTextToList(string_0.Trim(), GClass0.smethod_0("Yģ"), GClass0.smethod_0(" Ŝ"));
+            List<classHtmlText> list = SplitTextToList(string_0.Trim(), "[\"", "\"]");
             string text2 = "";
             foreach (classHtmlText item in list)
             {
                 if (item.TitleTextType == "")
                 {
-                    text2 = ((!(text2 == "")) ? (text2 + GClass0.smethod_0("$Ś") + item.TitleText + "]") : (GClass0.smethod_0("Z") + item.TitleText + "]"));
+                    text2 = ((!(text2 == "")) ? (text2 + "&[" + item.TitleText + "]") : ("[" + item.TitleText + "]"));
                 }
             }
             if (logicExplain_0.LoopLogicFormula(text2) > 0.0)
@@ -4445,7 +4445,7 @@ namespace Gssy.Capi.BIZ
                     foreach (classLoopQuestion item3 in item2.B)
                     {
                         text = "";
-                        if (item3.Qn[GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64")] == GClass0.smethod_0("0"))
+                        if (item3.Qn["ResultIsTrue"] == "1")
                         {
                             foreach (classHtmlText item4 in list)
                             {
@@ -4459,7 +4459,7 @@ namespace Gssy.Capi.BIZ
                                     text += item4.TitleText;
                                 }
                             }
-                            item3.Qn[GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64")] = text;
+                            item3.Qn["ResultIsTrue"] = text;
                         }
                     }
                 }
@@ -4474,7 +4474,7 @@ namespace Gssy.Capi.BIZ
             int num2 = 0;
             do
             {
-                if (!(MID(string_0, num, 2) == GClass0.smethod_0("Yģ")))
+                if (!(MID(string_0, num, 2) == "[\""))
                 {
                     if (MID(string_0, num, string_1.Length) == string_1)
                     {
@@ -4497,7 +4497,7 @@ namespace Gssy.Capi.BIZ
                 }
                 else
                 {
-                    num = string_0.IndexOf(GClass0.smethod_0(" Ŝ"), num + 2);
+                    num = string_0.IndexOf("\"]", num + 2);
                     if (num < 0)
                     {
                         return string_0.Length;
@@ -4515,21 +4515,21 @@ namespace Gssy.Capi.BIZ
             if (string_0.Length > 0)
             {
                 string text = "";
-                if (string_0.IndexOf(GClass0.smethod_0(".")) > -1)
+                if (string_0.IndexOf("/") > -1)
                 {
                     string text2 = string_0.Trim();
-                    int num = text2.IndexOf(GClass0.smethod_0("!"));
+                    int num = text2.IndexOf(" ");
                     if (num > -1)
                     {
                         text2 = LEFT(string_0, num);
                     }
-                    List<string> list = new List<string>(text2.Split(Convert.ToChar(GClass0.smethod_0("."))));
+                    List<string> list = new List<string>(text2.Split(Convert.ToChar("/")));
                     text = list[0].Trim();
                 }
-                else if (string_0.IndexOf(GClass0.smethod_0(";")) == -1)
+                else if (string_0.IndexOf(":") == -1)
                 {
                     string_0 = LEFT(string_0, 8);
-                    int num2 = string_0.IndexOf(GClass0.smethod_0("/"));
+                    int num2 = string_0.IndexOf(".");
                     if (num2 > -1)
                     {
                         string_0 = LEFT(string_0, num2);
@@ -4540,7 +4540,7 @@ namespace Gssy.Capi.BIZ
                 switch (int_0)
                 {
                     case 2:
-                        result = method_135(text, GClass0.smethod_0("1"), 2, true);
+                        result = method_135(text, "0", 2, true);
                         break;
                     case 4:
                         result = ((text.Length >= 3) ? method_133(text, 4) : method_113(text));
@@ -4556,21 +4556,21 @@ namespace Gssy.Capi.BIZ
             if (string_0.Length > 0)
             {
                 string text2 = "";
-                if (string_0.IndexOf(GClass0.smethod_0(".")) > -1)
+                if (string_0.IndexOf("/") > -1)
                 {
                     string text3 = string_0.Trim();
-                    int num = text3.IndexOf(GClass0.smethod_0("!"));
+                    int num = text3.IndexOf(" ");
                     if (num > -1)
                     {
                         text3 = LEFT(string_0, num);
                     }
-                    List<string> list = new List<string>(text3.Split(Convert.ToChar(GClass0.smethod_0("."))));
+                    List<string> list = new List<string>(text3.Split(Convert.ToChar("/")));
                     text2 = ((list.Count() == 1) ? list[0].Trim() : ((!bool_0) ? list[1].Trim() : list[0].Trim()));
                 }
-                else if (string_0.IndexOf(GClass0.smethod_0(";")) == -1)
+                else if (string_0.IndexOf(":") == -1)
                 {
                     string_0 = LEFT(string_0, 8);
-                    int num2 = string_0.IndexOf(GClass0.smethod_0("/"));
+                    int num2 = string_0.IndexOf(".");
                     if (num2 > -1)
                     {
                         string_0 = LEFT(string_0, num2);
@@ -4580,7 +4580,7 @@ namespace Gssy.Capi.BIZ
                 text = text2;
                 if (int_0 == 2)
                 {
-                    text = method_133(GClass0.smethod_0("2ı") + text, 2);
+                    text = method_133("00" + text, 2);
                 }
             }
             return text;
@@ -4591,21 +4591,21 @@ namespace Gssy.Capi.BIZ
             string text = "";
             if (string_0.Length > 0)
             {
-                if (string_0.IndexOf(GClass0.smethod_0(".")) > -1)
+                if (string_0.IndexOf("/") > -1)
                 {
                     string text2 = string_0.Trim();
-                    int num = text2.IndexOf(GClass0.smethod_0("!"));
+                    int num = text2.IndexOf(" ");
                     if (num > -1)
                     {
                         text2 = LEFT(string_0, num);
                     }
-                    List<string> list = new List<string>(text2.Split(Convert.ToChar(GClass0.smethod_0("."))));
+                    List<string> list = new List<string>(text2.Split(Convert.ToChar("/")));
                     text = list[list.Count - 1].Trim();
                 }
-                else if (string_0.IndexOf(GClass0.smethod_0(";")) == -1)
+                else if (string_0.IndexOf(":") == -1)
                 {
                     string_0 = LEFT(string_0, 8);
-                    int num2 = string_0.IndexOf(GClass0.smethod_0("/"));
+                    int num2 = string_0.IndexOf(".");
                     if (num2 > -1)
                     {
                         string_0 = LEFT(string_0, num2);
@@ -4614,7 +4614,7 @@ namespace Gssy.Capi.BIZ
                 }
                 if (int_0 == 2)
                 {
-                    text = method_133(GClass0.smethod_0("2ı") + text, 2);
+                    text = method_133("00" + text, 2);
                 }
             }
             return text;
@@ -4622,24 +4622,24 @@ namespace Gssy.Capi.BIZ
 
         private string method_108(string string_0, int int_0 = 2)
         {
-            string text = GClass0.smethod_0("1");
+            string text = "0";
             if (string_0.Length > 0)
             {
-                if (string_0.IndexOf(GClass0.smethod_0(";")) > -1)
+                if (string_0.IndexOf(":") > -1)
                 {
                     string text2 = string_0.Trim();
-                    int num = text2.IndexOf(GClass0.smethod_0("!"));
+                    int num = text2.IndexOf(" ");
                     if (num > -1)
                     {
                         text2 = MID(string_0, num + 1, -9999).Trim();
                     }
-                    List<string> list = new List<string>(text2.Split(Convert.ToChar(GClass0.smethod_0(";"))));
+                    List<string> list = new List<string>(text2.Split(Convert.ToChar(":")));
                     text = list[0].Trim();
                 }
                 else
                 {
                     string_0 = method_133(string_0, 7);
-                    int num2 = string_0.IndexOf(GClass0.smethod_0("/"));
+                    int num2 = string_0.IndexOf(".");
                     if (num2 > -1)
                     {
                         string_0 = MID(string_0, num2 + 1, -9999);
@@ -4648,7 +4648,7 @@ namespace Gssy.Capi.BIZ
                 }
                 if (int_0 == 2)
                 {
-                    text = method_133(GClass0.smethod_0("2ı") + text, 2);
+                    text = method_133("00" + text, 2);
                 }
             }
             return text;
@@ -4656,24 +4656,24 @@ namespace Gssy.Capi.BIZ
 
         private string method_109(string string_0, int int_0 = 2, bool bool_0 = false)
         {
-            string text = GClass0.smethod_0("1");
+            string text = "0";
             if (string_0.Length > 0)
             {
-                if (string_0.IndexOf(GClass0.smethod_0(";")) > -1)
+                if (string_0.IndexOf(":") > -1)
                 {
                     string text2 = string_0.Trim();
-                    int num = text2.IndexOf(GClass0.smethod_0("!"));
+                    int num = text2.IndexOf(" ");
                     if (num > -1)
                     {
                         text2 = MID(string_0, num + 1, -9999).Trim();
                     }
-                    List<string> list = new List<string>(text2.Split(Convert.ToChar(GClass0.smethod_0(";"))));
+                    List<string> list = new List<string>(text2.Split(Convert.ToChar(":")));
                     text = ((list.Count() == 1) ? list[0].Trim() : ((!bool_0) ? list[1].Trim() : list[0].Trim()));
                 }
                 else
                 {
                     string_0 = method_133(string_0, 7);
-                    int num2 = string_0.IndexOf(GClass0.smethod_0("/"));
+                    int num2 = string_0.IndexOf(".");
                     if (num2 > -1)
                     {
                         string_0 = MID(string_0, num2 + 1, -9999);
@@ -4682,7 +4682,7 @@ namespace Gssy.Capi.BIZ
                 }
                 if (int_0 == 2)
                 {
-                    text = method_133(GClass0.smethod_0("2ı") + text, 2);
+                    text = method_133("00" + text, 2);
                 }
             }
             return text;
@@ -4690,24 +4690,24 @@ namespace Gssy.Capi.BIZ
 
         private string method_110(string string_0, int int_0 = 2)
         {
-            string text = GClass0.smethod_0("1");
+            string text = "0";
             if (string_0.Length > 0)
             {
-                if (string_0.IndexOf(GClass0.smethod_0(";")) > -1)
+                if (string_0.IndexOf(":") > -1)
                 {
                     string text2 = string_0.Trim();
-                    int num = text2.IndexOf(GClass0.smethod_0("!"));
+                    int num = text2.IndexOf(" ");
                     if (num > -1)
                     {
                         text2 = MID(string_0, num + 1, -9999).Trim();
                     }
-                    List<string> list = new List<string>(text2.Split(Convert.ToChar(GClass0.smethod_0(";"))));
+                    List<string> list = new List<string>(text2.Split(Convert.ToChar(":")));
                     text = list[list.Count - 1].Trim();
                 }
                 else
                 {
                     string_0 = method_133(string_0, 7);
-                    int num2 = string_0.IndexOf(GClass0.smethod_0("/"));
+                    int num2 = string_0.IndexOf(".");
                     if (num2 > -1)
                     {
                         string_0 = MID(string_0, num2 + 1, -9999);
@@ -4716,7 +4716,7 @@ namespace Gssy.Capi.BIZ
                 }
                 if (int_0 == 2)
                 {
-                    text = method_133(GClass0.smethod_0("2ı") + text, 2);
+                    text = method_133("00" + text, 2);
                 }
             }
             return text;
@@ -4726,14 +4726,14 @@ namespace Gssy.Capi.BIZ
         {
             string[] array = new string[8]
             {
-                GClass0.smethod_0("旤"),
-                GClass0.smethod_0("丁"),
-                GClass0.smethod_0("亍"),
-                GClass0.smethod_0("丈"),
-                GClass0.smethod_0("囚"),
-                GClass0.smethod_0("井"),
-                GClass0.smethod_0("公"),
-                GClass0.smethod_0("旤")
+                "日",
+                "一",
+                "二",
+                "三",
+                "四",
+                "五",
+                "六",
+                "日"
             };
             return array[int_0];
         }
@@ -4747,13 +4747,13 @@ namespace Gssy.Capi.BIZ
                 string text2 = "";
                 string text3 = "";
                 string text4 = "";
-                string text5 = GClass0.smethod_0("2ı");
-                string text6 = GClass0.smethod_0("2ı");
-                string text7 = GClass0.smethod_0("2ı");
-                if (text.IndexOf(GClass0.smethod_0(".")) == -1 && text.IndexOf(GClass0.smethod_0(";")) == -1)
+                string text5 = "00";
+                string text6 = "00";
+                string text7 = "00";
+                if (text.IndexOf("/") == -1 && text.IndexOf(":") == -1)
                 {
                     string text8 = LEFT(text, 8);
-                    int num = text8.IndexOf(GClass0.smethod_0("/"));
+                    int num = text8.IndexOf(".");
                     if (num > -1)
                     {
                         text8 = LEFT(text8, num);
@@ -4762,7 +4762,7 @@ namespace Gssy.Capi.BIZ
                     text3 = method_133(LEFT(text8, text8.Length - 2), 2);
                     text4 = method_133(text8, 2);
                     string text9 = method_133(text, 7);
-                    num = text9.IndexOf(GClass0.smethod_0("/"));
+                    num = text9.IndexOf(".");
                     if (num > -1)
                     {
                         text9 = MID(text9, num + 1, -9999);
@@ -4770,7 +4770,7 @@ namespace Gssy.Capi.BIZ
                         text6 = MID(text9, 2, 2);
                         text7 = MID(text9, 4, 2);
                     }
-                    text = text2 + GClass0.smethod_0(".") + text3 + GClass0.smethod_0(".") + text4 + GClass0.smethod_0("!") + text5 + GClass0.smethod_0(";") + text6 + GClass0.smethod_0(";") + text7;
+                    text = text2 + "/" + text3 + "/" + text4 + " " + text5 + ":" + text6 + ":" + text7;
                 }
                 result = text;
             }
@@ -4790,12 +4790,12 @@ namespace Gssy.Capi.BIZ
         private string method_114(string string_0)
         {
             string text = "";
-            List<string> list = ParaToList(string_0, GClass0.smethod_0("}"), false);
+            List<string> list = ParaToList(string_0, "|", false);
             if (list.Count > 0)
             {
                 foreach (string item in list)
                 {
-                    List<string> list2 = ParaToList(item, GClass0.smethod_0("\u007f"), false);
+                    List<string> list2 = ParaToList(item, "~", false);
                     if (list2.Count > 1)
                     {
                         string string_ = method_14(list2[0]);
@@ -4804,12 +4804,12 @@ namespace Gssy.Capi.BIZ
                         int num2 = method_126(string_2);
                         for (int i = num; i <= num2; i++)
                         {
-                            text = text + GClass0.smethod_0("-") + i.ToString();
+                            text = text + "," + i.ToString();
                         }
                     }
                     else
                     {
-                        text = text + GClass0.smethod_0("-") + method_14(string_0);
+                        text = text + "," + method_14(string_0);
                     }
                 }
                 if (LEFT(text, 1) == ','.ToString())
@@ -4835,44 +4835,44 @@ namespace Gssy.Capi.BIZ
 
         private bool method_116(string string_0)
         {
-            Regex regex = new Regex(GClass0.smethod_0("[Řɧ\u0329Х"));
+            Regex regex = new Regex("^\\d+$");
             return regex.IsMatch(string_0);
         }
 
         private bool method_117(string string_0)
         {
-            Regex regex = new Regex(GClass0.smethod_0("Kļɏ\u033fѭՌؤܧ࠲ॐ੯ଡడ\u0d54ษཚၡᄯሪጽᐥ"));
+            Regex regex = new Regex("^(\\-|\\+)?\\d+(\\.\\d+)?$");
             return regex.IsMatch(string_0);
         }
 
         public bool isLetter(string string_0)
         {
-            Regex regex = new Regex(GClass0.smethod_0("UőɈ\u0325ѝէبݾ࡞ऩਥ"));
+            Regex regex = new Regex("^[A-Za-z]+$");
             return regex.IsMatch(string_0);
         }
 
         public bool isEnglishWord(string string_0)
         {
-            Regex regex = new Regex(GClass0.smethod_0("PŖɍ\u0326ѐըإݽ࠶न\u0a3d\u0b5e\u0c29ഥ"));
+            Regex regex = new Regex("^[A-Za-z0-9]+$");
             return regex.IsMatch(string_0);
         }
 
         public bool isWord(string string_0)
         {
-            Regex regex = new Regex(GClass0.smethod_0("Bŀɛ\u0334тնػݯ\u0824\u093eਫ\u0b4e\u0c4cൺ\u0e3aཨ\u103cᄻሧፕᑽᔾᙠᝤᠱᥞᨩᬥ"));
+            Regex regex = new Regex("^[A-Za-z0-9_\u4e00-\u9fa5]+$");
             return regex.IsMatch(string_0);
         }
 
         private bool method_118(string string_0)
         {
-            Regex regex = new Regex(GClass0.smethod_0("wŝȂ\u0300Ѽԋ؎܊\u087eॾ\u0a56ଋశഴ\u0e5dཀ\u106cᄱሱፃᐺᔸᙈᝈᡤ\u1939ᨸ\u1b3a᱓ᴠṑύ†™≒⌥\u2429╛♙❳⠨⤫⨫"));
+            Regex regex = new Regex("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
             return regex.IsMatch(string_0);
         }
 
         private bool method_119(string string_0)
         {
-            string input = (MID(string_0, 7, -9999).ToLower() == GClass0.smethod_0("oŲɱ\u0374йԭخ")) ? string_0 : (GClass0.smethod_0("oŲɱ\u0374йԭخ") + string_0);
-            Regex regex = new Regex(GClass0.smethod_0("AŜɓ\u0356Пԋ،܊\u087aॼ੨ଳ\u0c40ഷ\u0e47༴\u1030ᄳቌፊᑢᔹᙎ\u1739ᠹ\u193fᩔ᭒\u1c7aᴡḫἤ…ℷ∢⌠\u2438╙☩✫⠾"));
+            string input = (MID(string_0, 7, -9999).ToLower() == "http://") ? string_0 : ("http://" + string_0);
+            Regex regex = new Regex("http://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?");
             return regex.IsMatch(input);
         }
 
@@ -4880,11 +4880,11 @@ namespace Gssy.Capi.BIZ
         {
             if (string_0.Length == 7)
             {
-                if (!MID(string_0, 2, -9999).Contains(GClass0.smethod_0("H")))
+                if (!MID(string_0, 2, -9999).Contains("I"))
                 {
-                    if (!MID(string_0, 2, -9999).Contains(GClass0.smethod_0("N")))
+                    if (!MID(string_0, 2, -9999).Contains("O"))
                     {
-                        Regex regex = new Regex(GClass0.smethod_0("dŢ蟷廪锴瀭譗訆恰韠暚弦嶮怈桧䆇龗趨隱蛚侧艷战腶髭澷瑸纯爃酶抸冊䵃⅄≣⌦⑫╎♕✾⡈⥌⩫⬾ⱳⵖ\u2e4d⼦ぐㅖ㈸㌪㐿㕘㙿㜶㡿㤥"));
+                        Regex regex = new Regex("^[藏川鄂甘赣贵桂黑沪吉冀津晋京辽鲁蒙闽宁青琼陕苏皖湘新渝豫粤云浙]{1}[A-Z]{1}[A-Z_0-9]{5}$");
                         return regex.IsMatch(string_0);
                     }
                     return false;
@@ -4898,13 +4898,13 @@ namespace Gssy.Capi.BIZ
         {
             if (string_0.Length == 17)
             {
-                if (!string_0.Contains(GClass0.smethod_0("H")))
+                if (!string_0.Contains("I"))
                 {
-                    if (!string_0.Contains(GClass0.smethod_0("N")))
+                    if (!string_0.Contains("O"))
                     {
-                        if (!string_0.Contains(GClass0.smethod_0("P")))
+                        if (!string_0.Contains("Q"))
                         {
-                            Regex regex = new Regex(GClass0.smethod_0("UőɈ\u0325ѝԶب\u073d࡞ऩਥ"));
+                            Regex regex = new Regex("^[A-Z0-9]+$");
                             return regex.IsMatch(string_0);
                         }
                         return false;
@@ -4924,10 +4924,10 @@ namespace Gssy.Capi.BIZ
                 {
                     return false;
                 }
-                Regex regex = new Regex(GClass0.smethod_0("kůȂ\u031fЈխٳ\u074aࡖछ\u0a56\u0b02\u0c01ഘ\u0e7bགဌᅘላጓᑺᔐᘲᜬᡀ\u1935ᨲᬲ\u1c31\u1d43ḧὪ․Ⅸ∡⍏\u244d╴☦❲⠾⥗⨻⬧ⰸⵕ⸮⽚ちㅿ㈰㍿㐥"));
+                Regex regex = new Regex("^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
                 return regex.IsMatch(string_0);
             }
-            Regex regex2 = new Regex(GClass0.smethod_0("\u0016Ĝɷ\u0368ѽԞ؞ܥ࠻ऊ\u0a43୦\u0c0dഖฃཤ\u1064ᅓቍጆᑉᔛᘚᜁᡬ᥋ᨇ᭑ᰄᴚṱἙ\u2005ℕ≻⌌␍┋☊❺⠐⥣⨯⭡Ⱞⵆ\u2e46⽽\u3031ㅫ㈥㍎㐤㔾㘣㝌㠹㥓㩪㭶㰿㵶㸢㽒䀸䄪䈿䍘䑸䕛䘫䜥"));
+            Regex regex2 = new Regex("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X)$");
             return regex2.IsMatch(string_0);
         }
 
@@ -4935,9 +4935,9 @@ namespace Gssy.Capi.BIZ
         {
             if (!(string_0 == ""))
             {
-                if (!(string_0 == GClass0.smethod_0("1")))
+                if (!(string_0 == "0"))
                 {
-                    if (!(string_0 == GClass0.smethod_0("/ı")))
+                    if (!(string_0 == "-0"))
                     {
                         if (method_117(string_0) && Convert.ToDouble(string_0) == 0.0)
                         {
@@ -4961,9 +4961,9 @@ namespace Gssy.Capi.BIZ
         {
             if (!(string_0 == ""))
             {
-                if (!(string_0 == GClass0.smethod_0("1")))
+                if (!(string_0 == "0"))
                 {
-                    if (!(string_0 == GClass0.smethod_0("/ı")))
+                    if (!(string_0 == "-0"))
                     {
                         return method_117(string_0) ? Convert.ToDouble(string_0) : 0.0;
                     }
@@ -4978,9 +4978,9 @@ namespace Gssy.Capi.BIZ
         {
             if (!(string_0 == ""))
             {
-                if (!(string_0 == GClass0.smethod_0("1")))
+                if (!(string_0 == "0"))
                 {
-                    if (!(string_0 == GClass0.smethod_0("/ı")))
+                    if (!(string_0 == "-0"))
                     {
                         double num = method_117(string_0) ? Convert.ToDouble(string_0) : 0.0;
                         return (int)num;
@@ -5019,7 +5019,7 @@ namespace Gssy.Capi.BIZ
                 }
                 else
                 {
-                    text = text + string_1 + method_137(text2, string_2, GClass0.smethod_0("1"));
+                    text = text + string_1 + method_137(text2, string_2, "0");
                 }
             }
             if (text.Length > string_1.Length && string_1.Length > 0)
@@ -5056,7 +5056,7 @@ namespace Gssy.Capi.BIZ
                 }
                 else
                 {
-                    text = text + string_0 + method_137(item, string_1, GClass0.smethod_0("1"));
+                    text = text + string_0 + method_137(item, string_1, "0");
                 }
             }
             if (text.Length > string_0.Length && string_0.Length > 0)
@@ -5187,7 +5187,7 @@ namespace Gssy.Capi.BIZ
             for (int i = 0; i < string_0.Length; i++)
             {
                 string text2 = string_0[i].ToString();
-                if (flag && (text2 == GClass0.smethod_0("1") || text2 == GClass0.smethod_0("!")))
+                if (flag && (text2 == "0" || text2 == " "))
                 {
                     flag = false;
                 }
@@ -5209,9 +5209,9 @@ namespace Gssy.Capi.BIZ
             {
                 num = 1;
             }
-            string string_3 = (list.Count() > 1) ? list[1] : GClass0.smethod_0("1");
+            string string_3 = (list.Count() > 1) ? list[1] : "0";
             int num2 = method_126(string_3);
-            string text2 = (LEFT(string_0, 1) == GClass0.smethod_0(",")) ? GClass0.smethod_0(",") : "";
+            string text2 = (LEFT(string_0, 1) == "-") ? "-" : "";
             string text3 = (text2 == "") ? string_0 : MID(string_0, 1, -9999);
             if (num2 <= 0)
             {
@@ -5223,7 +5223,7 @@ namespace Gssy.Capi.BIZ
             string_4 = method_135(string_4, string_2, num, true);
             string_3 = ((list2.Count() > 1) ? list2[1] : "");
             string_3 = method_135(string_3, string_2, num2, false);
-            text = ((string_3.Length > 0) ? (string_4 + GClass0.smethod_0("/") + string_3) : string_4);
+            text = ((string_3.Length > 0) ? (string_4 + "." + string_3) : string_4);
             return text2 + text;
         }
 
@@ -5288,95 +5288,95 @@ namespace Gssy.Capi.BIZ
             string text4 = hours.ToString();
             string str4 = minutes.ToString();
             string str5 = seconds.ToString();
-            if (string_0 == GClass0.smethod_0("B") || string_0 == GClass0.smethod_0("b"))
+            if (string_0 == "C" || string_0 == "c")
             {
                 if (string_1 == "")
                 {
-                    string_1 = GClass0.smethod_0("_ňɀ\u036bѯղ");
+                    string_1 = "YMDhms";
                 }
-                if (string_1.Contains(GClass0.smethod_0("X")))
+                if (string_1.Contains("Y"))
                 {
-                    text = str2 + GClass0.smethod_0("幵");
+                    text = str2 + "年";
                 }
-                if (string_1.Contains(GClass0.smethod_0("L")))
+                if (string_1.Contains("M"))
                 {
-                    text = text + (string_1.Contains(GClass0.smethod_0("X")) ? text3 : text2) + GClass0.smethod_0("丨昉");
+                    text = text + (string_1.Contains("Y") ? text3 : text2) + "个月";
                 }
-                if (string_1.Contains(GClass0.smethod_0("E")))
+                if (string_1.Contains("D"))
                 {
-                    text = (string_1.Contains(GClass0.smethod_0("L")) ? (text + str3 + GClass0.smethod_0("夨")) : ((!string_1.Contains(GClass0.smethod_0("X"))) ? (text + str + GClass0.smethod_0("夨")) : (text + (timeSpan_0.Days % 365).ToString() + GClass0.smethod_0("夨"))));
+                    text = (string_1.Contains("M") ? (text + str3 + "天") : ((!string_1.Contains("Y")) ? (text + str + "天") : (text + (timeSpan_0.Days % 365).ToString() + "天")));
                 }
-                if (string_1.Contains(GClass0.smethod_0("i")))
+                if (string_1.Contains("h"))
                 {
-                    text = (string_1.Contains(GClass0.smethod_0("E")) ? (text + text4 + GClass0.smethod_0("對擷")) : (string_1.Contains(GClass0.smethod_0("L")) ? (text + (num4 * 24 + hours).ToString() + GClass0.smethod_0("對擷")) : ((!string_1.Contains(GClass0.smethod_0("X"))) ? (text + method_139(timeSpan_0.TotalHours, 0, 0, 45).ToString() + GClass0.smethod_0("對擷")) : (text + (timeSpan_0.Days % 365 * 24 + hours).ToString() + GClass0.smethod_0("對擷")))));
+                    text = (string_1.Contains("D") ? (text + text4 + "小时") : (string_1.Contains("M") ? (text + (num4 * 24 + hours).ToString() + "小时") : ((!string_1.Contains("Y")) ? (text + method_139(timeSpan_0.TotalHours, 0, 0, 45).ToString() + "小时") : (text + (timeSpan_0.Days % 365 * 24 + hours).ToString() + "小时"))));
                 }
-                if (string_1.Contains(GClass0.smethod_0("l")))
+                if (string_1.Contains("m"))
                 {
-                    text = (string_1.Contains(GClass0.smethod_0("i")) ? (text + str4 + GClass0.smethod_0("刄閞")) : (string_1.Contains(GClass0.smethod_0("E")) ? (text + (hours * 60 + minutes).ToString() + GClass0.smethod_0("刄閞")) : (string_1.Contains(GClass0.smethod_0("L")) ? (text + (num4 * 1440 + hours * 60 + minutes).ToString() + GClass0.smethod_0("刄閞")) : ((!string_1.Contains(GClass0.smethod_0("X"))) ? (text + method_139(timeSpan_0.TotalMinutes, 0, 0, 45).ToString() + GClass0.smethod_0("刄閞")) : (text + (timeSpan_0.Days % 365 * 1440 + hours * 60 + minutes).ToString() + GClass0.smethod_0("刄閞"))))));
+                    text = (string_1.Contains("h") ? (text + str4 + "分钟") : (string_1.Contains("D") ? (text + (hours * 60 + minutes).ToString() + "分钟") : (string_1.Contains("M") ? (text + (num4 * 1440 + hours * 60 + minutes).ToString() + "分钟") : ((!string_1.Contains("Y")) ? (text + method_139(timeSpan_0.TotalMinutes, 0, 0, 45).ToString() + "分钟") : (text + (timeSpan_0.Days % 365 * 1440 + hours * 60 + minutes).ToString() + "分钟")))));
                 }
-                if (string_1.Contains(GClass0.smethod_0("r")))
+                if (string_1.Contains("s"))
                 {
-                    text = (string_1.Contains(GClass0.smethod_0("l")) ? (text + str5 + GClass0.smethod_0("秓")) : (string_1.Contains(GClass0.smethod_0("i")) ? (text + (minutes * 60 + seconds).ToString() + GClass0.smethod_0("秓")) : (string_1.Contains(GClass0.smethod_0("E")) ? (text + (hours * 3600 + minutes * 60 + seconds).ToString() + GClass0.smethod_0("秓")) : (string_1.Contains(GClass0.smethod_0("L")) ? (text + (num4 * 86400 + hours * 3600 + minutes * 60 + seconds).ToString() + GClass0.smethod_0("秓")) : ((!string_1.Contains(GClass0.smethod_0("X"))) ? (text + method_139(timeSpan_0.TotalSeconds, 0, 0, 45).ToString() + GClass0.smethod_0("秓")) : (text + (timeSpan_0.Days % 365 * 86400 + hours * 60 + minutes * 60 + seconds).ToString() + GClass0.smethod_0("秓")))))));
+                    text = (string_1.Contains("m") ? (text + str5 + "秒") : (string_1.Contains("h") ? (text + (minutes * 60 + seconds).ToString() + "秒") : (string_1.Contains("D") ? (text + (hours * 3600 + minutes * 60 + seconds).ToString() + "秒") : (string_1.Contains("M") ? (text + (num4 * 86400 + hours * 3600 + minutes * 60 + seconds).ToString() + "秒") : ((!string_1.Contains("Y")) ? (text + method_139(timeSpan_0.TotalSeconds, 0, 0, 45).ToString() + "秒") : (text + (timeSpan_0.Days % 365 * 86400 + hours * 60 + minutes * 60 + seconds).ToString() + "秒"))))));
                 }
             }
-            else if (string_0 == GClass0.smethod_0("D") || string_0 == GClass0.smethod_0("d"))
+            else if (string_0 == "E" || string_0 == "e")
             {
                 if (string_1 == "")
                 {
-                    string_1 = GClass0.smethod_0("_ňɀ\u036bѯղ");
+                    string_1 = "YMDhms";
                 }
-                text = GClass0.smethod_0(".");
-                if (string_1.Contains(GClass0.smethod_0("X")))
+                text = "/";
+                if (string_1.Contains("Y"))
                 {
-                    text = str2 + GClass0.smethod_0(".");
+                    text = str2 + "/";
                 }
-                if (string_1.Contains(GClass0.smethod_0("L")))
+                if (string_1.Contains("M"))
                 {
-                    text += (string_1.Contains(GClass0.smethod_0("X")) ? text3 : text2);
+                    text += (string_1.Contains("Y") ? text3 : text2);
                 }
-                text += GClass0.smethod_0(".");
-                if (string_1.Contains(GClass0.smethod_0("E")))
+                text += "/";
+                if (string_1.Contains("D"))
                 {
-                    text = (string_1.Contains(GClass0.smethod_0("L")) ? (text + str3) : ((!string_1.Contains(GClass0.smethod_0("X"))) ? (text + str) : (text + (timeSpan_0.Days % 365).ToString())));
+                    text = (string_1.Contains("M") ? (text + str3) : ((!string_1.Contains("Y")) ? (text + str) : (text + (timeSpan_0.Days % 365).ToString())));
                 }
-                text = ((text == GClass0.smethod_0("-Į")) ? "" : text);
-                string str6 = GClass0.smethod_0("3ĲȻ");
-                if (string_1.Contains(GClass0.smethod_0("i")))
+                text = ((text == "//") ? "" : text);
+                string str6 = "00:";
+                if (string_1.Contains("h"))
                 {
-                    str6 = (string_1.Contains(GClass0.smethod_0("E")) ? (text4 + GClass0.smethod_0(";")) : (string_1.Contains(GClass0.smethod_0("L")) ? ((num4 * 24 + hours).ToString() + GClass0.smethod_0(";")) : ((!string_1.Contains(GClass0.smethod_0("X"))) ? (method_139(timeSpan_0.TotalHours, 0, 0, 45).ToString() + GClass0.smethod_0(";")) : ((timeSpan_0.Days % 365 * 24 + hours).ToString() + GClass0.smethod_0(";")))));
+                    str6 = (string_1.Contains("D") ? (text4 + ":") : (string_1.Contains("M") ? ((num4 * 24 + hours).ToString() + ":") : ((!string_1.Contains("Y")) ? (method_139(timeSpan_0.TotalHours, 0, 0, 45).ToString() + ":") : ((timeSpan_0.Days % 365 * 24 + hours).ToString() + ":"))));
                 }
-                str6 = ((!string_1.Contains(GClass0.smethod_0("l"))) ? (str6 + GClass0.smethod_0("3ĲȻ")) : (string_1.Contains(GClass0.smethod_0("i")) ? (str6 + str4 + GClass0.smethod_0(";")) : (string_1.Contains(GClass0.smethod_0("E")) ? (str6 + (hours * 60 + minutes).ToString() + GClass0.smethod_0(";")) : (string_1.Contains(GClass0.smethod_0("L")) ? (str6 + (num4 * 1440 + hours * 60 + minutes).ToString() + GClass0.smethod_0(";")) : ((!string_1.Contains(GClass0.smethod_0("X"))) ? (str6 + method_139(timeSpan_0.TotalMinutes, 0, 0, 45).ToString() + GClass0.smethod_0(";")) : (str6 + (timeSpan_0.Days % 365 * 1440 + hours * 60 + minutes).ToString() + GClass0.smethod_0(";")))))));
-                str6 = ((!string_1.Contains(GClass0.smethod_0("r"))) ? (str6 + GClass0.smethod_0("2ı")) : (string_1.Contains(GClass0.smethod_0("l")) ? (str6 + str5) : (string_1.Contains(GClass0.smethod_0("i")) ? (str6 + (minutes * 60 + seconds).ToString()) : (string_1.Contains(GClass0.smethod_0("E")) ? (str6 + (hours * 3600 + minutes * 60 + seconds).ToString()) : (string_1.Contains(GClass0.smethod_0("L")) ? (str6 + (num4 * 86400 + hours * 3600 + minutes * 60 + seconds).ToString()) : ((!string_1.Contains(GClass0.smethod_0("X"))) ? (str6 + method_139(timeSpan_0.TotalSeconds, 0, 0, 45).ToString()) : (str6 + (timeSpan_0.Days % 365 * 86400 + hours * 60 + minutes * 60 + seconds).ToString())))))));
-                text = ((str6 == GClass0.smethod_0("8ķȼ\u0335дԹز\u0731")) ? text : (text + GClass0.smethod_0("!") + str6));
+                str6 = ((!string_1.Contains("m")) ? (str6 + "00:") : (string_1.Contains("h") ? (str6 + str4 + ":") : (string_1.Contains("D") ? (str6 + (hours * 60 + minutes).ToString() + ":") : (string_1.Contains("M") ? (str6 + (num4 * 1440 + hours * 60 + minutes).ToString() + ":") : ((!string_1.Contains("Y")) ? (str6 + method_139(timeSpan_0.TotalMinutes, 0, 0, 45).ToString() + ":") : (str6 + (timeSpan_0.Days % 365 * 1440 + hours * 60 + minutes).ToString() + ":"))))));
+                str6 = ((!string_1.Contains("s")) ? (str6 + "00") : (string_1.Contains("m") ? (str6 + str5) : (string_1.Contains("h") ? (str6 + (minutes * 60 + seconds).ToString()) : (string_1.Contains("D") ? (str6 + (hours * 3600 + minutes * 60 + seconds).ToString()) : (string_1.Contains("M") ? (str6 + (num4 * 86400 + hours * 3600 + minutes * 60 + seconds).ToString()) : ((!string_1.Contains("Y")) ? (str6 + method_139(timeSpan_0.TotalSeconds, 0, 0, 45).ToString()) : (str6 + (timeSpan_0.Days % 365 * 86400 + hours * 60 + minutes * 60 + seconds).ToString())))))));
+                text = ((str6 == "00:00:00") ? text : (text + " " + str6));
             }
             else
             {
                 int int_ = (!method_117(string_1)) ? 1 : Convert.ToInt32(string_1);
-                if (string_0 == GClass0.smethod_0("X"))
+                if (string_0 == "Y")
                 {
                     text = method_139((double)timeSpan_0.Days / 365.0, int_, 0, 45).ToString();
                 }
-                else if (string_0 == GClass0.smethod_0("L"))
+                else if (string_0 == "M")
                 {
                     text = ((double)(num * 12) + method_139(((double)timeSpan_0.Days % 365.0 - (double)(num2 / 2)) / 30.0, int_, 0, 45)).ToString();
                 }
-                else if (string_0 == GClass0.smethod_0("E"))
+                else if (string_0 == "D")
                 {
                     text = method_139(timeSpan_0.TotalDays, int_, 0, 45).ToString();
                 }
-                else if (string_0 == GClass0.smethod_0("V"))
+                else if (string_0 == "W")
                 {
                     text = method_139(timeSpan_0.TotalDays / 7.0, int_, 0, 45).ToString();
                 }
-                else if (string_0 == GClass0.smethod_0("i"))
+                else if (string_0 == "h")
                 {
                     text = method_139(timeSpan_0.TotalHours, int_, 0, 45).ToString();
                 }
-                else if (string_0 == GClass0.smethod_0("l"))
+                else if (string_0 == "m")
                 {
                     text = method_139(timeSpan_0.TotalMinutes, int_, 0, 45).ToString();
                 }
-                else if (string_0 == GClass0.smethod_0("r"))
+                else if (string_0 == "s")
                 {
                     text = method_139(timeSpan_0.TotalSeconds, int_, 0, 45).ToString();
                 }
@@ -5386,74 +5386,74 @@ namespace Gssy.Capi.BIZ
 
         public string CleanString(string string_0)
         {
-            string text = string_0.Replace(GClass0.smethod_0("、"), GClass0.smethod_0("!"));
+            string text = string_0.Replace("　", " ");
             text = text.Trim();
             text = text.Replace('\n', ' ');
             text = text.Replace('\r', ' ');
             text = text.Replace('\t', ' ');
-            text = text.Replace(GClass0.smethod_0("Ａ"), GClass0.smethod_0("A"));
-            text = text.Replace(GClass0.smethod_0("１"), GClass0.smethod_0("1"));
-            text = text.Replace(GClass0.smethod_0("０"), GClass0.smethod_0("0"));
-            text = text.Replace(GClass0.smethod_0("３"), GClass0.smethod_0("3"));
-            text = text.Replace(GClass0.smethod_0("２"), GClass0.smethod_0("2"));
-            text = text.Replace(GClass0.smethod_0("５"), GClass0.smethod_0("5"));
-            text = text.Replace(GClass0.smethod_0("４"), GClass0.smethod_0("4"));
-            text = text.Replace(GClass0.smethod_0("７"), GClass0.smethod_0("7"));
-            text = text.Replace(GClass0.smethod_0("６"), GClass0.smethod_0("6"));
-            text = text.Replace(GClass0.smethod_0("９"), GClass0.smethod_0("9"));
-            text = text.Replace(GClass0.smethod_0("８"), GClass0.smethod_0("8"));
-            text = text.Replace(GClass0.smethod_0("＠"), "A");
-            text = text.Replace(GClass0.smethod_0("Ｃ"), "B");
-            text = text.Replace(GClass0.smethod_0("Ｂ"), GClass0.smethod_0("B"));
-            text = text.Replace(GClass0.smethod_0("Ｅ"), GClass0.smethod_0("E"));
-            text = text.Replace(GClass0.smethod_0("Ｄ"), GClass0.smethod_0("D"));
-            text = text.Replace(GClass0.smethod_0("Ｇ"), GClass0.smethod_0("G"));
-            text = text.Replace(GClass0.smethod_0("Ｆ"), GClass0.smethod_0("F"));
-            text = text.Replace(GClass0.smethod_0("Ｉ"), GClass0.smethod_0("I"));
-            text = text.Replace(GClass0.smethod_0("Ｈ"), GClass0.smethod_0("H"));
-            text = text.Replace(GClass0.smethod_0("Ｋ"), GClass0.smethod_0("K"));
-            text = text.Replace(GClass0.smethod_0("Ｊ"), GClass0.smethod_0("J"));
-            text = text.Replace(GClass0.smethod_0("Ｍ"), GClass0.smethod_0("M"));
-            text = text.Replace(GClass0.smethod_0("Ｌ"), GClass0.smethod_0("L"));
-            text = text.Replace(GClass0.smethod_0("Ｏ"), GClass0.smethod_0("O"));
-            text = text.Replace(GClass0.smethod_0("Ｎ"), GClass0.smethod_0("N"));
-            text = text.Replace(GClass0.smethod_0("Ｑ"), GClass0.smethod_0("Q"));
-            text = text.Replace(GClass0.smethod_0("Ｐ"), GClass0.smethod_0("P"));
-            text = text.Replace(GClass0.smethod_0("Ｓ"), GClass0.smethod_0("S"));
-            text = text.Replace(GClass0.smethod_0("Ｒ"), GClass0.smethod_0("R"));
-            text = text.Replace(GClass0.smethod_0("Ｕ"), GClass0.smethod_0("U"));
-            text = text.Replace(GClass0.smethod_0("Ｔ"), GClass0.smethod_0("T"));
-            text = text.Replace(GClass0.smethod_0("Ｗ"), GClass0.smethod_0("W"));
-            text = text.Replace(GClass0.smethod_0("Ｖ"), GClass0.smethod_0("V"));
-            text = text.Replace(GClass0.smethod_0("Ｙ"), GClass0.smethod_0("Y"));
-            text = text.Replace(GClass0.smethod_0("Ｘ"), GClass0.smethod_0("X"));
-            text = text.Replace(GClass0.smethod_0("［"), GClass0.smethod_0("["));
-            text = text.Replace(GClass0.smethod_0("\uff40"), GClass0.smethod_0("`"));
-            text = text.Replace(GClass0.smethod_0("ｃ"), GClass0.smethod_0("c"));
-            text = text.Replace(GClass0.smethod_0("ｂ"), GClass0.smethod_0("b"));
-            text = text.Replace(GClass0.smethod_0("ｅ"), GClass0.smethod_0("e"));
-            text = text.Replace(GClass0.smethod_0("ｄ"), GClass0.smethod_0("d"));
-            text = text.Replace(GClass0.smethod_0("ｇ"), GClass0.smethod_0("g"));
-            text = text.Replace(GClass0.smethod_0("ｆ"), GClass0.smethod_0("f"));
-            text = text.Replace(GClass0.smethod_0("ｉ"), GClass0.smethod_0("i"));
-            text = text.Replace(GClass0.smethod_0("ｈ"), GClass0.smethod_0("h"));
-            text = text.Replace(GClass0.smethod_0("ｋ"), GClass0.smethod_0("k"));
-            text = text.Replace(GClass0.smethod_0("ｊ"), GClass0.smethod_0("j"));
-            text = text.Replace(GClass0.smethod_0("ｍ"), GClass0.smethod_0("m"));
-            text = text.Replace(GClass0.smethod_0("ｌ"), GClass0.smethod_0("l"));
-            text = text.Replace(GClass0.smethod_0("ｏ"), GClass0.smethod_0("o"));
-            text = text.Replace(GClass0.smethod_0("ｎ"), GClass0.smethod_0("n"));
-            text = text.Replace(GClass0.smethod_0("ｑ"), GClass0.smethod_0("q"));
-            text = text.Replace(GClass0.smethod_0("ｐ"), GClass0.smethod_0("p"));
-            text = text.Replace(GClass0.smethod_0("ｓ"), GClass0.smethod_0("s"));
-            text = text.Replace(GClass0.smethod_0("ｒ"), GClass0.smethod_0("r"));
-            text = text.Replace(GClass0.smethod_0("ｕ"), GClass0.smethod_0("u"));
-            text = text.Replace(GClass0.smethod_0("ｔ"), GClass0.smethod_0("t"));
-            text = text.Replace(GClass0.smethod_0("ｗ"), GClass0.smethod_0("w"));
-            text = text.Replace(GClass0.smethod_0("ｖ"), GClass0.smethod_0("v"));
-            text = text.Replace(GClass0.smethod_0("ｙ"), GClass0.smethod_0("y"));
-            text = text.Replace(GClass0.smethod_0("ｘ"), GClass0.smethod_0("x"));
-            return text.Replace(GClass0.smethod_0("｛"), GClass0.smethod_0("{"));
+            text = text.Replace("＠", "@");
+            text = text.Replace("０", "0");
+            text = text.Replace("１", "1");
+            text = text.Replace("２", "2");
+            text = text.Replace("３", "3");
+            text = text.Replace("４", "4");
+            text = text.Replace("５", "5");
+            text = text.Replace("６", "6");
+            text = text.Replace("７", "7");
+            text = text.Replace("８", "8");
+            text = text.Replace("９", "9");
+            text = text.Replace("Ａ", "A");
+            text = text.Replace("Ｂ", "B");
+            text = text.Replace("Ｃ", "C");
+            text = text.Replace("Ｄ", "D");
+            text = text.Replace("Ｅ", "E");
+            text = text.Replace("Ｆ", "F");
+            text = text.Replace("Ｇ", "G");
+            text = text.Replace("Ｈ", "H");
+            text = text.Replace("Ｉ", "I");
+            text = text.Replace("Ｊ", "J");
+            text = text.Replace("Ｋ", "K");
+            text = text.Replace("Ｌ", "L");
+            text = text.Replace("Ｍ", "M");
+            text = text.Replace("Ｎ", "N");
+            text = text.Replace("Ｏ", "O");
+            text = text.Replace("Ｐ", "P");
+            text = text.Replace("Ｑ", "Q");
+            text = text.Replace("Ｒ", "R");
+            text = text.Replace("Ｓ", "S");
+            text = text.Replace("Ｔ", "T");
+            text = text.Replace("Ｕ", "U");
+            text = text.Replace("Ｖ", "V");
+            text = text.Replace("Ｗ", "W");
+            text = text.Replace("Ｘ", "X");
+            text = text.Replace("Ｙ", "Y");
+            text = text.Replace("Ｚ", "Z");
+            text = text.Replace("ａ", "a");
+            text = text.Replace("ｂ", "b");
+            text = text.Replace("ｃ", "c");
+            text = text.Replace("ｄ", "d");
+            text = text.Replace("ｅ", "e");
+            text = text.Replace("ｆ", "f");
+            text = text.Replace("ｇ", "g");
+            text = text.Replace("ｈ", "h");
+            text = text.Replace("ｉ", "i");
+            text = text.Replace("ｊ", "j");
+            text = text.Replace("ｋ", "k");
+            text = text.Replace("ｌ", "l");
+            text = text.Replace("ｍ", "m");
+            text = text.Replace("ｎ", "n");
+            text = text.Replace("ｏ", "o");
+            text = text.Replace("ｐ", "p");
+            text = text.Replace("ｑ", "q");
+            text = text.Replace("ｒ", "r");
+            text = text.Replace("ｓ", "s");
+            text = text.Replace("ｔ", "t");
+            text = text.Replace("ｕ", "u");
+            text = text.Replace("ｖ", "v");
+            text = text.Replace("ｗ", "w");
+            text = text.Replace("ｘ", "x");
+            text = text.Replace("ｙ", "y");
+            return text.Replace("ｚ", "z");
         }
 
         private List<string> method_141(List<string> list_0, bool bool_0 = false)
@@ -5506,7 +5506,7 @@ namespace Gssy.Capi.BIZ
             string text = string_0.Trim();
             if (text.Length > 0)
             {
-                int num = text.IndexOf(GClass0.smethod_0("/"));
+                int num = text.IndexOf(".");
                 text = ((num <= -1) ? "" : text.Substring(num + 1, text.Length - num - 1));
             }
             return text;
@@ -5517,7 +5517,7 @@ namespace Gssy.Capi.BIZ
             string text = (double_0 == 0.0) ? "" : double_0.ToString();
             if (text.Length > 0)
             {
-                int num = text.IndexOf(GClass0.smethod_0("/"));
+                int num = text.IndexOf(".");
                 text = ((num <= -1) ? "" : text.Substring(num + 1, text.Length - num - 1));
             }
             return text;
@@ -5526,23 +5526,23 @@ namespace Gssy.Capi.BIZ
         private double method_144(double double_0)
         {
             string text = double_0.ToString();
-            int num = text.IndexOf(GClass0.smethod_0("/"));
-            text = ((num <= -1) ? GClass0.smethod_0("1") : (GClass0.smethod_0("2į") + text.Substring(num + 1, text.Length - num - 1)));
+            int num = text.IndexOf(".");
+            text = ((num <= -1) ? "0" : ("0." + text.Substring(num + 1, text.Length - num - 1)));
             return Convert.ToDouble(text);
         }
 
         public double MathCalculation(string string_0)
         {
             string string_ = DeleteOuterSymbol(string_0);
-            List<string> list = ParaToList(string_, GClass0.smethod_0(":"), false);
+            List<string> list = ParaToList(string_, ";", false);
             foreach (string item in list)
             {
-                OutputResult(GClass0.smethod_0("5Ŋɕ\u0338慵幢觓粕\uf71b") + item, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                int formulaSplitLocation = GetFormulaSplitLocation(item, GClass0.smethod_0(";"));
+                OutputResult("<BR>数学运算：" + item, "lg_Result.LOG", true);
+                int formulaSplitLocation = GetFormulaSplitLocation(item, ":");
                 if (formulaSplitLocation <= -1)
                 {
                     method_101(item, 0);
-                    return method_12(item, GClass0.smethod_0("*"), 0.0);
+                    return method_12(item, "+", 0.0);
                 }
                 string string_2 = LEFT(item, formulaSplitLocation);
                 string string_3 = MID(item, formulaSplitLocation + 1, -9999);
@@ -5551,7 +5551,7 @@ namespace Gssy.Capi.BIZ
                 if (logicExplain.LoopLogicFormula(string_2) > 0.0)
                 {
                     method_101(string_3, 0);
-                    return method_12(string_3, GClass0.smethod_0("*"), 0.0);
+                    return method_12(string_3, "+", 0.0);
                 }
             }
             return 0.0;
@@ -5560,11 +5560,11 @@ namespace Gssy.Capi.BIZ
         public string SimpleCalculation(string string_0)
         {
             string string_ = DeleteOuterSymbol(string_0);
-            List<string> list = ParaToList(string_, GClass0.smethod_0(":"), false);
+            List<string> list = ParaToList(string_, ";", false);
             foreach (string item in list)
             {
-                OutputResult(GClass0.smethod_0("6ŋɚ\u0339彑縣䠶裓玕\uf61b") + item, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                int formulaSplitLocation = GetFormulaSplitLocation(item, GClass0.smethod_0(";"));
+                OutputResult("<BR>字符串运算：" + item, "lg_Result.LOG", true);
+                int formulaSplitLocation = GetFormulaSplitLocation(item, ":");
                 if (formulaSplitLocation <= -1)
                 {
                     return method_5(item);
@@ -5584,11 +5584,11 @@ namespace Gssy.Capi.BIZ
         public string OptionCalculation(string string_0)
         {
             string string_ = DeleteOuterSymbol(string_0);
-            List<string> list = ParaToList(string_, GClass0.smethod_0(":"), false);
+            List<string> list = ParaToList(string_, ";", false);
             foreach (string item in list)
             {
-                OutputResult(GClass0.smethod_0("6ŋɚ\u0339彑縣䠶裓玕\uf61b") + item, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                int formulaSplitLocation = GetFormulaSplitLocation(item, GClass0.smethod_0(";"));
+                OutputResult("<BR>字符串运算：" + item, "lg_Result.LOG", true);
+                int formulaSplitLocation = GetFormulaSplitLocation(item, ":");
                 if (formulaSplitLocation <= -1)
                 {
                     return method_0(item);
@@ -5608,11 +5608,11 @@ namespace Gssy.Capi.BIZ
         public string ComplexRouteFormula(string string_0)
         {
             string string_ = DeleteOuterSymbol(string_0);
-            List<string> list = ParaToList(string_, GClass0.smethod_0(":"), false);
+            List<string> list = ParaToList(string_, ";", false);
             foreach (string item in list)
             {
-                OutputResult(GClass0.smethod_0("3Ōɟ\u0332эԻع\u073a儊湄蟪縵菓皕\uf11b") + item, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                int formulaSplitLocation = GetFormulaSplitLocation(item, GClass0.smethod_0(";"));
+                OutputResult("<BR>F102复杂路由运算：" + item, "lg_Result.LOG", true);
+                int formulaSplitLocation = GetFormulaSplitLocation(item, ":");
                 if (formulaSplitLocation <= -1)
                 {
                     return item;
@@ -5638,11 +5638,11 @@ namespace Gssy.Capi.BIZ
         public double LoopLogicFormula(string string_0)
         {
             string string_ = DeleteOuterSymbol(string_0);
-            List<string> list = ParaToList(string_, GClass0.smethod_0(":"), false);
+            List<string> list = ParaToList(string_, ";", false);
             foreach (string item in list)
             {
-                OutputResult(GClass0.smethod_0("5Ŋɕ\u0338鐾誕觓粕\uf71b") + item, GClass0.smethod_0("aūɔ\u0358Ѭջٲݪ\u0871प\u0a4f\u0b4d\u0c46"), true);
-                int formulaSplitLocation = GetFormulaSplitLocation(item, GClass0.smethod_0(";"));
+                OutputResult("<BR>逻辑运算：" + item, "lg_Result.LOG", true);
+                int formulaSplitLocation = GetFormulaSplitLocation(item, ":");
                 if (formulaSplitLocation <= -1)
                 {
                     method_101(item, 0);
@@ -5672,7 +5672,7 @@ namespace Gssy.Capi.BIZ
                 {
                     foreach (classLoopQuestion item2 in item.B)
                     {
-                        if (item2.Qn[GClass0.smethod_0("^ŮɹͼѤճ\u064fݶࡐ\u0971\u0a77\u0b64")] == GClass0.smethod_0("0"))
+                        if (item2.Qn["ResultIsTrue"] == "1")
                         {
                             string text = string_3 + (item2.Qn.ContainsKey(string_1) ? item2.Qn[string_1] : "");
                             if (string_2 != "")
@@ -5701,7 +5701,7 @@ namespace Gssy.Capi.BIZ
                     string text2 = _dictData.Values.ElementAt(num);
                     if (text2 != "")
                     {
-                        OutputResult(text + GClass0.smethod_0("#Ŀȡ") + text2, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+                        OutputResult(text + " = " + text2, "lg_Answer.LOG", true);
                         _dictData[text] = text2;
                     }
                     else
@@ -5714,122 +5714,122 @@ namespace Gssy.Capi.BIZ
 
         public string CleanFormula(string string_0)
         {
-            List<classHtmlText> list = SplitTextToList(string_0, GClass0.smethod_0("Yģ"), GClass0.smethod_0(" Ŝ"));
+            List<classHtmlText> list = SplitTextToList(string_0, "[\"", "\"]");
             string text = "";
             foreach (classHtmlText item in list)
             {
-                if (item.TitleTextType == GClass0.smethod_0("Yģ"))
+                if (item.TitleTextType == "[\"")
                 {
-                    text = text + GClass0.smethod_0("Yģ") + item.TitleText + GClass0.smethod_0(" Ŝ");
+                    text = text + "[\"" + item.TitleText + "\"]";
                 }
                 else
                 {
-                    text += item.TitleText.Replace(GClass0.smethod_0("!"), "").Replace(GClass0.smethod_0("、"), "");
+                    text += item.TitleText.Replace(" ", "").Replace("　", "");
                     text = text.Replace('\n', ' ');
                     text = text.Replace('\r', ' ');
                     text = text.Replace('\t', ' ');
-                    text = text.Replace(GClass0.smethod_0("‖ℕ"), "_");
-                    text = text.Replace(GClass0.smethod_0("\uff3e"), "_");
-                    text = text.Replace(GClass0.smethod_0("："), GClass0.smethod_0(":"));
-                    text = text.Replace(GClass0.smethod_0("〃"), GClass0.smethod_0("/"));
-                    text = text.Replace(GClass0.smethod_0("／"), GClass0.smethod_0("/"));
-                    text = text.Replace(GClass0.smethod_0("；"), GClass0.smethod_0(";"));
-                    text = text.Replace(GClass0.smethod_0("︱"), GClass0.smethod_0(";"));
-                    text = text.Replace(GClass0.smethod_0("－"), GClass0.smethod_0("-"));
-                    text = text.Replace(GClass0.smethod_0("）"), GClass0.smethod_0(")"));
-                    text = text.Replace(GClass0.smethod_0("（"), GClass0.smethod_0("("));
-                    text = text.Replace(GClass0.smethod_0("＂"), "#");
-                    text = text.Replace(GClass0.smethod_0("￤"), "#");
-                    text = text.Replace(GClass0.smethod_0("＊"), GClass0.smethod_0("*"));
-                    text = text.Replace(GClass0.smethod_0("，"), GClass0.smethod_0(","));
-                    text = text.Replace(GClass0.smethod_0("―"), GClass0.smethod_0(","));
-                    text = text.Replace(GClass0.smethod_0("＋"), GClass0.smethod_0("+"));
-                    text = text.Replace(GClass0.smethod_0("．"), GClass0.smethod_0("."));
-                    text = text.Replace(GClass0.smethod_0("＜"), GClass0.smethod_0("<"));
-                    text = text.Replace(GClass0.smethod_0("》"), GClass0.smethod_0("="));
-                    text = text.Replace(GClass0.smethod_0("《"), GClass0.smethod_0("?"));
-                    text = text.Replace(GClass0.smethod_0("〉"), GClass0.smethod_0("="));
-                    text = text.Replace(GClass0.smethod_0("〈"), GClass0.smethod_0("?"));
-                    text = text.Replace(GClass0.smethod_0("Ｚ"), GClass0.smethod_0("Z"));
-                    text = text.Replace(GClass0.smethod_0("＼"), "]");
-                    text = text.Replace(GClass0.smethod_0("ｚ"), GClass0.smethod_0("z"));
-                    text = text.Replace(GClass0.smethod_0("｜"), GClass0.smethod_0("|"));
-                    text = text.Replace(GClass0.smethod_0("］"), "\\");
-                    text = text.Replace(GClass0.smethod_0("＄"), GClass0.smethod_0("$"));
-                    text = text.Replace(GClass0.smethod_0("Ａ"), GClass0.smethod_0("A"));
-                    text = text.Replace(GClass0.smethod_0("¶"), GClass0.smethod_0("A"));
-                    text = text.Replace(GClass0.smethod_0("｝"), GClass0.smethod_0("}"));
-                    text = text.Replace(GClass0.smethod_0("￥"), GClass0.smethod_0("}"));
-                    text = text.Replace(GClass0.smethod_0("＇"), GClass0.smethod_0("'"));
-                    text = text.Replace(GClass0.smethod_0("｟"), GClass0.smethod_0("\u007f"));
-                    text = text.Replace(GClass0.smethod_0("\uff3f"), GClass0.smethod_0("_"));
-                    text = text.Replace(GClass0.smethod_0("＞"), GClass0.smethod_0(">"));
-                    text = text.Replace(GClass0.smethod_0("’"), GClass0.smethod_0("&"));
-                    text = text.Replace(GClass0.smethod_0("‘"), GClass0.smethod_0("&"));
-                    text = text.Replace(GClass0.smethod_0("”"), GClass0.smethod_0("#"));
-                    text = text.Replace(GClass0.smethod_0("“"), GClass0.smethod_0("#"));
-                    text = text.Replace(GClass0.smethod_0("１"), GClass0.smethod_0("1"));
-                    text = text.Replace(GClass0.smethod_0("０"), GClass0.smethod_0("0"));
-                    text = text.Replace(GClass0.smethod_0("３"), GClass0.smethod_0("3"));
-                    text = text.Replace(GClass0.smethod_0("２"), GClass0.smethod_0("2"));
-                    text = text.Replace(GClass0.smethod_0("５"), GClass0.smethod_0("5"));
-                    text = text.Replace(GClass0.smethod_0("４"), GClass0.smethod_0("4"));
-                    text = text.Replace(GClass0.smethod_0("７"), GClass0.smethod_0("7"));
-                    text = text.Replace(GClass0.smethod_0("６"), GClass0.smethod_0("6"));
-                    text = text.Replace(GClass0.smethod_0("９"), GClass0.smethod_0("9"));
-                    text = text.Replace(GClass0.smethod_0("８"), GClass0.smethod_0("8"));
-                    text = text.Replace(GClass0.smethod_0("＠"), "A");
-                    text = text.Replace(GClass0.smethod_0("Ｃ"), "B");
-                    text = text.Replace(GClass0.smethod_0("Ｂ"), GClass0.smethod_0("B"));
-                    text = text.Replace(GClass0.smethod_0("Ｅ"), GClass0.smethod_0("E"));
-                    text = text.Replace(GClass0.smethod_0("Ｄ"), GClass0.smethod_0("D"));
-                    text = text.Replace(GClass0.smethod_0("Ｇ"), GClass0.smethod_0("G"));
-                    text = text.Replace(GClass0.smethod_0("Ｆ"), GClass0.smethod_0("F"));
-                    text = text.Replace(GClass0.smethod_0("Ｉ"), GClass0.smethod_0("I"));
-                    text = text.Replace(GClass0.smethod_0("Ｈ"), GClass0.smethod_0("H"));
-                    text = text.Replace(GClass0.smethod_0("Ｋ"), GClass0.smethod_0("K"));
-                    text = text.Replace(GClass0.smethod_0("Ｊ"), GClass0.smethod_0("J"));
-                    text = text.Replace(GClass0.smethod_0("Ｍ"), GClass0.smethod_0("M"));
-                    text = text.Replace(GClass0.smethod_0("Ｌ"), GClass0.smethod_0("L"));
-                    text = text.Replace(GClass0.smethod_0("Ｏ"), GClass0.smethod_0("O"));
-                    text = text.Replace(GClass0.smethod_0("Ｎ"), GClass0.smethod_0("N"));
-                    text = text.Replace(GClass0.smethod_0("Ｑ"), GClass0.smethod_0("Q"));
-                    text = text.Replace(GClass0.smethod_0("Ｐ"), GClass0.smethod_0("P"));
-                    text = text.Replace(GClass0.smethod_0("Ｓ"), GClass0.smethod_0("S"));
-                    text = text.Replace(GClass0.smethod_0("Ｒ"), GClass0.smethod_0("R"));
-                    text = text.Replace(GClass0.smethod_0("Ｕ"), GClass0.smethod_0("U"));
-                    text = text.Replace(GClass0.smethod_0("Ｔ"), GClass0.smethod_0("T"));
-                    text = text.Replace(GClass0.smethod_0("Ｗ"), GClass0.smethod_0("W"));
-                    text = text.Replace(GClass0.smethod_0("Ｖ"), GClass0.smethod_0("V"));
-                    text = text.Replace(GClass0.smethod_0("Ｙ"), GClass0.smethod_0("Y"));
-                    text = text.Replace(GClass0.smethod_0("Ｘ"), GClass0.smethod_0("X"));
-                    text = text.Replace(GClass0.smethod_0("［"), GClass0.smethod_0("["));
-                    text = text.Replace(GClass0.smethod_0("\uff40"), GClass0.smethod_0("`"));
-                    text = text.Replace(GClass0.smethod_0("ｃ"), GClass0.smethod_0("c"));
-                    text = text.Replace(GClass0.smethod_0("ｂ"), GClass0.smethod_0("b"));
-                    text = text.Replace(GClass0.smethod_0("ｅ"), GClass0.smethod_0("e"));
-                    text = text.Replace(GClass0.smethod_0("ｄ"), GClass0.smethod_0("d"));
-                    text = text.Replace(GClass0.smethod_0("ｇ"), GClass0.smethod_0("g"));
-                    text = text.Replace(GClass0.smethod_0("ｆ"), GClass0.smethod_0("f"));
-                    text = text.Replace(GClass0.smethod_0("ｉ"), GClass0.smethod_0("i"));
-                    text = text.Replace(GClass0.smethod_0("ｈ"), GClass0.smethod_0("h"));
-                    text = text.Replace(GClass0.smethod_0("ｋ"), GClass0.smethod_0("k"));
-                    text = text.Replace(GClass0.smethod_0("ｊ"), GClass0.smethod_0("j"));
-                    text = text.Replace(GClass0.smethod_0("ｍ"), GClass0.smethod_0("m"));
-                    text = text.Replace(GClass0.smethod_0("ｌ"), GClass0.smethod_0("l"));
-                    text = text.Replace(GClass0.smethod_0("ｏ"), GClass0.smethod_0("o"));
-                    text = text.Replace(GClass0.smethod_0("ｎ"), GClass0.smethod_0("n"));
-                    text = text.Replace(GClass0.smethod_0("ｑ"), GClass0.smethod_0("q"));
-                    text = text.Replace(GClass0.smethod_0("ｐ"), GClass0.smethod_0("p"));
-                    text = text.Replace(GClass0.smethod_0("ｓ"), GClass0.smethod_0("s"));
-                    text = text.Replace(GClass0.smethod_0("ｒ"), GClass0.smethod_0("r"));
-                    text = text.Replace(GClass0.smethod_0("ｕ"), GClass0.smethod_0("u"));
-                    text = text.Replace(GClass0.smethod_0("ｔ"), GClass0.smethod_0("t"));
-                    text = text.Replace(GClass0.smethod_0("ｗ"), GClass0.smethod_0("w"));
-                    text = text.Replace(GClass0.smethod_0("ｖ"), GClass0.smethod_0("v"));
-                    text = text.Replace(GClass0.smethod_0("ｙ"), GClass0.smethod_0("y"));
-                    text = text.Replace(GClass0.smethod_0("ｘ"), GClass0.smethod_0("x"));
-                    text = text.Replace(GClass0.smethod_0("｛"), GClass0.smethod_0("{"));
+                    text = text.Replace("——", "_");
+                    text = text.Replace("＿", "_");
+                    text = text.Replace("；", ";");
+                    text = text.Replace("。", ".");
+                    text = text.Replace("．", ".");
+                    text = text.Replace("：", ":");
+                    text = text.Replace("︰", ":");
+                    text = text.Replace("，", ",");
+                    text = text.Replace("（", "(");
+                    text = text.Replace("）", ")");
+                    text = text.Replace("＃", "#");
+                    text = text.Replace("￥", "#");
+                    text = text.Replace("＋", "+");
+                    text = text.Replace("－", "-");
+                    text = text.Replace("—", "-");
+                    text = text.Replace("＊", "*");
+                    text = text.Replace("／", "/");
+                    text = text.Replace("＝", "=");
+                    text = text.Replace("《", "<");
+                    text = text.Replace("》", ">");
+                    text = text.Replace("〈", "<");
+                    text = text.Replace("〉", ">");
+                    text = text.Replace("［", "[");
+                    text = text.Replace("］", "]");
+                    text = text.Replace("｛", "{");
+                    text = text.Replace("｝", "}");
+                    text = text.Replace("＼", "\\");
+                    text = text.Replace("％", "%");
+                    text = text.Replace("＠", "@");
+                    text = text.Replace("·", "@");
+                    text = text.Replace("｜", "|");
+                    text = text.Replace("￤", "|");
+                    text = text.Replace("＆", "&");
+                    text = text.Replace("～", "~");
+                    text = text.Replace("＾", "^");
+                    text = text.Replace("？", "?");
+                    text = text.Replace("‘", "'");
+                    text = text.Replace("’", "'");
+                    text = text.Replace("“", "\"");
+                    text = text.Replace("”", "\"");
+                    text = text.Replace("０", "0");
+                    text = text.Replace("１", "1");
+                    text = text.Replace("２", "2");
+                    text = text.Replace("３", "3");
+                    text = text.Replace("４", "4");
+                    text = text.Replace("５", "5");
+                    text = text.Replace("６", "6");
+                    text = text.Replace("７", "7");
+                    text = text.Replace("８", "8");
+                    text = text.Replace("９", "9");
+                    text = text.Replace("Ａ", "A");
+                    text = text.Replace("Ｂ", "B");
+                    text = text.Replace("Ｃ", "C");
+                    text = text.Replace("Ｄ", "D");
+                    text = text.Replace("Ｅ", "E");
+                    text = text.Replace("Ｆ", "F");
+                    text = text.Replace("Ｇ", "G");
+                    text = text.Replace("Ｈ", "H");
+                    text = text.Replace("Ｉ", "I");
+                    text = text.Replace("Ｊ", "J");
+                    text = text.Replace("Ｋ", "K");
+                    text = text.Replace("Ｌ", "L");
+                    text = text.Replace("Ｍ", "M");
+                    text = text.Replace("Ｎ", "N");
+                    text = text.Replace("Ｏ", "O");
+                    text = text.Replace("Ｐ", "P");
+                    text = text.Replace("Ｑ", "Q");
+                    text = text.Replace("Ｒ", "R");
+                    text = text.Replace("Ｓ", "S");
+                    text = text.Replace("Ｔ", "T");
+                    text = text.Replace("Ｕ", "U");
+                    text = text.Replace("Ｖ", "V");
+                    text = text.Replace("Ｗ", "W");
+                    text = text.Replace("Ｘ", "X");
+                    text = text.Replace("Ｙ", "Y");
+                    text = text.Replace("Ｚ", "Z");
+                    text = text.Replace("ａ", "a");
+                    text = text.Replace("ｂ", "b");
+                    text = text.Replace("ｃ", "c");
+                    text = text.Replace("ｄ", "d");
+                    text = text.Replace("ｅ", "e");
+                    text = text.Replace("ｆ", "f");
+                    text = text.Replace("ｇ", "g");
+                    text = text.Replace("ｈ", "h");
+                    text = text.Replace("ｉ", "i");
+                    text = text.Replace("ｊ", "j");
+                    text = text.Replace("ｋ", "k");
+                    text = text.Replace("ｌ", "l");
+                    text = text.Replace("ｍ", "m");
+                    text = text.Replace("ｎ", "n");
+                    text = text.Replace("ｏ", "o");
+                    text = text.Replace("ｐ", "p");
+                    text = text.Replace("ｑ", "q");
+                    text = text.Replace("ｒ", "r");
+                    text = text.Replace("ｓ", "s");
+                    text = text.Replace("ｔ", "t");
+                    text = text.Replace("ｕ", "u");
+                    text = text.Replace("ｖ", "v");
+                    text = text.Replace("ｗ", "w");
+                    text = text.Replace("ｘ", "x");
+                    text = text.Replace("ｙ", "y");
+                    text = text.Replace("ｚ", "z");
                 }
             }
             return text;
@@ -5839,20 +5839,20 @@ namespace Gssy.Capi.BIZ
         {
             string[] string_ = new string[1]
             {
-                GClass0.smethod_0("?ŀȿ")
+                "<B>"
             };
             string[] string_2 = new string[2]
             {
-                GClass0.smethod_0("8Ĭɀ\u033f"),
-                GClass0.smethod_0("8Łɐ\u033f")
+                "</B>",
+                "<BR>"
             };
             string[] string_3 = new string[1]
             {
-                GClass0.smethod_0("!ŋɗ\u034aЩ")
+                "$OTH("
             };
             string[] string_4 = new string[1]
             {
-                GClass0.smethod_0("#ŉɑ\u034cцՐة")
+                "$OTHER("
             };
             string text = "";
             string text2 = string_0.Trim();
@@ -5918,8 +5918,8 @@ namespace Gssy.Capi.BIZ
         public string JoinQnName(string string_0, string string_1)
         {
             string result = "";
-            string text = GClass0.smethod_0("bĻɼ\u0331бԴطܫ\u0828नਸ୳ష൯๐པၓᄥሥ፰ᑷᔳᘳᜩᠧ\u1921ᨦᬤᱞ\u1d3e");
-            string text2 = GClass0.smethod_0(":ĸȺ\u0334в\u0530ز\u0734࠺स");
+            string text = "|&`*+-/<>=,`%~@[](){}:;.!$\"'\\?";
+            string text2 = "0123456789";
             if (text.IndexOf(string_0) == -1)
             {
                 if (text2.IndexOf(string_0) > -1)
@@ -5992,7 +5992,7 @@ namespace Gssy.Capi.BIZ
             string text = "";
             if (method_89(string_0))
             {
-                text = GClass0.smethod_0("!");
+                text = " ";
             }
             int num = 0;
             int num2 = 0;
@@ -6006,35 +6006,35 @@ namespace Gssy.Capi.BIZ
                     num2 = RightBrackets(string_0, num, text2, "]");
                     num += 2;
                     text3 = method_132(string_0, num, num2 - 1);
-                    text = text + GClass0.smethod_0("$Ś") + text3 + "]";
+                    text = text + "&[" + text3 + "]";
                     num = num2 + 1;
                 }
-                else if (text2 == GClass0.smethod_0("!ź") || text2 == GClass0.smethod_0("&ź"))
+                else if (text2 == "#{" || text2 == "${")
                 {
-                    num2 = RightBrackets(string_0, num, text2, GClass0.smethod_0("|"));
+                    num2 = RightBrackets(string_0, num, text2, "}");
                     num += 2;
                     text3 = method_132(string_0, num, num2 - 1);
-                    text = text + GClass0.smethod_0("$Ś") + text3 + "]";
+                    text = text + "&[" + text3 + "]";
                     num = num2 + 1;
                 }
-                else if (text2 == GClass0.smethod_0("$ź"))
+                else if (text2 == "&{")
                 {
-                    num2 = RightBrackets(string_0, num, text2, GClass0.smethod_0("|"));
+                    num2 = RightBrackets(string_0, num, text2, "}");
                     num += 2;
                     text3 = method_132(string_0, num, num2 - 1);
                     num = num2 + 1;
                     string text4 = "";
-                    List<string> list = ParaToList(text3, GClass0.smethod_0(":"), false);
+                    List<string> list = ParaToList(text3, ";", false);
                     foreach (string item in list)
                     {
-                        num2 = item.IndexOf(GClass0.smethod_0(";"));
+                        num2 = item.IndexOf(":");
                         if (num2 >= 0)
                         {
-                            text = text + GClass0.smethod_0("$Ś") + LEFT(item, num2) + "]";
+                            text = text + "&[" + LEFT(item, num2) + "]";
                             text4 = GetTextQuestion(MID(item, num2 + 1, -9999), "");
                             if (text4.Length > 0)
                             {
-                                text = text + GClass0.smethod_0("'") + text4;
+                                text = text + "&" + text4;
                             }
                         }
                         else
@@ -6042,7 +6042,7 @@ namespace Gssy.Capi.BIZ
                             text4 = GetTextQuestion(item, "");
                             if (text4.Length > 0)
                             {
-                                text = text + GClass0.smethod_0("'") + text4;
+                                text = text + "&" + text4;
                             }
                         }
                     }
@@ -6050,11 +6050,11 @@ namespace Gssy.Capi.BIZ
                 else
                 {
                     text2 = MID(string_0, num, 1);
-                    if (text2 == GClass0.smethod_0("%"))
+                    if (text2 == "$")
                     {
-                        num2 = RightBrackets(string_0, num, GClass0.smethod_0(")"), GClass0.smethod_0("("));
+                        num2 = RightBrackets(string_0, num, "(", ")");
                         text3 = method_132(string_0, num, num2);
-                        text = text + GClass0.smethod_0("$Ś") + text3 + "]";
+                        text = text + "&[" + text3 + "]";
                         num = num2 + 1;
                     }
                     else
@@ -6064,7 +6064,7 @@ namespace Gssy.Capi.BIZ
                 }
             }
             while (num < string_0.Length);
-            if (LEFT(text, 1) == GClass0.smethod_0("'"))
+            if (LEFT(text, 1) == "&")
             {
                 text = MID(text, 1, -9999);
             }
@@ -6086,21 +6086,21 @@ namespace Gssy.Capi.BIZ
             do
             {
                 string a = MID(text, num, 2);
-                if (!(a == GClass0.smethod_0("Yģ")))
+                if (!(a == "[\""))
                 {
                     a = MID(text, num, 1);
                     string a2 = MID(text, num, length);
-                    if (a == GClass0.smethod_0("Z"))
+                    if (a == "[")
                     {
-                        num = RightBrackets(text, num, GClass0.smethod_0("Z"), "]");
+                        num = RightBrackets(text, num, "[", "]");
                     }
-                    else if (a == GClass0.smethod_0(")"))
+                    else if (a == "(")
                     {
-                        num = RightBrackets(text, num, GClass0.smethod_0(")"), GClass0.smethod_0("("));
+                        num = RightBrackets(text, num, "(", ")");
                     }
-                    else if (a == GClass0.smethod_0("z"))
+                    else if (a == "{")
                     {
-                        num = RightBrackets(text, num, GClass0.smethod_0("z"), GClass0.smethod_0("|"));
+                        num = RightBrackets(text, num, "{", "}");
                     }
                     else if (a2 == string_1)
                     {
@@ -6116,7 +6116,7 @@ namespace Gssy.Capi.BIZ
                 }
                 else
                 {
-                    num = text.IndexOf(GClass0.smethod_0(" Ŝ"), num + 2);
+                    num = text.IndexOf("\"]", num + 2);
                     num = ((num >= 0) ? (num + 1) : text.Length);
                 }
                 num++;
@@ -6132,35 +6132,35 @@ namespace Gssy.Capi.BIZ
 
         public void OutputResult(string string_0, string string_1 = "lg_Result.LOG", bool bool_0 = true)
         {
-            string str = Environment.CurrentDirectory + GClass0.smethod_0("ZŁɥͷѣ՝");
-            if (File.Exists(GClass0.smethod_0("Jķɐ\u035fѯպټݔࡃ\u0954ਪ\u0b57ౚ\u0d55")) && LEFT(string_1, 3) == GClass0.smethod_0("oťɞ"))
+            string str = Environment.CurrentDirectory + "\\data\\";
+            if (File.Exists("D:\\TestSEQ.TXT") && LEFT(string_1, 3) == "lg_")
             {
-                str = GClass0.smethod_0("Gĸɝ");
+                str = "D:\\";
             }
             string path = str + string_1;
             StreamWriter streamWriter = new StreamWriter(path, bool_0);
             string text = (string_0 == null) ? "" : string_0;
-            text = text.Replace(GClass0.smethod_0("8Łɐ\u033f"), Environment.NewLine);
+            text = text.Replace("<BR>", Environment.NewLine);
             streamWriter.WriteLine(text);
             streamWriter.Close();
         }
 
         public void OutputDictQn(Dictionary<string, string> dictionary_0, classLoopA classLoopA_0)
         {
-            OutputResult(GClass0.smethod_0("什樨加塟犂鶝烪唔聪\uf61b"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("今次储存的题目列表：", "lg_Answer.LOG", true);
             string text = "";
             foreach (string key in dictionary_0.Keys)
             {
-                text = text + GClass0.smethod_0(".ġ") + key;
+                text = text + ", " + key;
             }
             if (text.Length > 0)
             {
                 text = MID(text, 2, -9999);
-                OutputResult(GClass0.smethod_0("晪鄙骚ﰛ") + text, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+                OutputResult("普通题：" + text, "lg_Answer.LOG", true);
             }
             if (classLoopA_0.A.Count > 0)
             {
-                OutputResult(GClass0.smethod_0("微犬骚ﰛ"), GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+                OutputResult("循环题：", "lg_Answer.LOG", true);
                 int num = 1;
                 int num2 = 1;
                 foreach (classLoopB item in classLoopA_0.A)
@@ -6171,12 +6171,12 @@ namespace Gssy.Capi.BIZ
                         text = "";
                         foreach (string key2 in item2.Qn.Keys)
                         {
-                            text = text + GClass0.smethod_0(".ġ") + key2;
+                            text = text + ", " + key2;
                         }
                         if (text.Length > 0)
                         {
                             text = MID(text, 2, -9999);
-                            OutputResult("A" + num + "B" + num2 + GClass0.smethod_0("局Ļ") + text, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+                            OutputResult("A" + num + "B" + num2 + "层:" + text, "lg_Answer.LOG", true);
                         }
                         num2++;
                     }
@@ -6189,7 +6189,7 @@ namespace Gssy.Capi.BIZ
         {
             string string_2 = string_0;
             string a = LEFT(string_0, 1);
-            if (a == GClass0.smethod_0("_") || a == "#")
+            if (a == "^" || a == "#")
             {
                 string_2 = MID(string_0, 1, -9999);
             }
@@ -6199,7 +6199,7 @@ namespace Gssy.Capi.BIZ
             {
                 string_2 = "";
             }
-            OutputResult(GClass0.smethod_0("导徐构搮\ufb1b") + string_0 + GClass0.smethod_0(")") + string_1 + GClass0.smethod_0("+ļ") + string_2, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("对应文本：" + string_0 + "(" + string_1 + ")=" + string_2, "lg_Answer.LOG", true);
             return string_2;
         }
 
@@ -6212,7 +6212,7 @@ namespace Gssy.Capi.BIZ
             {
                 text = "";
             }
-            OutputResult(GClass0.smethod_0("対徒鈌魽憄戮亂") + string_0 + GClass0.smethod_0(")") + string_1 + GClass0.smethod_0("+ļ") + text, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("对应选项文本：" + string_0 + "(" + string_1 + ")=" + text, "lg_Answer.LOG", true);
             return text;
         }
 
@@ -6221,12 +6221,12 @@ namespace Gssy.Capi.BIZ
             string text = "";
             LogicEngine logicEngine = new LogicEngine();
             string a = LEFT(string_0, 1);
-            text = ((a == GClass0.smethod_0("_")) ? logicEngine.method_10(string_0.Substring(1), string_1) : ((!(a == "#")) ? logicEngine.GetOtherText(string_0, string_1) : logicEngine.method_11(string_0.Substring(1), string_1)));
+            text = ((a == "^") ? logicEngine.method_10(string_0.Substring(1), string_1) : ((!(a == "#")) ? logicEngine.GetOtherText(string_0, string_1) : logicEngine.method_11(string_0.Substring(1), string_1)));
             if (string.IsNullOrEmpty(text))
             {
                 text = "";
             }
-            OutputResult(GClass0.smethod_0("关媇滫攌\ufb1b") + string_0 + GClass0.smethod_0(")") + string_1 + GClass0.smethod_0("+ļ") + text, GClass0.smethod_0("aūɔ\u034bѧջ\u0670ݣ\u0877प\u0a4f\u0b4d\u0c46"), true);
+            OutputResult("其它注明：" + string_0 + "(" + string_1 + ")=" + text, "lg_Answer.LOG", true);
             return text;
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Gssy.Capi.DAL;
 using Gssy.Capi.Entities;
@@ -81,7 +81,7 @@ namespace Gssy.Capi.BIZ
 
 		public SurveyDefine SPSSFindMain(string string_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("6ġȯ̧ТԴ؟ܔࠝग़੉୕౔ഘ๤གྷ၇ᅂቖፋᑵᕕᙉᝇᡃ᥉ᨋ᭝᱁ᵍṕὃ\u2005⅔≂⍅⑄╿♶❺⠽⤡⨻⬽Ɫ⴨⹪⼱〵ㅵ㉽㍶㐱㕳㙠㝣㡯㥥㩥㭯㱖㵡㹩㽢䁠䅼䈣䌿䐱"), string_0);
+			string string_ = string.Format("select * from SurveyDefine where page_id = '{0}' and combine_index =0", string_0);
 			return this.oSurveyDefineDal.GetBySql(string_);
 		}
 
@@ -92,26 +92,26 @@ namespace Gssy.Capi.BIZ
 
 		public string GetDataFilePath()
 		{
-			return this.oSurveyConfigDal.GetByCodeText(GClass0.smethod_0("XŤɥͥьզٲݤࡔॢ੶୩"));
+			return this.oSurveyConfigDal.GetByCodeText("ToolDataPath");
 		}
 
 		public void SaveDataFilePath(string string_0)
 		{
 			SurveyConfig surveyConfig = new SurveyConfig();
-			surveyConfig.CODE = GClass0.smethod_0("XŤɥͥьզٲݤࡔॢ੶୩");
+			surveyConfig.CODE = "ToolDataPath";
 			surveyConfig.CODE_TEXT = string_0;
 			this.oSurveyConfigDal.UpdateByCode(surveyConfig);
 		}
 
 		public string GetRecodePath()
 		{
-			return this.oSurveyConfigDal.GetByCodeText(GClass0.smethod_0("XŬɫͨѢՠٔݢࡶ३"));
+			return this.oSurveyConfigDal.GetByCodeText("RecodePath");
 		}
 
 		public void SaveRecodePath(string string_0)
 		{
 			SurveyConfig surveyConfig = new SurveyConfig();
-			surveyConfig.CODE = GClass0.smethod_0("XŬɫͨѢՠٔݢࡶ३");
+			surveyConfig.CODE = "RecodePath";
 			surveyConfig.CODE_TEXT = string_0;
 			this.oSurveyConfigDal.UpdateByCode(surveyConfig);
 		}

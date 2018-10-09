@@ -1,4 +1,4 @@
-﻿using Gssy.Capi.DAL;
+using Gssy.Capi.DAL;
 using Gssy.Capi.Entities;
 using System;
 using System.Collections.Generic;
@@ -193,7 +193,7 @@ namespace Gssy.Capi.BIZ
             if (FillText != "")
             {
                 SurveyAnswer surveyAnswer2 = new SurveyAnswer();
-                surveyAnswer2.QUESTION_NAME = QuestionName + GClass0.smethod_0("[Ōɖ\u0349");
+                surveyAnswer2.QUESTION_NAME = QuestionName + "_OTH";
                 surveyAnswer2.CODE = FillText;
                 surveyAnswer2.MULTI_ORDER = 0;
                 surveyAnswer2.BEGIN_DATE = QInitDateTime;

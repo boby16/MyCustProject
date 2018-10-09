@@ -1,4 +1,4 @@
-﻿using Gssy.Capi.Entities;
+using Gssy.Capi.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -116,7 +116,7 @@ namespace Gssy.Capi.BIZ
                 num4 = (double)num;
             }
             text = ((long)Math.Truncate(num4)).ToString();
-            return FillString(text, GClass0.smethod_0("1"), length, true);
+            return FillString(text, "0", length, true);
         }
 
         public List<double> RandomList(int int_0 = 1, double double_0 = 0.0, double double_1 = 1.0)
@@ -324,7 +324,7 @@ namespace Gssy.Capi.BIZ
                 if (!dictionary.Keys.Contains(text))
                 {
                     dictionary.Add(text, ++num);
-                    if (method_10(text, 1) != GClass0.smethod_0(","))
+                    if (method_10(text, 1) != "-")
                     {
                         dictionary2.Add(num, intRND(0, 999999999));
                     }
@@ -338,7 +338,7 @@ namespace Gssy.Capi.BIZ
                 for (int i = 0; i < dictionary.Count; i++)
                 {
                     string text2 = dictionary.Keys.ElementAt(i);
-                    if (method_10(text2, 1) != GClass0.smethod_0(","))
+                    if (method_10(text2, 1) != "-")
                     {
                         dictionary[text2] = dictionary3.Values.ElementAt(num2++);
                     }

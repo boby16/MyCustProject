@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Gssy.Capi.Common;
 using Gssy.Capi.DAL;

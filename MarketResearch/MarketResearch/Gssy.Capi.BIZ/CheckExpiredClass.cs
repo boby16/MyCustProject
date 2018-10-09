@@ -1,4 +1,4 @@
-﻿using Gssy.Capi.Common;
+using Gssy.Capi.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,27 +26,27 @@ namespace Gssy.Capi.BIZ
             }
         }
 
-        public string _StartDate = GClass0.smethod_0("8Ĺȹ\u0332ЩԵؼܬ࠲र");
+        public string _StartDate = "2015/08/01";
 
-        public string _UseDays = GClass0.smethod_0("1");
+        public string _UseDays = "0";
 
-        private DateTime _dtNone = DateTime.Parse(GClass0.smethod_0("9ľȶ\u0334ЩԲد\u0730")).Date;
+        private DateTime _dtNone = DateTime.Parse("1901-1-1").Date;
 
         public string _strTimeFile = "";
 
-        private string _ntStart = GClass0.smethod_0("7Şɺ\u036dѩճ٣ݡ\u0824६੬ଡ");
+        private string _ntStart = ";Updated on ";
 
-        private string _ntEnd = GClass0.smethod_0("\"ĺ");
+        private string _ntEnd = " ;";
 
-        private string _FlagGetOK = GClass0.smethod_0("0ŉɻ\u036dѦղ٠ܤ\u0862ॶਡ");
+        private string _FlagGetOK = ";Create at ";
 
-        public string _strExpiredFile = Environment.CurrentDirectory + GClass0.smethod_0("NŽɹ\u036dђի٥ݹ\u086f५\u0a61୵\u0c62ഫ\u0e67ཬ\u106cᅧ");
+        public string _strExpiredFile = Environment.CurrentDirectory + "\\lib\\firebird.conf";
 
-        public string _strExpiredKey = GClass0.smethod_0("+ħɒ\u036dѡԣءܡ");
+        public string _strExpiredKey = "# The # ";
 
-        public string _strExpiredFlag = GClass0.smethod_0("\u001fŝɕ\u035dщ՛\u065a\u074cࡒ\u0944ਕଢ଼\u0c40ഒไགྷ၊ᅊልፊᑄᕘᘉᝋᡈ᥋ᩈ\u1b41ᱍ\u1d56Ṓἀ⁾ⅰ≹⌼⑸╻♷✸⡵⥳⨵⭤Ɀ\u2d73\u2e72⽵に\u312e㉬㍢㑲㕽㙡㝭㡵㥣㨥㭫㱭㴢㹠");
+        public string _strExpiredFlag = " character is used for comments and can be placed anywhere on a";
 
-        public string _strUnexpiredFlag = GClass0.smethod_0("]ŕɝ\u0349ћ՚\u064cݒࡄक\u0a5d\u0b40ఒ\u0d44ใཊ၊ᄍቊፄᑘᔉᙋᝈᡋ᥈ᩁ\u1b4d᱖\u1d52Ḁ\u1f7e⁰ⅹ∼⍸⑻╷☸❵⡳⤵⩤⭿ⱳ\u2d72\u2e75⽫\u302eㅬ㉢㍲㑽㕡㙭㝵㡣㤥㩫㭭㰢㵠");
+        public string _strUnexpiredFlag = "character is used for comments and can be placed anywhere on a";
 
         private static readonly ThreadLocal<Random> appRandom = new ThreadLocal<Random>(Class1._003C_003E9.method_0);
 
@@ -69,7 +69,7 @@ namespace Gssy.Capi.BIZ
                 _ntEnd = string_7;
             }
             _strTimeFile = method_3(string_5);
-            if (string_2 != GClass0.smethod_0("Głɒ\u0348"))
+            if (string_2 != "CAPI")
             {
                 if (string_2 != "")
                 {
@@ -88,7 +88,7 @@ namespace Gssy.Capi.BIZ
                     _strUnexpiredFlag = string_4;
                 }
             }
-            if (!(text2 == GClass0.smethod_0("1")))
+            if (!(text2 == "0"))
             {
                 DateTime date2 = DateTime.Today.Date;
                 DateTime t;
@@ -107,7 +107,7 @@ namespace Gssy.Capi.BIZ
                 {
                     if (flag)
                     {
-                        text = GClass0.smethod_0("D");
+                        text = "E";
                     }
                     else
                     {
@@ -123,7 +123,7 @@ namespace Gssy.Capi.BIZ
                         }
                         if (dtNone < date)
                         {
-                            text += GClass0.smethod_0("E");
+                            text += "D";
                         }
                         else if (dtNone > t)
                         {
@@ -141,7 +141,7 @@ namespace Gssy.Capi.BIZ
                     method_2(dtNone, _strTimeFile, _ntStart, _ntEnd);
                     if (dtNone < date)
                     {
-                        text += GClass0.smethod_0("E");
+                        text += "D";
                     }
                     else if (dtNone > t)
                     {
@@ -155,12 +155,12 @@ namespace Gssy.Capi.BIZ
                         }
                         if (dateTime != date2)
                         {
-                            text += GClass0.smethod_0("B");
+                            text += "C";
                         }
                     }
                     else if (flag)
                     {
-                        text += GClass0.smethod_0("D");
+                        text += "E";
                     }
                     else
                     {
@@ -226,7 +226,7 @@ namespace Gssy.Capi.BIZ
             try
             {
                 string text = "";
-                text = method_20(string_0, string_1, 0, "", GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
+                text = method_20(string_0, string_1, 0, "", "Default");
                 text = method_21(text, text.Length - string_2.Length);
                 result = Convert.ToDateTime(text).Date;
                 return result;
@@ -253,9 +253,9 @@ namespace Gssy.Capi.BIZ
             }
             try
             {
-                string str = dateTime_0.ToString(GClass0.smethod_0("sŰɱ;ЩՈىܬ\u0866॥"));
+                string str = dateTime_0.ToString("yyyy/MM/dd");
                 File.SetAttributes(string_0, FileAttributes.Normal);
-                method_18(string_0, string_1, str + string_2, true, 0, "", true, GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
+                method_18(string_0, string_1, str + string_2, true, 0, "", true, "Default");
                 File.SetAttributes(string_0, FileAttributes.Hidden);
                 File.SetAttributes(string_0, FileAttributes.System);
             }
@@ -266,9 +266,9 @@ namespace Gssy.Capi.BIZ
 
         private string method_3(string string_0 = "")
         {
-            string string_ = method_12(GClass0.smethod_0("Hťɤ\u0365Ѩըوݱ\u0870५\u0a62")) + GClass0.smethod_0("Ušɩ\u0360ѪԪٯݭ\u0866");
-            string string_2 = method_12(GClass0.smethod_0("DųɷͶѦլٵ")) + GClass0.smethod_0("QŠɢ\u0368ѕա٩ݠ\u086aप੪୬౨");
-            string string_3 = method_12(GClass0.smethod_0("DųɷͶѦլٵ")) + GClass0.smethod_0("Ušɩ\u0360ѪԪ٪ݬ\u0868");
+            string string_ = method_12("CommonMusic") + "\\info.log";
+            string string_2 = method_12("Current") + "\\lib\\info.ini";
+            string string_3 = method_12("Current") + "\\info.ini";
             string text = method_4(string_0);
             if (text == "")
             {
@@ -295,15 +295,15 @@ namespace Gssy.Capi.BIZ
                     if (File.Exists(string_0))
                     {
                         File.SetAttributes(string_0, FileAttributes.Normal);
-                        method_16(method_15(string_0, GClass0.smethod_0("\u000fċ"), GClass0.smethod_0("Cţɣ\u0365Ѷծٵ")), string_0, false, GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"), GClass0.smethod_0("\u000fċ"));
+                        method_16(method_15(string_0, "\r\n", "Default"), string_0, false, "Default", "\r\n");
                         File.SetAttributes(string_0, FileAttributes.System);
                         File.SetAttributes(string_0, FileAttributes.Hidden);
                     }
                     else
                     {
                         List<string> list = new List<string>();
-                        list.Add(_ntStart + DateTime.Today.ToString(GClass0.smethod_0("sŰɱ;ЩՈىܬ\u0866॥")) + _ntEnd);
-                        method_16(list, string_0, false, GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"), GClass0.smethod_0("\u000fċ"));
+                        list.Add(_ntStart + DateTime.Today.ToString("yyyy/MM/dd") + _ntEnd);
+                        method_16(list, string_0, false, "Default", "\r\n");
                         File.SetAttributes(string_0, FileAttributes.System);
                         File.SetAttributes(string_0, FileAttributes.Hidden);
                     }
@@ -321,7 +321,7 @@ namespace Gssy.Capi.BIZ
             string result = "";
             if (string_0 != "" && string_1 != "" && File.Exists(string_0))
             {
-                result = method_20(string_0, string_1, 0, "", GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
+                result = method_20(string_0, string_1, 0, "", "Default");
             }
             return result;
         }
@@ -330,7 +330,7 @@ namespace Gssy.Capi.BIZ
         {
             if (string_0 != "" && string_2 != "" && string_1 != "" && File.Exists(string_0))
             {
-                method_18(string_0, string_1, string_2, true, 0, "", true, GClass0.smethod_0("Cţɣ\u0365Ѷծٵ"));
+                method_18(string_0, string_1, string_2, true, 0, "", true, "Default");
             }
         }
 
@@ -383,7 +383,7 @@ namespace Gssy.Capi.BIZ
             if (method_21(string_2, string_1.Length) == string_1)
             {
                 text = method_22(string_2, string_1.Length, int_0);
-                Regex regex = new Regex(GClass0.smethod_0("[Řɧ\u0329Х"));
+                Regex regex = new Regex("^\\d+$");
                 if (!regex.IsMatch(text))
                 {
                     text = "";
@@ -397,13 +397,13 @@ namespace Gssy.Capi.BIZ
             int millisecond = DateTime.Now.Millisecond;
             int num = millisecond / 39;
             millisecond -= num * 39;
-            string str = method_23(GClass0.smethod_0("2ı") + millisecond.ToString(), 3) + method_11(0, 9).ToString();
+            string str = method_23("00" + millisecond.ToString(), 3) + method_11(0, 9).ToString();
             num = 0;
             foreach (char char_ in string_0)
             {
                 millisecond = method_10(num, millisecond);
                 int int_ = method_8(char_) + millisecond;
-                str = str + method_11(0, 9).ToString() + method_23(GClass0.smethod_0("2ı") + int_.ToString(), 3);
+                str = str + method_11(0, 9).ToString() + method_23("00" + int_.ToString(), 3);
                 millisecond = method_10(int_, millisecond);
                 num++;
             }
@@ -414,12 +414,12 @@ namespace Gssy.Capi.BIZ
             {
                 num2 += num3;
             }
-            return method_23(GClass0.smethod_0("7Ķȵ\u0334гԲر") + num2.ToString(), 8) + str;
+            return method_23("0000000" + num2.ToString(), 8) + str;
         }
 
         public string JieMi(string string_0)
         {
-            Regex regex = new Regex(GClass0.smethod_0("[Řɧ\u0329Х"));
+            Regex regex = new Regex("^\\d+$");
             string result = "";
             string text = method_21(string_0, 8);
             if (regex.IsMatch(text))
@@ -470,8 +470,8 @@ namespace Gssy.Capi.BIZ
 
         private int method_8(char char_0)
         {
-            string text = GClass0.smethod_0("\u007fſɿͿѿտٿݿ\u087fॿ\u0a7f\u0b7f౿ൿ\u0e7f\u0f7fၿᅿቿ\u137fᑿᕿᙿ\u177f\u187f\u197fᨔᬒᰐᴒḔἪ\u2028K∤⌢⑻╻♻❳⡳⥳⩳⭻ⱻ\u2d7b\u2e7b⽣っㅣ㉣㍻㑻㕻㙻㝳㡳㥳㩳㭻㱻㵻");
-            string text2 = GClass0.smethod_0("pŵɯ\u030bѕԁ\u064eݰࡏऄ\u0a41\u0b44అ൵โཆ၈ᅝሞ፠ᑸᕅᙢᝉᡍᥝᩉ᭙᱀\u1d60Ṻή⁏Ⅹ≕⍪\u244d╪♰✣⡛⥴⩰⭐ⱞⵈ\u2e44⽍えㅕ㉯㌾㐼㕌㙝㝠㡖㥊㨽㭕㰱㵤");
+            string text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            string text2 = "NHS0o8vGy1uw7Drifp2KRlJnkxmzbAZjQtIqWsh4MadCLYTBFXc56EUgPO9V3e";
             int result = char_0;
             int num = text.IndexOf(char_0);
             if (num > -1)
@@ -490,8 +490,8 @@ namespace Gssy.Capi.BIZ
 
         private int method_9(char char_0)
         {
-            string text = GClass0.smethod_0("\u007fſɿͿѿտٿݿ\u087fॿ\u0a7f\u0b7f౿ൿ\u0e7f\u0f7fၿᅿቿ\u137fᑿᕿᙿ\u177f\u187f\u197fᨔᬒᰐᴒḔἪ\u2028K∤⌢⑻╻♻❳⡳⥳⩳⭻ⱻ\u2d7b\u2e7b⽣っㅣ㉣㍻㑻㕻㙻㝳㡳㥳㩳㭻㱻㵻");
-            string text2 = GClass0.smethod_0("pŵɯ\u030bѕԁ\u064eݰࡏऄ\u0a41\u0b44అ൵โཆ၈ᅝሞ፠ᑸᕅᙢᝉᡍᥝᩉ᭙᱀\u1d60Ṻή⁏Ⅹ≕⍪\u244d╪♰✣⡛⥴⩰⭐ⱞⵈ\u2e44⽍えㅕ㉯㌾㐼㕌㙝㝠㡖㥊㨽㭕㰱㵤");
+            string text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            string text2 = "NHS0o8vGy1uw7Drifp2KRlJnkxmzbAZjQtIqWsh4MadCLYTBFXc56EUgPO9V3e";
             int result = char_0;
             int num = text2.IndexOf(char_0);
             if (num > -1)
@@ -603,43 +603,43 @@ namespace Gssy.Capi.BIZ
         {
             string result = "";
             string a = string_0.ToUpper();
-            if (a == GClass0.smethod_0("Dœɗ\u0356цՌ\u0655"))
+            if (a == "CURRENT")
             {
                 result = Environment.CurrentDirectory;
             }
-            else if (a == GClass0.smethod_0("Pŏɋ\u0340ьՕ\u0652"))
+            else if (a == "WINDOWS")
             {
                 result = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
             }
-            else if (a == GClass0.smethod_0("[Şɕ\u0351сՎر\u0733"))
+            else if (a == "SYSTEM32")
             {
                 result = Environment.GetFolderPath(Environment.SpecialFolder.System);
             }
-            else if (a == GClass0.smethod_0("CŃɖ\u034fїՍ\u0651"))
+            else if (a == "DESKTOP")
             {
                 result = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             }
-            else if (a == GClass0.smethod_0("FŅɀ\u034aф"))
+            else if (a == "CACHE")
             {
                 result = Environment.GetFolderPath(Environment.SpecialFolder.InternetCache);
             }
-            else if (a == GClass0.smethod_0("UŜɗ\u0357чՌ"))
+            else if (a == "SYSTEM")
             {
-                result = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + GClass0.smethod_0("[ŕɼͷѷէ٬");
+                result = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + "\\System";
             }
-            else if (a == GClass0.smethod_0("Fœɍ\u0347фՓو\u0741ࡍ\u0956\u0a52"))
+            else if (a == "MYDOCUMENTS")
             {
                 result = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             }
-            else if (a == GClass0.smethod_0("LŁɀ\u0341фՄ\u064d\u0747ࡄ\u0953\u0a48\u0b41\u0c4d\u0d56๒"))
+            else if (a == "COMMONDOCUMENTS")
             {
                 result = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments);
             }
-            else if (a == GClass0.smethod_0("UŚə\u035eѝ՟\u0654\u074a\u085d\u0946\u0a58\u0b44ౚ\u0d4dแཕ၃ᅆቐፌᑐᕘ"))
+            else if (a == "COMMONDESKTOPDIRECTORY")
             {
                 result = Environment.GetFolderPath(Environment.SpecialFolder.CommonDesktopDirectory);
             }
-            else if (a == GClass0.smethod_0("HŅɄ\u0345шՈوݑࡐ\u094b\u0a42"))
+            else if (a == "COMMONMUSIC")
             {
                 result = Environment.GetFolderPath(Environment.SpecialFolder.CommonMusic);
             }
@@ -697,19 +697,19 @@ namespace Gssy.Capi.BIZ
 
         public DateTime GetStandardTime()
         {
-            DateTime result = DateTime.Parse(GClass0.smethod_0("9ľȶ\u0334ЩԲد\u0730"));
+            DateTime result = DateTime.Parse("1901-1-1");
             HttpHelper httpHelper = new HttpHelper();
             HttpItem httpItem_ = new HttpItem
             {
-                URL = GClass0.smethod_0("GŚə\u035cБԅ؆ݟࡐ\u0951\u0a0b\u0b4c\u0c48\u0d4dฏཇၰᅨሳ፴ᑰᔵᙺ\u177f\u187e\u193b\u1a77\u1b7d\u1c7d\u1d3dṶὤ⁼℡≹⍥⑦╯☼❩⠩⥶⩷⬻Ɫⴿ⸳"),
-                Method = GClass0.smethod_0("DŇɕ")
+                URL = "http://www.hko.gov.hk/cgi-bin/gts/time5a.pr?a=2",
+                Method = "GET"
             };
             HttpResult html = httpHelper.GetHtml(httpItem_);
-            Regex regex = new Regex(GClass0.smethod_0(")ĥȿ\u0329Щ\u0560ٺݿ\u0874\u0963\u0a7b୯ౠർ\u0e35བ\u106dᅳሶጶᑸᔭᙟᝦᠪ"));
+            Regex regex = new Regex("0=(?<timestamp>\\d{10})\\d+");
             Match match = regex.Match(html.Html);
             if (match.Success)
             {
-                result = method_14(match.Groups[GClass0.smethod_0("}šɪ\u0363Ѷհ٢ݯ\u0871")].Value);
+                result = method_14(match.Groups["timestamp"].Value);
             }
             return result;
         }
@@ -717,7 +717,7 @@ namespace Gssy.Capi.BIZ
         private DateTime method_14(string string_0)
         {
             DateTime dateTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
-            long ticks = long.Parse(string_0 + GClass0.smethod_0("7Ķȵ\u0334гԲر"));
+            long ticks = long.Parse(string_0 + "0000000");
             TimeSpan value = new TimeSpan(ticks);
             return dateTime.Add(value);
         }
@@ -728,7 +728,7 @@ namespace Gssy.Capi.BIZ
         private List<string> method_15(string string_0, string string_1 = "\r\n", string string_2 = "Default")
         {
             string_2 = string_2.ToUpper();
-            Encoding encoding = (string_2 == GClass0.smethod_0("CŃɃ\u0345іՎ\u0655")) ? Encoding.Default : ((string_2 == GClass0.smethod_0("Dŗɀ\u034bш")) ? Encoding.ASCII : ((string_2 == GClass0.smethod_0("RňɌ\u0347ьՆل")) ? Encoding.Unicode : ((string_2 == GClass0.smethod_0("PŐɅ\u0331г")) ? Encoding.UTF32 : ((!(string_2 == GClass0.smethod_0("QŗɄ\u0339"))) ? Encoding.Default : Encoding.UTF8))));
+            Encoding encoding = (string_2 == "DEFAULT") ? Encoding.Default : ((string_2 == "ASCII") ? Encoding.ASCII : ((string_2 == "UNICODE") ? Encoding.Unicode : ((string_2 == "UTF32") ? Encoding.UTF32 : ((!(string_2 == "UTF8")) ? Encoding.Default : Encoding.UTF8))));
             StreamReader streamReader = new StreamReader(string_0, encoding);
             string text = streamReader.ReadToEnd();
             streamReader.Close();
@@ -741,7 +741,7 @@ namespace Gssy.Capi.BIZ
         private void method_16(List<string> list_0, string string_0, bool bool_0 = false, string string_1 = "Default", string string_2 = "\r\n")
         {
             string_1 = string_1.ToUpper();
-            Encoding encoding = (string_1 == GClass0.smethod_0("CŃɃ\u0345іՎ\u0655")) ? Encoding.Default : ((string_1 == GClass0.smethod_0("Dŗɀ\u034bш")) ? Encoding.ASCII : ((string_1 == GClass0.smethod_0("RňɌ\u0347ьՆل")) ? Encoding.Unicode : ((string_1 == GClass0.smethod_0("PŐɅ\u0331г")) ? Encoding.UTF32 : ((!(string_1 == GClass0.smethod_0("QŗɄ\u0339"))) ? Encoding.Default : Encoding.UTF8))));
+            Encoding encoding = (string_1 == "DEFAULT") ? Encoding.Default : ((string_1 == "ASCII") ? Encoding.ASCII : ((string_1 == "UNICODE") ? Encoding.Unicode : ((string_1 == "UTF32") ? Encoding.UTF32 : ((!(string_1 == "UTF8")) ? Encoding.Default : Encoding.UTF8))));
             string value = string.Join(string_2, list_0.ToArray());
             StreamWriter streamWriter = new StreamWriter(string_0, bool_0, encoding);
             streamWriter.WriteLine(value);
@@ -790,9 +790,9 @@ namespace Gssy.Capi.BIZ
         private string method_18(string string_0, string string_1, string string_2, bool bool_0 = true, int int_0 = 0, string string_3 = "", bool bool_1 = true, string string_4 = "Default")
         {
             string text = "";
-            List<string> list_ = method_15(string_0, GClass0.smethod_0("\u000fċ"), string_4);
+            List<string> list_ = method_15(string_0, "\r\n", string_4);
             text = method_17(list_, string_1, string_2, bool_0, int_0, string_3, bool_1);
-            method_16(list_, string_0, false, string_4, GClass0.smethod_0("\u000fċ"));
+            method_16(list_, string_0, false, string_4, "\r\n");
             return text;
         }
 
@@ -831,7 +831,7 @@ namespace Gssy.Capi.BIZ
         private string method_20(string string_0, string string_1, int int_0 = 0, string string_2 = "", string string_3 = "Default")
         {
             string text = "";
-            List<string> list_ = method_15(string_0, GClass0.smethod_0("\u000fċ"), string_3);
+            List<string> list_ = method_15(string_0, "\r\n", string_3);
             return method_19(list_, string_1, int_0, string_2);
         }
 
@@ -866,15 +866,15 @@ namespace Gssy.Capi.BIZ
         {
             if (!(string_0 == ""))
             {
-                if (!(string_0 == GClass0.smethod_0("1")))
+                if (!(string_0 == "0"))
                 {
-                    if (!(string_0 == GClass0.smethod_0("/ı")))
+                    if (!(string_0 == "-0"))
                     {
-                        if (!(string_0.Trim().ToUpper() == GClass0.smethod_0("CŅɏ\u0351ф")))
+                        if (!(string_0.Trim().ToUpper() == "FALSE"))
                         {
-                            if (!(string_0.Trim().ToUpper() == GClass0.smethod_0("Pőɗ\u0344")))
+                            if (!(string_0.Trim().ToUpper() == "TRUE"))
                             {
-                                Regex regex = new Regex(GClass0.smethod_0("Kļɏ\u033fѭՌؤܧ࠲ॐ੯ଡడ\u0d54ษཚၡᄯሪጽᐥ"));
+                                Regex regex = new Regex("^(\\-|\\+)?\\d+(\\.\\d+)?$");
                                 if (regex.IsMatch(string_0) && Convert.ToDouble(string_0) == 0.0)
                                 {
                                     return false;
@@ -894,7 +894,7 @@ namespace Gssy.Capi.BIZ
 
         public bool isIP(string string_0)
         {
-            Regex regex = new Regex(GClass0.smethod_0("+Ŝȗ\u0309р՜\u065dܓࠑढ़ਏ\u0b0eక\u0d5a\u0e3cབ၈ᅐሾጆᐝᕒᙪᜅᡭᥱ\u1a6eᬇᱰᵶṿἲ\u202eⅥ≿⍠\u242c┬♾✪⠩⤰⩹⬑ⱹⵥ\u2e73⼛〡ㄸ㉱㍷㐚㕰㘒㜋㡠㤕㨕㬒㱝㵃㸆㼚䀇䅉䉏䌃䑕䕔䙓䜜䡶䤜䨆䬞䱴䵌乛伔倐兿刓匏吔啽嘶地堵奸婠嬫尵崪幪彪怤慰扷据搣敋昿朣根楑橯歶氻洽湜漶瀨焱牞猫琥"));
+            Regex regex = new Regex("^(d{1,2}|1dd|2[0-4]d|25[0-5]).(d{1,2}|1dd|2[0-4]d|25[0-5]).(d{1,2}|1dd|2[0-4]d|25[0-5]).(d{1,2}|1dd|2[0-4]d|25[0-5])$");
             return regex.IsMatch(string_0);
         }
 

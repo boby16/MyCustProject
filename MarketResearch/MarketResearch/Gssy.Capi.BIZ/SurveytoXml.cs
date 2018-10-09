@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -20,7 +20,7 @@ namespace Gssy.Capi.BIZ
 			try
 			{
 				string text = string_1 + this.OutputPath;
-				string text2 = "S" + string_0 + GClass0.smethod_0("HĪɧͣѵ");
+				string text2 = "S" + string_0 + "M.dat";
 				string path = text + "\\" + text2;
 				if (!Directory.Exists(text))
 				{
@@ -48,7 +48,7 @@ namespace Gssy.Capi.BIZ
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("QŅɋ̦іեٵݧ࠻"), ex.Message);
+				Logging.Error.WriteLog("XML Save:", ex.Message);
 				result = false;
 			}
 			return result;
@@ -81,7 +81,7 @@ namespace Gssy.Capi.BIZ
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("QŅɋ̦іեٵݧ࠻"), ex.Message);
+				Logging.Error.WriteLog("XML Save:", ex.Message);
 				result = false;
 			}
 			return result;
@@ -98,7 +98,7 @@ namespace Gssy.Capi.BIZ
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<SurveyRandom>));
 				string text = string_1 + this.OutputPath;
-				string path = text + GClass0.smethod_0("^Œ") + string_0 + GClass0.smethod_0("WĪɧͣѵ");
+				string path = text + "\\S" + string_0 + "R.dat";
 				if (!Directory.Exists(text))
 				{
 					Directory.CreateDirectory(text);
@@ -109,7 +109,7 @@ namespace Gssy.Capi.BIZ
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("QŅɋ̦іեٵݧ࠻"), ex.Message);
+				Logging.Error.WriteLog("XML Save:", ex.Message);
 				result = false;
 			}
 			return result;
@@ -126,7 +126,7 @@ namespace Gssy.Capi.BIZ
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<SurveySequence>));
 				string text = bool_0 ? (string_1 + this.OutputPath) : string_1;
-				string path = text + GClass0.smethod_0("^Œ") + string_0 + GClass0.smethod_0("VĪɧͣѵ");
+				string path = text + "\\S" + string_0 + "S.dat";
 				if (!Directory.Exists(text))
 				{
 					Directory.CreateDirectory(text);
@@ -137,7 +137,7 @@ namespace Gssy.Capi.BIZ
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("QŅɋ̦іեٵݧ࠻"), ex.Message);
+				Logging.Error.WriteLog("XML Save:", ex.Message);
 				result = false;
 			}
 			return result;
@@ -154,7 +154,7 @@ namespace Gssy.Capi.BIZ
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<SurveyAttach>));
 				string text = bool_0 ? (string_1 + this.OutputPath) : string_1;
-				string path = text + GClass0.smethod_0("^Œ") + string_0 + GClass0.smethod_0("MĪɧͣѵ");
+				string path = text + "\\S" + string_0 + "H.dat";
 				if (!Directory.Exists(text))
 				{
 					Directory.CreateDirectory(text);
@@ -165,7 +165,7 @@ namespace Gssy.Capi.BIZ
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("QŅɋ̦іեٵݧ࠻"), ex.Message);
+				Logging.Error.WriteLog("XML Save:", ex.Message);
 				result = false;
 			}
 			return result;
@@ -184,7 +184,7 @@ namespace Gssy.Capi.BIZ
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("Cźɼͻѩղهݨࡡ३ਦୗౡൢ๦༻"), ex.Message);
+				Logging.Error.WriteLog("SurveyMain Read:", ex.Message);
 				SurveyMain surveyMain2 = new SurveyMain();
 				bool_0 = false;
 				result = surveyMain2;
@@ -205,7 +205,7 @@ namespace Gssy.Capi.BIZ
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("AŤɢ͹ѫմٍݥࡹॾ੭୵దൗ๡རၦᄻ"), ex.Message);
+				Logging.Error.WriteLog("SurveyAnswer Read:", ex.Message);
 				List<SurveyAnswer> list2 = new List<SurveyAnswer>();
 				bool_0 = false;
 				result = list2;
@@ -226,7 +226,7 @@ namespace Gssy.Capi.BIZ
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("AŤɢ͹ѫմٞݪࡤ७੧୪దൗ๡རၦᄻ"), ex.Message);
+				Logging.Error.WriteLog("SurveyRandom Read:", ex.Message);
 				List<SurveyRandom> list2 = new List<SurveyRandom>();
 				bool_0 = false;
 				result = list2;
@@ -247,7 +247,7 @@ namespace Gssy.Capi.BIZ
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("AŤɢ͹ѫմٞݪࡤ७੧୪దൗ๡རၦᄻ"), ex.Message);
+				Logging.Error.WriteLog("SurveyRandom Read:", ex.Message);
 				List<SurveySequence> list2 = new List<SurveySequence>();
 				bool_0 = false;
 				result = list2;
@@ -268,7 +268,7 @@ namespace Gssy.Capi.BIZ
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("AŤɢ͹ѫմٍݿࡾ२੫୯దൗ๡རၦᄻ"), ex.Message);
+				Logging.Error.WriteLog("SurveyAttach Read:", ex.Message);
 				List<SurveyAttach> list2 = new List<SurveyAttach>();
 				bool_0 = false;
 				result = list2;

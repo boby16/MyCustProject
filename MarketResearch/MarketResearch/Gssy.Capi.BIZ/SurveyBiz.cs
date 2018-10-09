@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Gssy.Capi.Common;
@@ -58,7 +58,7 @@ namespace Gssy.Capi.BIZ
 
 		public List<SurveyAnswer> GetBySysPhoto(string string_0)
 		{
-			return this.oSurveyAnswerDal.GetListByCode(string_0, GClass0.smethod_0("_Şɘ͟э՞ٙݕࡌौ੖୎"));
+			return this.oSurveyAnswerDal.GetListByCode(string_0, "SURVEY_PHOTO");
 		}
 
 		public void GetSurveyyQC(string string_0)
@@ -112,11 +112,11 @@ namespace Gssy.Capi.BIZ
 		public void AddSurvey(string string_0, string string_1, string string_2, string string_3, string string_4, string string_5)
 		{
 			this.oSurveyMainDal.Add(string_0, string_1, string_2, string_3, string_4);
-			this.oSurveyAnswerDal.AddOne(string_0, GClass0.smethod_0("Xşɛ͞т՟ٚ݀ࡂॖ੄"), string.Format(GClass0.smethod_0("uĽȶͲѳհٱܨࡋैਫ୧౦ർ"), DateTime.Now), 0);
-			this.oSurveyAnswerDal.AddOne(string_0, GClass0.smethod_0("Ańɂ͙ыՔٓݍࡃज़ਜ਼୓ౙൖ๐གၐᅕ"), string.Format(GClass0.smethod_0("lĦȯͭѪի٨ܿࡂृਢ୨౯പแཀွᅫቨጾᑰᕱᙼ"), DateTime.Now), 0);
-			this.oSurveyAnswerDal.AddOne(string_0, GClass0.smethod_0("BŅɝ͘шՕٔݜࡌग़੔୏ొൊ๜ཋ၅"), string_1, 0);
+			this.oSurveyAnswerDal.AddOne(string_0, "SURVEY_DATE", string.Format("{0:yyyy/MM/dd}", DateTime.Now), 0);
+			this.oSurveyAnswerDal.AddOne(string_0, "SURVEY_FIRST_START", string.Format("{0:yyyy/MM/dd HH:mm:ss}", DateTime.Now), 0);
+			this.oSurveyAnswerDal.AddOne(string_0, "SURVEY_VERSION_ID", string_1, 0);
 			string byCodeText = this.oSurveyConfigDal.GetByCodeText("PCCode");
-			this.oSurveyAnswerDal.AddOne(string_0, GClass0.smethod_0("UŇɜ͋х"), byCodeText, 0);
+			this.oSurveyAnswerDal.AddOne(string_0, "PC_ID", byCodeText, 0);
 		}
 
 		public int GetEndType(string string_0, int int_0, string string_1)
@@ -145,7 +145,7 @@ namespace Gssy.Capi.BIZ
 			this.oSurveyMainDal.Update(bySurveyId);
 			if (this.RecordFileName != "" && this.RecordFileName != null)
 			{
-				this.oSurveyAnswerDal.AddOneNoUpdate(string_0, GClass0.smethod_0("_Şɘ͟э՞݄ٙࡑेੋ୎"), this.RecordFileName, 0);
+				this.oSurveyAnswerDal.AddOneNoUpdate(string_0, "SURVEY_AUDIO", this.RecordFileName, 0);
 			}
 			return true;
 		}
@@ -167,7 +167,7 @@ namespace Gssy.Capi.BIZ
 				this.method_0(bySurveyId);
 				if (this.RecordFileName != "")
 				{
-					this.oSurveyAnswerDal.AddOneNoUpdate(string_0, GClass0.smethod_0("_Şɘ͟э՞݄ٙࡑेੋ୎"), this.RecordFileName, 0);
+					this.oSurveyAnswerDal.AddOneNoUpdate(string_0, "SURVEY_AUDIO", this.RecordFileName, 0);
 				}
 				List<SurveyRandom> listBySurveyId = this.oSurveyRandomDal.GetListBySurveyId(string_0);
 				bool flag = false;
@@ -201,46 +201,46 @@ namespace Gssy.Capi.BIZ
 			}
 			if (this.RecordFileName != "")
 			{
-				this.oSurveyAnswerDal.AddOneNoUpdate(string_0, GClass0.smethod_0("_Şɘ͟э՞݄ٙࡑेੋ୎"), this.RecordFileName, 0);
+				this.oSurveyAnswerDal.AddOneNoUpdate(string_0, "SURVEY_AUDIO", this.RecordFileName, 0);
 			}
 		}
 
 		private void method_0(SurveyMain surveyMain_0)
 		{
 			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "SURVEY_ID", surveyMain_0.SURVEY_ID, 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("\\Ōɚ͔яՊيݜࡋॅ"), surveyMain_0.VERSION_ID, 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Rŕɀ͖ќՋم"), surveyMain_0.USER_ID, 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Dŏɑ͝ќՋم"), surveyMain_0.CITY_ID, 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Yŝɉ͕ђ՚ِ݊ࡏॄ"), surveyMain_0.START_TIME.ToString(), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Mŉɂ͚ѐՊُ݄"), surveyMain_0.END_TIME.ToString(), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Cŏɞ͘єՙٝ݉ࡕ॒ਗ਼୐ొ൏ไ"), surveyMain_0.LAST_START_TIME.ToString(), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Aōɘ͞іՍى݂࡚ॐ੊୏ౄ"), surveyMain_0.LAST_END_TIME.ToString(), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Hşɛ͗їՇق݁࡜ो੅"), surveyMain_0.CUR_PAGE_ID, 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Sņɜ͎рՎٕ݈ࡗॄ੓ୗౖെ์ཕ"), surveyMain_0.CIRCLE_A_CURRENT.ToString(), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Mńɞ͈цՌ݆࡙ٗॆੋୖౌൕ"), surveyMain_0.CIRCLE_A_COUNT.ToString(), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Sņɜ͎рՎٕ݋ࡗॄ੓ୗౖെ์ཕ"), surveyMain_0.CIRCLE_B_CURRENT.ToString(), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Mńɞ͈цՌ࡙ٗ݅ॆੋୖౌൕ"), surveyMain_0.CIRCLE_B_COUNT.ToString(), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("@śɘ̀ьՊيݑࡉ"), surveyMain_0.IS_FINISH.ToString(), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Xŏɘ͝тՈن݁࡜ो੅"), surveyMain_0.SEQUENCE_ID.ToString(), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Xşɛ͞т՟ٚ݃ࡖो੅"), surveyMain_0.SURVEY_GUID, 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("JńɎ̓ыՐٜ݋ࡅ"), surveyMain_0.CLIENT_ID, 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("Zśɇ͍уՆِݜࡋॅ"), surveyMain_0.PROJECT_ID, 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "VERSION_ID", surveyMain_0.VERSION_ID, 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "USER_ID", surveyMain_0.USER_ID, 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "CITY_ID", surveyMain_0.CITY_ID, 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "START_TIME", surveyMain_0.START_TIME.ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "END_TIME", surveyMain_0.END_TIME.ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "LAST_START_TIME", surveyMain_0.LAST_START_TIME.ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "LAST_END_TIME", surveyMain_0.LAST_END_TIME.ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "CUR_PAGE_ID", surveyMain_0.CUR_PAGE_ID, 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "CIRCLE_A_CURRENT", surveyMain_0.CIRCLE_A_CURRENT.ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "CIRCLE_A_COUNT", surveyMain_0.CIRCLE_A_COUNT.ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "CIRCLE_B_CURRENT", surveyMain_0.CIRCLE_B_CURRENT.ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "CIRCLE_B_COUNT", surveyMain_0.CIRCLE_B_COUNT.ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "IS_FINISH", surveyMain_0.IS_FINISH.ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "SEQUENCE_ID", surveyMain_0.SEQUENCE_ID.ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "SURVEY_GUID", surveyMain_0.SURVEY_GUID, 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "CLIENT_ID", surveyMain_0.CLIENT_ID, 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "PROJECT_ID", surveyMain_0.PROJECT_ID, 0);
 			string arg = surveyMain_0.END_TIME.ToString();
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("CŚɜ͛щՒٕݏࡁॕ੕୑౛െ์ཅ"), string.Format(GClass0.smethod_0("lĦȯͭѪի٨ܿࡂृਢ୨౯പแཀွᅫቨጾᑰᕱᙼ"), arg), 0);
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("\\śɟ͚юՓٖ݄ࡆॕੑ୛ెൌๅ"), string.Format(GClass0.smethod_0("lĦȯͭѪի٨ܿࡂृਢ୨౯പแཀွᅫቨጾᑰᕱᙼ"), arg), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "SURVEY_FIRST_END", string.Format("{0:yyyy/MM/dd HH:mm:ss}", arg), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "SURVEY_LAST_END", string.Format("{0:yyyy/MM/dd HH:mm:ss}", arg), 0);
 			string text = surveyMain_0.SURVEY_GUID.ToString();
-			if (surveyMain_0.VERSION_ID.IndexOf(GClass0.smethod_0("歠帍灉")) > -1)
+			if (surveyMain_0.VERSION_ID.IndexOf("正式版") > -1)
 			{
-				text += GClass0.smethod_0("歠帍灉");
+				text += "正式版";
 			}
 			else
 			{
 				text += "测试版";
 			}
-			string string_ = EncryptTool.Encrypt(text, GClass0.smethod_0("EłɨͦѶպٲݵ"));
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("BŅɝ͘шՕٔ݃ࡇॆੂ୔ౚേ์ཆ၄"), string_, 0);
+			string string_ = EncryptTool.Encrypt(text, "MEncrypt");
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "SURVEY_INNER_CODE", string_, 0);
 			TimeSpan timeSpan = surveyMain_0.END_TIME.Value - surveyMain_0.START_TIME.Value;
-			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, GClass0.smethod_0("CŚɜ͛щՒٕ݊ࡇ॔੒୚౐ൊ๏ང"), ((int)timeSpan.TotalMinutes).ToString(), 0);
+			this.oSurveyAnswerDal.AddOne(surveyMain_0.SURVEY_ID, "SURVEY_COST_TIME", ((int)timeSpan.TotalMinutes).ToString(), 0);
 		}
 
 		public string GetUserID(string string_0)
@@ -316,7 +316,7 @@ namespace Gssy.Capi.BIZ
 			list = this.oSurveyAnswerDal.GetListBySequenceId(string_0, int_0);
 			foreach (SurveyAnswer surveyAnswer in list)
 			{
-				text = text + Environment.NewLine + string.Format(GClass0.smethod_0("颉勧紙笏зշػݷࠩनਧ灒摍๸༳ၼ"), surveyAnswer.QUESTION_NAME, surveyAnswer.CODE);
+				text = text + Environment.NewLine + string.Format("题号编码:{0}   答案：{1}", surveyAnswer.QUESTION_NAME, surveyAnswer.CODE);
 			}
 			return text;
 		}
@@ -353,7 +353,7 @@ namespace Gssy.Capi.BIZ
 
 		public string GetCityCode(string string_0)
 		{
-			SurveyAnswer one = this.oSurveyAnswerDal.GetOne(string_0, GClass0.smethod_0("GŊɖ͘"));
+			SurveyAnswer one = this.oSurveyAnswerDal.GetOne(string_0, "CITY");
 			return one.CODE;
 		}
 

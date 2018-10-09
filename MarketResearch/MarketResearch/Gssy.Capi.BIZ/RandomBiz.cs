@@ -1,4 +1,4 @@
-﻿using Gssy.Capi.DAL;
+using Gssy.Capi.DAL;
 using Gssy.Capi.Entities;
 using System;
 using System.Collections.Generic;
@@ -165,11 +165,11 @@ namespace Gssy.Capi.BIZ
 
         public void RebuildCircleGuide(string string_0, string string_1, string[] string_2, int int_0)
         {
-            string _003F10_003F = string.Format(GClass0.smethod_0("=ķȢ\u0324аԦق\u0732ࠕभਨସథഉ\u0e3b\u0f37\u103cᄸሻ፵ᐇᔖᘆ\u1771᠁ᤚᨋᬞᰘᴂḅἇ‗℉∇⌈␁╾♥✋⠕⥲⩮⬚Ⱀ\u2d69\u2e7b⽷ぼㅸ㉻㍪㑽㕽㙶㝴㡨㤒㨞㬍㱻㵣㹯㽻䁭䄇䉵䍰䑶䕵䙧䝸䡿䥖䩚䬠䰻䵠个佤倿儷剗卛呐唳噃坄塕奜婚孄屃嵅幕彚恍慓戻挢摿攲晿朦"), string_0, string_1);
+            string _003F10_003F = string.Format("UPDATE SurveyRandom SET QUESTION_NAME='JUMP',RANDOM_INDEX=0 WHERE SURVEY_ID='{0}' AND QUESTION_SET='{1}'", string_0, string_1);
             oSurveyRandomDal.RunSQL(_003F10_003F);
             for (int i = 0; i < string_2.Count(); i++)
             {
-                _003F10_003F = string.Format(GClass0.smethod_0("ÔǐȻ\u033fЩԹ\u065bܩࠌऊ\u0a01ଓఌദฒ༜ပᄟሂፎᐾᔩᘿᝊᠸ\u193dᨢ\u1b35\u1c31\u1d2dḬἬ‾℮∞⌓␘╡☊✏⠜⤋⨃⬟Ⱊⴚ⸌⼁〔\u3104㉣㍮㐟㔍㘅㜎㠆㤅㨘㬏㰋㴀㸆㼚䁼䄻䈌䍃䐝䔜䙬䝲䡼䥪䩲䬖䱦䵡乡佤側兩剰卧呩唑嘌坑堙奕娀嬆層嵪幧异恰慵扚捍摉敕晔杔框楋橒歂氨洳湨漣灬焷爯獏瑃畈瘫睉硆祌穂笻簢絿縱罿耦"), string_0, string_1, string_2[i].ToString(), (i + 1).ToString());
+                _003F10_003F = string.Format("UPDATE SurveyRandom SET QUESTION_NAME=QUESTION_SET, RANDOM_INDEX={3}  WHERE SURVEY_ID='{0}' AND QUESTION_SET='{1}' AND CODE='{2}'", string_0, string_1, string_2[i].ToString(), (i + 1).ToString());
                 oSurveyRandomDal.RunSQL(_003F10_003F);
             }
             if (int_0 == 1)

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Gssy.Capi.DAL;
 using Gssy.Capi.Entities;
@@ -104,15 +104,15 @@ namespace Gssy.Capi.BIZ
 			{
 				string string_3 = string.Concat(new string[]
 				{
-					GClass0.smethod_0("闭創ȩ"),
+					"问卷(",
 					string_0,
-					GClass0.smethod_0("#擩滝痳枣䯋套啎遷ग़"),
+					")无法直接从当前页[",
 					string_1,
-					GClass0.smethod_0("R賽倽ﰖѝՏٛݛࡎॉੋ୛ొെ฼"),
+					"]跳到：VERSION_ID=",
 					text2,
-					GClass0.smethod_0("％ŘɆ́р՛ي݆࠼"),
+					"，PAGE_ID=",
 					text,
-					GClass0.smethod_0("＇ŌɆ͚ъՙً݅ࡎे਼"),
+					"，FORM_NAME=",
 					this.RoadMap.FORM_NAME
 				});
 				this.oLogicExplain.OutputResult(string_3, "CapiDebug.Log", true);
@@ -188,29 +188,29 @@ namespace Gssy.Capi.BIZ
 			{
 				string string_4 = string.Concat(new string[]
 				{
-					GClass0.smethod_0("闭創ȩ"),
+					"问卷(",
 					string_0,
-					GClass0.smethod_0("#擩滝痳枣䯋套啎遷ग़"),
+					")无法直接从当前页[",
 					string_1,
-					GClass0.smethod_0("R賽倽ﰖѝՏٛݛࡎॉੋ୛ొെ฼"),
+					"]跳到：VERSION_ID=",
 					text2,
-					GClass0.smethod_0("％ŘɆ́р՛ي݆࠼"),
+					"，PAGE_ID=",
 					text,
-					GClass0.smethod_0("＇ŌɆ͚ъՙً݅ࡎे਼"),
+					"，FORM_NAME=",
 					this.RoadMap.FORM_NAME
 				});
 				this.oLogicExplain.OutputResult(string_4, "CapiDebug.Log", true);
 				string_4 = string.Concat(new object[]
 				{
-					GClass0.smethod_0("6ĵȴ̳вԱذ䤅䘎鰔臣咡羥䋨湧၊ᅪቫ፳ᑃᔼ"),
+					"       上一错误循环信息：LoopA=",
 					this.CircleACurrent,
 					"/",
 					this.CircleACount,
-					GClass0.smethod_0("$ħɊͪѫճـܼ"),
+					", LoopB=",
 					this.CircleBCurrent,
 					"/",
 					this.CircleBCount,
-					GClass0.smethod_0("<įɉͿѣվٺݙࡩॠ੣୑౽൳๧༼"),
+					", GroupPageType=",
 					this.GroupPageType
 				});
 				this.oLogicExplain.OutputResult(string_4, "CapiDebug.Log", true);
@@ -492,7 +492,7 @@ namespace Gssy.Capi.BIZ
 			for (int i = int_1; i <= int_0; i++)
 			{
 				SurveyRandom circleOne = this.oSurveyRandomDal.GetCircleOne(string_0, string_1, i);
-				if (circleOne.QUESTION_NAME != GClass0.smethod_0("NŖɏ͑"))
+				if (circleOne.QUESTION_NAME != "JUMP")
 				{
 					result = circleOne.CODE;
 					int_2 = i;

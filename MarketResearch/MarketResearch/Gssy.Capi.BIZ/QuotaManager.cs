@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Gssy.Capi.DAL;
 using Gssy.Capi.Entities;
@@ -23,7 +23,7 @@ namespace Gssy.Capi.BIZ
 			string_2 = "";
 			if (this.oSurveyQuotaDal.ExistsByQName(janswer_0.questionname, janswer_0.code))
 			{
-				string string_3 = string.Format(GClass0.smethod_0("0ħȭ̥ќՊ؝ܖࠛड़ੋୗౚഖ๦ཁ၁ᅄቔፉᑾᕛᙂ᝘ᡊᤊᩞᭀ᱂ᵔṀἄ⁲ⅷ≤⍳⑋╗♒❒⡄⥔⩘⭕ⱒⴶ⸨⼳とㄢ㉬㌷㐯㕯㙣㝨㠫㥉㩆㭌㱂㴻㸢㽿䀲䅿䈦"), janswer_0.questionname, janswer_0.code);
+				string string_3 = string.Format("select * from SurveyQuota where QUESTION_NAME ='{0}' and CODE='{1}'", janswer_0.questionname, janswer_0.code);
 				SurveyQuota bySql = this.oSurveyQuotaDal.GetBySql(string_3);
 				string_2 = bySql.QUESTION_TITLE;
 				int num = bySql.SAMPLE_TARGET + bySql.SAMPLE_BACKUP - bySql.SAMPLE_FINISH;
@@ -60,11 +60,11 @@ namespace Gssy.Capi.BIZ
 					bySql.SAMPLE_BALANCE = bySql.SAMPLE_TOTAL - bySql.SAMPLE_REAL;
 					if (bySql.SAMPLE_BALANCE > 0)
 					{
-						bySql.IS_FULL = GClass0.smethod_0("吧");
+						bySql.IS_FULL = "否";
 					}
 					else
 					{
-						bySql.IS_FULL = GClass0.smethod_0("昮");
+						bySql.IS_FULL = "是";
 					}
 					this.oSurveyQuotaDal.Update(bySql);
 				}
@@ -97,11 +97,11 @@ namespace Gssy.Capi.BIZ
 			surveyQuota_0.SAMPLE_BALANCE = surveyQuota_0.SAMPLE_TOTAL - surveyQuota_0.SAMPLE_REAL;
 			if (surveyQuota_0.SAMPLE_BALANCE > 0)
 			{
-				surveyQuota_0.IS_FULL = GClass0.smethod_0("吧");
+				surveyQuota_0.IS_FULL = "否";
 			}
 			else
 			{
-				surveyQuota_0.IS_FULL = GClass0.smethod_0("昮");
+				surveyQuota_0.IS_FULL = "是";
 			}
 			this.oSurveyQuotaDal.Update(surveyQuota_0);
 		}
@@ -122,11 +122,11 @@ namespace Gssy.Capi.BIZ
 			surveyQuota_0.SAMPLE_BALANCE = surveyQuota_0.SAMPLE_TOTAL - surveyQuota_0.SAMPLE_REAL;
 			if (surveyQuota_0.SAMPLE_BALANCE > 0)
 			{
-				surveyQuota_0.IS_FULL = GClass0.smethod_0("吧");
+				surveyQuota_0.IS_FULL = "否";
 			}
 			else
 			{
-				surveyQuota_0.IS_FULL = GClass0.smethod_0("昮");
+				surveyQuota_0.IS_FULL = "是";
 			}
 			this.oSurveyQuotaDal.Update(surveyQuota_0);
 		}

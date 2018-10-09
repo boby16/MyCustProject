@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -210,7 +210,7 @@ namespace Gssy.Capi.BIZ
 				{
 					break;
 				}
-				if (surveyRandom.QUESTION_NAME != GClass0.smethod_0("NŖɏ͑"))
+				if (surveyRandom.QUESTION_NAME != "JUMP")
 				{
 					list3.Add(surveyRandom);
 				}
@@ -225,7 +225,7 @@ namespace Gssy.Capi.BIZ
 					{
 						break;
 					}
-					if (surveyRandom2.QUESTION_NAME != GClass0.smethod_0("NŖɏ͑"))
+					if (surveyRandom2.QUESTION_NAME != "JUMP")
 					{
 						list5.Add(surveyRandom2);
 					}
@@ -565,7 +565,7 @@ namespace Gssy.Capi.BIZ
 				{
 					break;
 				}
-				if (surveyRandom.QUESTION_NAME != GClass0.smethod_0("NŖɏ͑"))
+				if (surveyRandom.QUESTION_NAME != "JUMP")
 				{
 					list4.Add(surveyRandom);
 				}
@@ -577,7 +577,7 @@ namespace Gssy.Capi.BIZ
 				{
 					break;
 				}
-				if (surveyAnswer.QUESTION_NAME != GClass0.smethod_0("NŖɏ͑"))
+				if (surveyAnswer.QUESTION_NAME != "JUMP")
 				{
 					list5.Add(surveyAnswer);
 				}
@@ -982,7 +982,7 @@ namespace Gssy.Capi.BIZ
 				{
 					break;
 				}
-				if (surveyRandom.QUESTION_NAME != GClass0.smethod_0("NŖɏ͑"))
+				if (surveyRandom.QUESTION_NAME != "JUMP")
 				{
 					list2.Add(surveyRandom);
 				}
@@ -997,7 +997,7 @@ namespace Gssy.Capi.BIZ
 					{
 						break;
 					}
-					if (surveyRandom2.QUESTION_NAME != GClass0.smethod_0("NŖɏ͑"))
+					if (surveyRandom2.QUESTION_NAME != "JUMP")
 					{
 						list4.Add(surveyRandom2);
 					}
@@ -1146,7 +1146,7 @@ namespace Gssy.Capi.BIZ
 			List<SurveyRandom> list = this.oSurveyRandomDal.GetList(this.SurveyID, byName.GROUP_CODEA);
 			for (int i = list.Count<SurveyRandom>() - 1; i >= 0; i--)
 			{
-				if (list[i].QUESTION_NAME == GClass0.smethod_0("NŖɏ͑"))
+				if (list[i].QUESTION_NAME == "JUMP")
 				{
 					list.Remove(list[i]);
 				}
@@ -1157,7 +1157,7 @@ namespace Gssy.Capi.BIZ
 				list2 = this.oSurveyRandomDal.GetList(this.SurveyID, byName.GROUP_CODEB);
 				for (int j = list2.Count<SurveyRandom>() - 1; j >= 0; j--)
 				{
-					if (list2[j].QUESTION_NAME == GClass0.smethod_0("NŖɏ͑"))
+					if (list2[j].QUESTION_NAME == "JUMP")
 					{
 						list2.Remove(list2[j]);
 					}
@@ -1302,7 +1302,7 @@ namespace Gssy.Capi.BIZ
 			{
 				for (int i = list.Count<SurveyRandom>() - 1; i >= 0; i--)
 				{
-					if (list[i].QUESTION_NAME == GClass0.smethod_0("NŖɏ͑"))
+					if (list[i].QUESTION_NAME == "JUMP")
 					{
 						list.Remove(list[i]);
 					}
@@ -1565,13 +1565,13 @@ namespace Gssy.Capi.BIZ
 			{
 				if (string_2 == "A")
 				{
-					string pattern = string_1 + "_" + string_3 + GClass0.smethod_0("1ńɳͭФԸٮܻ࡭स੓୪౶ഽวཷၖᅉቛ።ᑾᔵᘯ᝿ᠨ");
+					string pattern = string_1 + "_" + string_3 + "(\\d{1,})|(\\d{1,}_A\\d{1,})";
 					Regex regex = new Regex(pattern);
 					flag = regex.IsMatch(string_0);
 				}
 				else if (string_2 == "B")
 				{
-					string pattern2 = string_1 + GClass0.smethod_0("VŚɛ͢ѾԵدݿ࡞") + string_3 + GClass0.smethod_0("1ńɳͭФԸٮܻ࡭स੓୪౶ഽวཷၖᅉቛ።ᑾᔵᘯ᝿ᠨ");
+					string pattern2 = string_1 + "_R\\d{1,}_" + string_3 + "(\\d{1,})|(\\d{1,}_A\\d{1,})";
 					Regex regex2 = new Regex(pattern2);
 					flag = regex2.IsMatch(string_0);
 				}
@@ -1581,7 +1581,7 @@ namespace Gssy.Capi.BIZ
 				}
 				else
 				{
-					string pattern3 = string_1 + GClass0.smethod_0("Wņɚ͡ѿԲخݼ");
+					string pattern3 = string_1 + "_A\\d{1,}";
 					Regex regex3 = new Regex(pattern3);
 					flag = regex3.IsMatch(string_0);
 				}
