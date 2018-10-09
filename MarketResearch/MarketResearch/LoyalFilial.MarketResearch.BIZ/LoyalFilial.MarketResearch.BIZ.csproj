@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aliyun.OpenServices">
-      <HintPath>..\..\MarketResearchV1.0\Library\Aliyun.OpenServices.dll</HintPath>
+      <HintPath>..\Library\Aliyun.OpenServices.dll</HintPath>
     </Reference>
     <Reference Include="DirectShowLib-2005">
       <HintPath>..\Library\DirectShowLib-2005.dll</HintPath>
