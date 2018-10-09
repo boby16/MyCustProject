@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -65,7 +65,7 @@ namespace Gssy.Capi.Common
 				}
 				catch (Exception ex)
 				{
-					Logging.Error.WriteLog(GClass0.smethod_0("WŻȴͶѠգٿݽ࠮ॢ੯୨౿ൻ๺རၢᄿሤ፸ᐲᕼ"), ex.Message);
+					Logging.Error.WriteLog("An error occurred: {0}", ex.Message);
 				}
 				finally
 				{
@@ -76,11 +76,11 @@ namespace Gssy.Capi.Common
 			}
 			catch (CryptographicException ex2)
 			{
-				Console.WriteLine(GClass0.smethod_0("bĂɢ͒Ѧծ٩ݳࡼ२੸୨౿ൿ๶༴ၶᅠባ፿ᑽᔮᙢᝯᡨ᥿᩻᭺ᱢᵢḿἤ⁸Ⅎ≼"), ex2.Message);
+				Console.WriteLine("A Cryptographic error occurred: {0}", ex2.Message);
 			}
 			catch (UnauthorizedAccessException ex3)
 			{
-				Console.WriteLine(GClass0.smethod_0("[Ĺɾ;Ѻհشݶࡠॣ੿୽మൢ๯ཨၿᅻቺ።ᑢᔿᘤ᝸ᠲ᥼"), ex3.Message);
+				Console.WriteLine("A file error occurred: {0}", ex3.Message);
 			}
 		}
 
@@ -100,7 +100,7 @@ namespace Gssy.Capi.Common
 				}
 				catch (Exception ex)
 				{
-					Logging.Error.WriteLog(GClass0.smethod_0("WŻȴͶѠգٿݽ࠮ॢ੯୨౿ൻ๺རၢᄿሤ፸ᐲᕼ"), ex.Message);
+					Logging.Error.WriteLog("An error occurred: {0}", ex.Message);
 				}
 				finally
 				{
@@ -112,12 +112,12 @@ namespace Gssy.Capi.Common
 			}
 			catch (CryptographicException ex2)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("bĂɢ͒Ѧծ٩ݳࡼ२੸୨౿ൿ๶༴ၶᅠባ፿ᑽᔮᙢᝯᡨ᥿᩻᭺ᱢᵢḿἤ⁸Ⅎ≼"), ex2.Message);
+				Logging.Error.WriteLog("A Cryptographic error occurred: {0}", ex2.Message);
 				result = null;
 			}
 			catch (UnauthorizedAccessException ex3)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("WŻȴͶѠգٿݽ࠮ॢ੯୨౿ൻ๺རၢᄿሤ፸ᐲᕼ"), ex3.Message);
+				Logging.Error.WriteLog("An error occurred: {0}", ex3.Message);
 				result = null;
 			}
 			return result;

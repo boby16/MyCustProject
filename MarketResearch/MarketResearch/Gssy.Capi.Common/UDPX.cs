@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -21,50 +21,50 @@ namespace Gssy.Capi.Common
 	{
 		public bool isNumberic(string string_0)
 		{
-			Regex regex = new Regex(GClass0.smethod_0("[Řɧ̩Х"));
+			Regex regex = new Regex("^\\d+$");
 			return regex.IsMatch(string_0);
 		}
 
 		public bool isValue(string string_0)
 		{
-			Regex regex = new Regex(GClass0.smethod_0("Kļɏ̿ѭՌؤܧ࠲ॐ੯ଡడൔษཚၡᄯሪጽᐥ"));
+			Regex regex = new Regex("^(\\-|\\+)?\\d+(\\.\\d+)?$");
 			return regex.IsMatch(string_0);
 		}
 
 		public bool isLetter(string string_0)
 		{
-			Regex regex = new Regex(GClass0.smethod_0("UőɈ̥ѝէبݾ࡞ऩਥ"));
+			Regex regex = new Regex("^[A-Za-z]+$");
 			return regex.IsMatch(string_0);
 		}
 
 		public bool isEmail(string string_0)
 		{
-			Regex regex = new Regex(GClass0.smethod_0("wŝȂ̀Ѽԋ؎܊ࡾॾ੖ଋశഴ๝ཀၬᄱሱፃᐺᔸᙈᝈᡤ᤹ᨸᬺ᱓ᴠṑύ†™≒⌥␩╛♙❳⠨⤫⨫"));
+			Regex regex = new Regex("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
 			return regex.IsMatch(string_0);
 		}
 
 		public bool isHttp(string string_0)
 		{
-			string input = (this.MID(string_0, 7, -9999).ToLower() == GClass0.smethod_0("oŲɱʹйԭخ")) ? string_0 : (GClass0.smethod_0("oŲɱʹйԭخ") + string_0);
-			Regex regex = new Regex(GClass0.smethod_0("AŜɓ͖Пԋ،܊ࡺॼ੨ଳీഷ็༴ူᄳቌፊᑢᔹᙎ᜹ᠹ᤿ᩔ᭒ᱺᴡḫἤ…ℷ∢⌠␸╙☩✫⠾"));
+			string input = (this.MID(string_0, 7, -9999).ToLower() == "http://") ? string_0 : ("http://" + string_0);
+			Regex regex = new Regex("http://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?");
 			return regex.IsMatch(input);
 		}
 
 		public bool isChinese(string string_0)
 		{
-			Regex regex = new Regex(GClass0.smethod_0("LŊɌͺкՈؼܻࠧॕ੽ାీൄัཞဩᄥ"));
+			Regex regex = new Regex("^[\u4E00-\u9FA5]+$");
 			return regex.IsMatch(string_0);
 		}
 
 		public bool isWord(string string_0)
 		{
-			Regex regex = new Regex(GClass0.smethod_0("Dłə̺ьմعݩࡎॵੌ୺఺ൈ฼༻ဧᅕችጾᑀᕄᘱ᝞ᠩᤥ"));
+			Regex regex = new Regex("^[A-Za-z\\d\u4E00-\u9FA5]+$");
 			return regex.IsMatch(string_0);
 		}
 
 		public bool isIP(string string_0)
 		{
-			Regex regex = new Regex(GClass0.smethod_0("+Ŝȗ̉р՜ٝܓࠑढ़ਏ଎క൚฼བ၈ᅐሾጆᐝᕒᙪᜅᡭᥱᩮᬇᱰᵶṿἲ‮Ⅵ≿⍠␬┬♾✪⠩⤰⩹⬑ⱹⵥ⹳⼛〡ㄸ㉱㍷㐚㕰㘒㜋㡠㤕㨕㬒㱝㵃㸆㼚䀇䅉䉏䌃䑕䕔䙓䜜䡶䤜䨆䬞䱴䵌乛伔倐兿刓匏吔啽嘶地堵奸婠嬫尵崪幪彪怤慰扷据搣敋昿朣根楑橯歶氻洽湜漶瀨焱牞猫琥"));
+			Regex regex = new Regex("^(d{1,2}|1dd|2[0-4]d|25[0-5]).(d{1,2}|1dd|2[0-4]d|25[0-5]).(d{1,2}|1dd|2[0-4]d|25[0-5]).(d{1,2}|1dd|2[0-4]d|25[0-5])$");
 			return regex.IsMatch(string_0);
 		}
 
@@ -78,23 +78,23 @@ namespace Gssy.Capi.Common
 		{
 			string_1 = string_1.ToUpper();
 			Encoding encoding;
-			if (string_1 == GClass0.smethod_0("CŃɃͅіՎٕ"))
+			if (string_1 == "DEFAULT")
 			{
 				encoding = Encoding.Default;
 			}
-			else if (string_1 == GClass0.smethod_0("Dŗɀ͋ш"))
+			else if (string_1 == "ASCII")
 			{
 				encoding = Encoding.ASCII;
 			}
-			else if (string_1 == GClass0.smethod_0("RňɌ͇ьՆل"))
+			else if (string_1 == "UNICODE")
 			{
 				encoding = Encoding.Unicode;
 			}
-			else if (string_1 == GClass0.smethod_0("PŐɅ̱г"))
+			else if (string_1 == "UTF32")
 			{
 				encoding = Encoding.UTF32;
 			}
-			else if (string_1 == GClass0.smethod_0("QŗɄ̹"))
+			else if (string_1 == "UTF8")
 			{
 				encoding = Encoding.UTF8;
 			}
@@ -112,23 +112,23 @@ namespace Gssy.Capi.Common
 		{
 			string_1 = string_1.ToUpper();
 			Encoding encoding;
-			if (string_1 == GClass0.smethod_0("CŃɃͅіՎٕ"))
+			if (string_1 == "DEFAULT")
 			{
 				encoding = Encoding.Default;
 			}
-			else if (string_1 == GClass0.smethod_0("Dŗɀ͋ш"))
+			else if (string_1 == "ASCII")
 			{
 				encoding = Encoding.ASCII;
 			}
-			else if (string_1 == GClass0.smethod_0("RňɌ͇ьՆل"))
+			else if (string_1 == "UNICODE")
 			{
 				encoding = Encoding.Unicode;
 			}
-			else if (string_1 == GClass0.smethod_0("PŐɅ̱г"))
+			else if (string_1 == "UTF32")
 			{
 				encoding = Encoding.UTF32;
 			}
-			else if (string_1 == GClass0.smethod_0("QŗɄ̹"))
+			else if (string_1 == "UTF8")
 			{
 				encoding = Encoding.UTF8;
 			}
@@ -146,23 +146,23 @@ namespace Gssy.Capi.Common
 		{
 			string_2 = string_2.ToUpper();
 			Encoding encoding;
-			if (string_2 == GClass0.smethod_0("CŃɃͅіՎٕ"))
+			if (string_2 == "DEFAULT")
 			{
 				encoding = Encoding.Default;
 			}
-			else if (string_2 == GClass0.smethod_0("Dŗɀ͋ш"))
+			else if (string_2 == "ASCII")
 			{
 				encoding = Encoding.ASCII;
 			}
-			else if (string_2 == GClass0.smethod_0("RňɌ͇ьՆل"))
+			else if (string_2 == "UNICODE")
 			{
 				encoding = Encoding.Unicode;
 			}
-			else if (string_2 == GClass0.smethod_0("PŐɅ̱г"))
+			else if (string_2 == "UTF32")
 			{
 				encoding = Encoding.UTF32;
 			}
-			else if (string_2 == GClass0.smethod_0("QŗɄ̹"))
+			else if (string_2 == "UTF8")
 			{
 				encoding = Encoding.UTF8;
 			}
@@ -183,23 +183,23 @@ namespace Gssy.Capi.Common
 		{
 			string_2 = string_2.ToUpper();
 			Encoding encoding;
-			if (string_2 == GClass0.smethod_0("CŃɃͅіՎٕ"))
+			if (string_2 == "DEFAULT")
 			{
 				encoding = Encoding.Default;
 			}
-			else if (string_2 == GClass0.smethod_0("Dŗɀ͋ш"))
+			else if (string_2 == "ASCII")
 			{
 				encoding = Encoding.ASCII;
 			}
-			else if (string_2 == GClass0.smethod_0("RňɌ͇ьՆل"))
+			else if (string_2 == "UNICODE")
 			{
 				encoding = Encoding.Unicode;
 			}
-			else if (string_2 == GClass0.smethod_0("PŐɅ̱г"))
+			else if (string_2 == "UTF32")
 			{
 				encoding = Encoding.UTF32;
 			}
-			else if (string_2 == GClass0.smethod_0("QŗɄ̹"))
+			else if (string_2 == "UTF8")
 			{
 				encoding = Encoding.UTF8;
 			}
@@ -216,23 +216,23 @@ namespace Gssy.Capi.Common
 		{
 			string_2 = string_2.ToUpper();
 			Encoding encoding;
-			if (string_2 == GClass0.smethod_0("CŃɃͅіՎٕ"))
+			if (string_2 == "DEFAULT")
 			{
 				encoding = Encoding.Default;
 			}
-			else if (string_2 == GClass0.smethod_0("Dŗɀ͋ш"))
+			else if (string_2 == "ASCII")
 			{
 				encoding = Encoding.ASCII;
 			}
-			else if (string_2 == GClass0.smethod_0("RňɌ͇ьՆل"))
+			else if (string_2 == "UNICODE")
 			{
 				encoding = Encoding.Unicode;
 			}
-			else if (string_2 == GClass0.smethod_0("PŐɅ̱г"))
+			else if (string_2 == "UTF32")
 			{
 				encoding = Encoding.UTF32;
 			}
-			else if (string_2 == GClass0.smethod_0("QŗɄ̹"))
+			else if (string_2 == "UTF8")
 			{
 				encoding = Encoding.UTF8;
 			}
@@ -249,23 +249,23 @@ namespace Gssy.Capi.Common
 		{
 			string_2 = string_2.ToUpper();
 			Encoding encoding;
-			if (string_2 == GClass0.smethod_0("CŃɃͅіՎٕ"))
+			if (string_2 == "DEFAULT")
 			{
 				encoding = Encoding.Default;
 			}
-			else if (string_2 == GClass0.smethod_0("Dŗɀ͋ш"))
+			else if (string_2 == "ASCII")
 			{
 				encoding = Encoding.ASCII;
 			}
-			else if (string_2 == GClass0.smethod_0("RňɌ͇ьՆل"))
+			else if (string_2 == "UNICODE")
 			{
 				encoding = Encoding.Unicode;
 			}
-			else if (string_2 == GClass0.smethod_0("PŐɅ̱г"))
+			else if (string_2 == "UTF32")
 			{
 				encoding = Encoding.UTF32;
 			}
-			else if (string_2 == GClass0.smethod_0("QŗɄ̹"))
+			else if (string_2 == "UTF8")
 			{
 				encoding = Encoding.UTF8;
 			}
@@ -313,9 +313,9 @@ namespace Gssy.Capi.Common
 		public string SetValueOfKeyAtFile(string string_0, string string_1, string string_2, bool bool_0 = true, int int_0 = 0, string string_3 = "", bool bool_1 = true, string string_4 = "Default")
 		{
 			string result = "";
-			List<string> list_ = this.ReadTextFileToList(string_0, GClass0.smethod_0("\u000fċ"), string_4);
+			List<string> list_ = this.ReadTextFileToList(string_0, "\r\n", string_4);
 			result = this.SetValueOfKeyAtList(list_, string_1, string_2, bool_0, int_0, string_3, bool_1);
-			this.WriteListToFile(list_, string_0, false, string_4, GClass0.smethod_0("\u000fċ"));
+			this.WriteListToFile(list_, string_0, false, string_4, "\r\n");
 			return result;
 		}
 
@@ -348,7 +348,7 @@ namespace Gssy.Capi.Common
 		public string GetValueOfKeyAtFile(string string_0, string string_1, int int_0 = 0, string string_2 = "", string string_3 = "Default")
 		{
 			string text = "";
-			List<string> list_ = this.ReadTextFileToList(string_0, GClass0.smethod_0("\u000fċ"), string_3);
+			List<string> list_ = this.ReadTextFileToList(string_0, "\r\n", string_3);
 			return this.GetValueOfKeyAtList(list_, string_1, int_0, string_2);
 		}
 
@@ -356,19 +356,19 @@ namespace Gssy.Capi.Common
 		{
 			string_1 = string_1.ToUpper();
 			Encoding encoding;
-			if (string_1 == GClass0.smethod_0("Dŗɀ͋ш"))
+			if (string_1 == "ASCII")
 			{
 				encoding = Encoding.ASCII;
 			}
-			else if (string_1 == GClass0.smethod_0("RňɌ͇ьՆل"))
+			else if (string_1 == "UNICODE")
 			{
 				encoding = Encoding.Unicode;
 			}
-			else if (string_1 == GClass0.smethod_0("PŐɅ̱г"))
+			else if (string_1 == "UTF32")
 			{
 				encoding = Encoding.UTF32;
 			}
-			else if (string_1 == GClass0.smethod_0("QŗɄ̹"))
+			else if (string_1 == "UTF8")
 			{
 				encoding = Encoding.UTF8;
 			}
@@ -461,14 +461,14 @@ namespace Gssy.Capi.Common
 		private double method_0(double double_0)
 		{
 			string text = double_0.ToString();
-			int num = text.IndexOf(GClass0.smethod_0("/"));
+			int num = text.IndexOf(".");
 			if (num > -1)
 			{
-				text = GClass0.smethod_0("2į") + text.Substring(num + 1, text.Length - num - 1);
+				text = "0." + text.Substring(num + 1, text.Length - num - 1);
 			}
 			else
 			{
-				text = GClass0.smethod_0("1");
+				text = "0";
 			}
 			return Convert.ToDouble(text);
 		}
@@ -513,7 +513,7 @@ namespace Gssy.Capi.Common
 				}
 				else
 				{
-					text = text + string_1 + this.NumberFormat(text2, string_2, GClass0.smethod_0("1"));
+					text = text + string_1 + this.NumberFormat(text2, string_2, "0");
 				}
 			}
 			if (text.Length > string_1.Length && string_1.Length > 0)
@@ -537,7 +537,7 @@ namespace Gssy.Capi.Common
 				}
 				else
 				{
-					text = text + string_0 + this.NumberFormat(text2, string_1, GClass0.smethod_0("1"));
+					text = text + string_0 + this.NumberFormat(text2, string_1, "0");
 				}
 			}
 			if (text.Length > string_0.Length && string_0.Length > 0)
@@ -904,7 +904,7 @@ namespace Gssy.Capi.Common
 			for (int i = 0; i < string_0.Length; i++)
 			{
 				string text2 = string_0[i].ToString();
-				if (flag && (text2 == GClass0.smethod_0("1") || text2 == GClass0.smethod_0("!")))
+				if (flag && (text2 == "0" || text2 == " "))
 				{
 					flag = false;
 				}
@@ -929,9 +929,9 @@ namespace Gssy.Capi.Common
 			{
 				num = 1;
 			}
-			string text2 = (list.Count<string>() > 1) ? list[1] : GClass0.smethod_0("1");
+			string text2 = (list.Count<string>() > 1) ? list[1] : "0";
 			int num2 = Convert.ToInt32(text2);
-			string text3 = (this.LEFT(string_0, 1) == GClass0.smethod_0(",")) ? GClass0.smethod_0(",") : "";
+			string text3 = (this.LEFT(string_0, 1) == "-") ? "-" : "";
 			string text4 = (text3 == "") ? string_0 : this.MID(string_0, 1, -9999);
 			if (num2 > 0)
 			{
@@ -943,7 +943,7 @@ namespace Gssy.Capi.Common
 				text5 = this.FillString(text5, string_2, num, true);
 				text2 = ((list2.Count<string>() > 1) ? list2[1] : "");
 				text2 = this.FillString(text2, string_2, num2, false);
-				text = ((text2.Length > 0) ? (text5 + GClass0.smethod_0("/") + text2) : text5);
+				text = ((text2.Length > 0) ? (text5 + "." + text2) : text5);
 				text = text3 + text;
 			}
 			else
@@ -979,7 +979,7 @@ namespace Gssy.Capi.Common
 			string text = string_0.Trim();
 			if (text.Length > 0)
 			{
-				int num = text.IndexOf(GClass0.smethod_0("/"));
+				int num = text.IndexOf(".");
 				if (num > -1)
 				{
 					text = text.Substring(num + 1, text.Length - num - 1);
@@ -997,7 +997,7 @@ namespace Gssy.Capi.Common
 			string text = (double_0 == 0.0) ? "" : double_0.ToString();
 			if (text.Length > 0)
 			{
-				int num = text.IndexOf(GClass0.smethod_0("/"));
+				int num = text.IndexOf(".");
 				if (num > -1)
 				{
 					text = text.Substring(num + 1, text.Length - num - 1);
@@ -1014,33 +1014,33 @@ namespace Gssy.Capi.Common
 		{
 			string[] array = new string[]
 			{
-				GClass0.smethod_0("旤"),
-				GClass0.smethod_0("丁"),
-				GClass0.smethod_0("亍"),
-				GClass0.smethod_0("丈"),
-				GClass0.smethod_0("囚"),
-				GClass0.smethod_0("井"),
-				GClass0.smethod_0("公"),
-				GClass0.smethod_0("旤")
+				"日",
+				"一",
+				"二",
+				"三",
+				"四",
+				"五",
+				"六",
+				"日"
 			};
 			int num = (int)Convert.ToInt16(dateTime_0.DayOfWeek);
 			string text = array[num];
 			string a = string_0.ToUpper();
-			if (a == GClass0.smethod_0("LĶ"))
+			if (a == "N7")
 			{
-				text = ((num == 0) ? GClass0.smethod_0("6") : num.ToString());
+				text = ((num == 0) ? "7" : num.ToString());
 			}
-			else if (a == GClass0.smethod_0("Lı"))
+			else if (a == "N0")
 			{
 				text = num.ToString();
 			}
-			else if (a == GClass0.smethod_0("Aĳ"))
+			else if (a == "C2")
 			{
-				text = GClass0.smethod_0("呩") + text;
+				text = "周" + text;
 			}
-			else if (a == GClass0.smethod_0("AĲ"))
+			else if (a == "C3")
 			{
-				text = GClass0.smethod_0("昝昞") + text;
+				text = "星期" + text;
 			}
 			return text;
 		}
@@ -1070,128 +1070,128 @@ namespace Gssy.Capi.Common
 			string text4 = hours.ToString();
 			string str4 = minutes.ToString();
 			string str5 = seconds.ToString();
-			if (string_0 == GClass0.smethod_0("B") || string_0 == GClass0.smethod_0("b"))
+			if (string_0 == "C" || string_0 == "c")
 			{
 				if (string_1 == "")
 				{
-					string_1 = GClass0.smethod_0("_ňɀͫѯղ");
+					string_1 = "YMDhms";
 				}
-				if (string_1.Contains(GClass0.smethod_0("X")))
+				if (string_1.Contains("Y"))
 				{
-					text = str2 + GClass0.smethod_0("幵");
+					text = str2 + "年";
 				}
-				if (string_1.Contains(GClass0.smethod_0("L")))
+				if (string_1.Contains("M"))
 				{
-					text = text + (string_1.Contains(GClass0.smethod_0("X")) ? text3 : text2) + GClass0.smethod_0("丨昉");
+					text = text + (string_1.Contains("Y") ? text3 : text2) + "个月";
 				}
-				if (string_1.Contains(GClass0.smethod_0("E")))
+				if (string_1.Contains("D"))
 				{
-					if (string_1.Contains(GClass0.smethod_0("L")))
+					if (string_1.Contains("M"))
 					{
-						text = text + str3 + GClass0.smethod_0("夨");
+						text = text + str3 + "天";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("X")))
+					else if (string_1.Contains("Y"))
 					{
-						text = text + (timeSpan_0.Days % 365).ToString() + GClass0.smethod_0("夨");
+						text = text + (timeSpan_0.Days % 365).ToString() + "天";
 					}
 					else
 					{
-						text = text + str + GClass0.smethod_0("夨");
+						text = text + str + "天";
 					}
 				}
-				if (string_1.Contains(GClass0.smethod_0("i")))
+				if (string_1.Contains("h"))
 				{
-					if (string_1.Contains(GClass0.smethod_0("E")))
+					if (string_1.Contains("D"))
 					{
-						text = text + text4 + GClass0.smethod_0("對擷");
+						text = text + text4 + "小时";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("L")))
+					else if (string_1.Contains("M"))
 					{
-						text = text + (num4 * 24 + hours).ToString() + GClass0.smethod_0("對擷");
+						text = text + (num4 * 24 + hours).ToString() + "小时";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("X")))
+					else if (string_1.Contains("Y"))
 					{
-						text = text + (timeSpan_0.Days % 365 * 24 + hours).ToString() + GClass0.smethod_0("對擷");
+						text = text + (timeSpan_0.Days % 365 * 24 + hours).ToString() + "小时";
 					}
 					else
 					{
-						text = text + this.Round(timeSpan_0.TotalHours, 0, 0, 45).ToString() + GClass0.smethod_0("對擷");
+						text = text + this.Round(timeSpan_0.TotalHours, 0, 0, 45).ToString() + "小时";
 					}
 				}
-				if (string_1.Contains(GClass0.smethod_0("l")))
+				if (string_1.Contains("m"))
 				{
-					if (string_1.Contains(GClass0.smethod_0("i")))
+					if (string_1.Contains("h"))
 					{
-						text = text + str4 + GClass0.smethod_0("刄閞");
+						text = text + str4 + "分钟";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("E")))
+					else if (string_1.Contains("D"))
 					{
-						text = text + (hours * 60 + minutes).ToString() + GClass0.smethod_0("刄閞");
+						text = text + (hours * 60 + minutes).ToString() + "分钟";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("L")))
+					else if (string_1.Contains("M"))
 					{
-						text = text + (num4 * 1440 + hours * 60 + minutes).ToString() + GClass0.smethod_0("刄閞");
+						text = text + (num4 * 1440 + hours * 60 + minutes).ToString() + "分钟";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("X")))
+					else if (string_1.Contains("Y"))
 					{
-						text = text + (timeSpan_0.Days % 365 * 1440 + hours * 60 + minutes).ToString() + GClass0.smethod_0("刄閞");
+						text = text + (timeSpan_0.Days % 365 * 1440 + hours * 60 + minutes).ToString() + "分钟";
 					}
 					else
 					{
-						text = text + this.Round(timeSpan_0.TotalMinutes, 0, 0, 45).ToString() + GClass0.smethod_0("刄閞");
+						text = text + this.Round(timeSpan_0.TotalMinutes, 0, 0, 45).ToString() + "分钟";
 					}
 				}
-				if (string_1.Contains(GClass0.smethod_0("r")))
+				if (string_1.Contains("s"))
 				{
-					if (string_1.Contains(GClass0.smethod_0("l")))
+					if (string_1.Contains("m"))
 					{
-						text = text + str5 + GClass0.smethod_0("秓");
+						text = text + str5 + "秒";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("i")))
+					else if (string_1.Contains("h"))
 					{
-						text = text + (minutes * 60 + seconds).ToString() + GClass0.smethod_0("秓");
+						text = text + (minutes * 60 + seconds).ToString() + "秒";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("E")))
+					else if (string_1.Contains("D"))
 					{
-						text = text + (hours * 3600 + minutes * 60 + seconds).ToString() + GClass0.smethod_0("秓");
+						text = text + (hours * 3600 + minutes * 60 + seconds).ToString() + "秒";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("L")))
+					else if (string_1.Contains("M"))
 					{
-						text = text + (num4 * 86400 + hours * 3600 + minutes * 60 + seconds).ToString() + GClass0.smethod_0("秓");
+						text = text + (num4 * 86400 + hours * 3600 + minutes * 60 + seconds).ToString() + "秒";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("X")))
+					else if (string_1.Contains("Y"))
 					{
-						text = text + (timeSpan_0.Days % 365 * 86400 + hours * 60 + minutes * 60 + seconds).ToString() + GClass0.smethod_0("秓");
+						text = text + (timeSpan_0.Days % 365 * 86400 + hours * 60 + minutes * 60 + seconds).ToString() + "秒";
 					}
 					else
 					{
-						text = text + this.Round(timeSpan_0.TotalSeconds, 0, 0, 45).ToString() + GClass0.smethod_0("秓");
+						text = text + this.Round(timeSpan_0.TotalSeconds, 0, 0, 45).ToString() + "秒";
 					}
 				}
 			}
-			else if (string_0 == GClass0.smethod_0("D") || string_0 == GClass0.smethod_0("d"))
+			else if (string_0 == "E" || string_0 == "e")
 			{
 				if (string_1 == "")
 				{
-					string_1 = GClass0.smethod_0("_ňɀͫѯղ");
+					string_1 = "YMDhms";
 				}
-				text = GClass0.smethod_0(".");
-				if (string_1.Contains(GClass0.smethod_0("X")))
+				text = "/";
+				if (string_1.Contains("Y"))
 				{
-					text = str2 + GClass0.smethod_0(".");
+					text = str2 + "/";
 				}
-				if (string_1.Contains(GClass0.smethod_0("L")))
+				if (string_1.Contains("M"))
 				{
-					text += (string_1.Contains(GClass0.smethod_0("X")) ? text3 : text2);
+					text += (string_1.Contains("Y") ? text3 : text2);
 				}
-				text += GClass0.smethod_0(".");
-				if (string_1.Contains(GClass0.smethod_0("E")))
+				text += "/";
+				if (string_1.Contains("D"))
 				{
-					if (string_1.Contains(GClass0.smethod_0("L")))
+					if (string_1.Contains("M"))
 					{
 						text += str3;
 					}
-					else if (string_1.Contains(GClass0.smethod_0("X")))
+					else if (string_1.Contains("Y"))
 					{
 						text += (timeSpan_0.Days % 365).ToString();
 					}
@@ -1200,73 +1200,73 @@ namespace Gssy.Capi.Common
 						text += str;
 					}
 				}
-				text = ((text == GClass0.smethod_0("-Į")) ? "" : text);
-				string text5 = GClass0.smethod_0("3ĲȻ");
-				if (string_1.Contains(GClass0.smethod_0("i")))
+				text = ((text == "//") ? "" : text);
+				string text5 = "00:";
+				if (string_1.Contains("h"))
 				{
-					if (string_1.Contains(GClass0.smethod_0("E")))
+					if (string_1.Contains("D"))
 					{
-						text5 = text4 + GClass0.smethod_0(";");
+						text5 = text4 + ":";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("L")))
+					else if (string_1.Contains("M"))
 					{
-						text5 = (num4 * 24 + hours).ToString() + GClass0.smethod_0(";");
+						text5 = (num4 * 24 + hours).ToString() + ":";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("X")))
+					else if (string_1.Contains("Y"))
 					{
-						text5 = (timeSpan_0.Days % 365 * 24 + hours).ToString() + GClass0.smethod_0(";");
+						text5 = (timeSpan_0.Days % 365 * 24 + hours).ToString() + ":";
 					}
 					else
 					{
-						text5 = this.Round(timeSpan_0.TotalHours, 0, 0, 45).ToString() + GClass0.smethod_0(";");
+						text5 = this.Round(timeSpan_0.TotalHours, 0, 0, 45).ToString() + ":";
 					}
 				}
-				if (string_1.Contains(GClass0.smethod_0("l")))
+				if (string_1.Contains("m"))
 				{
-					if (string_1.Contains(GClass0.smethod_0("i")))
+					if (string_1.Contains("h"))
 					{
-						text5 = text5 + str4 + GClass0.smethod_0(";");
+						text5 = text5 + str4 + ":";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("E")))
+					else if (string_1.Contains("D"))
 					{
-						text5 = text5 + (hours * 60 + minutes).ToString() + GClass0.smethod_0(";");
+						text5 = text5 + (hours * 60 + minutes).ToString() + ":";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("L")))
+					else if (string_1.Contains("M"))
 					{
-						text5 = text5 + (num4 * 1440 + hours * 60 + minutes).ToString() + GClass0.smethod_0(";");
+						text5 = text5 + (num4 * 1440 + hours * 60 + minutes).ToString() + ":";
 					}
-					else if (string_1.Contains(GClass0.smethod_0("X")))
+					else if (string_1.Contains("Y"))
 					{
-						text5 = text5 + (timeSpan_0.Days % 365 * 1440 + hours * 60 + minutes).ToString() + GClass0.smethod_0(";");
+						text5 = text5 + (timeSpan_0.Days % 365 * 1440 + hours * 60 + minutes).ToString() + ":";
 					}
 					else
 					{
-						text5 = text5 + this.Round(timeSpan_0.TotalMinutes, 0, 0, 45).ToString() + GClass0.smethod_0(";");
+						text5 = text5 + this.Round(timeSpan_0.TotalMinutes, 0, 0, 45).ToString() + ":";
 					}
 				}
 				else
 				{
-					text5 += GClass0.smethod_0("3ĲȻ");
+					text5 += "00:";
 				}
-				if (string_1.Contains(GClass0.smethod_0("r")))
+				if (string_1.Contains("s"))
 				{
-					if (string_1.Contains(GClass0.smethod_0("l")))
+					if (string_1.Contains("m"))
 					{
 						text5 += str5;
 					}
-					else if (string_1.Contains(GClass0.smethod_0("i")))
+					else if (string_1.Contains("h"))
 					{
 						text5 += (minutes * 60 + seconds).ToString();
 					}
-					else if (string_1.Contains(GClass0.smethod_0("E")))
+					else if (string_1.Contains("D"))
 					{
 						text5 += (hours * 3600 + minutes * 60 + seconds).ToString();
 					}
-					else if (string_1.Contains(GClass0.smethod_0("L")))
+					else if (string_1.Contains("M"))
 					{
 						text5 += (num4 * 86400 + hours * 3600 + minutes * 60 + seconds).ToString();
 					}
-					else if (string_1.Contains(GClass0.smethod_0("X")))
+					else if (string_1.Contains("Y"))
 					{
 						text5 += (timeSpan_0.Days % 365 * 86400 + hours * 60 + minutes * 60 + seconds).ToString();
 					}
@@ -1277,38 +1277,38 @@ namespace Gssy.Capi.Common
 				}
 				else
 				{
-					text5 += GClass0.smethod_0("2ı");
+					text5 += "00";
 				}
-				text = ((text5 == GClass0.smethod_0("8ķȼ̵дԹزܱ")) ? text : (text + GClass0.smethod_0("!") + text5));
+				text = ((text5 == "00:00:00") ? text : (text + " " + text5));
 			}
 			else
 			{
 				int int_ = this.isValue(string_1) ? Convert.ToInt32(string_1) : 1;
-				if (string_0 == GClass0.smethod_0("X"))
+				if (string_0 == "Y")
 				{
 					text = this.Round((double)timeSpan_0.Days / 365.0, int_, 0, 45).ToString();
 				}
-				else if (string_0 == GClass0.smethod_0("L"))
+				else if (string_0 == "M")
 				{
 					text = ((double)(num * 12) + this.Round(((double)timeSpan_0.Days % 365.0 - (double)(num2 / 2)) / 30.0, int_, 0, 45)).ToString();
 				}
-				else if (string_0 == GClass0.smethod_0("E"))
+				else if (string_0 == "D")
 				{
 					text = this.Round(timeSpan_0.TotalDays, int_, 0, 45).ToString();
 				}
-				else if (string_0 == GClass0.smethod_0("V"))
+				else if (string_0 == "W")
 				{
 					text = this.Round(timeSpan_0.TotalDays / 7.0, int_, 0, 45).ToString();
 				}
-				else if (string_0 == GClass0.smethod_0("i"))
+				else if (string_0 == "h")
 				{
 					text = this.Round(timeSpan_0.TotalHours, int_, 0, 45).ToString();
 				}
-				else if (string_0 == GClass0.smethod_0("l"))
+				else if (string_0 == "m")
 				{
 					text = this.Round(timeSpan_0.TotalMinutes, int_, 0, 45).ToString();
 				}
-				else if (string_0 == GClass0.smethod_0("r"))
+				else if (string_0 == "s")
 				{
 					text = this.Round(timeSpan_0.TotalSeconds, int_, 0, 45).ToString();
 				}
@@ -1323,25 +1323,25 @@ namespace Gssy.Capi.Common
 			{
 				result = false;
 			}
-			else if (string_0 == GClass0.smethod_0("1"))
+			else if (string_0 == "0")
 			{
 				result = false;
 			}
-			else if (string_0 == GClass0.smethod_0("/ı"))
+			else if (string_0 == "-0")
 			{
 				result = false;
 			}
-			else if (string_0.Trim().ToUpper() == GClass0.smethod_0("CŅɏ͑ф"))
+			else if (string_0.Trim().ToUpper() == "FALSE")
 			{
 				result = false;
 			}
-			else if (string_0.Trim().ToUpper() == GClass0.smethod_0("Pőɗ̈́"))
+			else if (string_0.Trim().ToUpper() == "TRUE")
 			{
 				result = true;
 			}
 			else
 			{
-				Regex regex = new Regex(GClass0.smethod_0("Kļɏ̿ѭՌؤܧ࠲ॐ੯ଡడൔษཚၡᄯሪጽᐥ"));
+				Regex regex = new Regex("^(\\-|\\+)?\\d+(\\.\\d+)?$");
 				result = (!regex.IsMatch(string_0) || Convert.ToDouble(string_0) != 0.0);
 			}
 			return result;
@@ -1359,17 +1359,17 @@ namespace Gssy.Capi.Common
 			{
 				result = 0.0;
 			}
-			else if (string_0 == GClass0.smethod_0("1"))
+			else if (string_0 == "0")
 			{
 				result = 0.0;
 			}
-			else if (string_0 == GClass0.smethod_0("/ı"))
+			else if (string_0 == "-0")
 			{
 				result = 0.0;
 			}
 			else
 			{
-				Regex regex = new Regex(GClass0.smethod_0("Kļɏ̿ѭՌؤܧ࠲ॐ੯ଡడൔษཚၡᄯሪጽᐥ"));
+				Regex regex = new Regex("^(\\-|\\+)?\\d+(\\.\\d+)?$");
 				result = (regex.IsMatch(string_0) ? Convert.ToDouble(string_0) : 0.0);
 			}
 			return result;
@@ -1382,17 +1382,17 @@ namespace Gssy.Capi.Common
 			{
 				result = 0;
 			}
-			else if (string_0 == GClass0.smethod_0("1"))
+			else if (string_0 == "0")
 			{
 				result = 0;
 			}
-			else if (string_0 == GClass0.smethod_0("/ı"))
+			else if (string_0 == "-0")
 			{
 				result = 0;
 			}
 			else
 			{
-				Regex regex = new Regex(GClass0.smethod_0("Kļɏ̿ѭՌؤܧ࠲ॐ੯ଡడൔษཚၡᄯሪጽᐥ"));
+				Regex regex = new Regex("^(\\-|\\+)?\\d+(\\.\\d+)?$");
 				result = (regex.IsMatch(string_0) ? Convert.ToInt32(string_0) : 0);
 			}
 			return result;
@@ -1440,7 +1440,7 @@ namespace Gssy.Capi.Common
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(GClass0.smethod_0("吠厦岙瘤縀宅揿囲鴞ਈଉ徜寢") + ex.Message, GClass0.smethod_0("吩厭岐瘫縉宎"), MessageBoxButtons.OK, MessageBoxIcon.Hand);
+				MessageBox.Show("启动应用程序时出错！\r\r原因：" + ex.Message, "启动应用程序", MessageBoxButtons.OK, MessageBoxIcon.Hand);
 			}
 			return false;
 		}
@@ -1534,14 +1534,14 @@ namespace Gssy.Capi.Common
 
 		public DateTime GetStandardTime(int int_0 = 8)
 		{
-			DateTime result = DateTime.Parse(GClass0.smethod_0("9ľȶ̴ЩԲدܰ"));
+			DateTime result = DateTime.Parse("1901-1-1");
 			try
 			{
-				string string_ = GClass0.smethod_0("?ļȹ̤иԺطܨ࠷पਲଲర");
-				string string_2 = GClass0.smethod_0("2İȲ");
+				string string_ = "202.120.2.101";
+				string string_2 = "123";
 				SNTPTimeClient sntptimeClient = new SNTPTimeClient(string_, string_2);
 				int num = 0;
-				if (UDPX.InternetGetConnectedState(ref num, 0) && this.ConnetIP(GClass0.smethod_0("zŻɼ̤ѫթٮݢࡰप੠୭౬")))
+				if (UDPX.InternetGetConnectedState(ref num, 0) && this.ConnetIP("www.baidu.com"))
 				{
 					sntptimeClient.Connect();
 					string text = sntptimeClient.ToString();
@@ -1567,7 +1567,7 @@ namespace Gssy.Capi.Common
 			for (int i = 0; i < array.Length - 1; i++)
 			{
 				text = array[i];
-				if (text.Substring(0, 10) == GClass0.smethod_0("FŦɫͦѪԥٰݪ࡯।"))
+				if (text.Substring(0, 10) == "Local time")
 				{
 					num = 1;
 					if (num < 0)
@@ -1587,7 +1587,7 @@ namespace Gssy.Capi.Common
 
 		public DateTime GetStandardTimeUSA(int int_0 = 8)
 		{
-			DateTime result = DateTime.Parse(GClass0.smethod_0("9ľȶ̴ЩԲدܰ"));
+			DateTime result = DateTime.Parse("1901-1-1");
 			try
 			{
 				int num = 0;
@@ -1611,34 +1611,34 @@ namespace Gssy.Capi.Common
 						12,
 						13
 					};
-					array[0, 0] = GClass0.smethod_0("{ŧɠͩЦիاݦ࡮ॵੱପ౤൭๷");
-					array[0, 1] = GClass0.smethod_0(":ĸȰ̦бԨشܱ࠭रਹ");
-					array[1, 0] = GClass0.smethod_0("{ŧɠͩЦըاݦ࡮ॵੱପ౤൭๷");
-					array[1, 1] = GClass0.smethod_0(":ĸȰ̦бԨشܱ࠭रਸ");
-					array[2, 0] = GClass0.smethod_0("oųɴͽкշػݠࡺॿੴ୶౽൫๼༢ၩᅦቭ፺ᑣᕩᙦᜪᡤᥭ᩷");
-					array[2, 1] = GClass0.smethod_0("<Ŀȹ̤иԾشܨ࠱पਲଲర");
-					array[3, 0] = GClass0.smethod_0("oųɴͽкմػݠࡺॿੴ୶౽൫๼༢ၩᅦቭ፺ᑣᕩᙦᜪᡤᥭ᩷");
-					array[3, 1] = GClass0.smethod_0("<Ŀȹ̤иԾشܨ࠱पਲଲళ");
-					array[4, 0] = GClass0.smethod_0("oųɴͽкյػݠࡺॿੴ୶౽൫๼༢ၩᅦቭ፺ᑣᕩᙦᜪᡤᥭ᩷");
-					array[4, 1] = GClass0.smethod_0("<Ŀȹ̤иԾشܨ࠱पਲଲల");
-					array[5, 0] = GClass0.smethod_0("aŧɱͿѹռٺܣ࡯।੦୦౺൦๢ཪဪᅦቦ፴");
-					array[5, 1] = GClass0.smethod_0("?Ŀȴ̥лԺذܩ࠷ऱ਴ଭశവ");
-					array[6, 0] = GClass0.smethod_0("yťɦͯЧզٮݵࡱप੤୭౷");
-					array[6, 1] = GClass0.smethod_0("<ĵȹ̤нԻةܴ࠱रਭଳహ");
-					array[7, 0] = GClass0.smethod_0("dŦɣͨСեٽܧࡦ८ੵୱప൤๭ཷ");
-					array[7, 1] = GClass0.smethod_0("=ĸȻ̧йԷرܫ࠵भਲ਼଱");
-					array[8, 0] = GClass0.smethod_0("{ŽɠͦРԾټݷࡠॡ੮୾౻ൡ๤ཀྵၨᄪበ፭ᑬ");
-					array[8, 1] = GClass0.smethod_0("=ĳȧ̺вԨؼܲ࠭ळਲ");
-					array[9, 0] = GClass0.smethod_0("zźɡͥСԢ٪ݮࠢ६੦୨౻൴๣ོဪᅠቭ፬");
-					array[9, 1] = GClass0.smethod_0(">ĺȼ̧кԷضܫ࠽रਬହ");
-					array[10, 0] = GClass0.smethod_0("zźɡͥСԢ٠ݴࠢ६੦୨౻൴๣ོဪᅠቭ፬");
-					array[10, 1] = GClass0.smethod_0(">ĻȲ̧йԿزܫ࠰ऺਬସ");
-					array[11, 0] = GClass0.smethod_0("zźɡͥСԢٽݧࠢ६੦୨౻൴๣ོဪᅠቭ፬");
-					array[11, 1] = GClass0.smethod_0("<ĽȻ̥лԻؾܩ࠿ऽਪ଱లവ");
-					array[12, 0] = GClass0.smethod_0("wűɤ͢ФԺٲݽࡽऽ੬୯ణ൸๹ཿၬᅼቮ፫ᑠᔪᙠ᝭ᡬ");
-					array[12, 1] = GClass0.smethod_0("<ĽȻ̥иԹظܩ࠾ऴਪଲళല");
-					array[13, 0] = GClass0.smethod_0("wűɤ͢ФԺٲݽࡽऽ੹୯ణ൸๹ཿၬᅼቮ፫ᑠᔪᙠ᝭ᡬ");
-					array[13, 1] = GClass0.smethod_0(":ĿȤ̻лԱبܼ࠲भ਷ଲ");
+					array[0, 0] = "time-a.nist.gov";
+					array[0, 1] = "129.6.15.28";
+					array[1, 0] = "time-b.nist.gov";
+					array[1, 1] = "129.6.15.29";
+					array[2, 0] = "time-a.timefreq.bldrdoc.gov";
+					array[2, 1] = "132.163.4.101";
+					array[3, 0] = "time-b.timefreq.bldrdoc.gov";
+					array[3, 1] = "132.163.4.102";
+					array[4, 0] = "time-c.timefreq.bldrdoc.gov";
+					array[4, 1] = "132.163.4.103";
+					array[5, 0] = "utcnist.colorado.edu";
+					array[5, 1] = "128.138.140.44";
+					array[6, 0] = "time.nist.gov";
+					array[6, 1] = "192.43.244.18";
+					array[7, 0] = "time-nw.nist.gov";
+					array[7, 1] = "131.107.1.10";
+					array[8, 0] = "nist1.symmetricom.com";
+					array[8, 1] = "69.25.96.13";
+					array[9, 0] = "nist1-dc.glassey.com";
+					array[9, 1] = "216.200.93.8";
+					array[10, 0] = "nist1-ny.glassey.com";
+					array[10, 1] = "208.184.49.9";
+					array[11, 0] = "nist1-sj.glassey.com";
+					array[11, 1] = "207.126.98.204";
+					array[12, 0] = "nist1.aol-ca.truetime.com";
+					array[12, 1] = "207.200.81.113";
+					array[13, 0] = "nist1.aol-va.truetime.com";
+					array[13, 1] = "64.236.96.53";
 					int port = 13;
 					byte[] array3 = new byte[1024];
 					int count = 0;
@@ -1670,18 +1670,18 @@ namespace Gssy.Capi.Common
 					string[] array4 = @string.Split(separator);
 					if (array4.Length >= 2)
 					{
-						result = DateTime.Parse(array4[1] + GClass0.smethod_0("!") + array4[2]);
+						result = DateTime.Parse(array4[1] + " " + array4[2]);
 						result = result.AddHours((double)int_0);
 					}
 					else
 					{
-						result = DateTime.Parse(GClass0.smethod_0("9ľȶ̴ЩԲدܰ"));
+						result = DateTime.Parse("1901-1-1");
 					}
 				}
 			}
 			catch (Exception)
 			{
-				result = DateTime.Parse(GClass0.smethod_0("9ľȶ̴ЩԲدܰ"));
+				result = DateTime.Parse("1901-1-1");
 			}
 			return result;
 		}
@@ -1692,7 +1692,7 @@ namespace Gssy.Capi.Common
 			bool result;
 			try
 			{
-				string str = Assembly.GetExecutingAssembly().GetName().Name.ToString() + GClass0.smethod_0("%ŘɬͻѨճٷݧࡦॱਯ");
+				string str = Assembly.GetExecutingAssembly().GetName().Name.ToString() + ".Resources.";
 				Stream manifestResourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(str + string_0);
 				if (manifestResourceStream == null)
 				{
@@ -1717,7 +1717,7 @@ namespace Gssy.Capi.Common
 		public bool RunDotNetOfResource(string string_0, string[] string_1)
 		{
 			bool flag = true;
-			string str = Assembly.GetExecutingAssembly().GetName().Name.ToString() + GClass0.smethod_0("%ŘɬͻѨճٷݧࡦॱਯ");
+			string str = Assembly.GetExecutingAssembly().GetName().Name.ToString() + ".Resources.";
 			Stream manifestResourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(str + string_0);
 			bool result;
 			if (manifestResourceStream == null)
@@ -1748,43 +1748,43 @@ namespace Gssy.Capi.Common
 		{
 			string result = "";
 			string a = string_0.ToUpper();
-			if (a == GClass0.smethod_0("Dœɗ͖цՌٕ") || a == "")
+			if (a == "CURRENT" || a == "")
 			{
 				result = Environment.CurrentDirectory;
 			}
-			else if (a == GClass0.smethod_0("[Şɕ͑сՎرܳ"))
+			else if (a == "SYSTEM32")
 			{
 				result = Environment.GetFolderPath(Environment.SpecialFolder.System);
 			}
-			else if (a == GClass0.smethod_0("UŜɗ͗чՌ"))
+			else if (a == "SYSTEM")
 			{
-				result = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + GClass0.smethod_0("[ŕɼͷѷէ٬");
+				result = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + "\\System";
 			}
-			else if (a == GClass0.smethod_0("Pŏɋ̀ьՕْ"))
+			else if (a == "WINDOWS")
 			{
 				result = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
 			}
-			else if (a == GClass0.smethod_0("CŃɖ͏їՍّ"))
+			else if (a == "DESKTOP")
 			{
 				result = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
 			}
-			else if (a == GClass0.smethod_0("FŅɀ͊ф"))
+			else if (a == "CACHE")
 			{
 				result = Environment.GetFolderPath(Environment.SpecialFolder.InternetCache);
 			}
-			else if (a == GClass0.smethod_0("Fœɍ͇фՓو݁ࡍॖ੒"))
+			else if (a == "MYDOCUMENTS")
 			{
 				result = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 			}
-			else if (a == GClass0.smethod_0("LŁɀ́фՄٍ݇ࡄ॓ੈୁ్ൖ๒"))
+			else if (a == "COMMONDOCUMENTS")
 			{
 				result = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments);
 			}
-			else if (a == GClass0.smethod_0("NŃɆ͇цՆك݃ࡖॏ੗୍౑"))
+			else if (a == "COMMONDESKTOP")
 			{
 				result = Environment.GetFolderPath(Environment.SpecialFolder.CommonDesktopDirectory);
 			}
-			else if (a == GClass0.smethod_0("HŅɄͅшՈوݑࡐोੂ"))
+			else if (a == "COMMONMUSIC")
 			{
 				result = Environment.GetFolderPath(Environment.SpecialFolder.CommonMusic);
 			}

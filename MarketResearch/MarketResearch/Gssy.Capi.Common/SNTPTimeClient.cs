@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net;
 using System.Net.Sockets;
 
@@ -258,7 +258,7 @@ namespace Gssy.Capi.Common
 				this.NTPData = udpClient.Receive(ref endPoint);
 				if (!this.IsResponseValid())
 				{
-					throw new Exception(GClass0.smethod_0("_ŻɢͲѾոٴܯࡼ२੿୻౥൧๻རဦᅣቶ፬ᑯᔡ") + this.TimeServer);
+					throw new Exception("Invalid response from " + this.TimeServer);
 				}
 				this.ReceptionTimestamp = DateTime.Now;
 			}
@@ -275,67 +275,67 @@ namespace Gssy.Capi.Common
 
 		public override string ToString()
 		{
-			string str = GClass0.smethod_0("\\ŪɯͽЬՂ٤ݭࡡ।੧ୱ౫൱ุ༡");
+			string str = "Leap Indicator: ";
 			switch (this.LeapIndicator)
 			{
 			case _LeapIndicator.NoWarning:
-				str += GClass0.smethod_0("DŦȨͰѧշ٪ݪ࡬०");
+				str += "No warning";
 				break;
 			case _LeapIndicator.LastMinute61:
-				str += GClass0.smethod_0("VŸɫͣжոٽݽࡧ॥ੵଯ౦൬๿༫ြᄸረ፴ᑣᕦᙫ᝭ᡦᥲ");
+				str += "Last minute has 61 seconds";
 				break;
 			case _LeapIndicator.LastMinute59:
-				str += GClass0.smethod_0("VŸɫͣжոٽݽࡧ॥ੵଯ౦൬๿༫ဿᄰረ፴ᑣᕦᙫ᝭ᡦᥲ");
+				str += "Last minute has 59 seconds";
 				break;
 			case _LeapIndicator.Alarm:
-				str += GClass0.smethod_0("iŋɇ͗щԃ١ݎࡎॻ੷୩౵൴๴༹ူᅴቺ፺ᑷᕸᘲ᝿᡿᥻ᨮ᭾ᱵᵥṩὡ⁺Ⅸ≨⍬⑾╦♦✨");
+				str += "Alarm Condition (clock not synchronized)";
 				break;
 			}
-			str = str + GClass0.smethod_0("\u001fěɆͪѼվ٥ݤࡤऩ੦୲౫൧๡ཱးᄡ") + this.VersionNumber.ToString() + GClass0.smethod_0("\u000fċ");
-			str += GClass0.smethod_0("KŪɠͦиԡ");
+			str = str + "\r\nVersion number: " + this.VersionNumber.ToString() + "\r\n";
+			str += "Mode: ";
 			switch (this.Mode)
 			{
 			case _Mode.SymmetricActive:
-				str += GClass0.smethod_0("CŶɣ͠ѩտٸݠ࡫धੇ୦౰൪๴ཤ");
+				str += "Symmetric Active";
 				break;
 			case _Mode.SymmetricPassive:
-				str += GClass0.smethod_0("CŶɣ͠ѩտٸݠ࡫ध੖୤౷൪๴ཤ");
+				str += "Symmetric Pasive";
 				break;
 			case _Mode.Client:
-				str += GClass0.smethod_0("EũɭͦѬյ");
+				str += "Client";
 				break;
 			case _Mode.Server:
-				str += GClass0.smethod_0("UŠɶ͵ѧճ");
+				str += "Server";
 				break;
 			case _Mode.Broadcast:
-				str += GClass0.smethod_0("Kźɨͧѡէ٢ݱࡵ");
+				str += "Broadcast";
 				break;
 			case _Mode.Unknown:
-				str += GClass0.smethod_0("RŨɮͪѬյٯ");
+				str += "Unknown";
 				break;
 			}
-			str += GClass0.smethod_0("\u0006Āɚͼѵէٱݱ࡮सਡ");
+			str += "\r\nStratum: ";
 			switch (this.Stratum)
 			{
 			case _Stratum.Unspecified:
 			case _Stratum.Reserved:
-				str += GClass0.smethod_0("^Ťɺ͸Ѣե٬ݢࡪ१੥");
+				str += "Unspecified";
 				break;
 			case _Stratum.PrimaryReference:
-				str += GClass0.smethod_0("AŢɦͣѬվٲܪ࡛७੡ୣ౷ൡ๭ཡၤ");
+				str += "Primary Reference";
 				break;
 			case _Stratum.SecondaryReference:
-				str += GClass0.smethod_0("@ŷɲͿѡժ٬ݾࡲपਜ਼୭ౡൣ๷ཡၭᅡቤ");
+				str += "Secondary Reference";
 				break;
 			}
-			str = str + GClass0.smethod_0("\u0003ćɀͤѩը٤ܧࡲ६੩୦సഡ") + this.TransmitTimestamp.ToString();
-			str = str + GClass0.smethod_0("\0Ćɛ͸Ѭիٮݵ࡬५੭ସడ") + this.Precision.ToString() + GClass0.smethod_0("#ůɲ");
-			str = str + GClass0.smethod_0("\u001cĚɟ͡ѡՠث݃ࡧॼ੢୴౳൥๯༸အ") + this.PollInterval.ToString() + GClass0.smethod_0("\"Ų");
-			str = str + GClass0.smethod_0("\u001dąɜͨѪծٸݬࡦ।੣ଥ్േุ༡") + this.ReferenceID.ToString();
-			str = str + GClass0.smethod_0("\u001eĘɃͿѠպح݈ࡢॹ੹୭౵൵๬ཫၭᄸሡ") + this.RootDispersion.ToString() + GClass0.smethod_0("#ůɲ");
-			str = str + GClass0.smethod_0("\u0019ęɀ;ѥա٪ܭࡘॹ੣୹నൃ๣ཀྵၥᅺሸጡ") + this.RoundTripDelay.ToString() + GClass0.smethod_0("#ůɲ");
-			str = str + GClass0.smethod_0("\u001bğɘͼѱհټܯࡍॡ੣୨ౡഩ็ཡၠᅶቡ፷ᐸᔡ") + this.LocalClockOffset.ToString() + GClass0.smethod_0("#ůɲ");
-			return str + GClass0.smethod_0("\u000fċ");
+			str = str + "\r\nLocal time: " + this.TransmitTimestamp.ToString();
+			str = str + "\r\nPrecision: " + this.Precision.ToString() + " ms";
+			str = str + "\r\nPoll Interval: " + this.PollInterval.ToString() + " s";
+			str = str + "\r\nReference ID: " + this.ReferenceID.ToString();
+			str = str + "\r\nRoot Dispersion: " + this.RootDispersion.ToString() + " ms";
+			str = str + "\r\nRound Trip Delay: " + this.RoundTripDelay.ToString() + " ms";
+			str = str + "\r\nLocal Clock Offset: " + this.LocalClockOffset.ToString() + " ms";
+			return str + "\r\n";
 		}
 
 		public SNTPTimeClient(string string_0, string string_1)

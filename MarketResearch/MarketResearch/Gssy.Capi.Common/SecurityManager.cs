@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -16,7 +16,7 @@ namespace Gssy.Capi.Common
 			}
 			else
 			{
-				result = SecurityManager.Encrypt(string_0, GClass0.smethod_0("NŰɤͦѨ՚ـݦࡲॱ"), GClass0.smethod_0("2Ňȷ̲а"));
+				result = SecurityManager.Encrypt(string_0, "Dylan_Depp", "7C401");
 			}
 			return result;
 		}
@@ -58,7 +58,7 @@ namespace Gssy.Capi.Common
 			}
 			else
 			{
-				result = SecurityManager.Decrypt(string_0, GClass0.smethod_0("NŰɤͦѨ՚ـݦࡲॱ"), GClass0.smethod_0("2Ňȷ̲а"));
+				result = SecurityManager.Decrypt(string_0, "Dylan_Depp", "7C401");
 			}
 			return result;
 		}

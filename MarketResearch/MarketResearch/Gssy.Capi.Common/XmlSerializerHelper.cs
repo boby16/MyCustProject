@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text;
 using System.Xml.Serialization;
@@ -47,7 +47,7 @@ namespace Gssy.Capi.Common
 				}
 				catch (Exception ex)
 				{
-					Logging.Info.WriteLog(GClass0.smethod_0("Bžɵͫѱնػ"), ex.Message + Environment.NewLine + ex.StackTrace);
+					Logging.Info.WriteLog("Export:", ex.Message + Environment.NewLine + ex.StackTrace);
 				}
 				finally
 				{
@@ -83,7 +83,7 @@ namespace Gssy.Capi.Common
 			}
 			catch (Exception ex)
 			{
-				Logging.Info.WriteLog(GClass0.smethod_0("Bžɵͫѱնػ"), ex.Message + Environment.NewLine + ex.StackTrace);
+				Logging.Info.WriteLog("Export:", ex.Message + Environment.NewLine + ex.StackTrace);
 			}
 			return result;
 		}

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
@@ -25,12 +25,12 @@ namespace Gssy.Capi.Common
 					{
 						httpResult.CookieCollection = this.response.Cookies;
 					}
-					if (this.response.Headers[GClass0.smethod_0("yŬɼ̪ѥժ٫ݨ࡫।")] != null)
+					if (this.response.Headers["set-cookie"] != null)
 					{
-						httpResult.Cookie = this.response.Headers[GClass0.smethod_0("yŬɼ̪ѥժ٫ݨ࡫।")];
+						httpResult.Cookie = this.response.Headers["set-cookie"];
 					}
 					MemoryStream memoryStream = new MemoryStream();
-					if (this.response.ContentEncoding != null && this.response.ContentEncoding.Equals(GClass0.smethod_0("cŹɫͱ"), StringComparison.InvariantCultureIgnoreCase))
+					if (this.response.ContentEncoding != null && this.response.ContentEncoding.Equals("gzip", StringComparison.InvariantCultureIgnoreCase))
 					{
 						memoryStream = HttpHelper.smethod_0(new GZipStream(this.response.GetResponseStream(), CompressionMode.Decompress));
 					}
@@ -46,9 +46,9 @@ namespace Gssy.Capi.Common
 					}
 					if (this.encoding == null)
 					{
-						Match match = Regex.Match(Encoding.Default.GetString(array), GClass0.smethod_0("#ųɸͨѺԲق݆ࠫोਿଽ౰ൺ๰རၼᅫቹጱᐣᕑᙗ᜴ᡚ᤬ᨬ᭟ᰡᴥṜ"), RegexOptions.IgnoreCase);
+						Match match = Regex.Match(Encoding.Default.GetString(array), "<meta([^<]*)charset=([^<]*)[\"']", RegexOptions.IgnoreCase);
 						string text = (match.Groups.Count > 2) ? match.Groups[2].Value.ToLower() : string.Empty;
-						text = text.Replace(GClass0.smethod_0("#"), "").Replace(GClass0.smethod_0("&"), "").Replace(GClass0.smethod_0(":"), "").Replace(GClass0.smethod_0("cźɧ̪оԽرܺ࠯र"), GClass0.smethod_0("dŠɪ"));
+						text = text.Replace("\"", "").Replace("'", "").Replace(";", "").Replace("iso-8859-1", "gbk");
 						if (text.Length > 2)
 						{
 							this.encoding = Encoding.GetEncoding(text.Trim());
@@ -153,7 +153,7 @@ namespace Gssy.Capi.Common
 
 		private void method_4(HttpItem httpItem_0)
 		{
-			if (this.request.Method.Trim().ToLower().Contains(GClass0.smethod_0("tŬɱ͵")))
+			if (this.request.Method.Trim().ToLower().Contains("post"))
 			{
 				byte[] array = null;
 				if (httpItem_0.PostDataType == PostDataType.Byte && httpItem_0.PostdataByte != null && httpItem_0.PostdataByte.Length != 0)
@@ -182,7 +182,7 @@ namespace Gssy.Capi.Common
 		{
 			if (!string.IsNullOrEmpty(httpItem_0.ProxyIp))
 			{
-				if (httpItem_0.ProxyIp.Contains(GClass0.smethod_0(";")))
+				if (httpItem_0.ProxyIp.Contains(":"))
 				{
 					string[] array = httpItem_0.ProxyIp.Split(new char[]
 					{
@@ -220,7 +220,7 @@ namespace Gssy.Capi.Common
 					Cookie = "",
 					Header = null,
 					Html = ex.Message,
-					StatusDescription = GClass0.smethod_0("酊繨凇茇懵枧錘")
+					StatusDescription = "配置参考时报错"
 				};
 			}
 			return this.method_0(httpItem_0);

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net;
 using System.Text;
 
@@ -284,17 +284,17 @@ namespace Gssy.Capi.Common
 
 		private string _URL = string.Empty;
 
-		private string _Method = GClass0.smethod_0("DŇɕ");
+		private string _Method = "GET";
 
 		private int _Timeout = 100000;
 
 		private int _ReadWriteTimeout = 30000;
 
-		private string _Accept = GClass0.smethod_0("QŁɛ͖ЎՈ٫ݳࡱर਻୻౩൨๻ཿၶᅵቧ፻ᑾᕾᘠ᝶ᡥ᥸ᩦ᭦ᰢᵰṪὪ\u2029ℤ∩⌭␫");
+		private string _Accept = "text/html, application/xhtml+xml, */*";
 
-		private string _ContentType = GClass0.smethod_0("}ŭɿͲЪլٷݯ࡭");
+		private string _ContentType = "text/html";
 
-		private string _UserAgent = GClass0.smethod_0("rőɇ͕їՖ٘ܗࠂघਅଔఛ൑๞ཝၟᅏ቙ፅᑉᕆᙌᜓ᠇ᥫ᩶᭭ᱦᴂḘἎ\u202f℥∽⍋⑲╴♽❷⡠⥥⨵⭚ⱇⴲ⸧⼾〾ㄵ㈭㍘㑹㕣㙭㝭㡩㥲㨪㬱㰭㴲㸨");
+		private string _UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)";
 
 		private Encoding _Encoding = null;
 

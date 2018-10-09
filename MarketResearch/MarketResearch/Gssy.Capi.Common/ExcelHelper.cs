@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -12,38 +12,38 @@ namespace Gssy.Capi.Common
 		public bool CheckExcelInstall()
 		{
 			RegistryKey localMachine = Registry.LocalMachine;
-			RegistryKey registryKey = localMachine.OpenSubKey(GClass0.smethod_0("bſɩͺѺխٹݯࡵ॥੎୅౗ോ๐ཌྷ၇ᅔቃፑᑻᕺᙲ᝹᡼᥄ᨦᬧ᰻ᴤṏὗ⁩ⅳ≪⍢⑑╅♥❹⡽⥩⩫⭪ⱗ⵫⹬⽶そ"));
-			RegistryKey registryKey2 = localMachine.OpenSubKey(GClass0.smethod_0("bſɩͺѺխٹݯࡵ॥੎୅౗ോ๐ཌྷ၇ᅔቃፑᑻᕺᙲ᝹᡼᥄ᨦᬤ᰻ᴤṏὗ⁩ⅳ≪⍢⑑╅♥❹⡽⥩⩫⭪ⱗ⵫⹬⽶そ"));
-			RegistryKey registryKey3 = localMachine.OpenSubKey(GClass0.smethod_0("bſɩͺѺխٹݯࡵ॥੎୅౗ോ๐ཌྷ၇ᅔቃፑᑻᕺᙲ᝹᡼᥄ᨦᬢ᰻ᴤṏὗ⁩ⅳ≪⍢⑑╅♥❹⡽⥩⩫⭪ⱗ⵫⹬⽶そ"));
-			RegistryKey registryKey4 = localMachine.OpenSubKey(GClass0.smethod_0("bſɩͺѺխٹݯࡵ॥੎୅౗ോ๐ཌྷ၇ᅔቃፑᑻᕺᙲ᝹᡼᥄ᨦᬣ᰻ᴤṏὗ⁩ⅳ≪⍢⑑╅♥❹⡽⥩⩫⭪ⱗ⵫⹬⽶そ"));
+			RegistryKey registryKey = localMachine.OpenSubKey("SOFTWARE\\Microsoft\\Office\\11.0\\Excel\\InstallRoot\\");
+			RegistryKey registryKey2 = localMachine.OpenSubKey("SOFTWARE\\Microsoft\\Office\\12.0\\Excel\\InstallRoot\\");
+			RegistryKey registryKey3 = localMachine.OpenSubKey("SOFTWARE\\Microsoft\\Office\\14.0\\Excel\\InstallRoot\\");
+			RegistryKey registryKey4 = localMachine.OpenSubKey("SOFTWARE\\Microsoft\\Office\\15.0\\Excel\\InstallRoot\\");
 			if (registryKey3 != null)
 			{
-				string str = registryKey3.GetValue(GClass0.smethod_0("TŢɶͩ")).ToString();
-				if (File.Exists(str + GClass0.smethod_0("LŰɤͣѩԪ٦ݺࡤ")))
+				string str = registryKey3.GetValue("Path").ToString();
+				if (File.Exists(str + "Excel.exe"))
 				{
 					return true;
 				}
 			}
 			if (registryKey2 != null)
 			{
-				string str2 = registryKey2.GetValue(GClass0.smethod_0("TŢɶͩ")).ToString();
-				if (File.Exists(str2 + GClass0.smethod_0("LŰɤͣѩԪ٦ݺࡤ")))
+				string str2 = registryKey2.GetValue("Path").ToString();
+				if (File.Exists(str2 + "Excel.exe"))
 				{
 					return true;
 				}
 			}
 			if (registryKey4 != null)
 			{
-				string str3 = registryKey4.GetValue(GClass0.smethod_0("TŢɶͩ")).ToString();
-				if (File.Exists(str3 + GClass0.smethod_0("LŰɤͣѩԪ٦ݺࡤ")))
+				string str3 = registryKey4.GetValue("Path").ToString();
+				if (File.Exists(str3 + "Excel.exe"))
 				{
 					return true;
 				}
 			}
 			if (registryKey != null)
 			{
-				string str4 = registryKey.GetValue(GClass0.smethod_0("TŢɶͩ")).ToString();
-				if (File.Exists(str4 + GClass0.smethod_0("LŰɤͣѩԪ٦ݺࡤ")))
+				string str4 = registryKey.GetValue("Path").ToString();
+				if (File.Exists(str4 + "Excel.exe"))
 				{
 					return true;
 				}

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -41,9 +41,9 @@ namespace Gssy.Capi.Common
 						UserID = this.FireBirdUserID,
 						Password = this.FireBirdPass,
 						Database = this.FireBirdDB,
-						Charset = GClass0.smethod_0("^ńɀ͋шՂـݛࡅ॑੒"),
+						Charset = "UNICODE_FSS",
 						Dialect = 3,
-						ClientLibrary = GClass0.smethod_0("mŨɬͥѥգ١ܪࡧ८੭"),
+						ClientLibrary = "fbembed.dll",
 						ServerType = FbServerType.Embedded
 					}.ToString();
 					break;
@@ -57,7 +57,7 @@ namespace Gssy.Capi.Common
 					{
 						UserID = this.FireBirdUserID,
 						Password = this.FireBirdPass,
-						Charset = GClass0.smethod_0("^ńɀ͋шՂـݛࡅ॑੒"),
+						Charset = "UNICODE_FSS",
 						Dialect = 3,
 						DataSource = this.FireBirdServerHost,
 						Database = this.FireBirdServerPath + this.FireBirdDB
@@ -216,13 +216,13 @@ namespace Gssy.Capi.Common
 			{
 				dbConnection = this.method_0();
 				dbCommand = this.method_1(string_0, dbConnection);
-				Logging.Info.WriteLog(GClass0.smethod_0("Uŷɫͮѹտٯ݇ࡧ३੗୰ౡ൱๻༻"), string_0);
+				Logging.Info.WriteLog("ExecuteNonQuery:", string_0);
 				dbConnection.Open();
 				result = dbCommand.ExecuteNonQuery();
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("SŧɦͼѠԱٕݷ࡫८੹୿౯േ๧ཀྵၗᅰቡ፱ᑻᔻ"), string_0 + GClass0.smethod_0("-") + ex.Message);
+				Logging.Error.WriteLog("Error ExecuteNonQuery:", string_0 + "," + ex.Message);
 				result = 0;
 			}
 			finally
@@ -246,13 +246,13 @@ namespace Gssy.Capi.Common
 			{
 				IDbConnection dbConnection = this.method_0();
 				IDbCommand dbCommand = this.method_1(string_0, dbConnection);
-				Logging.Info.WriteLog(GClass0.smethod_0("Kŵɩͨѿս٭ݕࡣ।੠୦౰഻"), string_0);
+				Logging.Info.WriteLog("ExecuteReader:", string_0);
 				dbConnection.Open();
 				result = dbCommand.ExecuteReader(CommandBehavior.CloseConnection);
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("Qšɠ;Ѣԯًݵࡩ२੿୽౭ൕ๣ཤၠᅦተጻ"), string_0 + GClass0.smethod_0("-") + ex.Message);
+				Logging.Error.WriteLog("Error ExecuteReader:", string_0 + "," + ex.Message);
 				result = null;
 			}
 			return result;
@@ -267,13 +267,13 @@ namespace Gssy.Capi.Common
 			{
 				dbConnection = this.method_0();
 				dbCommand = this.method_1(string_0, dbConnection);
-				Logging.Info.WriteLog(GClass0.smethod_0("Kŵɩͨѿս٭ݔࡥ।੨ୢ౰഻"), string_0);
+				Logging.Info.WriteLog("ExecuteScalar:", string_0);
 				dbConnection.Open();
 				result = dbCommand.ExecuteScalar();
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("Qšɠ;Ѣԯًݵࡩ२੿୽౭ൔ๥ཤၨᅢተጻ"), string_0 + GClass0.smethod_0("-") + ex.Message);
+				Logging.Error.WriteLog("Error ExecuteScalar:", string_0 + "," + ex.Message);
 				result = null;
 			}
 			finally
@@ -299,13 +299,13 @@ namespace Gssy.Capi.Common
 			{
 				dbConnection = this.method_0();
 				dbCommand = this.method_1(string_0, dbConnection);
-				Logging.Info.WriteLog(GClass0.smethod_0("TŨɪͭѸոٮݙࡪ३੫୧౷്๭ྲྀျ"), string_0);
+				Logging.Info.WriteLog("ExecuteScalarInt:", string_0);
 				dbConnection.Open();
 				result = Convert.ToInt32(dbCommand.ExecuteScalar().ToString());
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("RŤɧͻѡԲٔݨࡪ७੸୸౮൙๪ཀྵၫᅧቷፍᑭᕶᘻ"), string_0 + GClass0.smethod_0("-") + ex.Message);
+				Logging.Error.WriteLog("Error ExecuteScalarInt:", string_0 + "," + ex.Message);
 				result = -1;
 			}
 			finally
@@ -331,13 +331,13 @@ namespace Gssy.Capi.Common
 			{
 				dbConnection = this.method_0();
 				dbCommand = this.method_1(string_0, dbConnection);
-				Logging.Info.WriteLog(GClass0.smethod_0("QūɷͲѥջ٫ݞ࡯४੦୨౺ൔ๲ཷၭᅭብጻ"), string_0);
+				Logging.Info.WriteLog("ExecuteScalarString:", string_0);
 				dbConnection.Open();
 				result = dbCommand.ExecuteScalar().ToString();
 			}
 			catch (Exception ex)
 			{
-				Logging.Error.WriteLog(GClass0.smethod_0("_ūɪ͸ѤԵّݫࡷॲ੥୻౫൞๯ཪၦᅨቺፔᑲᕷ᙭᝭ᡥ᤻"), string_0 + GClass0.smethod_0("-") + ex.Message);
+				Logging.Error.WriteLog("Error ExecuteScalarString:", string_0 + "," + ex.Message);
 				result = null;
 			}
 			finally
@@ -407,36 +407,36 @@ namespace Gssy.Capi.Common
 
 		private string _ConnectionString = "";
 
-		private string FireBirdDBRead = GClass0.smethod_0("Wųɥͱѓ՝ٸݾࡽ९ੰ୚ౢ൧๡༪၅ᅆቃ");
+		private string FireBirdDBRead = "Data\\SurveyRead.FDB";
 
-		private string FireBirdDBWrite = GClass0.smethod_0("Uűɻͯё՟پݸࡿ७੾ୂేപๅཆ၃");
+		private string FireBirdDBWrite = "Data\\SurveyDB.FDB";
 
 		private string FireBirdDB = "";
 
-		private string FireBirdUserID = GClass0.smethod_0("ZŽɵͰѠսه݀ࡀ");
+		private string FireBirdUserID = "SurveyDBA";
 
-		private string FireBirdPass = GClass0.smethod_0("9ĺȸ̼кՕٰݶࡵ१੸");
+		private string FireBirdPass = "2014=Survey";
 
 		private DBType _DatabaseType = DBType.FireBird;
 
-		private string FireBirdServerPath = GClass0.smethod_0("XĠɅͱѹճ١ݤࡦ॰੍୧౸൹๿ལၤᅾቕ፿ᑢᕤᙦᝥᡳᥫᩝ");
+		private string FireBirdServerPath = "C:\\inetpub\\wwwroot\\webcapi\\";
 
-		private string FireBirdServerHost = GClass0.smethod_0("eŧɤͧѩլ٬ݱࡵ");
+		private string FireBirdServerHost = "localhost";
 
-		private string MySqlServer = GClass0.smethod_0("eŧɤͧѩլ٬ݱࡵ");
+		private string MySqlServer = "localhost";
 
-		private string MySqlDB = GClass0.smethod_0("{Ųɴͳѡպ٦ݣ");
+		private string MySqlDB = "surveydb";
 
-		private string MySqlUserID = GClass0.smethod_0("zŽɵͰѠս٧ݠࡠ");
+		private string MySqlUserID = "surveydba";
 
-		private string MySqlPass = GClass0.smethod_0("9ĺȸ̼јյٰݶࡵ१੸");
+		private string MySqlPass = "2014_survey";
 
-		private string SQLServerDataSource = GClass0.smethod_0("eŧɤͧѩլ٬ݱࡵ");
+		private string SQLServerDataSource = "localhost";
 
-		private string SQLServerDB = GClass0.smethod_0("{Ųɴͳѡպ٦ݣ");
+		private string SQLServerDB = "surveydb";
 
-		private string SQLServerUserID = GClass0.smethod_0("zŽɵͰѠս٧ݠࡠ");
+		private string SQLServerUserID = "surveydba";
 
-		private string SQLServerPass = GClass0.smethod_0("9ĺȸ̼јՕٰݶࡵ१੸");
+		private string SQLServerPass = "2014_Survey";
 	}
 }

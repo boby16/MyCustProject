@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 
 namespace Gssy.Capi.Common
@@ -11,7 +11,7 @@ namespace Gssy.Capi.Common
 			{
 				Categories = 
 				{
-					GClass0.smethod_0("NŸɻͧѵՊ٪ݣࡤ१ੳ")
+					"ErrorLogger"
 				},
 				TimeStamp = DateTime.Now,
 				Title = string_0,
