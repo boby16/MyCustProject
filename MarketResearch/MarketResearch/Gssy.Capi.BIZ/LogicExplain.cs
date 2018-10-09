@@ -5754,7 +5754,7 @@ namespace Gssy.Capi.BIZ
                     text = text.Replace(GClass0.smethod_0("＼"), "]");
                     text = text.Replace(GClass0.smethod_0("ｚ"), GClass0.smethod_0("z"));
                     text = text.Replace(GClass0.smethod_0("｜"), GClass0.smethod_0("|"));
-                    text = text.Replace(GClass0.smethod_0("］"), GClass0.smethod_0("]"));
+                    text = text.Replace(GClass0.smethod_0("］"), "\\");
                     text = text.Replace(GClass0.smethod_0("＄"), GClass0.smethod_0("$"));
                     text = text.Replace(GClass0.smethod_0("Ａ"), GClass0.smethod_0("A"));
                     text = text.Replace(GClass0.smethod_0("¶"), GClass0.smethod_0("A"));

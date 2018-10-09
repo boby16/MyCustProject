@@ -174,7 +174,7 @@ namespace Gssy.Capi.Update
 			fileStream.Close();
 			this.bw.ReportProgress(80, string.Format(GClass0.smethod_0("觪劃枀䷰Хտسݿࠡ"), text));
 			this.strRarFile = path;
-			this.strRarOutputFolder = Environment.CurrentDirectory + GClass0.smethod_0("]");
+			this.strRarOutputFolder = Environment.CurrentDirectory + "\\";
 			rarFile.Extract(this.strRarFile, this.strRarOutputFolder, this.strRarOutputFolder, this.strRarPassword);
 			this.bw.ReportProgress(95, GClass0.smethod_0("牎昩擰暳䨸福") + text3);
 			this.bw.ReportProgress(95, string.Format(GClass0.smethod_0("夊甋妀愛ﬆ蔞揾ܧࡽव੹ଣ痐㴃"), stopwatch.Elapsed.TotalSeconds.ToString(GClass0.smethod_0("Dĳ"))));

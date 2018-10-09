@@ -21,7 +21,7 @@ namespace Gssy.Capi.BIZ
 			{
 				string text = string_1 + this.OutputPath;
 				string text2 = "S" + string_0 + GClass0.smethod_0("HĪɧͣѵ");
-				string path = text + GClass0.smethod_0("]") + text2;
+				string path = text + "\\" + text2;
 				if (!Directory.Exists(text))
 				{
 					Directory.CreateDirectory(text);
@@ -65,7 +65,7 @@ namespace Gssy.Capi.BIZ
 			{
 				string text = bool_0 ? (string_1 + this.OutputPath) : string_1;
 				string str = "S" + string_0 + "A.dat";
-				string path = text + GClass0.smethod_0("]") + str;
+				string path = text + "\\" + str;
 				if (!Directory.Exists(text))
 				{
 					Directory.CreateDirectory(text);
