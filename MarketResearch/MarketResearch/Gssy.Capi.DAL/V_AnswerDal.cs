@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("xůɥͭѤղ؅ݧ࡬ॷ੯୴షഴิ༼ၝᅈቖፕᐷᕀᙊ᝕᡽ᥡᩦ᭵ᱽᴮṚὄ⁎⅘≌⌨⑎╂☥✹⡸⤲⩼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM V_Answer WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public V_Answer GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("wŦɮͤѣՋؾܷ࠼ढ़ੈୖౕഷเཊၕᅽቡ፦ᑵᕽᘮ᝚ᡄ᥎ᩘᭌᰨᵎṂἥ‹ⅸ∲⍼"), int_0);
+			string string_ = string.Format("SELECT * FROM V_Answer WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -29,11 +29,11 @@ namespace Gssy.Capi.DAL
 			{
 				while (dataReader.Read())
 				{
-					v_Answer.ANSWER_ORDER = Convert.ToInt32(dataReader[GClass0.smethod_0("MŅə͞эՕٙ݊ࡖेੇ୓")]);
-					v_Answer.QUESTION_NAME = dataReader[GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")].ToString();
+					v_Answer.ANSWER_ORDER = Convert.ToInt32(dataReader["ANSWER_ORDER"]);
+					v_Answer.QUESTION_NAME = dataReader["QUESTION_NAME"].ToString();
 					v_Answer.CODE = dataReader["CODE"].ToString();
 					v_Answer.SURVEY_ID = dataReader["SURVEY_ID"].ToString();
-					v_Answer.SPSS_VARIABLE = Convert.ToInt32(dataReader[GClass0.smethod_0("^Ŝɘ͙і՞نݔࡌॅੁ୎ౄ")]);
+					v_Answer.SPSS_VARIABLE = Convert.ToInt32(dataReader["SPSS_VARIABLE"]);
 				}
 			}
 			return v_Answer;
@@ -49,11 +49,11 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new V_Answer
 					{
-						ANSWER_ORDER = Convert.ToInt32(dataReader[GClass0.smethod_0("MŅə͞эՕٙ݊ࡖेੇ୓")]),
-						QUESTION_NAME = dataReader[GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")].ToString(),
+						ANSWER_ORDER = Convert.ToInt32(dataReader["ANSWER_ORDER"]),
+						QUESTION_NAME = dataReader["QUESTION_NAME"].ToString(),
 						CODE = dataReader["CODE"].ToString(),
 						SURVEY_ID = dataReader["SURVEY_ID"].ToString(),
-						SPSS_VARIABLE = Convert.ToInt32(dataReader[GClass0.smethod_0("^Ŝɘ͙і՞نݔࡌॅੁ୎ౄ")])
+						SPSS_VARIABLE = Convert.ToInt32(dataReader["SPSS_VARIABLE"])
 					});
 				}
 			}
@@ -62,7 +62,7 @@ namespace Gssy.Capi.DAL
 
 		public List<V_Answer> GetList()
 		{
-			string string_ = GClass0.smethod_0("\u007fŮɦͬѫճ؆܏ࠄ॥ੰ୮౭ി่གၝᅵቩ፮ᑽᕥᘶ᝚ᡆᥗᩗᭃᰰᵍṗἭ⁍ⅅ≙⍞⑍╕♙❊⡖⥇⩇⭓");
+			string string_ = "SELECT * FROM V_Answer ORDER BY ANSWER_ORDER";
 			return this.GetListBySql(string_);
 		}
 
@@ -72,19 +72,19 @@ namespace Gssy.Capi.DAL
 			string[] array = new string[5];
 			if (bool_0)
 			{
-				array[0] = GClass0.smethod_0("颞矫趗勹鱸宎");
-				array[1] = GClass0.smethod_0("闦馟紐僲﬌庝遇");
-				array[2] = GClass0.smethod_0("缐礄ﴌ硗汊行");
+				array[0] = "题目输出顺序";
+				array[1] = "问题编号（实际）";
+				array[2] = "编码（答案）";
 				array[3] = "问卷编号";
-				array[4] = GClass0.smethod_0("ZŘɔ͕Х囜韌筹徊");
+				array[4] = "SPSS 变量类型";
 			}
 			else
 			{
-				array[0] = GClass0.smethod_0("MŅə͞эՕٙ݊ࡖेੇ୓");
-				array[1] = GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ");
+				array[0] = "ANSWER_ORDER";
+				array[1] = "QUESTION_NAME";
 				array[2] = "CODE";
 				array[3] = "SURVEY_ID";
-				array[4] = GClass0.smethod_0("^Ŝɘ͙і՞نݔࡌॅੁ୎ౄ");
+				array[4] = "SPSS_VARIABLE";
 			}
 			return array;
 		}

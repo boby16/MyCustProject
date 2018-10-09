@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
@@ -28,7 +28,7 @@ namespace Gssy.Capi.DAL
 		{
 			internal bool method_0(XElement xelement_0)
 			{
-				return xelement_0.Element("SURVEY_ID").Value == this.surveyID && xelement_0.Element(GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")).Value == this.questionName;
+				return xelement_0.Element("SURVEY_ID").Value == this.surveyID && xelement_0.Element("QUESTION_NAME").Value == this.questionName;
 			}
 
 			public string surveyID;

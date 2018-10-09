@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("gŶɾʹѳջ؎ݮࡣॾ੤୽ఀ഍ฏ༅ၢᅱቭ፬᐀ᕌᙫᝯᡪ᥾ᩣᭈᱭᵸṢὴ⁕ⅽ≡⍦⑵╽☮❚⡄⥎⩘⭌Ⱘⵎ⹂⼥〹ㅸ㈲㍼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM SurveyQuotaAnswer WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public SurveyQuotaAnswer GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("~ũɧͯѪռ؇܌ࠅॢੱ୭౬ഀ์ཫၯᅪቾ፣ᑈᕭᙸᝢᡴᥕ᩽᭡ᱦᵵṽἮ⁚⅄≎⍘⑌┨♎❂⠥⤹⩸⬲ⱼ"), int_0);
+			string string_ = string.Format("SELECT * FROM SurveyQuotaAnswer WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -29,12 +29,12 @@ namespace Gssy.Capi.DAL
 			{
 				while (dataReader.Read())
 				{
-					surveyQuotaAnswer.ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]);
+					surveyQuotaAnswer.ID = Convert.ToInt32(dataReader["ID"]);
 					surveyQuotaAnswer.SURVEY_ID = dataReader["SURVEY_ID"].ToString();
-					surveyQuotaAnswer.SURVEY_GUID = dataReader[GClass0.smethod_0("Xşɛ͞т՟ٚ݃ࡖो੅")].ToString();
-					surveyQuotaAnswer.QUESTION_NAME = dataReader[GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")].ToString();
+					surveyQuotaAnswer.SURVEY_GUID = dataReader["SURVEY_GUID"].ToString();
+					surveyQuotaAnswer.QUESTION_NAME = dataReader["QUESTION_NAME"].ToString();
 					surveyQuotaAnswer.CODE = dataReader["CODE"].ToString();
-					surveyQuotaAnswer.IS_FINISH = Convert.ToInt32(dataReader[GClass0.smethod_0("@śɘ̀ьՊيݑࡉ")]);
+					surveyQuotaAnswer.IS_FINISH = Convert.ToInt32(dataReader["IS_FINISH"]);
 				}
 			}
 			return surveyQuotaAnswer;
@@ -50,12 +50,12 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new SurveyQuotaAnswer
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
+						ID = Convert.ToInt32(dataReader["ID"]),
 						SURVEY_ID = dataReader["SURVEY_ID"].ToString(),
-						SURVEY_GUID = dataReader[GClass0.smethod_0("Xşɛ͞т՟ٚ݃ࡖो੅")].ToString(),
-						QUESTION_NAME = dataReader[GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")].ToString(),
+						SURVEY_GUID = dataReader["SURVEY_GUID"].ToString(),
+						QUESTION_NAME = dataReader["QUESTION_NAME"].ToString(),
 						CODE = dataReader["CODE"].ToString(),
-						IS_FINISH = Convert.ToInt32(dataReader[GClass0.smethod_0("@śɘ̀ьՊيݑࡉ")])
+						IS_FINISH = Convert.ToInt32(dataReader["IS_FINISH"])
 					});
 				}
 			}
@@ -64,13 +64,13 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyQuotaAnswer> GetList()
 		{
-			string string_ = GClass0.smethod_0("xůɥͭѤղ؅܎ࠃ।ੳ୯౒ാ๎ཀྵၩᅬቼ፡ᑆᕣᙺᝠᡲᥓ᩿᭣ᱸᵫṿἬ⁄⅘≍⍍⑕┦♇❝⠣⥋⩅");
+			string string_ = "SELECT * FROM SurveyQuotaAnswer ORDER BY ID";
 			return this.GetListBySql(string_);
 		}
 
 		public void Add(SurveyQuotaAnswer surveyQuotaAnswer_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("<ĺȠ̷УԤُܧࠣसਤ୊఺ഝต༐ကᄝሲ጗ᐎᔔᘾᜟᠳ᤯ᨬᬿᰫᵰḄἃ\u2007ℂ∖⌋␎┙☋❢⠞⤙⨙⬜Ⰼⴑ⸘⼁【ㄍ㈇㍮㐐㔕㙺㝭㡩㥵㩴㭴㱦㵶㹶㽻䁰䄘䉰䍽䑵䕵䘃䝧䡾䥳䩭䭣䱧䵡乴佮倌億創卣呭啵噚坍堵夻婠嬪層崿帻弱恮愥扮挵搽攷晴朼桰椫樧欭汲活湺漡瀩煿爷獿琨"), new object[]
+			string string_ = string.Format("INSERT INTO SurveyQuotaAnswer(SURVEY_ID,SURVEY_GUID,QUESTION_NAME,CODE,IS_FINISH) VALUES('{0}','{1}','{2}','{3}',{4})", new object[]
 			{
 				surveyQuotaAnswer_0.SURVEY_ID,
 				surveyQuotaAnswer_0.SURVEY_GUID,
@@ -83,7 +83,7 @@ namespace Gssy.Capi.DAL
 
 		public void Update(SurveyQuotaAnswer surveyQuotaAnswer_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("ÑǓˆπӔԺٞܮࠉउ਌ଜఁദฃ༚ကᄒሳጟᐃᔘᘋᜟᡌᤸᨯᬽ᱈ᴴḳἷ′Ω∻⌾␩┛♾❠⡼⥼⨡⭨Ⱕ⵰⹺⼆、㄁㈄㌔㐉㔐㘉㜘㠅㤏㩪㭴㱨㵠㸽㽷䀹䅤䉮䌐䐕䕺䙭䝩䡵䥴䩴䭦䱶䵶乻佰倔儎划化呋唜噓圊堀奨婥孭屭崇帛弅怃慘或捜搇攳晗李桃楝橓歗汑浄湞漵瀩焳物猤瑭甯癙睅硉祙穏笩籁絃縦缸耤腸舲荼"), new object[]
+			string string_ = string.Format("UPDATE SurveyQuotaAnswer SET SURVEY_ID = '{1}',SURVEY_GUID = '{2}',QUESTION_NAME = '{3}',CODE = '{4}',IS_FINISH = {5} WHERE ID = {0}", new object[]
 			{
 				surveyQuotaAnswer_0.ID,
 				surveyQuotaAnswer_0.SURVEY_ID,
@@ -97,13 +97,13 @@ namespace Gssy.Capi.DAL
 
 		public void Delete(SurveyQuotaAnswer surveyQuotaAnswer_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("oůɥͭѳգ؅ݢࡱ७੬଀ౌ൫๯ཪၾᅣቈ፭ᑸᕢᙴ᝕᡽ᥡᩦ᭵ᱽᴮṚὄ⁎⅘≌⌨⑎╂☥✹⡸⤲⩼"), surveyQuotaAnswer_0.ID);
+			string string_ = string.Format("DELETE FROM SurveyQuotaAnswer WHERE ID ={0}", surveyQuotaAnswer_0.ID);
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
 		public void Truncate()
 		{
-			string string_ = GClass0.smethod_0("Yřɗ͟э՝طݐࡇज़ਫ਼ଲూ൥๽ླྀၨᅵቚ፿ᑦᕼᙦᝇᡫ᥷ᩴ᭧ᱳ");
+			string string_ = "DELETE FROM SurveyQuotaAnswer";
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
@@ -113,21 +113,21 @@ namespace Gssy.Capi.DAL
 			string[] array = new string[6];
 			if (bool_0)
 			{
-				array[0] = GClass0.smethod_0("臮厫純僶");
+				array[0] = "自动编号";
 				array[1] = "问卷编号";
-				array[2] = GClass0.smethod_0("MŜɁ̓Ц呭爇刬䘂焀");
-				array[3] = GClass0.smethod_0("闪馛純僶");
-				array[4] = GClass0.smethod_0("筐楋純笀");
-				array[5] = GClass0.smethod_0("闪剴炴挀");
+				array[2] = "GUID 全球唯一码";
+				array[3] = "问题编号";
+				array[4] = "答案编码";
+				array[5] = "问卷状态";
 			}
 			else
 			{
-				array[0] = GClass0.smethod_0("KŅ");
+				array[0] = "ID";
 				array[1] = "SURVEY_ID";
-				array[2] = GClass0.smethod_0("Xşɛ͞т՟ٚ݃ࡖो੅");
-				array[3] = GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ");
+				array[2] = "SURVEY_GUID";
+				array[3] = "QUESTION_NAME";
 				array[4] = "CODE";
-				array[5] = GClass0.smethod_0("@śɘ̀ьՊيݑࡉ");
+				array[5] = "IS_FINISH";
 			}
 			return array;
 		}
@@ -168,20 +168,20 @@ namespace Gssy.Capi.DAL
 
 		public bool ExistsByModel(SurveyQuotaAnswer surveyQuotaAnswer_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("\u0017ĆȎ̄Ѓԫپݷࡼऽਨଶవ൷ฅ༠ဦᄥሷጨᐁᔺᘡ᜹ᠭᤊᨤᬺ᰿ᴢḴὥ″Å∧⌳␥┟♭❨⡮⥭⩿⭠Ⱨ⵾⹲⼕〉ㄔ㉉㌁㑍㔈㘎㝌㡂㥏㨊㭺㱽㵵㹰㽠䁽䅼䉥䍴䑩䕛䘣䜺䡧䤪䩧䬾䰸䵶乸佱倴兂則協呃啛噇坂塂奔婄孈居嵂帻弢恿愱承挦"), surveyQuotaAnswer_0.SURVEY_ID, surveyQuotaAnswer_0.SURVEY_GUID, surveyQuotaAnswer_0.QUESTION_NAME);
+			string string_ = string.Format("select * from SurveyQuotaAnswer where SURVEY_ID ='{0}' and SURVEY_GUID='{1}' and QUESTION_NAME='{2}'", surveyQuotaAnswer_0.SURVEY_ID, surveyQuotaAnswer_0.SURVEY_GUID, surveyQuotaAnswer_0.QUESTION_NAME);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public int GetSumByModel(int int_0, string string_0, string string_1)
 		{
-			string string_2 = string.Format(GClass0.smethod_0("\u001dĈȀ̎Љԝو܄ࠉऐਊଗొോ้ཿဿᄮቼጕᐙᔶᘭ᜹ᠢ᥵ᨲᬡ᰽ᴼṰἜ※ℿ∺⌮␳┘☽✨⠲⤤⨅⬭ⰱⴶ⸥⽍〞ㅊ㉔㍞㑈㕜㘘㝾㡥㥪㩲㭺㱼㵸㹣㽧䀎䄐䈌䍐䐚䕔䘈䝆䡈䥁䨄䭲䱷䵤乳佋偗兒剒卄呔啘噕坒堶夨娳孨尣嵬帷弯息慣扨挫摉敆晌杂栻椢橿欱汿洦"), int_0.ToString(), string_0, string_1);
+			string string_2 = string.Format("select count(*) as NCount from SurveyQuotaAnswer where IS_FINISH = {0} and QUESTION_NAME ='{1}' and CODE='{2}'", int_0.ToString(), string_0, string_1);
 			return this.dbprovider_0.ExecuteScalarInt(string_2);
 		}
 
 		public void UpdateStatus(int int_0, string string_0, string string_1)
 		{
-			string string_2 = string.Format(GClass0.smethod_0(",Ĩȳ̷СԱٳ܁ࠤढਹଫఴഝ฾༥ွᄩሆጨᐶᔳᘦᜰᡡᤳᩚᭊᰝᵵṨὥⁿⅱ≹⍿⑦╼☓✏⠑⥋⨟⭓Ⰽⵛ⹃⽏せㅍ㈇㍵㑰㕶㙵㝧㡸㥿㩖㭚㰽㴡㸼㽡䀨䅥䈰䌶䑴䕺䙷䜲䡂䥅䩝䭘䱈䵕乔位停允剃医吢啿嘱坿堦"), int_0.ToString(), string_0, string_1);
+			string string_2 = string.Format("update SurveyQuotaAnswer set IS_FINISH = {0} where SURVEY_ID ='{1}' and SURVEY_GUID='{2}'", int_0.ToString(), string_0, string_1);
 			this.dbprovider_0.ExecuteNonQuery(string_2);
 		}
 

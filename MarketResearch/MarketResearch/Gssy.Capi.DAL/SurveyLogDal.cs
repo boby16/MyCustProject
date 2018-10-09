@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("\u007fŮɦͬѫճ؆ݦ࡫ॶ੬୵ఈവื༽ၚᅉቕፔᐸᕄᙣᝧᡢ᥶ᩫ᭝᱿ᵨḮ὚⁄ⅎ≘⍌␨╎♂✥⠹⥸⨲⭼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM SurveyLog WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public SurveyLog GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("všɯͧѢմؿܴ࠽ग़੉୕౔സไལၧᅢቶ፫ᑝᕿᙨᜮᡚ᥄ᩎ᭘᱌ᴨṎὂ‥ℹ≸⌲⑼"), int_0);
+			string string_ = string.Format("SELECT * FROM SurveyLog WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -29,12 +29,12 @@ namespace Gssy.Capi.DAL
 			{
 				while (dataReader.Read())
 				{
-					surveyLog.ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]);
-					surveyLog.LOG_TYPE = dataReader[GClass0.smethod_0("DňɁ͚ѐ՚ْ݄")].ToString();
-					surveyLog.LOG_MESSAGE = dataReader[GClass0.smethod_0("GŅɎ͗ъՃٖݗࡂॅ੄")].ToString();
-					surveyLog.LOG_DATE = new DateTime?(Convert.ToDateTime(dataReader[GClass0.smethod_0("DňɁ͚рՂٖ݄")].ToString()));
+					surveyLog.ID = Convert.ToInt32(dataReader["ID"]);
+					surveyLog.LOG_TYPE = dataReader["LOG_TYPE"].ToString();
+					surveyLog.LOG_MESSAGE = dataReader["LOG_MESSAGE"].ToString();
+					surveyLog.LOG_DATE = new DateTime?(Convert.ToDateTime(dataReader["LOG_DATE"].ToString()));
 					surveyLog.SURVEY_ID = dataReader["SURVEY_ID"].ToString();
-					surveyLog.VERSION_ID = dataReader[GClass0.smethod_0("\\Ōɚ͔яՊيݜࡋॅ")].ToString();
+					surveyLog.VERSION_ID = dataReader["VERSION_ID"].ToString();
 				}
 			}
 			return surveyLog;
@@ -50,12 +50,12 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new SurveyLog
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
-						LOG_TYPE = dataReader[GClass0.smethod_0("DňɁ͚ѐ՚ْ݄")].ToString(),
-						LOG_MESSAGE = dataReader[GClass0.smethod_0("GŅɎ͗ъՃٖݗࡂॅ੄")].ToString(),
-						LOG_DATE = new DateTime?(Convert.ToDateTime(dataReader[GClass0.smethod_0("DňɁ͚рՂٖ݄")].ToString())),
+						ID = Convert.ToInt32(dataReader["ID"]),
+						LOG_TYPE = dataReader["LOG_TYPE"].ToString(),
+						LOG_MESSAGE = dataReader["LOG_MESSAGE"].ToString(),
+						LOG_DATE = new DateTime?(Convert.ToDateTime(dataReader["LOG_DATE"].ToString())),
 						SURVEY_ID = dataReader["SURVEY_ID"].ToString(),
-						VERSION_ID = dataReader[GClass0.smethod_0("\\Ōɚ͔яՊيݜࡋॅ")].ToString()
+						VERSION_ID = dataReader["VERSION_ID"].ToString()
 					});
 				}
 			}
@@ -64,13 +64,13 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyLog> GetList()
 		{
-			string string_ = GClass0.smethod_0("pŧɭͥќՊؽܶ࠻ड़ੋୗౚശๆཡၡᅤቴ፩ᑃᕡᙪᜬᡄᥘᩍ᭍᱕ᴦṇὝ‣⅋≅");
+			string string_ = "SELECT * FROM SurveyLog ORDER BY ID";
 			return this.GetListBySql(string_);
 		}
 
 		public void Add(SurveyLog surveyLog_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("&ĠȾ̩йԾىܡࠩलਪୄరഗณ༖်ᄧሑጳᐼᕲᘕ᜗᠐ᤉᨁᬍᰃᴗṽἜ\u2000℉−⌁␎┙☚✉⠀⤃⩩⬈Ⰼⴅ⸞⼄まㅪ㉸㌐㑨㕯㙫㝮㡲㥯㩪㭽㱷㴞㹧㽵䁽䅽䉤䍣䑥䕵䙠䝬䠎䤆䩳䭥䱯䵷乤佳倷儹剦匬呦唽嘵圿塬大婨嬳尿崵幪弢恲愩戡挫摰改晴术栫椡橾欰汾津渨"), new object[]
+			string string_ = string.Format("INSERT INTO SurveyLog(LOG_TYPE,LOG_MESSAGE,LOG_DATE,SURVEY_ID,VERSION_ID) VALUES('{0}','{1}','{2}','{3}','{4}')", new object[]
 			{
 				surveyLog_0.LOG_TYPE,
 				surveyLog_0.LOG_MESSAGE,
@@ -83,7 +83,7 @@ namespace Gssy.Capi.DAL
 
 		public void Update(SurveyLog surveyLog_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("+ĭȸ̺ЮԼ٘ܤࠃइਂଖఋഽฟ༈၎ᄾሩጿᑊᔥᘧᜠᠹᤱᨽᬳᰧᵁṝ὿⁹Ω≭⌦⑽╵☔✘⠑⤊⨙⬖Ⰱⴂ⸑⼈》ㅭ㉱㍫㑭㔲㙺㜺㡡㥩㨈㬌㰅㴞㸄㽾䁪䅸䈜䌆䐚䔞䙃䜄䡋䤒䨘䭠䱧䵣书佪偷兲剥卯吊唔嘈圀塝夑婙嬄導嵷幥彍恍慔打捕摅敐晜朷栫椵樳歨氧浬渷漯灙煅牉獙瑏甩癁睃砦礸稤筸簲絼"), new object[]
+			string string_ = string.Format("UPDATE SurveyLog SET LOG_TYPE = '{1}',LOG_MESSAGE = '{2}',LOG_DATE = '{3}',SURVEY_ID = '{4}',VERSION_ID = '{5}' WHERE ID = {0}", new object[]
 			{
 				surveyLog_0.ID,
 				surveyLog_0.LOG_TYPE,
@@ -97,13 +97,13 @@ namespace Gssy.Capi.DAL
 
 		public void Delete(SurveyLog surveyLog_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("gŧɭͥы՛ؽݚࡉॕ੔ସౄൣ๧རၶᅫቝ፿ᑨᔮᙚᝄᡎᥘᩌᬨᱎᵂḥἹ⁸Ⅎ≼"), surveyLog_0.ID);
+			string string_ = string.Format("DELETE FROM SurveyLog WHERE ID ={0}", surveyLog_0.ID);
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
 		public void Truncate()
 		{
-			string string_ = GClass0.smethod_0("Qőɟ͗хՕد݈࡟ृ੆ପౚൽ๵཰ၠᅽ቏፭ᑦ");
+			string string_ = "DELETE FROM SurveyLog";
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
@@ -113,21 +113,21 @@ namespace Gssy.Capi.DAL
 			string[] array = new string[6];
 			if (bool_0)
 			{
-				array[0] = GClass0.smethod_0("丼鐨ȥ苮嚫稔嗶");
-				array[1] = GClass0.smethod_0("旡廔繹咊");
-				array[2] = GClass0.smethod_0("旡廔䷣据");
-				array[3] = GClass0.smethod_0("旡廔柧搞");
+				array[0] = "主键 自动编号";
+				array[1] = "日志类型";
+				array[2] = "日志信息";
+				array[3] = "日志日期";
 				array[4] = "问卷编号";
-				array[5] = GClass0.smethod_0("牌是純僶");
+				array[5] = "版本编号";
 			}
 			else
 			{
-				array[0] = GClass0.smethod_0("KŅ");
-				array[1] = GClass0.smethod_0("DňɁ͚ѐ՚ْ݄");
-				array[2] = GClass0.smethod_0("GŅɎ͗ъՃٖݗࡂॅ੄");
-				array[3] = GClass0.smethod_0("DňɁ͚рՂٖ݄");
+				array[0] = "ID";
+				array[1] = "LOG_TYPE";
+				array[2] = "LOG_MESSAGE";
+				array[3] = "LOG_DATE";
 				array[4] = "SURVEY_ID";
-				array[5] = GClass0.smethod_0("\\Ōɚ͔яՊيݜࡋॅ");
+				array[5] = "VERSION_ID";
 			}
 			return array;
 		}

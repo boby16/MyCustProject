@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("}Ũɠͮѩս؈ݤࡩ॰੪୷ఊഋฉ༿ၘᅏቓፖᐺᕊ᙭ᝥᡠᥰᩭ᭟ᱽᵶṹὬ‮⅚≄⍎⑘╌☨❎⡂⤥⨹⭸ⰲ⵼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM SurveyLogic WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public SurveyLogic GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("tţɩ͡Ѡն؁܊࠿क़੏୓ౖഺ๊཭ၥᅠተ፭ᑟᕽᙶ᝹ᡬ᤮ᩚ᭄ᱎᵘṌἨ⁎⅂∥⌹⑸┲♼"), int_0);
+			string string_ = string.Format("SELECT * FROM SurveyLogic WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -29,15 +29,15 @@ namespace Gssy.Capi.DAL
 			{
 				while (dataReader.Read())
 				{
-					surveyLogic.ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]);
-					surveyLogic.PAGE_ID = dataReader[GClass0.smethod_0("WŇɂ́ќՋم")].ToString();
-					surveyLogic.LOGIC_TYPE = dataReader[GClass0.smethod_0("Fņɏ͎х՚ِݚࡒॄ")].ToString();
-					surveyLogic.INNER_INDEX = Convert.ToInt32(dataReader[GClass0.smethod_0("Bńɇ͍ѕՙٌ݊ࡇेਖ਼")]);
-					surveyLogic.FORMULA = dataReader[GClass0.smethod_0("Aŉɗ͉іՎـ")].ToString();
-					surveyLogic.RECODE_ANSWER = dataReader[GClass0.smethod_0("_ŉɈͅэՍ٘݇ࡋॗ੔େ౓")].ToString();
-					surveyLogic.LOGIC_MESSAGE = dataReader[GClass0.smethod_0("AŃɌ̓ъ՗ي݃ࡖॗੂ୅ౄ")].ToString();
-					surveyLogic.NOTE = dataReader[GClass0.smethod_0("JŌɖ̈́")].ToString();
-					surveyLogic.IS_ALLOW_PASS = Convert.ToInt32(dataReader[GClass0.smethod_0("Dşɔ͋хՄوݑ࡚॔ੂ୑౒")]);
+					surveyLogic.ID = Convert.ToInt32(dataReader["ID"]);
+					surveyLogic.PAGE_ID = dataReader["PAGE_ID"].ToString();
+					surveyLogic.LOGIC_TYPE = dataReader["LOGIC_TYPE"].ToString();
+					surveyLogic.INNER_INDEX = Convert.ToInt32(dataReader["INNER_INDEX"]);
+					surveyLogic.FORMULA = dataReader["FORMULA"].ToString();
+					surveyLogic.RECODE_ANSWER = dataReader["RECODE_ANSWER"].ToString();
+					surveyLogic.LOGIC_MESSAGE = dataReader["LOGIC_MESSAGE"].ToString();
+					surveyLogic.NOTE = dataReader["NOTE"].ToString();
+					surveyLogic.IS_ALLOW_PASS = Convert.ToInt32(dataReader["IS_ALLOW_PASS"]);
 				}
 			}
 			return surveyLogic;
@@ -53,15 +53,15 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new SurveyLogic
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
-						PAGE_ID = dataReader[GClass0.smethod_0("WŇɂ́ќՋم")].ToString(),
-						LOGIC_TYPE = dataReader[GClass0.smethod_0("Fņɏ͎х՚ِݚࡒॄ")].ToString(),
-						INNER_INDEX = Convert.ToInt32(dataReader[GClass0.smethod_0("Bńɇ͍ѕՙٌ݊ࡇेਖ਼")]),
-						FORMULA = dataReader[GClass0.smethod_0("Aŉɗ͉іՎـ")].ToString(),
-						RECODE_ANSWER = dataReader[GClass0.smethod_0("_ŉɈͅэՍ٘݇ࡋॗ੔େ౓")].ToString(),
-						LOGIC_MESSAGE = dataReader[GClass0.smethod_0("AŃɌ̓ъ՗ي݃ࡖॗੂ୅ౄ")].ToString(),
-						NOTE = dataReader[GClass0.smethod_0("JŌɖ̈́")].ToString(),
-						IS_ALLOW_PASS = Convert.ToInt32(dataReader[GClass0.smethod_0("Dşɔ͋хՄوݑ࡚॔ੂ୑౒")])
+						ID = Convert.ToInt32(dataReader["ID"]),
+						PAGE_ID = dataReader["PAGE_ID"].ToString(),
+						LOGIC_TYPE = dataReader["LOGIC_TYPE"].ToString(),
+						INNER_INDEX = Convert.ToInt32(dataReader["INNER_INDEX"]),
+						FORMULA = dataReader["FORMULA"].ToString(),
+						RECODE_ANSWER = dataReader["RECODE_ANSWER"].ToString(),
+						LOGIC_MESSAGE = dataReader["LOGIC_MESSAGE"].ToString(),
+						NOTE = dataReader["NOTE"].ToString(),
+						IS_ALLOW_PASS = Convert.ToInt32(dataReader["IS_ALLOW_PASS"])
 					});
 				}
 			}
@@ -70,13 +70,13 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyLogic> GetList()
 		{
-			string string_ = GClass0.smethod_0("všɯͧѢմؿܴ࠽ग़੉୕౔സไལၧᅢቶ፫ᑝᕿᙨᝧᡮ᤬ᩄ᭘ᱍᵍṕἦ⁇⅝∣⍋⑅");
+			string string_ = "SELECT * FROM SurveyLogic ORDER BY ID";
 			return this.GetListBySql(string_);
 		}
 
 		public void Add(SurveyLogic surveyLogic_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("ëǯ˳Ϛӌ׉ڼߒ্ࣔ૗ஷ೅෠໦࿥ჷᇨዜᏠᓩᗤᛯឣᣚᧈ᫏ᯂ᳙᷌Ềᾯ⃎⇎⋇⌶␽┢☨✢⠪⤼⩔⬾ⰸⴻ⸱⼡〭ㄸ㈾㌫㐫㔵㙀㜭㠥㤻㨥㬲㰪㴤㹈㼱䀧䄢䈯䌛䐛䔂䘝䜕䠉䤎䨝䬅䱺䴙丛伔倛儒刏匂吋唞嘟圊堍夌婤嬉尉崑币彯怋愒戟捾摲敱晳杬桥楩橹此汥洜渔潥灳煽牥獪瑽甅瘋睐砚祔稏笋簁絞縕罞者脍艛茭董蔱蘻蝠蠩襤訿謻谱赮踠轮逵鄽鈷鍴鐻镰阫霧頭饲騾魺鰡鴩鹿鼴ꁿꄨ"), new object[]
+			string string_ = string.Format("INSERT INTO SurveyLogic(PAGE_ID,LOGIC_TYPE,INNER_INDEX,FORMULA,RECODE_ANSWER,LOGIC_MESSAGE,NOTE,IS_ALLOW_PASS) VALUES('{0}','{1}',{2},'{3}','{4}','{5}','{6}',{7})", new object[]
 			{
 				surveyLogic_0.PAGE_ID,
 				surveyLogic_0.LOGIC_TYPE,
@@ -92,7 +92,7 @@ namespace Gssy.Capi.DAL
 
 		public void Update(SurveyLogic surveyLogic_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("âǦ˱ϵӧ׷ڑߣࣚড়૛௉೒෦ໆ࿏჎ᇅኅ᏷ᓦᗶᚁ៰ᣞ᧙᫘ᯃ᳒ᷞẹᾥ₷↱⋮⎥⓮▵⚽⟜⣀⧉⫄⯏Ⳕⷞ⻐⿘ヂㆦ㊸㎤㒤㗹㚳㟽㡘㥒㨴㬲㰵㴿㸫㼧䀾䄸䈱䌱䐫䕒䙌䝐䠔䥝䨐䭀䰭䴥主伥倲優判卄呞啂噆圛填夣婺孰尉崟帚弗怓愓戊挕搝攁昆朕栝楮橰歬汬洱湼漵灠煪爉猋琄甋瘂真硲祻穮筯籺絽繼缘耊脖舒荏萅蕏蘖蜜衡襡詹譩谋贗踉輏遜鄑鉘錃鐏镫陲靿類饒驑魓鱌鵅鹉齙ꁄꅅꈵꌩꐳꕩ꘩ꝭ꠯꥙ꩅꭉ걙굏긩꽁끃넦눸댤둸딲뙼"), new object[]
+			string string_ = string.Format("UPDATE SurveyLogic SET PAGE_ID = '{1}',LOGIC_TYPE = '{2}',INNER_INDEX = {3},FORMULA = '{4}',RECODE_ANSWER = '{5}',LOGIC_MESSAGE = '{6}',NOTE = '{7}',IS_ALLOW_PASS = {8} WHERE ID = {0}", new object[]
 			{
 				surveyLogic_0.ID,
 				surveyLogic_0.PAGE_ID,
@@ -109,13 +109,13 @@ namespace Gssy.Capi.DAL
 
 		public void Delete(SurveyLogic surveyLogic_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("ašɯͧѵեؿݘࡏ॓੖଺ొ൭๥འၰᅭ቟፽ᑶᕹᙬᜮᡚ᥄ᩎ᭘᱌ᴨṎὂ‥ℹ≸⌲⑼"), surveyLogic_0.ID);
+			string string_ = string.Format("DELETE FROM SurveyLogic WHERE ID ={0}", surveyLogic_0.ID);
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
 		public void Truncate()
 		{
-			string string_ = GClass0.smethod_0("Sœə͑ч՗رݖ࡝ुੀବౘൿ๻ཾၢᅿ቉፫ᑤᕫᙢ");
+			string string_ = "DELETE FROM SurveyLogic";
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
@@ -125,27 +125,27 @@ namespace Gssy.Capi.DAL
 			string[] array = new string[9];
 			if (bool_0)
 			{
-				array[0] = GClass0.smethod_0("臮厫純僶");
-				array[1] = GClass0.smethod_0("顶縔凶");
-				array[2] = GClass0.smethod_0("逿躒繹咊");
-				array[3] = GClass0.smethod_0("逿躒驸嶎");
-				array[4] = GClass0.smethod_0("逽躔卨尌徘䭈");
-				array[5] = GClass0.smethod_0("[ōɄ͉сՁأ籖恉");
-				array[6] = GClass0.smethod_0("揔砹䷣据");
-				array[7] = GClass0.smethod_0("逿躒懍賱");
-				array[8] = GClass0.smethod_0("先誰畤壺籫躠刍霘蟆");
+				array[0] = "自动编号";
+				array[1] = "页编号";
+				array[2] = "逻辑类型";
+				array[3] = "逻辑顺序";
+				array[4] = "逻辑公式定义";
+				array[5] = "RECODE 答案";
+				array[6] = "提示信息";
+				array[7] = "逻辑描述";
+				array[8] = "允许督导确认后通过";
 			}
 			else
 			{
-				array[0] = GClass0.smethod_0("KŅ");
-				array[1] = GClass0.smethod_0("WŇɂ́ќՋم");
-				array[2] = GClass0.smethod_0("Fņɏ͎х՚ِݚࡒॄ");
-				array[3] = GClass0.smethod_0("Bńɇ͍ѕՙٌ݊ࡇेਖ਼");
-				array[4] = GClass0.smethod_0("Aŉɗ͉іՎـ");
-				array[5] = GClass0.smethod_0("_ŉɈͅэՍ٘݇ࡋॗ੔େ౓");
-				array[6] = GClass0.smethod_0("AŃɌ̓ъ՗ي݃ࡖॗੂ୅ౄ");
-				array[7] = GClass0.smethod_0("JŌɖ̈́");
-				array[8] = GClass0.smethod_0("Dşɔ͋хՄوݑ࡚॔ੂ୑౒");
+				array[0] = "ID";
+				array[1] = "PAGE_ID";
+				array[2] = "LOGIC_TYPE";
+				array[3] = "INNER_INDEX";
+				array[4] = "FORMULA";
+				array[5] = "RECODE_ANSWER";
+				array[6] = "LOGIC_MESSAGE";
+				array[7] = "NOTE";
+				array[8] = "IS_ALLOW_PASS";
 			}
 			return array;
 		}
@@ -173,14 +173,14 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyLogic> GetCheckLogic(string string_0)
 		{
-			string arg = GClass0.smethod_0("HłɌ͋ьՙى݋ࡄोੂ");
-			string string_ = string.Format(GClass0.smethod_0("$ĳȹ̱аԦٱݺ࡯नਿଣద൪บ༽ဵᄰሠጽᐏᔭᘦᜩᡜᤞᩊ᭔ᱞᵈṜἘ⁧ⅷ≲⍱⑬╻♵✍⠈⥕⨝⭑Ⰼⴊ⹈⽆ぃㄆ㉩㍫㑤㕫㙢㝿㡋㥇㩍㭙㰦㴽㹢㼩䁪䄱䈵䍻䑡䕶䙴䝢䠯䥬䩴䬬䱂䵄乇位偕兙剌半呇啇噙"), string_0, arg);
+			string arg = "CHECK_LOGIC";
+			string string_ = string.Format("select * from SurveyLogic where PAGE_ID='{0}' and LOGIC_TYPE='{1}' order by INNER_INDEX", string_0, arg);
 			return this.GetListBySql(string_);
 		}
 
 		public List<SurveyLogic> GetReCodeLogic(string string_0, int int_0 = 1, int int_1 = 0, int int_2 = 99999)
 		{
-			string text = GClass0.smethod_0("HłɌ͋ьՙى݋ࡄोੂ");
+			string text = "CHECK_LOGIC";
 			string string_ = "";
 			if (int_0 == 1)
 			{
@@ -193,7 +193,7 @@ namespace Gssy.Capi.DAL
 			{
 				int_1 = 2001;
 			}
-			string_ = string.Format(GClass0.smethod_0("ñǤˬ̚Нԉٜݑ࡚टਊଘఛൕว༆ကᄇሕ጖ᐢᔂᘋᜂ᠉᥉᨟ᬏᰃᴗḁὃ′℠∧⌚␁└☘❦⡽⤢⩨⬪ⱱ⵵⸵⼽〶ㅱ㈜㌀㐉㔄㘏㜔㠞㤐㨘㬂㱺㵻㹣㼸䁳䄼䉧䌟䑟䕓䙘䜛䡳䥷䩶䭲䱤䵪乽佽偶兴剨匑吓啖嘞坖堊奈婆孃将嵬幪彭恧慳承捖摐教晙权栦椤橣欤汫洵湻潡灶煴牢猯瑬畴瘬睂硄祇積筕籙経繊罇聇腙"), new object[]
+			string_ = string.Format("select * from SurveyLogic where PAGE_ID='{0}' and LOGIC_TYPE<>'{1}' and INNER_INDEX>={2} and INNER_INDEX<={3} order by INNER_INDEX", new object[]
 			{
 				string_0,
 				text,
@@ -205,45 +205,45 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyLogic> GetRecodeList(int int_0 = 2)
 		{
-			string arg = GClass0.smethod_0("HłɌ͋ьՙى݋ࡄोੂ");
+			string arg = "CHECK_LOGIC";
 			string string_ = "";
 			if (int_0 == 1)
 			{
-				string_ = string.Format(GClass0.smethod_0("/ľȶ̼лԣٶݿࡴवਠାఽ൯ฝ༸ှᄽሯጰᐄᔨᘡᜬᠧᥣᨵᬩᰥᵍṛἝ⁰ⅴ≽⍰⑻╨♢❬⡤⥶⨎⬏Ⱇⵔ⸞⽐》ㄋ㈊㍈㑆㕃㘆㝬㡪㥭㩧㭳㱿㵖㹐㽙䁙䅃䈦䌬䐨䔧䘦䜵䡻䥡䩶䭴䱢䴯乬佴倬兂剄升呍啕噙坌塊奇婇孙"), arg);
+				string_ = string.Format("select * from SurveyLogic where LOGIC_TYPE<>'{0}'  and INNER_INDEX<5000 order by INNER_INDEX", arg);
 			}
 			else
 			{
-				string_ = string.Format(GClass0.smethod_0("/ľȶ̼лԣٶݿࡴवਠାఽ൯ฝ༸ှᄽሯጰᐄᔨᘡᜬᠧᥣᨵᬩᰥᵍṛἝ⁰ⅴ≽⍰⑻╨♢❬⡤⥶⨎⬏Ⱇⵔ⸞⽐》ㄋ㈊㍈㑆㕃㘆㝬㡪㥭㩧㭳㱿㵖㹐㽙䁙䅃䈤䌫䐨䔧䘦䜵䡻䥡䩶䭴䱢䴯乬佴倬兂剄升呍啕噙坌塊奇婇孙"), arg);
+				string_ = string.Format("select * from SurveyLogic where LOGIC_TYPE<>'{0}'  and INNER_INDEX>2000 order by INNER_INDEX", arg);
 			}
 			return this.GetListBySql(string_);
 		}
 
 		public List<SurveyLogic> GetCircleGuideLogic(string string_0, int int_0 = 1)
 		{
-			string arg = GClass0.smethod_0("QŘɂ͌тՈٓ݌࡟ीੌୂౙ൉๋ང။ᅂ");
-			string string_ = string.Format(GClass0.smethod_0("$ĳȹ̱аԦٱݺ࡯नਿଣద൪บ༽ဵᄰሠጽᐏᔭᘦᜩᡜᤞᩊ᭔ᱞᵈṜἘ⁧ⅷ≲⍱⑬╻♵✍⠈⥕⨝⭑Ⰼⴊ⹈⽆ぃㄆ㉩㍫㑤㕫㙢㝿㡋㥇㩍㭙㰦㴽㹢㼩䁪䄱䈵䍻䑡䕶䙴䝢䠯䥬䩴䬬䱂䵄乇位偕兙剌半呇啇噙"), string_0, arg);
+			string arg = "CIRCLE_GUIDE_LOGIC";
+			string string_ = string.Format("select * from SurveyLogic where PAGE_ID='{0}' and LOGIC_TYPE='{1}' order by INNER_INDEX", string_0, arg);
 			if (int_0 == 1)
 			{
-				string_ = string.Format(GClass0.smethod_0("\u001eĉȇ̏ЊԜه݌ࡅं਑଍ఌീฌ༫ုᄪሾጣᐕᔷᘰ᜿ᠶᥴᨤᬺᰴᴢḪὮ”ℍ∌⌏␖━☃❻⡢⤿⩳⬿ⱦⵠ⹞⽐すㄜ㉷㍵㑾㕱㙴㝩㡡㥭㩣㭷㰌㴗㹔㼟䁐䄋䈋䍋䑇䕌䘇䝯䡫䥪䩦䭰䱾䵩乑佚偘兄刧匯吩唨嘧圶堵奻婡孶屴嵢帯彬恴愬扂捄摇敍晕杙桌楊橇歇汙"), string_0, arg);
+				string_ = string.Format("select * from SurveyLogic where PAGE_ID='{0}' and LOGIC_TYPE='{1}' and INNER_INDEX<5000  order by INNER_INDEX", string_0, arg);
 			}
 			else
 			{
-				string_ = string.Format(GClass0.smethod_0("\u001eĉȇ̏ЊԜه݌ࡅं਑଍ఌീฌ༫ုᄪሾጣᐕᔷᘰ᜿ᠶᥴᨤᬺᰴᴢḪὮ”ℍ∌⌏␖━☃❻⡢⤿⩳⬿ⱦⵠ⹞⽐すㄜ㉷㍵㑾㕱㙴㝩㡡㥭㩣㭷㰌㴗㹔㼟䁐䄋䈋䍋䑇䕌䘇䝯䡫䥪䩦䭰䱾䵩乑佚偘兄別匨吩唨嘧圶堵奻婡孶屴嵢帯彬恴愬扂捄摇敍晕杙桌楊橇歇汙"), string_0, arg);
+				string_ = string.Format("select * from SurveyLogic where PAGE_ID='{0}' and LOGIC_TYPE='{1}' and INNER_INDEX>2000  order by INNER_INDEX", string_0, arg);
 			}
 			return this.GetListBySql(string_);
 		}
 
 		public List<SurveyLogic> GetPageInfo(int int_0 = 1)
 		{
-			string arg = GClass0.smethod_0("HłɌ͋ьՙى݋ࡄोੂ");
+			string arg = "CHECK_LOGIC";
 			string string_ = "";
 			if (int_0 == 1)
 			{
-				string_ = string.Format(GClass0.smethod_0("©Ƽʴβҵ֡۴ߣࣲরણ௯ಇඉ໠࿫ႚᆈ኏ᎂᒙᖌ\u1680៯ᣢᦍ᪏᯸᳷᷾ợ`⃣⇩⋽⎛⒖◶⛛⟆⣜⧅⪘⮅ⲇⶍ⻍⿘り㇠㋦㏩㓣㗷㛻㟪㣬㧥㫥㯇㲲㶽㺻㾼䂺䇸䋫䎷䓐䗚䛆䟞䣇䧝䫑䮣䲮䶪享侫僫出动叕哃嗆囋埇壇姞嫁嬱尭崪帹弩恖慙扟捐摖攔昇杓栾椾樷欦氭洲渡漮瀹焺爩猠琣畉癄睄硅祁稁第籾紓縓缏耟腵艸荧葶蔴蘧蝳蠛褂訏謎谂贁踃輜逕鄙鈉錔鐕镥阢霱頭餬驠魬鱋鵏鹊齞ꁃꅵꉗꍐꑟꕖꘔꝄꡚ꥔ꩂꭊ갎굡깣꽬끣녪뉷덳둿땵뙡뜞렅륚먐뭢밹봽빛뽉쁕셌쉈쌷쑔알옴읃졓쥖쩕쭐챇쵉츠켫큆텆퉏퍎푅핚홐흚\ud852\ud944"), arg);
+				string_ = string.Format("select 0 as ID, PAGE_ID, LOGIC_TYPE, Count(*) as INNER_INDEX, '' as FORMULA, '' as RECODE_ANSWER, '' as LOGIC_MESSAGE, '' as NOTE, 0 as IS_ALLOW_PASS from SurveyLogic where LOGIC_TYPE='{0}' GROUP BY PAGE_ID, LOGIC_TYPE", arg);
 			}
 			else
 			{
-				string_ = string.Format(GClass0.smethod_0("¨ƿʵνҴ֢۵ߤࣳ঳ઢ௰ಆඊ໡࿬ႛᆋ኎ᎍᒘᖏᚁ៨ᣣᦎ᪎ᮇᳶ᷽ỢῨ⃢⇪⋼⎔⒗◵⛚⟁⣝⧆⪙⮚Ⲇⶎ⻌⿟る㇣㋧㏦㓢㗴㛺㟭㣭㧦㫤㯸㲳㶾㺺㾻䂻䇻䋪䎸䓑䗙䛇䟙䣆䧞䫐䮼䲯䶩亪侬僪凹助叚哂嗅囊埀壆姝嫀寎尬崩常弮恗慚扞损摗攗昆杔栿椽樶欹氬洱渠漩瀸焹爨猯琢畊癅睃硄祂稀笓籿紐縒缈耞腶艹荨葷蔷蘦蝴蠚褁討謑调贂踂輛途鄚鈈錛鐔镦阣霶頬餯驡鬓鱊鵌鹋齙ꁂꅶꉖꍟꑞꕕꘕꝃꡛ꥗ꩃꭕ갏굢깢꽫끢녩뉶덼둾땶뙠뜘렝뤅멚묐뱢봹븽뽛쁉셕쉌썈쐷암왌윴졃쥓쩖쭕챐쵇칉켠퀫텆퉆퍏푎핅홚흐\ud85a\ud952\uda44"), arg);
+				string_ = string.Format("select 0 as ID, PAGE_ID, LOGIC_TYPE, Count(*) as INNER_INDEX, '' as FORMULA, '' as RECODE_ANSWER, '' as LOGIC_MESSAGE, '' as NOTE, 0 as IS_ALLOW_PASS from SurveyLogic where LOGIC_TYPE<>'{0}' GROUP BY PAGE_ID, LOGIC_TYPE", arg);
 			}
 			return this.GetListBySql(string_);
 		}

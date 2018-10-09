@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("}Ũɠͮѩս؈ݤࡩ॰੪୷ఊഋฉ༿ၘᅏቓፖᐺᕊ᙭ᝥᡠᥰᩭᭂᱧᵾṤὮ‮⅚≄⍎⑘╌☨❎⡂⤥⨹⭸ⰲ⵼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM SurveyQuota WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public SurveyQuota GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("tţɩ͡Ѡն؁܊࠿क़੏୓ౖഺ๊཭ၥᅠተ፭ᑂᕧᙾᝤᡮ᤮ᩚ᭄ᱎᵘṌἨ⁎⅂∥⌹⑸┲♼"), int_0);
+			string string_ = string.Format("SELECT * FROM SurveyQuota WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -29,25 +29,25 @@ namespace Gssy.Capi.DAL
 			{
 				while (dataReader.Read())
 				{
-					surveyQuota.ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]);
-					surveyQuota.PROJECT_ID = dataReader[GClass0.smethod_0("Zśɇ͍уՆِݜࡋॅ")].ToString();
-					surveyQuota.CLIENT_ID = dataReader[GClass0.smethod_0("JńɎ̓ыՐٜ݋ࡅ")].ToString();
-					surveyQuota.PAGE_ID = dataReader[GClass0.smethod_0("WŇɂ́ќՋم")].ToString();
-					surveyQuota.QUESTION_NAME = dataReader[GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")].ToString();
-					surveyQuota.QUESTION_TITLE = dataReader[GClass0.smethod_0("_Řɉ͘ўՀه੍࡙݉॑ୗ౎ൄ")].ToString();
-					surveyQuota.INNER_INDEX = Convert.ToInt32(dataReader[GClass0.smethod_0("Bńɇ͍ѕՙٌ݊ࡇेਖ਼")]);
+					surveyQuota.ID = Convert.ToInt32(dataReader["ID"]);
+					surveyQuota.PROJECT_ID = dataReader["PROJECT_ID"].ToString();
+					surveyQuota.CLIENT_ID = dataReader["CLIENT_ID"].ToString();
+					surveyQuota.PAGE_ID = dataReader["PAGE_ID"].ToString();
+					surveyQuota.QUESTION_NAME = dataReader["QUESTION_NAME"].ToString();
+					surveyQuota.QUESTION_TITLE = dataReader["QUESTION_TITLE"].ToString();
+					surveyQuota.INNER_INDEX = Convert.ToInt32(dataReader["INNER_INDEX"]);
 					surveyQuota.CODE = dataReader["CODE"].ToString();
 					surveyQuota.CODE_TEXT = dataReader["CODE_TEXT"].ToString();
-					surveyQuota.SAMPLE_OVER = Convert.ToInt32(dataReader[GClass0.smethod_0("XŋɄ͘ыՃٚ݋ࡕे੓")]);
-					surveyQuota.SAMPLE_TARGET = Convert.ToInt32(dataReader[GClass0.smethod_0("^ōɆ͚хՍ٘ݒࡄॖ੄େౕ")]);
-					surveyQuota.SAMPLE_BACKUP = Convert.ToInt32(dataReader[GClass0.smethod_0("^ōɆ͚хՍ݄٘ࡄेੈୗ౑")]);
-					surveyQuota.SAMPLE_TOTAL = Convert.ToInt32(dataReader[GClass0.smethod_0("_Ŋɇ͙фՂٙݑࡋॗ੃୍")]);
-					surveyQuota.SAMPLE_FINISH = Convert.ToInt32(dataReader[GClass0.smethod_0("^ōɆ͚хՍ٘݀ࡌॊ੊୑౉")]);
-					surveyQuota.SAMPLE_RUNNING = Convert.ToInt32(dataReader[GClass0.smethod_0("]ŌɁ͛цՌٗݕࡓो੊୊ౌെ")]);
-					surveyQuota.SAMPLE_REAL = Convert.ToInt32(dataReader[GClass0.smethod_0("XŋɄ͘ыՃٚݖࡆृ੍")]);
-					surveyQuota.IS_FULL = dataReader[GClass0.smethod_0("Nŕɚ͂іՎٍ")].ToString();
-					surveyQuota.SAMPLE_BALANCE = Convert.ToInt32(dataReader[GClass0.smethod_0("]ŌɁ͛цՌٗ݅ࡇॉ੅୍ుൄ")]);
-					surveyQuota.MODIFY_DATE = new DateTime?(Convert.ToDateTime(dataReader[GClass0.smethod_0("FŅɍ́с՟ٚ݀ࡂॖ੄")].ToString()));
+					surveyQuota.SAMPLE_OVER = Convert.ToInt32(dataReader["SAMPLE_OVER"]);
+					surveyQuota.SAMPLE_TARGET = Convert.ToInt32(dataReader["SAMPLE_TARGET"]);
+					surveyQuota.SAMPLE_BACKUP = Convert.ToInt32(dataReader["SAMPLE_BACKUP"]);
+					surveyQuota.SAMPLE_TOTAL = Convert.ToInt32(dataReader["SAMPLE_TOTAL"]);
+					surveyQuota.SAMPLE_FINISH = Convert.ToInt32(dataReader["SAMPLE_FINISH"]);
+					surveyQuota.SAMPLE_RUNNING = Convert.ToInt32(dataReader["SAMPLE_RUNNING"]);
+					surveyQuota.SAMPLE_REAL = Convert.ToInt32(dataReader["SAMPLE_REAL"]);
+					surveyQuota.IS_FULL = dataReader["IS_FULL"].ToString();
+					surveyQuota.SAMPLE_BALANCE = Convert.ToInt32(dataReader["SAMPLE_BALANCE"]);
+					surveyQuota.MODIFY_DATE = new DateTime?(Convert.ToDateTime(dataReader["MODIFY_DATE"].ToString()));
 				}
 			}
 			return surveyQuota;
@@ -63,25 +63,25 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new SurveyQuota
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
-						PROJECT_ID = dataReader[GClass0.smethod_0("Zśɇ͍уՆِݜࡋॅ")].ToString(),
-						CLIENT_ID = dataReader[GClass0.smethod_0("JńɎ̓ыՐٜ݋ࡅ")].ToString(),
-						PAGE_ID = dataReader[GClass0.smethod_0("WŇɂ́ќՋم")].ToString(),
-						QUESTION_NAME = dataReader[GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")].ToString(),
-						QUESTION_TITLE = dataReader[GClass0.smethod_0("_Řɉ͘ўՀه੍࡙݉॑ୗ౎ൄ")].ToString(),
-						INNER_INDEX = Convert.ToInt32(dataReader[GClass0.smethod_0("Bńɇ͍ѕՙٌ݊ࡇेਖ਼")]),
+						ID = Convert.ToInt32(dataReader["ID"]),
+						PROJECT_ID = dataReader["PROJECT_ID"].ToString(),
+						CLIENT_ID = dataReader["CLIENT_ID"].ToString(),
+						PAGE_ID = dataReader["PAGE_ID"].ToString(),
+						QUESTION_NAME = dataReader["QUESTION_NAME"].ToString(),
+						QUESTION_TITLE = dataReader["QUESTION_TITLE"].ToString(),
+						INNER_INDEX = Convert.ToInt32(dataReader["INNER_INDEX"]),
 						CODE = dataReader["CODE"].ToString(),
 						CODE_TEXT = dataReader["CODE_TEXT"].ToString(),
-						SAMPLE_OVER = Convert.ToInt32(dataReader[GClass0.smethod_0("XŋɄ͘ыՃٚ݋ࡕे੓")]),
-						SAMPLE_TARGET = Convert.ToInt32(dataReader[GClass0.smethod_0("^ōɆ͚хՍ٘ݒࡄॖ੄େౕ")]),
-						SAMPLE_BACKUP = Convert.ToInt32(dataReader[GClass0.smethod_0("^ōɆ͚хՍ݄٘ࡄेੈୗ౑")]),
-						SAMPLE_TOTAL = Convert.ToInt32(dataReader[GClass0.smethod_0("_Ŋɇ͙фՂٙݑࡋॗ੃୍")]),
-						SAMPLE_FINISH = Convert.ToInt32(dataReader[GClass0.smethod_0("^ōɆ͚хՍ٘݀ࡌॊ੊୑౉")]),
-						SAMPLE_RUNNING = Convert.ToInt32(dataReader[GClass0.smethod_0("]ŌɁ͛цՌٗݕࡓो੊୊ౌെ")]),
-						SAMPLE_REAL = Convert.ToInt32(dataReader[GClass0.smethod_0("XŋɄ͘ыՃٚݖࡆृ੍")]),
-						IS_FULL = dataReader[GClass0.smethod_0("Nŕɚ͂іՎٍ")].ToString(),
-						SAMPLE_BALANCE = Convert.ToInt32(dataReader[GClass0.smethod_0("]ŌɁ͛цՌٗ݅ࡇॉ੅୍ుൄ")]),
-						MODIFY_DATE = new DateTime?(Convert.ToDateTime(dataReader[GClass0.smethod_0("FŅɍ́с՟ٚ݀ࡂॖ੄")].ToString()))
+						SAMPLE_OVER = Convert.ToInt32(dataReader["SAMPLE_OVER"]),
+						SAMPLE_TARGET = Convert.ToInt32(dataReader["SAMPLE_TARGET"]),
+						SAMPLE_BACKUP = Convert.ToInt32(dataReader["SAMPLE_BACKUP"]),
+						SAMPLE_TOTAL = Convert.ToInt32(dataReader["SAMPLE_TOTAL"]),
+						SAMPLE_FINISH = Convert.ToInt32(dataReader["SAMPLE_FINISH"]),
+						SAMPLE_RUNNING = Convert.ToInt32(dataReader["SAMPLE_RUNNING"]),
+						SAMPLE_REAL = Convert.ToInt32(dataReader["SAMPLE_REAL"]),
+						IS_FULL = dataReader["IS_FULL"].ToString(),
+						SAMPLE_BALANCE = Convert.ToInt32(dataReader["SAMPLE_BALANCE"]),
+						MODIFY_DATE = new DateTime?(Convert.ToDateTime(dataReader["MODIFY_DATE"].ToString()))
 					});
 				}
 			}
@@ -90,13 +90,13 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyQuota> GetList()
 		{
-			string string_ = GClass0.smethod_0("všɯͧѢմؿܴ࠽ग़੉୕౔സไལၧᅢቶ፫ᑀᕥᙠ᝺ᡬ᤬ᩄ᭘ᱍᵍṕἦ⁇⅝∣⍋⑅");
+			string string_ = "SELECT * FROM SurveyQuota ORDER BY ID";
 			return this.GetListBySql(string_);
 		}
 
 		public void Add(SurveyQuota surveyQuota_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("\u0011ęȅ̐Іԇٲܘࠞछਁ୭టാุ༿ိᄾሗጰᐫᔷᘣᝩ᠐ᥭᩱ᭷ᱹᵸṮὦⁱⅳ√⍶⑸╺♷❿⡤⥰⩧⭩Ⰰ⵻⹫⽮ねㅸ㉯㍡㐈㕲㙷㝤㡳㥋㩗㭒㱒㵄㹔㽘䁕䅒䈺䍄䑁䕖䙁䝅䡙䥀䩀䭒䱘䵂乞佅偍儫剏卋告商噐坞塉妱媺宸岤巗庹徶悼憲拚掶撻斷暷枮梤榪檶殹泀涸溫澤炸熫犣玺璫疵皧瞳磌禌窟箐粌綗纟羆肌膖芄莒蒑薇蛾螂袑覂語讁貉趔躈辈邋醌銓鎕铨閐隃鞌颐駳髻鯢鳨鷴黮鿸ꃴꆛꋥꏴꓹꗣ꛾ꟴ꣯ꧩꫧꯣ곥그껢꾅냻뇦닫돵듨뗦뛽럳룵맑뫐믔볒뷜뺶뿊샙쇚싆쏙쓑엌움쟔죑짃쪢쯄쳟췔컌쿜탄퇋튪폖퓅헎훒ퟍ\ud8c5\ud920\uda3c\udb3c\udc30\udd3a\ude34\udf3a濫啕ﭱﱻﴠ﹫Ｄ\u007fŻɱ̮ѦԮٵݽࡷऴ੽ର౫൧๭༲ၼᄺቡ፩ᐿᕶᘿ᝭ᡧ᥄ᨈᭀᰛᴗḝὂ‏⅊∑⌙⑏┋♏✝⡋⤖⩓⬁ⱗⴚ⸚⽔〄ㅜ㈗㌔㑙㔏㙙㜐㠒㥢㨲㭦㰭㴨㹧㼵䁣䄦䈢䍨䐸䔴䙩䜠䠥䥲䨩䬡䱷䴺丼佴値儠剽匴吳啾嘥在"), new object[]
+			string string_ = string.Format("INSERT INTO SurveyQuota(PROJECT_ID,CLIENT_ID,PAGE_ID,QUESTION_NAME,QUESTION_TITLE,INNER_INDEX,CODE,CODE_TEXT,SAMPLE_OVER,SAMPLE_TARGET,SAMPLE_BACKUP,SAMPLE_TOTAL,SAMPLE_FINISH,SAMPLE_RUNNING,SAMPLE_REAL,IS_FULL,SAMPLE_BALANCE,MODIFY_DATE) VALUES('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}',{8},{9},{10},{11},{12},{13},{14},'{15}',{16},'{17}')", new object[]
 			{
 				surveyQuota_0.PROJECT_ID,
 				surveyQuota_0.CLIENT_ID,
@@ -122,7 +122,7 @@ namespace Gssy.Capi.DAL
 
 		public void Update(SurveyQuota surveyQuota_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("×Ǒ˄̾ЪԸٜܨࠏऋ਎଒ఏതก༜ဆᄐቐጼᐫᔹᙌ᜻ᠸᤦᨢᬢᰥᴱḻἪ…⅁≝⍿⑹┦♭✦⡽⥵⨛⬛Ⱏⴐ⸚⼇」ㄘ㈔㍯㑳㕭㙫㜰㡸㤴㩯㭫㰖㴄㸃㼆䀝䄈䈄䌟䐃䔝䘛䝀䠉䥄䨟䬛䱧䵠乱你偦典剿卡呱啣噭坦塯変娕嬇封嵞帐彞怅愍扱捊摛敎晈杒桕楗橇歃江流湘潖瀲焬爰猨瑵甸癱眬砦祀穆等籃絗繛罊职腅艅莧蓞藀蛜螀裌覄諔讴貹趱躱迓郏金鋗鎔铙閐雋韇颩馦骬鮢鲹鶱麡龻ꂶꇁꋝꏿꓹꖦꛤꞦꣽ꧵ꪋꮖ겛궅꺘꾖낍놞늆뎊뒜뗭뛱럫뢱맰몵믫법분뺉뾓삎솄슟쏫쓿엯웻쟾죮즙쪅쮗쳍춄캄쿎킞퇢틱폢퓾헡훩ퟴ\ud8e8\ud9e8\udaeb\udbec\udcf3\uddf5\ude84\udf9e殮﫛﯆ﳋ﷕ﻈￆÝǇˉ̱зԮشݛࡇख़ਃ୆౅ഈ๘༠ဳᄼሠጣᐫᔲᘾ᜾ᠤᤧᨡᬩᰡᵅṙὃ’⅐≔⌢⑲┎☝✖⠊⤕⨝⬈Ⰴⴐ⸕⼟ひㅬ㉰㌴㑿㕸㘱㝧㠃㤚㨗㬁㰓㴉㸈㽣䁿䅡䉧䍄䐏䔋䙁䜜䠖䥪䩹䭺䱦䵹乱佬偰兰剼卮呠啮噩國堗変婓嬖少嵘师彮恭慥扩捙摇敂晘杚桎楜樸欪氶洲湯漢瀪煬爷猯瑙畅癉睙硏礩穁筃簦紸縤罸耲腼"), new object[]
+			string string_ = string.Format("UPDATE SurveyQuota SET PROJECT_ID = '{1}',CLIENT_ID = '{2}',PAGE_ID = '{3}',QUESTION_NAME = '{4}',QUESTION_TITLE = '{5}',INNER_INDEX = {6},CODE = '{7}',CODE_TEXT = '{8}',SAMPLE_OVER = {9},SAMPLE_TARGET = {10},SAMPLE_BACKUP = {11},SAMPLE_TOTAL = {12},SAMPLE_FINISH = {13},SAMPLE_RUNNING = {14},SAMPLE_REAL = {15},IS_FULL = '{16}',SAMPLE_BALANCE = {17},MODIFY_DATE = '{18}' WHERE ID = {0}", new object[]
 			{
 				surveyQuota_0.ID,
 				surveyQuota_0.PROJECT_ID,
@@ -149,13 +149,13 @@ namespace Gssy.Capi.DAL
 
 		public void Delete(SurveyQuota surveyQuota_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("ašɯͧѵեؿݘࡏ॓੖଺ొ൭๥འၰᅭቂ፧ᑾᕤ᙮ᜮᡚ᥄ᩎ᭘᱌ᴨṎὂ‥ℹ≸⌲⑼"), surveyQuota_0.ID);
+			string string_ = string.Format("DELETE FROM SurveyQuota WHERE ID ={0}", surveyQuota_0.ID);
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
 		public void Truncate()
 		{
-			string string_ = GClass0.smethod_0("Sœə͑ч՗رݖ࡝ुੀବౘൿ๻ཾၢᅿቔ፱ᑬᕶᙠ");
+			string string_ = "DELETE FROM SurveyQuota";
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
@@ -165,47 +165,47 @@ namespace Gssy.Capi.DAL
 			string[] array = new string[19];
 			if (bool_0)
 			{
-				array[0] = GClass0.smethod_0("臮厫純僶");
-				array[1] = GClass0.smethod_0("顼矪ȣ͋х");
-				array[2] = GClass0.smethod_0("宧挳ȣ͋х");
-				array[3] = GClass0.smethod_0("顱ģɋͅ");
-				array[4] = GClass0.smethod_0("酇馔骐僰Ю郫麜砕寵न");
-				array[5] = GClass0.smethod_0("酉馞樅鮙");
-				array[6] = GClass0.smethod_0("酉馞驸嶎");
-				array[7] = GClass0.smethod_0("酋馘愃欄笔紀");
-				array[8] = GClass0.smethod_0("酅馚愁欂笒紂掅怭");
-				array[9] = GClass0.smethod_0("酅馚泧疁曢朩掻堎");
-				array[10] = GClass0.smethod_0("盩椁鍈鮙水戮捱");
-				array[11] = GClass0.smethod_0("酊馛嬂䷹水戮捱");
-				array[12] = GClass0.smethod_0("酉馞戹晱");
-				array[13] = GClass0.smethod_0("宗靍念緉徉朔渴怮浱");
-				array[14] = GClass0.smethod_0("此嘮覺雪水戮捱");
-				array[15] = GClass0.smethod_0("官靀攍晋搹恱");
-				array[16] = GClass0.smethod_0("昫唥忰淠");
-				array[17] = GClass0.smethod_0("术濥忭鮟慱");
-				array[18] = GClass0.smethod_0("月唉䷨昼懡戜援鋵");
+				array[0] = "自动编号";
+				array[1] = "项目 ID";
+				array[2] = "客户 ID";
+				array[3] = "页 ID";
+				array[4] = "配额题号(问题编号)";
+				array[5] = "配额标题";
+				array[6] = "配额顺序";
+				array[7] = "配额指标编码";
+				array[8] = "配额指标编码文本";
+				array[9] = "配额满的拦截方式";
+				array[10] = "目标配额样本数";
+				array[11] = "配额备份样本数";
+				array[12] = "配额总数";
+				array[13] = "实际已经完成样本数";
+				array[14] = "正在访问样本数";
+				array[15] = "实际有效总数";
+				array[16] = "是否已满";
+				array[17] = "未满差额数";
+				array[18] = "最后修改日期时间";
 			}
 			else
 			{
-				array[0] = GClass0.smethod_0("KŅ");
-				array[1] = GClass0.smethod_0("Zśɇ͍уՆِݜࡋॅ");
-				array[2] = GClass0.smethod_0("JńɎ̓ыՐٜ݋ࡅ");
-				array[3] = GClass0.smethod_0("WŇɂ́ќՋم");
-				array[4] = GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ");
-				array[5] = GClass0.smethod_0("_Řɉ͘ўՀه੍࡙݉॑ୗ౎ൄ");
-				array[6] = GClass0.smethod_0("Bńɇ͍ѕՙٌ݊ࡇेਖ਼");
+				array[0] = "ID";
+				array[1] = "PROJECT_ID";
+				array[2] = "CLIENT_ID";
+				array[3] = "PAGE_ID";
+				array[4] = "QUESTION_NAME";
+				array[5] = "QUESTION_TITLE";
+				array[6] = "INNER_INDEX";
 				array[7] = "CODE";
 				array[8] = "CODE_TEXT";
-				array[9] = GClass0.smethod_0("XŋɄ͘ыՃٚ݋ࡕे੓");
-				array[10] = GClass0.smethod_0("^ōɆ͚хՍ٘ݒࡄॖ੄େౕ");
-				array[11] = GClass0.smethod_0("^ōɆ͚хՍ݄٘ࡄेੈୗ౑");
-				array[12] = GClass0.smethod_0("_Ŋɇ͙фՂٙݑࡋॗ੃୍");
-				array[13] = GClass0.smethod_0("^ōɆ͚хՍ٘݀ࡌॊ੊୑౉");
-				array[14] = GClass0.smethod_0("]ŌɁ͛цՌٗݕࡓो੊୊ౌെ");
-				array[15] = GClass0.smethod_0("XŋɄ͘ыՃٚݖࡆृ੍");
-				array[16] = GClass0.smethod_0("Nŕɚ͂іՎٍ");
-				array[17] = GClass0.smethod_0("]ŌɁ͛цՌٗ݅ࡇॉ੅୍ుൄ");
-				array[18] = GClass0.smethod_0("FŅɍ́с՟ٚ݀ࡂॖ੄");
+				array[9] = "SAMPLE_OVER";
+				array[10] = "SAMPLE_TARGET";
+				array[11] = "SAMPLE_BACKUP";
+				array[12] = "SAMPLE_TOTAL";
+				array[13] = "SAMPLE_FINISH";
+				array[14] = "SAMPLE_RUNNING";
+				array[15] = "SAMPLE_REAL";
+				array[16] = "IS_FULL";
+				array[17] = "SAMPLE_BALANCE";
+				array[18] = "MODIFY_DATE";
 			}
 			return array;
 		}
@@ -243,7 +243,7 @@ namespace Gssy.Capi.DAL
 
 		public void AddRead(SurveyQuota surveyQuota_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("\u0011ęȅ̐Іԇٲܘࠞछਁ୭టാุ༿ိᄾሗጰᐫᔷᘣᝩ᠐ᥭᩱ᭷ᱹᵸṮὦⁱⅳ√⍶⑸╺♷❿⡤⥰⩧⭩Ⰰ⵻⹫⽮ねㅸ㉯㍡㐈㕲㙷㝤㡳㥋㩗㭒㱒㵄㹔㽘䁕䅒䈺䍄䑁䕖䙁䝅䡙䥀䩀䭒䱘䵂乞佅偍儫剏卋告商噐坞塉妱媺宸岤巗庹徶悼憲拚掶撻斷暷枮梤榪檶殹泀涸溫澤炸熫犣玺璫疵皧瞳磌禌窟箐粌綗纟羆肌膖芄莒蒑薇蛾螂袑覂語讁貉趔躈辈邋醌銓鎕铨閐隃鞌颐駳髻鯢鳨鷴黮鿸ꃴꆛꋥꏴꓹꗣ꛾ꟴ꣯ꧩꫧꯣ곥그껢꾅냻뇦닫돵듨뗦뛽럳룵맑뫐믔볒뷜뺶뿊샙쇚싆쏙쓑엌움쟔죑짃쪢쯄쳟췔컌쿜탄퇋튪폖퓅헎훒ퟍ\ud8c5\ud920\uda3c\udb3c\udc30\udd3a\ude34\udf3a濫啕ﭱﱻﴠ﹫Ｄ\u007fŻɱ̮ѦԮٵݽࡷऴ੽ର౫൧๭༲ၼᄺቡ፩ᐿᕶᘿ᝭ᡧ᥄ᨈᭀᰛᴗḝὂ‏⅊∑⌙⑏┋♏✝⡋⤖⩓⬁ⱗⴚ⸚⽔〄ㅜ㈗㌔㑙㔏㙙㜐㠒㥢㨲㭦㰭㴨㹧㼵䁣䄦䈢䍨䐸䔴䙩䜠䠥䥲䨩䬡䱷䴺丼佴値儠剽匴吳啾嘥在"), new object[]
+			string string_ = string.Format("INSERT INTO SurveyQuota(PROJECT_ID,CLIENT_ID,PAGE_ID,QUESTION_NAME,QUESTION_TITLE,INNER_INDEX,CODE,CODE_TEXT,SAMPLE_OVER,SAMPLE_TARGET,SAMPLE_BACKUP,SAMPLE_TOTAL,SAMPLE_FINISH,SAMPLE_RUNNING,SAMPLE_REAL,IS_FULL,SAMPLE_BALANCE,MODIFY_DATE) VALUES('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}',{8},{9},{10},{11},{12},{13},{14},'{15}',{16},'{17}')", new object[]
 			{
 				surveyQuota_0.PROJECT_ID,
 				surveyQuota_0.CLIENT_ID,
@@ -281,21 +281,21 @@ namespace Gssy.Capi.DAL
 
 		public bool ExistsByQName(string string_0, string string_1)
 		{
-			string string_2 = string.Format(GClass0.smethod_0("0ħȭ̥ќՊ؝ܖࠛड़ੋୗౚഖ๦ཁ၁ᅄቔፉᑾᕛᙂ᝘ᡊᤊᩞᭀ᱂ᵔṀἄ⁲ⅷ≤⍳⑋╗♒❒⡄⥔⩘⭕ⱒⴶ⸨⼳とㄢ㉬㌷㐯㕯㙣㝨㠫㥉㩆㭌㱂㴻㸢㽿䀲䅿䈦"), string_0, string_1);
+			string string_2 = string.Format("select * from SurveyQuota where QUESTION_NAME ='{0}' and CODE='{1}'", string_0, string_1);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_2);
 			return num > 0;
 		}
 
 		public bool ExistsMatchQuota(string string_0, string string_1, string string_2)
 		{
-			string string_3 = string.Format(GClass0.smethod_0("$ĳȹ̱аԦٱݺ࡯नਿଣద൪บ༽ဵᄰሠጽᐒᔷᘮ᜴ᡞᤞᩊ᭔ᱞᵈṜἘ⁧ⅷ≲⍱⑬╻♵✐⠒⤎⨊⭗Ⱋⵗ⸎⼈うㅈ㉁㌄㑲㕷㙤㝳㡋㥗㩒㭒㱄㵔㹘㽕䁒䄶䈨䌳䑨䔣䙬䜷䠯䥯䩣䭨䰫䵉乆佌偂儻刢卿吱啿嘦"), string_0, string_1, string_2);
+			string string_3 = string.Format("select * from SurveyQuota where PAGE_ID = '{0}' and QUESTION_NAME ='{1}' and CODE='{2}'", string_0, string_1, string_2);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_3);
 			return num > 0;
 		}
 
 		public void UpdateStatus(string string_0, string string_1, int int_0, int int_1)
 		{
-			string string_2 = string.Format(GClass0.smethod_0("ûǽ˨ϪӾ׬ڨߔࣳ৷૲௦೻ැ໵༐ညᄜቜገᐟᔍᙘᜤᠷᤸᨤᬿ᰷ᴮḶἦ†ℤ∿⌣⑊╔♈✴⠧⤨⨴⬯Ⱗⴾ⸦⼖【ㄔ㈏㌓㑺㕲㙸㜬㡤㤨㩸㭳㰁㴐㸝㼟䀂䄈䈓䌙䐟䔇䘆䜎䠈䤂䩤䭾䱢䴒丁佲偮共剹卤周啬噶坹塿奻婳嬓尟崑幋弜恓愍扛捃摏敛晍朇桵楰橶歵汧浸湿潖灚焽爡猼瑡甩癥眰砶祴空筷簲終繅罝聘腈艕荔葍蕜虁蝃蠻褢詿謲豿账"), new object[]
+			string string_2 = string.Format("update SurveyQuota set SAMPLE_FINISH = SAMPLE_FINISH + {2}, SAMPLE_RUNNING = SAMPLE_RUNNING - {3} where SURVEY_ID ='{0}' and SURVEY_GUID='{1}'", new object[]
 			{
 				string_0,
 				string_1,

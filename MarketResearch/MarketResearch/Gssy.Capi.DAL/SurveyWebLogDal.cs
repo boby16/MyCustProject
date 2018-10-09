@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("|ūɡͩѨվ؉ݫࡨॳ੫୰ఋഈจༀၙᅌቒፑᐻᕉᙬᝪᡡᥳᩬᭃᱶᵰṝ὿⁨℮≚⍄⑎╘♌✨⡎⥂⨥⬹ⱸⴲ⹼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM SurveyWebLog WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public SurveyWebLog GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("{Ţɪ͠ѧշ؂܋ࠀख़ੌ୒౑഻้ཬၪᅡታ፬ᑃᕶᙰ᝝᡿ᥨᨮ᭚᱄ᵎṘὌ\u2028ⅎ≂⌥␹╸☲❼"), int_0);
+			string string_ = string.Format("SELECT * FROM SurveyWebLog WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -29,15 +29,15 @@ namespace Gssy.Capi.DAL
 			{
 				while (dataReader.Read())
 				{
-					surveyWebLog.ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]);
+					surveyWebLog.ID = Convert.ToInt32(dataReader["ID"]);
 					surveyWebLog.SURVEY_ID = dataReader["SURVEY_ID"].ToString();
-					surveyWebLog.SURVEY_GUID = dataReader[GClass0.smethod_0("Xşɛ͞т՟ٚ݃ࡖो੅")].ToString();
-					surveyWebLog.URI_FULL = dataReader[GClass0.smethod_0("]ŕɏ͚тՖَݍ")].ToString();
-					surveyWebLog.URI_DOMAIN = dataReader[GClass0.smethod_0("_śɁ͘тՊى݂ࡋॏ")].ToString();
-					surveyWebLog.URI_DOMAIN_TWO = dataReader[GClass0.smethod_0("[şɅ͔юՆم݆ࡏोਜ਼ୗౕൎ")].ToString();
-					surveyWebLog.BEGIN_TIME = new DateTime?(Convert.ToDateTime(dataReader[GClass0.smethod_0("HŌɏ͎ш՚ِ݊ࡏॄ")].ToString()));
-					surveyWebLog.END_TIME = new DateTime?(Convert.ToDateTime(dataReader[GClass0.smethod_0("Mŉɂ͚ѐՊُ݄")].ToString()));
-					surveyWebLog.STAY_TIME = Convert.ToInt32(dataReader[GClass0.smethod_0("ZŜɆ͟њՐيݏࡄ")]);
+					surveyWebLog.SURVEY_GUID = dataReader["SURVEY_GUID"].ToString();
+					surveyWebLog.URI_FULL = dataReader["URI_FULL"].ToString();
+					surveyWebLog.URI_DOMAIN = dataReader["URI_DOMAIN"].ToString();
+					surveyWebLog.URI_DOMAIN_TWO = dataReader["URI_DOMAIN_TWO"].ToString();
+					surveyWebLog.BEGIN_TIME = new DateTime?(Convert.ToDateTime(dataReader["BEGIN_TIME"].ToString()));
+					surveyWebLog.END_TIME = new DateTime?(Convert.ToDateTime(dataReader["END_TIME"].ToString()));
+					surveyWebLog.STAY_TIME = Convert.ToInt32(dataReader["STAY_TIME"]);
 				}
 			}
 			return surveyWebLog;
@@ -53,15 +53,15 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new SurveyWebLog
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
+						ID = Convert.ToInt32(dataReader["ID"]),
 						SURVEY_ID = dataReader["SURVEY_ID"].ToString(),
-						SURVEY_GUID = dataReader[GClass0.smethod_0("Xşɛ͞т՟ٚ݃ࡖो੅")].ToString(),
-						URI_FULL = dataReader[GClass0.smethod_0("]ŕɏ͚тՖَݍ")].ToString(),
-						URI_DOMAIN = dataReader[GClass0.smethod_0("_śɁ͘тՊى݂ࡋॏ")].ToString(),
-						URI_DOMAIN_TWO = dataReader[GClass0.smethod_0("[şɅ͔юՆم݆ࡏोਜ਼ୗౕൎ")].ToString(),
-						BEGIN_TIME = new DateTime?(Convert.ToDateTime(dataReader[GClass0.smethod_0("HŌɏ͎ш՚ِ݊ࡏॄ")].ToString())),
-						END_TIME = new DateTime?(Convert.ToDateTime(dataReader[GClass0.smethod_0("Mŉɂ͚ѐՊُ݄")].ToString())),
-						STAY_TIME = Convert.ToInt32(dataReader[GClass0.smethod_0("ZŜɆ͟њՐيݏࡄ")])
+						SURVEY_GUID = dataReader["SURVEY_GUID"].ToString(),
+						URI_FULL = dataReader["URI_FULL"].ToString(),
+						URI_DOMAIN = dataReader["URI_DOMAIN"].ToString(),
+						URI_DOMAIN_TWO = dataReader["URI_DOMAIN_TWO"].ToString(),
+						BEGIN_TIME = new DateTime?(Convert.ToDateTime(dataReader["BEGIN_TIME"].ToString())),
+						END_TIME = new DateTime?(Convert.ToDateTime(dataReader["END_TIME"].ToString())),
+						STAY_TIME = Convert.ToInt32(dataReader["STAY_TIME"])
 					});
 				}
 			}
@@ -70,13 +70,13 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyWebLog> GetList()
 		{
-			string string_ = GClass0.smethod_0("uŠɨͦѡյ؀ܵ࠾ज़੎୔౗ഹ๋རၤᅣቱ፪ᑅᕴᙲᝃᡡᥪᨬ᭄᱘ᵍṍὕ…ⅇ≝⌣⑋╅");
+			string string_ = "SELECT * FROM SurveyWebLog ORDER BY ID";
 			return this.GetListBySql(string_);
 		}
 
 		public void Add(SurveyWebLog surveyWebLog_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("ïǫ˷ϦӰ׵ڀߖ࣐৉૓஻೉෬໪࿡ჳᇬዃ᏶ᓰᗝ᛿៨ᢦ᧞᫙ᯙ᳜᷌ốῘ⃏⇁⊨⏐ⓗ◓⛖✺⠧⤢⨻⬮ⰳⴽ⹔⼢〤ㄼ㈫㌵㐧㔽㘼㝃㠻㤿㨥㬴㰮㴦㸥㼦䀯䄫䉈䌶䐰䔨䘿䜛䠑䤐䨝䬒䰔䴆丌伀候兹刖化吕唘嘞圐堚处威嬎屦崌帆弃怙愑戍挎搇敭易杫桿楤橣歯汳浴湽漞瀖煣牵獿瑧畴癣眇砉祖稜策簍紅縏罜耗腘舃茏萅蕚蘒蝢蠹褱註譠谩赤踿輻週酮鈠鍮鐵锽阷靴頻饰騫鬧鰭鵲鸾齺ꀡꄩꉿꌴꑿꔨ"), new object[]
+			string string_ = string.Format("INSERT INTO SurveyWebLog(SURVEY_ID,SURVEY_GUID,URI_FULL,URI_DOMAIN,URI_DOMAIN_TWO,BEGIN_TIME,END_TIME,STAY_TIME) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7})", new object[]
 			{
 				surveyWebLog_0.SURVEY_ID,
 				surveyWebLog_0.SURVEY_GUID,
@@ -92,7 +92,7 @@ namespace Gssy.Capi.DAL
 
 		public void Update(SurveyWebLog surveyWebLog_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("îǪ˽Ϲӣ׳ڕߧࣆীે௕ೖ෹່࿎ყᇅዎᎈᓴᗣᛱងᣰ᧷᫳᯶᳚᷇Ể῕⃟↺⊤⎸⒰◭⚤⟩⢴⦾⫂⯅ⳝⷘ⻈⿕ピ㇍㋜㏁㓃㖦㚸㞤㢤㧹㪳㯽㱘㵒㸨㼮䀲䄥䈿䌭䐻䔺䙕䝉䡓䥕䨊䭃䰒䵉乁伹倹儣制匬吨唫嘤圭堭奂婜孀屸崥幩弡恼慶戌挊搞攉昑望栞椓樘欞氐洚渚漃火煷物獯琼畳瘸督硯礀稄笇籶絰繢罨聲腷艼茘萊蔖蘒蝏蠅襏訖謜豪赠蹩轳避酣鉤鍭鐇锛阅霃願餕驜鬇鰳鵍鹉齝ꁂꅅꉍꍑꑚꕓ꘵ꜩ꠳ꥩꨩ꭭갯굙깅꽉끙녏눩덁둃딦똸뜤롸뤲멼"), new object[]
+			string string_ = string.Format("UPDATE SurveyWebLog SET SURVEY_ID = '{1}',SURVEY_GUID = '{2}',URI_FULL = '{3}',URI_DOMAIN = '{4}',URI_DOMAIN_TWO = '{5}',BEGIN_TIME = '{6}',END_TIME = '{7}',STAY_TIME = {8} WHERE ID = {0}", new object[]
 			{
 				surveyWebLog_0.ID,
 				surveyWebLog_0.SURVEY_ID,
@@ -109,13 +109,13 @@ namespace Gssy.Capi.DAL
 
 		public void Delete(SurveyWebLog surveyWebLog_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("bŠɨͦѶդ؀ݙࡌ॒ੑ଻౉൬๪ཡၳᅬቃ፶ᑰᕝᙿᝨᠮᥚᩄ᭎᱘ᵌḨ὎⁂℥∹⍸␲╼"), surveyWebLog_0.ID);
+			string string_ = string.Format("DELETE FROM SurveyWebLog WHERE ID ={0}", surveyWebLog_0.ID);
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
 		public void Truncate()
 		{
-			string string_ = GClass0.smethod_0("\\Œɚ͐рՖزݗࡂी੃ଭ౟ൾ๸ཿၭᅾቑ፠ᑦᕏ᙭ᝦ");
+			string string_ = "DELETE FROM SurveyWebLog";
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
@@ -125,27 +125,27 @@ namespace Gssy.Capi.DAL
 			string[] array = new string[9];
 			if (bool_0)
 			{
-				array[0] = GClass0.smethod_0("臮厫純僶");
+				array[0] = "自动编号";
 				array[1] = "问卷编号";
-				array[2] = GClass0.smethod_0("MŜɁ̓Ц呭爇刬䘂焀");
-				array[3] = GClass0.smethod_0("厙壎絕魶匲剁");
-				array[4] = GClass0.smethod_0("丄群嗝圌");
-				array[5] = GClass0.smethod_0("予群嗝圌");
-				array[6] = GClass0.smethod_0("弄壈柴雵");
-				array[7] = GClass0.smethod_0("绗晜柴雵");
-				array[8] = GClass0.smethod_0("偛瑟柳陻У糐捱");
+				array[2] = "GUID 全球唯一码";
+				array[3] = "原始网页地址";
+				array[4] = "一级域名";
+				array[5] = "二级域名";
+				array[6] = "开始时间";
+				array[7] = "结束时间";
+				array[8] = "停留时长 秒数";
 			}
 			else
 			{
-				array[0] = GClass0.smethod_0("KŅ");
+				array[0] = "ID";
 				array[1] = "SURVEY_ID";
-				array[2] = GClass0.smethod_0("Xşɛ͞т՟ٚ݃ࡖो੅");
-				array[3] = GClass0.smethod_0("]ŕɏ͚тՖَݍ");
-				array[4] = GClass0.smethod_0("_śɁ͘тՊى݂ࡋॏ");
-				array[5] = GClass0.smethod_0("[şɅ͔юՆم݆ࡏोਜ਼ୗౕൎ");
-				array[6] = GClass0.smethod_0("HŌɏ͎ш՚ِ݊ࡏॄ");
-				array[7] = GClass0.smethod_0("Mŉɂ͚ѐՊُ݄");
-				array[8] = GClass0.smethod_0("ZŜɆ͟њՐيݏࡄ");
+				array[2] = "SURVEY_GUID";
+				array[3] = "URI_FULL";
+				array[4] = "URI_DOMAIN";
+				array[5] = "URI_DOMAIN_TWO";
+				array[6] = "BEGIN_TIME";
+				array[7] = "END_TIME";
+				array[8] = "STAY_TIME";
 			}
 			return array;
 		}

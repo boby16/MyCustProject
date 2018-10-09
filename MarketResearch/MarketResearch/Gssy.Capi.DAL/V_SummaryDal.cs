@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("\u007fŮɦͬѫճ؆ݦ࡫ॶ੬୵ఈവื༽ၚᅉቕፔᐸᕁᙉᝆᡡ᥾᩿᭰ᱢᵶḮ὚⁄ⅎ≘⍌␨╎♂✥⠹⥸⨲⭼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM V_Summary WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public V_Summary GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("všɯͧѢմؿܴ࠽ग़੉୕౔സแཉ၆ᅡቾ፿ᑰᕢᙶᜮᡚ᥄ᩎ᭘᱌ᴨṎὂ‥ℹ≸⌲⑼"), int_0);
+			string string_ = string.Format("SELECT * FROM V_Summary WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -30,14 +30,14 @@ namespace Gssy.Capi.DAL
 				while (dataReader.Read())
 				{
 					v_Summary.SURVEY_ID = dataReader["SURVEY_ID"].ToString();
-					v_Summary.SUMMARY_INDEX = Convert.ToInt32(dataReader[GClass0.smethod_0("^řɆ͇ш՚ٞݙࡌॊੇେౙ")]);
-					v_Summary.SUMMARY_TITLE = dataReader[GClass0.smethod_0("^řɆ͇ш՚ٞݙࡑ्੗୎ౄ")].ToString();
+					v_Summary.SUMMARY_INDEX = Convert.ToInt32(dataReader["SUMMARY_INDEX"]);
+					v_Summary.SUMMARY_TITLE = dataReader["SUMMARY_TITLE"].ToString();
 					v_Summary.CODE = dataReader["CODE"].ToString();
 					v_Summary.CODE_TEXT = dataReader["CODE_TEXT"].ToString();
-					v_Summary.SUMMARY_USE = Convert.ToInt32(dataReader[GClass0.smethod_0("XşɄͅцՔٜݛࡖ॑੄")]);
-					v_Summary.QUESTION_NAME = dataReader[GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")].ToString();
-					v_Summary.DETAIL_ID = dataReader[GClass0.smethod_0("Mōɓ͇ьՈٜ݋ࡅ")].ToString();
-					v_Summary.PARENT_CODE = dataReader[GClass0.smethod_0("[ŋɛ͍щՒٚ݇ࡌॆ੄")].ToString();
+					v_Summary.SUMMARY_USE = Convert.ToInt32(dataReader["SUMMARY_USE"]);
+					v_Summary.QUESTION_NAME = dataReader["QUESTION_NAME"].ToString();
+					v_Summary.DETAIL_ID = dataReader["DETAIL_ID"].ToString();
+					v_Summary.PARENT_CODE = dataReader["PARENT_CODE"].ToString();
 				}
 			}
 			return v_Summary;
@@ -54,14 +54,14 @@ namespace Gssy.Capi.DAL
 					list.Add(new V_Summary
 					{
 						SURVEY_ID = dataReader["SURVEY_ID"].ToString(),
-						SUMMARY_INDEX = Convert.ToInt32(dataReader[GClass0.smethod_0("^řɆ͇ш՚ٞݙࡌॊੇେౙ")]),
-						SUMMARY_TITLE = dataReader[GClass0.smethod_0("^řɆ͇ш՚ٞݙࡑ्੗୎ౄ")].ToString(),
+						SUMMARY_INDEX = Convert.ToInt32(dataReader["SUMMARY_INDEX"]),
+						SUMMARY_TITLE = dataReader["SUMMARY_TITLE"].ToString(),
 						CODE = dataReader["CODE"].ToString(),
 						CODE_TEXT = dataReader["CODE_TEXT"].ToString(),
-						SUMMARY_USE = Convert.ToInt32(dataReader[GClass0.smethod_0("XşɄͅцՔٜݛࡖ॑੄")]),
-						QUESTION_NAME = dataReader[GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")].ToString(),
-						DETAIL_ID = dataReader[GClass0.smethod_0("Mōɓ͇ьՈٜ݋ࡅ")].ToString(),
-						PARENT_CODE = dataReader[GClass0.smethod_0("[ŋɛ͍щՒٚ݇ࡌॆ੄")].ToString()
+						SUMMARY_USE = Convert.ToInt32(dataReader["SUMMARY_USE"]),
+						QUESTION_NAME = dataReader["QUESTION_NAME"].ToString(),
+						DETAIL_ID = dataReader["DETAIL_ID"].ToString(),
+						PARENT_CODE = dataReader["PARENT_CODE"].ToString()
 					});
 				}
 			}
@@ -70,7 +70,7 @@ namespace Gssy.Capi.DAL
 
 		public List<V_Summary> GetList()
 		{
-			string string_ = GClass0.smethod_0("~ũɧͯѪռ؇܌ࠅॢੱ୭౬ഀ้ཁ၎ᅩቶ፷ᑸᕪ᙮᜶ᡚ᥆ᩗ᭗᱃ᴰṍὗ‭⅍≅⍙⑞╍♕❙⡊⥖⩇⭇ⱓ");
+			string string_ = "SELECT * FROM V_Summary ORDER BY ANSWER_ORDER";
 			return this.GetListBySql(string_);
 		}
 
@@ -81,26 +81,26 @@ namespace Gssy.Capi.DAL
 			if (bool_0)
 			{
 				array[0] = "问卷编号";
-				array[1] = GClass0.smethod_0("摜袂缠尔");
-				array[2] = GClass0.smethod_0("摜袂樅鮙");
-				array[3] = GClass0.smethod_0("缐礄ﴌ硗汊行");
-				array[4] = GClass0.smethod_0("缒礂枅搭");
-				array[5] = GClass0.smethod_0("昫唥晚誀");
-				array[6] = GClass0.smethod_0("闦馟紐僲﬌庝遇");
-				array[7] = GClass0.smethod_0("养腓韨鮝戊篅捲摯");
-				array[8] = GClass0.smethod_0("爲絸䳡笀");
+				array[1] = "摘要索引";
+				array[2] = "摘要标题";
+				array[3] = "编码（答案）";
+				array[4] = "编码文本";
+				array[5] = "是否摘要";
+				array[6] = "问题编号（实际）";
+				array[7] = "关联问题明细数据";
+				array[8] = "父类代码";
 			}
 			else
 			{
 				array[0] = "SURVEY_ID";
-				array[1] = GClass0.smethod_0("^řɆ͇ш՚ٞݙࡌॊੇେౙ");
-				array[2] = GClass0.smethod_0("^řɆ͇ш՚ٞݙࡑ्੗୎ౄ");
+				array[1] = "SUMMARY_INDEX";
+				array[2] = "SUMMARY_TITLE";
 				array[3] = "CODE";
 				array[4] = "CODE_TEXT";
-				array[5] = GClass0.smethod_0("XşɄͅцՔٜݛࡖ॑੄");
-				array[6] = GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ");
-				array[7] = GClass0.smethod_0("Mōɓ͇ьՈٜ݋ࡅ");
-				array[8] = GClass0.smethod_0("[ŋɛ͍щՒٚ݇ࡌॆ੄");
+				array[5] = "SUMMARY_USE";
+				array[6] = "QUESTION_NAME";
+				array[7] = "DETAIL_ID";
+				array[8] = "PARENT_CODE";
 			}
 			return array;
 		}
@@ -128,7 +128,7 @@ namespace Gssy.Capi.DAL
 
 		public List<V_Summary> GetListBySurveyId(string string_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("qŤɬ͚ѝՉؼݙ࠴ॊ੍୅ీ൐ํཌၛᅕሼጯᑏᔣᙟ᝞ᡇ᥄ᩉ᭕ᱟᵚṍὍ⁆⅄≘⏓ⓞ▼⛒➨⢯⦴⪵⮶Ⲥⶬ⺫⾧セㆥ㊼㎪㓂㗍㚮㟅㢩㦦㪬㮢㳊㷅㻃㿄䃂䆠䊳䏿䒝䖒䚘䞞䢅䦍䪝䮏䲂䷹仴侒僼冂劅厂咃喌嚞垒墕妜媛宂峪工庅忭悓憔抅揬擪旴曳柵棥槷櫹毺泳涙溔濲炜燵狵珻瓯痤盠矴磣秭窄箇糧綋维翢胰臤苮菋蓁藞蛓蟟裟覹諞诅賙跘躴迀郍釕鋵鏩铧闣雩鞫飋駚骨鯆鲦鷉黁鿅ꃖꆡꋊꌰꐷꔳꙜꜨꠏꤋꨎꬒ갏괴긚꼀뀅넔눂덏됯딾뙌뜩롊뤦먦뭇밧뵋븵뼶쀧섲숴쌖쐑씓옃윕젛줔쨝쭷챫쵵츖콽퀃턄툕팜퐚프혃휅\ud815\ud907\uda09\udb0a\udc03\udd65\ude05\udf0d契響﬉ﱵﵰ﹩ｮcųɹ̀ыՎٙܦࠫह੗୅౒൐ๆ༳ၐᅈሰፎᐠᕞᙙᝆᡇ᥈ᩚ᭞᱙ᵌṊ὇⁇⅙"), string_0);
+			string string_ = string.Format("SELECT B.SURVEY_ID, A.SUMMARY_INDEX, A.SUMMARY_TITLE, B.CODE, '' AS CODE_TEXT, A.SUMMARY_USE, A.QUESTION_NAME, A.DETAIL_ID, A.PARENT_CODE FROM S_Define AS A LEFT JOIN SurveyAnswer AS B ON A.QUESTION_NAME = B.QUESTION_NAME AND B.SURVEY_ID='{0}' WHERE A.SUMMARY_USE=1 ORDER BY A.SUMMARY_INDEX", string_0);
 			return this.GetListBySql(string_);
 		}
 

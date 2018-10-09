@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("|ūɡͩѨվ؉ݫࡨॳ੫୰ఋഈจༀၙᅌቒፑᐻᕉᙬᝪᡡᥳᩬ᭗ᱼᵼṷό⁨℮≚⍄⑎╘♌✨⡎⥂⨥⬹ⱸⴲ⹼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM SurveyConfig WHERE ID ={0}", int_0);
 			int num = this.dbprovider_1.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public SurveyConfig GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("{Ţɪ͠ѧշ؂܋ࠀख़ੌ୒౑഻้ཬၪᅡታ፬ᑗᕼᙼ᝷᡹ᥨᨮ᭚᱄ᵎṘὌ\u2028ⅎ≂⌥␹╸☲❼"), int_0);
+			string string_ = string.Format("SELECT * FROM SurveyConfig WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -29,11 +29,11 @@ namespace Gssy.Capi.DAL
 			{
 				while (dataReader.Read())
 				{
-					surveyConfig.ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]);
+					surveyConfig.ID = Convert.ToInt32(dataReader["ID"]);
 					surveyConfig.CODE = dataReader["CODE"].ToString();
 					surveyConfig.CODE_TEXT = dataReader["CODE_TEXT"].ToString();
-					surveyConfig.CODE_NOTE = dataReader[GClass0.smethod_0("JŇɃ̓њՊٌݖࡄ")].ToString();
-					surveyConfig.PARENT_CODE = dataReader[GClass0.smethod_0("[ŋɛ͍щՒٚ݇ࡌॆ੄")].ToString();
+					surveyConfig.CODE_NOTE = dataReader["CODE_NOTE"].ToString();
+					surveyConfig.PARENT_CODE = dataReader["PARENT_CODE"].ToString();
 				}
 			}
 			return surveyConfig;
@@ -49,11 +49,11 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new SurveyConfig
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
+						ID = Convert.ToInt32(dataReader["ID"]),
 						CODE = dataReader["CODE"].ToString(),
 						CODE_TEXT = dataReader["CODE_TEXT"].ToString(),
-						CODE_NOTE = dataReader[GClass0.smethod_0("JŇɃ̓њՊٌݖࡄ")].ToString(),
-						PARENT_CODE = dataReader[GClass0.smethod_0("[ŋɛ͍щՒٚ݇ࡌॆ੄")].ToString()
+						CODE_NOTE = dataReader["CODE_NOTE"].ToString(),
+						PARENT_CODE = dataReader["PARENT_CODE"].ToString()
 					});
 				}
 			}
@@ -62,13 +62,13 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyConfig> GetList()
 		{
-			string string_ = GClass0.smethod_0("uŠɨͦѡյ؀ܵ࠾ज़੎୔౗ഹ๋རၤᅣቱ፪ᑑᕾᙾᝩᡧᥪᨬ᭄᱘ᵍṍὕ…ⅇ≝⌣⑋╅");
+			string string_ = "SELECT * FROM SurveyConfig ORDER BY ID";
 			return this.GetListBySql(string_);
 		}
 
 		public void Add(SurveyConfig surveyConfig_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("\u0017ēȏ̞Јԍٸܞ࠘ँਛ୳ఁതย༹ါᄴሏጤᐤᔯᘡᜠᡮᤆᨋᬇᰇᵭḃὰ⁺ⅸ≣⍯⑿╡♬✛⡵⥺⩰⭶Ɑ⵿⹿⽻に㄁㉼㍪㑸㕬㙦㝳㡹㥦㩫㭧㱧㴈㸀㽉䁟䅑䉉䍞䑉䔱䘿䝬䠦䥨䨳䬿䰵䵪両佲倩儡别印吸啴嘯圫堡奾娷孾尥崨"), new object[]
+			string string_ = string.Format("INSERT INTO SurveyConfig(CODE,CODE_TEXT,CODE_NOTE,PARENT_CODE) VALUES('{0}','{1}','{2}','{3}')", new object[]
 			{
 				surveyConfig_0.CODE,
 				surveyConfig_0.CODE_TEXT,
@@ -80,7 +80,7 @@ namespace Gssy.Capi.DAL
 
 		public void Update(SurveyConfig surveyConfig_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0(">ĺȭ̩гԣمܷࠖऐਗଅదഝา༲ွᄳሾ፸ᐄᔓᘁ᝴᠐ᤝᨕᬕᱯᵳṭὫ‰ⅻ∴⍯⑫┅☊✀⠆⤝⨕⬅Ⱨ⵪⸝⼁〛ㄝ㉂㌊㑊㔑㘙㝷㡼㥶㩴㭯㱡㵡㹹㽩䀋䄗䈉䌏䑜䔕䙘䜃䠏䥲䩠䭲䱚䵐义佃偘兕剝卝吷唫嘵圳塨夦婬嬷尯嵙幅彉恙慏戩捁摃攦昸朤桸椲橼"), new object[]
+			string string_ = string.Format("UPDATE SurveyConfig SET CODE = '{1}',CODE_TEXT = '{2}',CODE_NOTE = '{3}',PARENT_CODE = '{4}' WHERE ID = {0}", new object[]
 			{
 				surveyConfig_0.ID,
 				surveyConfig_0.CODE,
@@ -93,13 +93,13 @@ namespace Gssy.Capi.DAL
 
 		public void Delete(SurveyConfig surveyConfig_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("bŠɨͦѶդ؀ݙࡌ॒ੑ଻౉൬๪ཡၳᅬ቗፼ᑼᕷᙹᝨᠮᥚᩄ᭎᱘ᵌḨ὎⁂℥∹⍸␲╼"), surveyConfig_0.ID);
+			string string_ = string.Format("DELETE FROM SurveyConfig WHERE ID ={0}", surveyConfig_0.ID);
 			this.dbprovider_1.ExecuteNonQuery(string_);
 		}
 
 		public void Truncate()
 		{
-			string string_ = GClass0.smethod_0("\\Œɚ͐рՖزݗࡂी੃ଭ౟ൾ๸ཿၭᅾቅ፪ᑪᕥᙫᝦ");
+			string string_ = "DELETE FROM SurveyConfig";
 			this.dbprovider_1.ExecuteNonQuery(string_);
 		}
 
@@ -109,19 +109,19 @@ namespace Gssy.Capi.DAL
 			string[] array = new string[5];
 			if (bool_0)
 			{
-				array[0] = GClass0.smethod_0("丼鐨ȥ苮嚫稔嗶");
-				array[1] = GClass0.smethod_0("酅繩ȩ熳搅ԣ礔缀");
-				array[2] = GClass0.smethod_0("酄繦Ȩ熰搄Ԥ飛貦堽");
-				array[3] = GClass0.smethod_0("酅繩ȩ熳搅ԣ跶意");
-				array[4] = GClass0.smethod_0("与群純笀");
+				array[0] = "主键 自动编号";
+				array[1] = "配置/状态 编码";
+				array[2] = "配置/状态 默认值";
+				array[3] = "配置/状态 说明";
+				array[4] = "上级编码";
 			}
 			else
 			{
-				array[0] = GClass0.smethod_0("KŅ");
+				array[0] = "ID";
 				array[1] = "CODE";
 				array[2] = "CODE_TEXT";
-				array[3] = GClass0.smethod_0("JŇɃ̓њՊٌݖࡄ");
-				array[4] = GClass0.smethod_0("[ŋɛ͍щՒٚ݇ࡌॆ੄");
+				array[3] = "CODE_NOTE";
+				array[4] = "PARENT_CODE";
 			}
 			return array;
 		}
@@ -145,26 +145,26 @@ namespace Gssy.Capi.DAL
 
 		public bool Exists(string string_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("AŔɜ͊эՙ،݈ࡅड़੆୓ఎഏญ༃၄ᅓ቏፲ᐾᕎᙩᝩᡬ᥼ᩡ᭔ᱹᵻṲὺ⁵ℱ≧⍧⑫╿♩✫⡉⥆⩌⭂ⰻⴢ⹿⼳みㄦ"), string_0);
+			string string_ = string.Format("select count(*) from SurveyConfig where CODE='{0}'", string_0);
 			int num = this.dbprovider_1.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public SurveyConfig GetByCode(string string_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("XŏɅ͍фՒ؅܎ࠃॄ੓୏౲ാ๎ཀྵၩᅬቼ፡ᑔᕹᙻᝲ᡺᥵ᨱ᭧ᱧᵫṿὩ‫ⅉ≆⍌⑂┻☢❿⠳⥿⨦"), string_0);
+			string string_ = string.Format("select * from SurveyConfig where CODE='{0}'", string_0);
 			return this.GetBySql(string_);
 		}
 
 		public string GetByCodeText(string string_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("@ŗɝ͕ь՚؍ݯࡤ८੬୷౳ൣ๽཰ဃᅄቓፏᑲᔾᙎᝩᡩᥬ᩼᭡᱔ᵹṻὲ⁺ⅵ∱⍧⑧╫♿❩⠫⥉⩆⭌ⱂⴻ⸢⽿〳ㅿ㈦"), string_0);
+			string string_ = string.Format("select CODE_TEXT from SurveyConfig where CODE='{0}'", string_0);
 			return this.dbprovider_1.ExecuteScalarString(string_);
 		}
 
 		public void UpdateByCode(SurveyConfig surveyConfig_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("Oŉɜ͖тՐؔݠࡇृ੆୊౗൮ใཅ၌ᅀ቏ጇᑕᕀᙐᜃᡡ᥮ᩤ᭚᱁ᵉṙὃ⁎ℹ∥⌷␱╮☤❮⠵⤱⩧⭧Ⱬ⵿⹩⼫ぉㅆ㉌㍂㐻㔢㙿㜲㡿㤦"), surveyConfig_0.CODE_TEXT, surveyConfig_0.CODE);
+			string string_ = string.Format("update SurveyConfig set CODE_TEXT = '{0}' where CODE='{1}'", surveyConfig_0.CODE_TEXT, surveyConfig_0.CODE);
 			this.dbprovider_1.ExecuteNonQuery(string_);
 		}
 
@@ -208,26 +208,26 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyConfig> GetQuotaConfig()
 		{
-			string string_ = GClass0.smethod_0("!Ĵȼ̪ЭԹ٬ݡࡪय਺ନఫ൥ท༶ူᄷሥፆᑽᕒᙒ᝝ᡓᥞᨘᭀᱞᵐṆὖ‒Ⅱ≱⍽⑫╣♸❴⡩⥦⩬⭢Ⱋⴂ⹵⽖きㅕ㉁㌸㐾㕼㙲㝿㠺㥺㩷㭳㱳㵊㹠㽶䁪䅥䈬䌱䐩䔪䘬䝤䡸䥭䩭䭵䰦䵧乽伣偫入");
+			string string_ = "select * from SurveyConfig where PARENT_CODE='Quota' and code_text<>'' order by id";
 			return this.GetListBySql(string_);
 		}
 
 		public bool ExistsRead(string string_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("AŔɜ͊эՙ،݈ࡅड़੆୓ఎഏญ༃၄ᅓ቏፲ᐾᕎᙩᝩᡬ᥼ᩡ᭔ᱹᵻṲὺ⁵ℱ≧⍧⑫╿♩✫⡉⥆⩌⭂ⰻⴢ⹿⼳みㄦ"), string_0);
+			string string_ = string.Format("select count(*) from SurveyConfig where CODE='{0}'", string_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public void UpdateByCodeRead(SurveyConfig surveyConfig_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("Oŉɜ͖тՐؔݠࡇृ੆୊౗൮ใཅ၌ᅀ቏ጇᑕᕀᙐᜃᡡ᥮ᩤ᭚᱁ᵉṙὃ⁎ℹ∥⌷␱╮☤❮⠵⤱⩧⭧Ⱬ⵿⹩⼫ぉㅆ㉌㍂㐻㔢㙿㜲㡿㤦"), surveyConfig_0.CODE_TEXT, surveyConfig_0.CODE);
+			string string_ = string.Format("update SurveyConfig set CODE_TEXT = '{0}' where CODE='{1}'", surveyConfig_0.CODE_TEXT, surveyConfig_0.CODE);
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
 		public void AddRead(SurveyConfig surveyConfig_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("\u0017ēȏ̞Јԍٸܞ࠘ँਛ୳ఁതย༹ါᄴሏጤᐤᔯᘡᜠᡮᤆᨋᬇᰇᵭḃὰ⁺ⅸ≣⍯⑿╡♬✛⡵⥺⩰⭶Ɑ⵿⹿⽻に㄁㉼㍪㑸㕬㙦㝳㡹㥦㩫㭧㱧㴈㸀㽉䁟䅑䉉䍞䑉䔱䘿䝬䠦䥨䨳䬿䰵䵪両佲倩儡别印吸啴嘯圫堡奾娷孾尥崨"), new object[]
+			string string_ = string.Format("INSERT INTO SurveyConfig(CODE,CODE_TEXT,CODE_NOTE,PARENT_CODE) VALUES('{0}','{1}','{2}','{3}')", new object[]
 			{
 				surveyConfig_0.CODE,
 				surveyConfig_0.CODE_TEXT,
@@ -239,19 +239,19 @@ namespace Gssy.Capi.DAL
 
 		public string GetByCodeTextRead(string string_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("@ŗɝ͕ь՚؍ݯࡤ८੬୷౳ൣ๽཰ဃᅄቓፏᑲᔾᙎᝩᡩᥬ᩼᭡᱔ᵹṻὲ⁺ⅵ∱⍧⑧╫♿❩⠫⥉⩆⭌ⱂⴻ⸢⽿〳ㅿ㈦"), string_0);
+			string string_ = string.Format("select CODE_TEXT from SurveyConfig where CODE='{0}'", string_0);
 			return this.dbprovider_0.ExecuteScalarString(string_);
 		}
 
 		public List<SurveyConfig> GetSyncList()
 		{
-			string string_ = GClass0.smethod_0("/ľȶ̼лԣٶݿࡴवਠାఽ൯ฝ༸ှᄽሯጰᐋᔨᘨᜣᠭᤤᩢᬶᰨᵚṌ὘“Ⅻ≻⍫⑽╹♢❪⡷⥼⩶⭴Ⰽⴈ⹽⽔あㅈ㉸㍌㑉㕃㙲㝊㡳㥑㩋㭕㱅㴸㸾㽼䁲䅿䈺䍺䑷䕳䙳䝊䡠䥶䩪䭥䰭䴨丿伪倬兤剸卭呭啵嘦坧塽夣婫孥");
+			string string_ = "select * from SurveyConfig where PARENT_CODE='SyncReadToWrite' and code_text='1' order by id";
 			return this.GetReadListBySql(string_);
 		}
 
 		public void UpdateToRead(SurveyConfig surveyConfig_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0(">ĺȭ̩гԣمܷࠖऐਗଅదഝา༲ွᄳሾ፸ᐄᔓᘁ᝴᠐ᤝᨕᬕᱯᵳṭὫ‰ⅻ∴⍯⑫┅☊✀⠆⤝⨕⬅Ⱨ⵪⸝⼁〛ㄝ㉂㌊㑊㔑㘙㝷㡼㥶㩴㭯㱡㵡㹹㽩䀋䄗䈉䌏䑜䔕䙘䜃䠏䥲䩠䭲䱚䵐义佃偘兕剝卝吷唫嘵圳塨夦婬嬷尯嵙幅彉恙慏戩捁摃攦昸朤桸椲橼"), new object[]
+			string string_ = string.Format("UPDATE SurveyConfig SET CODE = '{1}',CODE_TEXT = '{2}',CODE_NOTE = '{3}',PARENT_CODE = '{4}' WHERE ID = {0}", new object[]
 			{
 				surveyConfig_0.ID,
 				surveyConfig_0.CODE,
@@ -272,11 +272,11 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new SurveyConfig
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
+						ID = Convert.ToInt32(dataReader["ID"]),
 						CODE = dataReader["CODE"].ToString(),
 						CODE_TEXT = dataReader["CODE_TEXT"].ToString(),
-						CODE_NOTE = dataReader[GClass0.smethod_0("JŇɃ̓њՊٌݖࡄ")].ToString(),
-						PARENT_CODE = dataReader[GClass0.smethod_0("[ŋɛ͍щՒٚ݇ࡌॆ੄")].ToString()
+						CODE_NOTE = dataReader["CODE_NOTE"].ToString(),
+						PARENT_CODE = dataReader["PARENT_CODE"].ToString()
 					});
 				}
 			}
@@ -285,7 +285,7 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyConfig> GetListRead()
 		{
-			string string_ = GClass0.smethod_0("uŠɨͦѡյ؀ܵ࠾ज़੎୔౗ഹ๋རၤᅣቱ፪ᑑᕾᙾᝩᡧᥪᨬ᭄᱘ᵍṍὕ…ⅇ≝⌣⑋╅");
+			string string_ = "SELECT * FROM SurveyConfig ORDER BY ID";
 			return this.GetListReadBySql(string_);
 		}
 
@@ -299,11 +299,11 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new SurveyConfig
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
+						ID = Convert.ToInt32(dataReader["ID"]),
 						CODE = dataReader["CODE"].ToString(),
 						CODE_TEXT = dataReader["CODE_TEXT"].ToString(),
-						CODE_NOTE = dataReader[GClass0.smethod_0("JŇɃ̓њՊٌݖࡄ")].ToString(),
-						PARENT_CODE = dataReader[GClass0.smethod_0("[ŋɛ͍щՒٚ݇ࡌॆ੄")].ToString()
+						CODE_NOTE = dataReader["CODE_NOTE"].ToString(),
+						PARENT_CODE = dataReader["PARENT_CODE"].ToString()
 					});
 				}
 			}

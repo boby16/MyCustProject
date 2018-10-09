@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -69,7 +69,7 @@ namespace Gssy.Capi.DAL
 				try
 				{
 					XElement xelement = XElementHelper.ToXElement<T>(gparam_0);
-					int.Parse(xelement.Element(GClass0.smethod_0("KŅ")).Value);
+					int.Parse(xelement.Element("ID").Value);
 					this.XDB.Add(xelement);
 					this.m_XDB.Save(this.m_DBFileName);
 					result = true;
@@ -92,7 +92,7 @@ namespace Gssy.Capi.DAL
 			else
 			{
 				XElement xelement = XElementHelper.ToXElement<T>(gparam_0);
-				int int_ = int.Parse(xelement.Element(GClass0.smethod_0("KŅ")).Value);
+				int int_ = int.Parse(xelement.Element("ID").Value);
 				this.Delete(int_);
 				result = this.Add(gparam_0);
 			}
@@ -130,7 +130,7 @@ namespace Gssy.Capi.DAL
 		{
 			internal bool Exists(XElement xelement_0)
 			{
-				return xelement_0.Element(GClass0.smethod_0("KŅ")).Value == this.key.ToString();
+				return xelement_0.Element("ID").Value == this.key.ToString();
 			}
 
 			public int key;
@@ -141,7 +141,7 @@ namespace Gssy.Capi.DAL
 		{
 			internal bool GetByID(XElement xelement_0)
 			{
-				return xelement_0.Element(GClass0.smethod_0("KŅ")).Value == this.key.ToString();
+				return xelement_0.Element("ID").Value == this.key.ToString();
 			}
 
 			public int key;
@@ -152,7 +152,7 @@ namespace Gssy.Capi.DAL
 		{
 			internal bool Delete(XElement xelement_0)
 			{
-				return xelement_0.Element(GClass0.smethod_0("KŅ")).Value == this.key.ToString();
+				return xelement_0.Element("ID").Value == this.key.ToString();
 			}
 
 			public int key;

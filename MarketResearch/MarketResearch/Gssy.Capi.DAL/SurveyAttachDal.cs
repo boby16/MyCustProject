@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("|ūɡͩѨվ؉ݫࡨॳ੫୰ఋഈจༀၙᅌቒፑᐻᕉᙬᝪᡡᥳᩬ᭕ᱧᵦṰέ⁧℮≚⍄⑎╘♌✨⡎⥂⨥⬹ⱸⴲ⹼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM SurveyAttach WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public SurveyAttach GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("{Ţɪ͠ѧշ؂܋ࠀख़ੌ୒౑഻้ཬၪᅡታ፬ᑕᕧᙦᝰᡳᥧᨮ᭚᱄ᵎṘὌ\u2028ⅎ≂⌥␹╸☲❼"), int_0);
+			string string_ = string.Format("SELECT * FROM SurveyAttach WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -29,14 +29,14 @@ namespace Gssy.Capi.DAL
 			{
 				while (dataReader.Read())
 				{
-					surveyAttach.ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]);
+					surveyAttach.ID = Convert.ToInt32(dataReader["ID"]);
 					surveyAttach.SURVEY_ID = dataReader["SURVEY_ID"].ToString();
-					surveyAttach.PAGE_ID = dataReader[GClass0.smethod_0("WŇɂ́ќՋم")].ToString();
-					surveyAttach.QUESTION_NAME = dataReader[GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")].ToString();
-					surveyAttach.FILE_NAME = dataReader[GClass0.smethod_0("OŁɋ̓њՊقݏࡄ")].ToString();
-					surveyAttach.FILE_TYPE = dataReader[GClass0.smethod_0("OŁɋ̓њՐٚݒࡄ")].ToString();
-					surveyAttach.ORIGINAL_NAME = dataReader[GClass0.smethod_0("BŞɂ͍рՆن࡚݊ॊੂ୏ౄ")].ToString();
-					surveyAttach.SURVEY_GUID = dataReader[GClass0.smethod_0("Xşɛ͞т՟ٚ݃ࡖो੅")].ToString();
+					surveyAttach.PAGE_ID = dataReader["PAGE_ID"].ToString();
+					surveyAttach.QUESTION_NAME = dataReader["QUESTION_NAME"].ToString();
+					surveyAttach.FILE_NAME = dataReader["FILE_NAME"].ToString();
+					surveyAttach.FILE_TYPE = dataReader["FILE_TYPE"].ToString();
+					surveyAttach.ORIGINAL_NAME = dataReader["ORIGINAL_NAME"].ToString();
+					surveyAttach.SURVEY_GUID = dataReader["SURVEY_GUID"].ToString();
 				}
 			}
 			return surveyAttach;
@@ -52,14 +52,14 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new SurveyAttach
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
+						ID = Convert.ToInt32(dataReader["ID"]),
 						SURVEY_ID = dataReader["SURVEY_ID"].ToString(),
-						PAGE_ID = dataReader[GClass0.smethod_0("WŇɂ́ќՋم")].ToString(),
-						QUESTION_NAME = dataReader[GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ")].ToString(),
-						FILE_NAME = dataReader[GClass0.smethod_0("OŁɋ̓њՊقݏࡄ")].ToString(),
-						FILE_TYPE = dataReader[GClass0.smethod_0("OŁɋ̓њՐٚݒࡄ")].ToString(),
-						ORIGINAL_NAME = dataReader[GClass0.smethod_0("BŞɂ͍рՆن࡚݊ॊੂ୏ౄ")].ToString(),
-						SURVEY_GUID = dataReader[GClass0.smethod_0("Xşɛ͞т՟ٚ݃ࡖो੅")].ToString()
+						PAGE_ID = dataReader["PAGE_ID"].ToString(),
+						QUESTION_NAME = dataReader["QUESTION_NAME"].ToString(),
+						FILE_NAME = dataReader["FILE_NAME"].ToString(),
+						FILE_TYPE = dataReader["FILE_TYPE"].ToString(),
+						ORIGINAL_NAME = dataReader["ORIGINAL_NAME"].ToString(),
+						SURVEY_GUID = dataReader["SURVEY_GUID"].ToString()
 					});
 				}
 			}
@@ -68,13 +68,13 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyAttach> GetList()
 		{
-			string string_ = GClass0.smethod_0("uŠɨͦѡյ؀ܵ࠾ज़੎୔౗ഹ๋རၤᅣቱ፪ᑓᕥᙤᝮᡭᥥᨬ᭄᱘ᵍṍὕ…ⅇ≝⌣⑋╅");
+			string string_ = "SELECT * FROM SurveyAttach ORDER BY ID";
 			return this.GetListBySql(string_);
 		}
 
 		public void Add(SurveyAttach surveyAttach_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("Ðǖ˄ϓӇ׀ڳߛࣟৄીமೞ෹໹࿼წᇱ዆Ᏺᓱᗥᛠ៪ᢩ᧓ᨪᬬᰫᴹḢἥ‰ℼ≛⌦␴┳☶✭⠸⤴⩃⬿ⰸ⴩⸸⼾〠ㄧ㈩㌹㐫㔥㘮㜧㡍㤦㨖㬒㰘㴃㸕㼛䀔䄝䉻䌐䐜䔘䘖䜍䠅䤉䨟䬋䱡䴃丙伃倎儁刉匇吉唛嘍圃堌夅娓孭屨嵮幭彿恠慧扰捣摼数昚朒桧楱橣死汨浿渃漍灒焘牚猁琉甃癘眓硜礇稳笹籦紮繦缽耵脿艬茥葨蔳蘿蜵衪褤該謩谡贫蹰輿遴鄯鈫錡鑾锲陾霥頨"), new object[]
+			string string_ = string.Format("INSERT INTO SurveyAttach(SURVEY_ID,PAGE_ID,QUESTION_NAME,FILE_NAME,FILE_TYPE,ORIGINAL_NAME,SURVEY_GUID) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", new object[]
 			{
 				surveyAttach_0.SURVEY_ID,
 				surveyAttach_0.PAGE_ID,
@@ -89,7 +89,7 @@ namespace Gssy.Capi.DAL
 
 		public void Update(SurveyAttach surveyAttach_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("ùǻˮϨӼעچ߶࣑৑૔௄೙ෞ໪࿩ჽᇸዲᎹᓋᗒᛂ឵ᣇᧆᫀᯇ᳕ᷖốῄ⃈↫⊷⎩⒯◼⚷⟸⢣⦯⫒⯀ⳇⴺ⸡⼴〸ㅛ㉇㍙㑟㔌㙄㜈㡓㥟㨣㬤㰵㴼㸺㼤䀣䄥䈵䌧䐩䔪䘣䝅䡙䥃䩅䬚䱓䴢乹佱倚儒刖匜吇唙嘗團堑女婯孱屷崴幺弰恫慧戌挀搄攂昙朑栝椓樇歡汽洟渙潆瀉煆爝猕瑷略癿睲硽祽穳筽籯絡繯罠聩脋舗茉萏蕜蘐蝘蠃褏話譴豲赉蹛轄遃酜鉏鍐鑜锷阫霵頳饨騥魬鰷鴯鹙齅ꁉꅙꉏꌩꑁꕃ꘦Ꜹꠤꥸꨲꭼ"), new object[]
+			string string_ = string.Format("UPDATE SurveyAttach SET SURVEY_ID = '{1}',PAGE_ID = '{2}',QUESTION_NAME = '{3}',FILE_NAME = '{4}',FILE_TYPE = '{5}',ORIGINAL_NAME = '{6}',SURVEY_GUID = '{7}' WHERE ID = {0}", new object[]
 			{
 				surveyAttach_0.ID,
 				surveyAttach_0.SURVEY_ID,
@@ -105,13 +105,13 @@ namespace Gssy.Capi.DAL
 
 		public void Delete(SurveyAttach surveyAttach_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("bŠɨͦѶդ؀ݙࡌ॒ੑ଻౉൬๪ཡၳᅬቕ፧ᑦᕰᙳᝧᠮᥚᩄ᭎᱘ᵌḨ὎⁂℥∹⍸␲╼"), surveyAttach_0.ID);
+			string string_ = string.Format("DELETE FROM SurveyAttach WHERE ID ={0}", surveyAttach_0.ID);
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
 		public void Truncate()
 		{
-			string string_ = GClass0.smethod_0("\\Œɚ͐рՖزݗࡂी੃ଭ౟ൾ๸ཿၭᅾቇ፱ᑰᕢᙡᝩ");
+			string string_ = "DELETE FROM SurveyAttach";
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
@@ -121,25 +121,25 @@ namespace Gssy.Capi.DAL
 			string[] array = new string[8];
 			if (bool_0)
 			{
-				array[0] = GClass0.smethod_0("臮厫純僶");
+				array[0] = "自动编号";
 				array[1] = "问卷编号";
-				array[2] = GClass0.smethod_0("顶縔凶");
-				array[3] = GClass0.smethod_0("闪馛純僶");
-				array[4] = GClass0.smethod_0("陁俲构䷴倌");
-				array[5] = GClass0.smethod_0("陀俵繹咊");
-				array[6] = GClass0.smethod_0("陎俿冗嫌觩媁嗎抄䛴崌");
-				array[7] = GClass0.smethod_0("MŜɁ̓Ц呭爇刬䘂焀");
+				array[2] = "页编号";
+				array[3] = "问题编号";
+				array[4] = "附件文件名";
+				array[5] = "附件类型";
+				array[6] = "附件原始路径及文件名";
+				array[7] = "GUID 全球唯一码";
 			}
 			else
 			{
-				array[0] = GClass0.smethod_0("KŅ");
+				array[0] = "ID";
 				array[1] = "SURVEY_ID";
-				array[2] = GClass0.smethod_0("WŇɂ́ќՋم");
-				array[3] = GClass0.smethod_0("\\řɎ͙ѝՁو݈࡚ॊੂ୏ౄ");
-				array[4] = GClass0.smethod_0("OŁɋ̓њՊقݏࡄ");
-				array[5] = GClass0.smethod_0("OŁɋ̓њՐٚݒࡄ");
-				array[6] = GClass0.smethod_0("BŞɂ͍рՆن࡚݊ॊੂ୏ౄ");
-				array[7] = GClass0.smethod_0("Xşɛ͞т՟ٚ݃ࡖो੅");
+				array[2] = "PAGE_ID";
+				array[3] = "QUESTION_NAME";
+				array[4] = "FILE_NAME";
+				array[5] = "FILE_TYPE";
+				array[6] = "ORIGINAL_NAME";
+				array[7] = "SURVEY_GUID";
 			}
 			return array;
 		}
@@ -167,27 +167,27 @@ namespace Gssy.Capi.DAL
 		public List<SurveyAttach> GetListBySurveyId(string string_0)
 		{
 			List<SurveyAttach> list = new List<SurveyAttach>();
-			string string_ = string.Format(GClass0.smethod_0("OŞɖ͜ћՃؖܟࠔॕੀ୞ౝഏ๽མၞᅝ቏ፐᑩᕓᙒᝄᡇ᥋ᨂ᭖᱈ᵺṬὸ‼ⅈ≏⍋⑎╒♏❊⡝⥗⨯⬶Ⱬⴿ⹳⼪〬ㅄ㉘㍍㑍㕕㘦㝇㡝㤣㩋㭅"), string_0);
+			string string_ = string.Format("select * from SurveyAttach where SURVEY_ID='{0}' ORDER BY ID", string_0);
 			return this.GetListBySql(string_);
 		}
 
 		public List<SurveyAttach> GetListByPageId(string string_0, string string_1)
 		{
 			List<SurveyAttach> list = new List<SurveyAttach>();
-			string string_2 = string.Format(GClass0.smethod_0("=ĨȠ̮ЩԽ٨ݭࡦणਸ਼ବయൡณཊ၌ᅋ቙ፂᑻᕍᙌ᝖ᡕᥝᨔ᭄ᱚᵔṂὊ‎ⅾ≹⍹⑼╬♱❸⡯⥡⨙⬄ⱙⴑ⹝⼸〾ㅼ㉲㍿㐺㕉㙙㝐㡓㥊㩝㭗㰯㴶㹫㼾䁳䄪䈬䍄䑘䕍䙍䝕䠦䥇䩝䬣䱋䵅"), string_0, string_1);
+			string string_2 = string.Format("select * from SurveyAttach where SURVEY_ID='{0}' and PAGE_ID='{1}' ORDER BY ID", string_0, string_1);
 			return this.GetListBySql(string_2);
 		}
 
 		public bool ExistsByPageId(string string_0, string string_1)
 		{
-			string string_2 = string.Format(GClass0.smethod_0("9ĬȤ̢ХԱ٤܀ࠍऔ਎୫ఖഗต༛ၜᅋ቗ፚᐖᕦᙁᝁᡄᥔᩉ᭮ᱚᵙṍὈ⁂℉≟⍏⑃╗♁✃⡱⥴⩲⭉ⱛⵄ⹃⽒ぞㄤ㈿㍬㐦㕨㘳㜳㡳㥿㩴㬯㱞㵌㹋㽎䁕䅀䉌䌺䐡䕾䘵䝾䠥䤡"), string_0, string_1);
+			string string_2 = string.Format("select COUNT(*) from SurveyAttach where SURVEY_ID='{0}' and PAGE_ID='{1}' ", string_0, string_1);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_2);
 			return num > 0;
 		}
 
 		public bool ExistsByQName(string string_0, string string_1)
 		{
-			string string_2 = string.Format(GClass0.smethod_0("#ĪȢ̨ЯԿ٪܊ࠇऒਈ଑౬൩๫ཡဦᅍቑፐᐜᕨᙏᝋᡎᥒᩏ᭴᱀ᵇṓὒ⁘ℏ≙⍅⑉╙♏✉⡻⥲⩴⭳ⱡ⵺⹽⽨つㄢ㈹㍦㐬㕦㘽㜹㡹㥹㩲㬵㱅㵆㹗㽂䁄䅆䉁䍃䑓䕅䙋䝄䡍䤺䨡䭾䰵䵾严伡"), string_0, string_1);
+			string string_2 = string.Format("select COUNT(*) from SurveyAttach where SURVEY_ID='{0}' and QUESTION_NAME='{1}' ", string_0, string_1);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_2);
 			return num > 0;
 		}
@@ -195,31 +195,31 @@ namespace Gssy.Capi.DAL
 		public List<SurveyAttach> GetListByQName(string string_0, string string_1)
 		{
 			List<SurveyAttach> list = new List<SurveyAttach>();
-			string string_2 = string.Format(GClass0.smethod_0("'ĶȾ̴гԻٮݧ࡬भਸଦథ൧ต༰ံᄵሧጸᐁᕋᙊ᝜ᡟᥓᨚ᭎᱐ᵒṄὐ—Ⅰ≧⍣⑦╪♷❲⡥⥯⨗⬎ⱓⴗ⹛⼂〄ㅂ㉌㍅㐀㕎㙋㝘㡏㥏㩓㭖㱖㵈㹘㽔䁙䅖䈯䌶䑫䔾䙳䜪䠬䥄䩘䭍䱍䵕並佇偝儣剋卅"), string_0, string_1);
+			string string_2 = string.Format("select * from SurveyAttach where SURVEY_ID='{0}' and QUESTION_NAME='{1}' ORDER BY ID", string_0, string_1);
 			return this.GetListBySql(string_2);
 		}
 
 		public void DeleteByPageId(string string_0, string string_1)
 		{
-			string string_2 = string.Format(GClass0.smethod_0("\u0004źɲ͸Ѩվؚݿࡪॸ੻କ౧െเཇၕᅖቯፙᑘᕊᙉᝁ᠈ᥰᩮ᭠ᱶᵦḂὲ⁵⅍≈⍘⑅╄♓❝⠥⤰⩭⬥Ⱪⴴ⸲⽰まㅫ㈮㍝㑍㕌㙏㝖㡁㥃㨻㬢㱿㴲㹿㼦"), string_0, string_1);
+			string string_2 = string.Format("DELETE FROM SurveyAttach WHERE SURVEY_ID='{0}' and PAGE_ID='{1}'", string_0, string_1);
 			this.dbprovider_0.ExecuteNonQuery(string_2);
 		}
 
 		public void DeleteByFileName(string string_0, string string_1, string string_2)
 		{
-			string string_3 = string.Format(GClass0.smethod_0("\u0011đȟ̗Ѕԕٯ܈ࠟःਆ୪చഽี༰ဠᄽሂጶᐵᔡᙜ᝖᠝ᥫᩳ᭿ᱫᵽḗὥ⁠Ⅶ≥⍷⑨╯♦❪⠐⤋⩐⬚ⱔⴏ⸇⽇かㅀ㈃㍲㑠㕧㙚㝁㡔㥘㨦㬽㱢㴩㹪㼱䀵䅵䉽䍶䐱䕖䙆䝂䡈䥓䩅䭋䱄䵍丧伻倢兿刱卿否"), string_0, string_1, string_2);
+			string string_3 = string.Format("DELETE FROM SurveyAttach WHERE SURVEY_ID='{0}' and PAGE_ID='{1}' and FILE_NAME ='{2}'", string_0, string_1, string_2);
 			this.dbprovider_0.ExecuteNonQuery(string_3);
 		}
 
 		public void DeleteByQNameByFileName(string string_0, string string_1, string string_2)
 		{
-			string string_3 = string.Format(GClass0.smethod_0("\u0018ĞȖ̜ЌԒٶܓࠆजਟୱఃഺ฼༻ဩᄲላጽᐼᔦᘥᜭᡤᤔᨊᬄᰒᵺḞὮ⁩Ⅹ≬⍼②╨♿❱⠉⤔⩉⬁ⱍⴈ⸎⽌あㅏ㈊㌉㑹㕲㙣㝶㡰㥪㩭㭯㱿㵑㹟㽐䁙䄦䈽䍢䐩䕪䘱䜵䡵䥽䩶䬱䱖䵆乂佈偓充剋卄呍唧嘻圢塿失婿嬦"), string_0, string_1, string_2);
+			string string_3 = string.Format("DELETE FROM SurveyAttach WHERE SURVEY_ID='{0}' and  QUESTION_NAME='{1}' and FILE_NAME ='{2}'", string_0, string_1, string_2);
 			this.dbprovider_0.ExecuteNonQuery(string_3);
 		}
 
 		public void DeleteOneSurvey(string string_0, string string_1)
 		{
-			string string_2 = string.Format(GClass0.smethod_0("Jňɀ͎ўՌ؈݁ࡔॊ੉ଃ౱ൔ๒ཀྵၻᅤቝ፯ᑮᕸᙻ᝿ᠶᥢ᩼᭶ᱠᵴḰ὜⁛⅟≚⍎⑓╖♁❃⠻⤢⩿⬳Ɀ⴦"), string_0);
+			string string_2 = string.Format("delete from SurveyAttach where SURVEY_ID='{0}'", string_0);
 			this.dbprovider_0.ExecuteNonQuery(string_2);
 		}
 

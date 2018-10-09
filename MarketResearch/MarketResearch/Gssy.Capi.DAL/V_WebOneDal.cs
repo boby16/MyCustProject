@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("xůɥͭѤղ؅ݧ࡬ॷ੯୴షഴิ༼ၝᅈቖፕᐷᕀᙊᝃᡶᥰᩞ᭾ᱪᴮṚὄ⁎⅘≌⌨⑎╂☥✹⡸⤲⩼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM V_WebOne WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public V_WebOne GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("wŦɮͤѣՋؾܷ࠼ढ़ੈୖౕഷเཊ၃ᅶተ፞ᑾᕪᘮ᝚ᡄ᥎ᩘᭌᰨᵎṂἥ‹ⅸ∲⍼"), int_0);
+			string string_ = string.Format("SELECT * FROM V_WebOne WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -30,8 +30,8 @@ namespace Gssy.Capi.DAL
 				while (dataReader.Read())
 				{
 					v_WebOne.SURVEY_ID = dataReader["SURVEY_ID"].ToString();
-					v_WebOne.URI_DOMAIN = dataReader[GClass0.smethod_0("_śɁ͘тՊى݂ࡋॏ")].ToString();
-					v_WebOne.STAY_TIME = Convert.ToInt32(dataReader[GClass0.smethod_0("ZŜɆ͟њՐيݏࡄ")]);
+					v_WebOne.URI_DOMAIN = dataReader["URI_DOMAIN"].ToString();
+					v_WebOne.STAY_TIME = Convert.ToInt32(dataReader["STAY_TIME"]);
 				}
 			}
 			return v_WebOne;
@@ -48,8 +48,8 @@ namespace Gssy.Capi.DAL
 					list.Add(new V_WebOne
 					{
 						SURVEY_ID = dataReader["SURVEY_ID"].ToString(),
-						URI_DOMAIN = dataReader[GClass0.smethod_0("_śɁ͘тՊى݂ࡋॏ")].ToString(),
-						STAY_TIME = Convert.ToInt32(dataReader[GClass0.smethod_0("ZŜɆ͟њՐيݏࡄ")])
+						URI_DOMAIN = dataReader["URI_DOMAIN"].ToString(),
+						STAY_TIME = Convert.ToInt32(dataReader["STAY_TIME"])
 					});
 				}
 			}
@@ -58,7 +58,7 @@ namespace Gssy.Capi.DAL
 
 		public List<V_WebOne> GetList()
 		{
-			string string_ = GClass0.smethod_0("\u007fŮɦͬѫճ؆܏ࠄ॥ੰ୮౭ി่ག။ᅾቸፖᑶᕲᘶ᝚ᡆᥗᩗᭃᰰᵍṗἭ⁍ⅅ≙⍞⑍╕♙❊⡖⥇⩇⭓");
+			string string_ = "SELECT * FROM V_WebOne ORDER BY ANSWER_ORDER";
 			return this.GetListBySql(string_);
 		}
 
@@ -69,14 +69,14 @@ namespace Gssy.Capi.DAL
 			if (bool_0)
 			{
 				array[0] = "问卷编号";
-				array[1] = GClass0.smethod_0("丄群嗝圌");
-				array[2] = GClass0.smethod_0("偛瑟柳陻У糐捱");
+				array[1] = "一级域名";
+				array[2] = "停留时长 秒数";
 			}
 			else
 			{
 				array[0] = "SURVEY_ID";
-				array[1] = GClass0.smethod_0("_śɁ͘тՊى݂ࡋॏ");
-				array[2] = GClass0.smethod_0("ZŜɆ͟њՐيݏࡄ");
+				array[1] = "URI_DOMAIN";
+				array[2] = "STAY_TIME";
 			}
 			return array;
 		}

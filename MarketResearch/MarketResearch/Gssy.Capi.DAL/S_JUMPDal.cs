@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("zŭɫͣѦհ؃ݡ࡮ॵੑ୊వശา༺ၟᅊቘ፛ᐵᕇᙌ᝘ᡄᥝ᩟ᬮᱚᵄṎ὘⁌ℨ≎⍂␥┹♸✲⡼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM S_JUMP WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public S_JUMP GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("qŤɬ͚ѝՉؼܱ࠺य़੊୘౛വ็ཌၘᅄቝ፟ᐮᕚᙄᝎᡘ᥌ᨨ᭎᱂ᴥḹὸ′ⅼ"), int_0);
+			string string_ = string.Format("SELECT * FROM S_JUMP WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -29,14 +29,14 @@ namespace Gssy.Capi.DAL
 			{
 				while (dataReader.Read())
 				{
-					s_JUMP.ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]);
-					s_JUMP.PAGE_TEXT = dataReader[GClass0.smethod_0("Yŉɀ̓њՐنݚࡕ")].ToString();
-					s_JUMP.PAGE_VALUE = dataReader[GClass0.smethod_0("Zňɏ͂љՓمݏࡗॄ")].ToString();
-					s_JUMP.PAGE_ID = dataReader[GClass0.smethod_0("WŇɂ́ќՋم")].ToString();
-					s_JUMP.CIRCLE_A_CURRENT = Convert.ToInt32(dataReader[GClass0.smethod_0("Sņɜ͎рՎٕ݈ࡗॄ੓ୗౖെ์ཕ")]);
-					s_JUMP.CIRCLE_A_COUNT = Convert.ToInt32(dataReader[GClass0.smethod_0("Mńɞ͈цՌ݆࡙ٗॆੋୖౌൕ")]);
-					s_JUMP.CIRCLE_B_CURRENT = Convert.ToInt32(dataReader[GClass0.smethod_0("Sņɜ͎рՎٕ݋ࡗॄ੓ୗౖെ์ཕ")]);
-					s_JUMP.CIRCLE_B_COUNT = Convert.ToInt32(dataReader[GClass0.smethod_0("Mńɞ͈цՌ࡙ٗ݅ॆੋୖౌൕ")]);
+					s_JUMP.ID = Convert.ToInt32(dataReader["ID"]);
+					s_JUMP.PAGE_TEXT = dataReader["PAGE_TEXT"].ToString();
+					s_JUMP.PAGE_VALUE = dataReader["PAGE_VALUE"].ToString();
+					s_JUMP.PAGE_ID = dataReader["PAGE_ID"].ToString();
+					s_JUMP.CIRCLE_A_CURRENT = Convert.ToInt32(dataReader["CIRCLE_A_CURRENT"]);
+					s_JUMP.CIRCLE_A_COUNT = Convert.ToInt32(dataReader["CIRCLE_A_COUNT"]);
+					s_JUMP.CIRCLE_B_CURRENT = Convert.ToInt32(dataReader["CIRCLE_B_CURRENT"]);
+					s_JUMP.CIRCLE_B_COUNT = Convert.ToInt32(dataReader["CIRCLE_B_COUNT"]);
 				}
 			}
 			return s_JUMP;
@@ -52,14 +52,14 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new S_JUMP
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
-						PAGE_TEXT = dataReader[GClass0.smethod_0("Yŉɀ̓њՐنݚࡕ")].ToString(),
-						PAGE_VALUE = dataReader[GClass0.smethod_0("Zňɏ͂љՓمݏࡗॄ")].ToString(),
-						PAGE_ID = dataReader[GClass0.smethod_0("WŇɂ́ќՋم")].ToString(),
-						CIRCLE_A_CURRENT = Convert.ToInt32(dataReader[GClass0.smethod_0("Sņɜ͎рՎٕ݈ࡗॄ੓ୗౖെ์ཕ")]),
-						CIRCLE_A_COUNT = Convert.ToInt32(dataReader[GClass0.smethod_0("Mńɞ͈цՌ݆࡙ٗॆੋୖౌൕ")]),
-						CIRCLE_B_CURRENT = Convert.ToInt32(dataReader[GClass0.smethod_0("Sņɜ͎рՎٕ݋ࡗॄ੓ୗౖെ์ཕ")]),
-						CIRCLE_B_COUNT = Convert.ToInt32(dataReader[GClass0.smethod_0("Mńɞ͈цՌ࡙ٗ݅ॆੋୖౌൕ")])
+						ID = Convert.ToInt32(dataReader["ID"]),
+						PAGE_TEXT = dataReader["PAGE_TEXT"].ToString(),
+						PAGE_VALUE = dataReader["PAGE_VALUE"].ToString(),
+						PAGE_ID = dataReader["PAGE_ID"].ToString(),
+						CIRCLE_A_CURRENT = Convert.ToInt32(dataReader["CIRCLE_A_CURRENT"]),
+						CIRCLE_A_COUNT = Convert.ToInt32(dataReader["CIRCLE_A_COUNT"]),
+						CIRCLE_B_CURRENT = Convert.ToInt32(dataReader["CIRCLE_B_CURRENT"]),
+						CIRCLE_B_COUNT = Convert.ToInt32(dataReader["CIRCLE_B_COUNT"])
 					});
 				}
 			}
@@ -68,13 +68,13 @@ namespace Gssy.Capi.DAL
 
 		public List<S_JUMP> GetList()
 		{
-			string string_ = GClass0.smethod_0("sŚɒ͘џՏغܳ࠸॑੄୚ౙളแཎၚᅚቃ፝ᐬᕄᙘᝍᡍᥕᨦᭇᱝᴣṋὅ");
+			string string_ = "SELECT * FROM S_JUMP ORDER BY ID";
 			return this.GetListBySql(string_);
 		}
 
 		public void Add(S_JUMP s_JUMP_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("ÓǗˋϒӄׁڴߚࣜ৅૟யೝිໆ࿞ჇᇙአᏗᓇᗂᛁៜᣖᧄ᫘ᬫ᱒ᴭḽἼ‿Ω∮⌶␺┠☱❟⠢⤰⨷⬪ⰱⴤ⸨⽇〩ㄠ㈺㌤㐪㔠㘻㜢㠽㤢㨵㬍㰌㴘㸒㼏䁶䄚䈑䌅䐕䔙䘑䜌䠓䤎䨓䬀䰛䴃丘佧倉儀刚匄吊唀嘛圁堝夂娕孭屬嵸干彯怖慺扱捥摵敹晱杬桰楮橳歠汻浣湸漂瀊煿物獫瑳畠癷看砅祚稐筢簹紱縻罠耫腤舿茻萱蕮蘦蝮蠵褽詫謼豳贡蹷輿遷鄥鉳録鑻锩陿霵顿館"), new object[]
+			string string_ = string.Format("INSERT INTO S_JUMP(PAGE_TEXT,PAGE_VALUE,PAGE_ID,CIRCLE_A_CURRENT,CIRCLE_A_COUNT,CIRCLE_B_CURRENT,CIRCLE_B_COUNT) VALUES('{0}','{1}','{2}',{3},{4},{5},{6})", new object[]
 			{
 				s_JUMP_0.PAGE_TEXT,
 				s_JUMP_0.PAGE_VALUE,
@@ -89,7 +89,7 @@ namespace Gssy.Capi.DAL
 
 		public void Update(S_JUMP s_JUMP_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("øǼ˯ϫӽ׭ڇߵࣺ৮૶௯ೱ඀໌࿛჉ᆼዋᏛᓞᗝᛈែᣐ᧌᫇᮲ᲬᶰẨ῵₼⇱⊬⎦ⓙ◉⛀⟃⣚⧒⫂⯎Ⳕⷅ⹟⽃そㅛ㈀㍈㐄㕟㙛㜦㠴㤳㨶㬭㰸㴴㹏㽓䁍䅋䈐䍙䐔䕏䙋䜥䠬䤶䨠䬮䰤䴿丞企倞儉刉匈吜唖嘃坶塨奴娨学尬嵼希弇怟意戇挏搖攉昘朅栊椑樍欖污浽渟潅瀈煁爗獹瑰番癴睺硰祫穱筭籲絥繽罼聨腢艿茊萔蔈虜蜐衘褈詠譫豳赣蹓轛遂酞鉄鍙鑖镍陙靂頵餩騳魩鰦鵭鸯齙ꁅꅉꉙꍏꐩꕁꙃꜦ꠸ꤤ꩸ꬲ걼"), new object[]
+			string string_ = string.Format("UPDATE S_JUMP SET PAGE_TEXT = '{1}',PAGE_VALUE = '{2}',PAGE_ID = '{3}',CIRCLE_A_CURRENT = {4},CIRCLE_A_COUNT = {5},CIRCLE_B_CURRENT = {6},CIRCLE_B_COUNT = {7} WHERE ID = {0}", new object[]
 			{
 				s_JUMP_0.ID,
 				s_JUMP_0.PAGE_TEXT,
@@ -105,13 +105,13 @@ namespace Gssy.Capi.DAL
 
 		public void Delete(S_JUMP s_JUMP_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("dŚɒ͘ш՞غݟࡊक़ਜ਼ଵేൌ๘ངၝᅟሮፚᑄᕎᙘᝌᠨ᥎ᩂᬥ᰹ᵸḲὼ"), s_JUMP_0.ID);
+			string string_ = string.Format("DELETE FROM S_JUMP WHERE ID ={0}", s_JUMP_0.ID);
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
 		public void Truncate()
 		{
-			string string_ = GClass0.smethod_0("VŔɜ͊њՈجݍࡘॆ੅ଧౕ൚๎བ၏ᅑ");
+			string string_ = "DELETE FROM S_JUMP";
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
@@ -121,25 +121,25 @@ namespace Gssy.Capi.DAL
 			string[] array = new string[8];
 			if (bool_0)
 			{
-				array[0] = GClass0.smethod_0("臮厫純僶");
-				array[1] = GClass0.smethod_0("顶諶搏");
-				array[2] = GClass0.smethod_0("顷儽");
-				array[3] = GClass0.smethod_0("顶縔凶");
-				array[4] = GClass0.smethod_0("HĨ幅展噈玀妩璭浱");
-				array[5] = GClass0.smethod_0("FĦ幇岮瞬改捱");
-				array[6] = GClass0.smethod_0("KĨ幅展噈玀妩璭浱");
-				array[7] = GClass0.smethod_0("EĦ幇岮瞬改捱");
+				array[0] = "自动编号";
+				array[1] = "页说明";
+				array[2] = "页值";
+				array[3] = "页编号";
+				array[4] = "A 层当前的循环数";
+				array[5] = "A 层循环总数";
+				array[6] = "B 层当前的循环数";
+				array[7] = "B 层循环总数";
 			}
 			else
 			{
-				array[0] = GClass0.smethod_0("KŅ");
-				array[1] = GClass0.smethod_0("Yŉɀ̓њՐنݚࡕ");
-				array[2] = GClass0.smethod_0("Zňɏ͂љՓمݏࡗॄ");
-				array[3] = GClass0.smethod_0("WŇɂ́ќՋم");
-				array[4] = GClass0.smethod_0("Sņɜ͎рՎٕ݈ࡗॄ੓ୗౖെ์ཕ");
-				array[5] = GClass0.smethod_0("Mńɞ͈цՌ݆࡙ٗॆੋୖౌൕ");
-				array[6] = GClass0.smethod_0("Sņɜ͎рՎٕ݋ࡗॄ੓ୗౖെ์ཕ");
-				array[7] = GClass0.smethod_0("Mńɞ͈цՌ࡙ٗ݅ॆੋୖౌൕ");
+				array[0] = "ID";
+				array[1] = "PAGE_TEXT";
+				array[2] = "PAGE_VALUE";
+				array[3] = "PAGE_ID";
+				array[4] = "CIRCLE_A_CURRENT";
+				array[5] = "CIRCLE_A_COUNT";
+				array[6] = "CIRCLE_B_CURRENT";
+				array[7] = "CIRCLE_B_COUNT";
 			}
 			return array;
 		}

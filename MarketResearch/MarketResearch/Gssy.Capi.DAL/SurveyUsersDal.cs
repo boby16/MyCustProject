@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Gssy.Capi.Common;
@@ -10,14 +10,14 @@ namespace Gssy.Capi.DAL
 	{
 		public bool Exists(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("}Ũɠͮѩս؈ݤࡩ॰੪୷ఊഋฉ༿ၘᅏቓፖᐺᕊ᙭ᝥᡠᥰᩭᭆᱡᵴṢὼ‮⅚≄⍎⑘╌☨❎⡂⤥⨹⭸ⰲ⵼"), int_0);
+			string string_ = string.Format("SELECT COUNT(*) FROM SurveyUsers WHERE ID ={0}", int_0);
 			int num = this.dbprovider_0.ExecuteScalarInt(string_);
 			return num > 0;
 		}
 
 		public SurveyUsers GetByID(int int_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("tţɩ͡Ѡն؁܊࠿क़੏୓ౖഺ๊཭ၥᅠተ፭ᑆᕡᙴᝢ᡼᤮ᩚ᭄ᱎᵘṌἨ⁎⅂∥⌹⑸┲♼"), int_0);
+			string string_ = string.Format("SELECT * FROM SurveyUsers WHERE ID ={0}", int_0);
 			return this.GetBySql(string_);
 		}
 
@@ -29,12 +29,12 @@ namespace Gssy.Capi.DAL
 			{
 				while (dataReader.Read())
 				{
-					surveyUsers.ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]);
-					surveyUsers.USER_ID = dataReader[GClass0.smethod_0("Rŕɀ͖ќՋم")].ToString();
-					surveyUsers.USER_NAME = dataReader[GClass0.smethod_0("\\śɂ͔њՊقݏࡄ")].ToString();
-					surveyUsers.IS_ENABLE = Convert.ToInt32(dataReader[GClass0.smethod_0("@śɘ̓ыՅفݎࡄ")]);
-					surveyUsers.PSW = dataReader[GClass0.smethod_0("Sőɖ")].ToString();
-					surveyUsers.ROLE_ID = dataReader[GClass0.smethod_0("Uŉɉ́ќՋم")].ToString();
+					surveyUsers.ID = Convert.ToInt32(dataReader["ID"]);
+					surveyUsers.USER_ID = dataReader["USER_ID"].ToString();
+					surveyUsers.USER_NAME = dataReader["USER_NAME"].ToString();
+					surveyUsers.IS_ENABLE = Convert.ToInt32(dataReader["IS_ENABLE"]);
+					surveyUsers.PSW = dataReader["PSW"].ToString();
+					surveyUsers.ROLE_ID = dataReader["ROLE_ID"].ToString();
 				}
 			}
 			return surveyUsers;
@@ -50,12 +50,12 @@ namespace Gssy.Capi.DAL
 				{
 					list.Add(new SurveyUsers
 					{
-						ID = Convert.ToInt32(dataReader[GClass0.smethod_0("KŅ")]),
-						USER_ID = dataReader[GClass0.smethod_0("Rŕɀ͖ќՋم")].ToString(),
-						USER_NAME = dataReader[GClass0.smethod_0("\\śɂ͔њՊقݏࡄ")].ToString(),
-						IS_ENABLE = Convert.ToInt32(dataReader[GClass0.smethod_0("@śɘ̓ыՅفݎࡄ")]),
-						PSW = dataReader[GClass0.smethod_0("Sőɖ")].ToString(),
-						ROLE_ID = dataReader[GClass0.smethod_0("Uŉɉ́ќՋم")].ToString()
+						ID = Convert.ToInt32(dataReader["ID"]),
+						USER_ID = dataReader["USER_ID"].ToString(),
+						USER_NAME = dataReader["USER_NAME"].ToString(),
+						IS_ENABLE = Convert.ToInt32(dataReader["IS_ENABLE"]),
+						PSW = dataReader["PSW"].ToString(),
+						ROLE_ID = dataReader["ROLE_ID"].ToString()
 					});
 				}
 			}
@@ -64,13 +64,13 @@ namespace Gssy.Capi.DAL
 
 		public List<SurveyUsers> GetList()
 		{
-			string string_ = GClass0.smethod_0("všɯͧѢմؿܴ࠽ग़੉୕౔സไལၧᅢቶ፫ᑄᕣᙪ᝼᡾᤬ᩄ᭘ᱍᵍṕἦ⁇⅝∣⍋⑅");
+			string string_ = "SELECT * FROM SurveyUsers ORDER BY ID";
 			return this.GetListBySql(string_);
 		}
 
 		public void Add(SurveyUsers surveyUsers_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("-ĭȱ̤вԋپܔࠒएਕ୹ఋഢฤ༣ေᄪሇጢᐵᔽᘽᝥ᠙ᤘᨏᬛᰗᴎḂὩ‑ℐ∇⌓␟╱♿❰⡹⤗⩳⭪Ⱨ⵲⹸⽴ぶㅿ㉷㌝㑠㕼㙹㜁㡾㥤㩦㭬㱷㵮㹢㼌䀄䅵䉣䍭䑵䕚䙍䜵䠻䥠䨪䭤䰿䴻丱佮倥兮刵匽呫唽噳圡堫奰娹孴尯崫帡彾怰慾戥挨"), new object[]
+			string string_ = string.Format("INSERT INTO SurveyUsers(USER_ID,USER_NAME,IS_ENABLE,PSW,ROLE_ID) VALUES('{0}','{1}',{2},'{3}','{4}')", new object[]
 			{
 				surveyUsers_0.USER_ID,
 				surveyUsers_0.USER_NAME,
@@ -83,7 +83,7 @@ namespace Gssy.Capi.DAL
 
 		public void Update(SurveyUsers surveyUsers_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("&Ģȵ̱лԫٍܿࠞघਟ଍ఞളถ༁ထᄑቁጳᐚᔊᙽᜉ᠈᤟ᨋᬇᰞᴒṵὩ⁳ⅵ∪⍡␲╩♡✙⠘⤏⨛⬗Ⰹⴇ⸈⼁っㅿ㉡㍧㑄㔌㙀㜛㠗㥳㩪㭧㱲㵸㹴㽶䁿䅷䈑䌍䐏䕕䘞䝑䠇䥺䩺䭿䰇䴛丅伃偘儖剜匇吳啌噒坐塞奅婐孜尷崫帵弳恨愧扬挷搯教晅杉桙楏権歁汃洦游漤灸焲牼"), new object[]
+			string string_ = string.Format("UPDATE SurveyUsers SET USER_ID = '{1}',USER_NAME = '{2}',IS_ENABLE = {3},PSW = '{4}',ROLE_ID = '{5}' WHERE ID = {0}", new object[]
 			{
 				surveyUsers_0.ID,
 				surveyUsers_0.USER_ID,
@@ -97,13 +97,13 @@ namespace Gssy.Capi.DAL
 
 		public void Delete(SurveyUsers surveyUsers_0)
 		{
-			string string_ = string.Format(GClass0.smethod_0("ašɯͧѵեؿݘࡏ॓੖଺ొ൭๥འၰᅭቆ፡ᑴᕢᙼᜮᡚ᥄ᩎ᭘᱌ᴨṎὂ‥ℹ≸⌲⑼"), surveyUsers_0.ID);
+			string string_ = string.Format("DELETE FROM SurveyUsers WHERE ID ={0}", surveyUsers_0.ID);
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
 		public void Truncate()
 		{
-			string string_ = GClass0.smethod_0("Sœə͑ч՗رݖ࡝ुੀବౘൿ๻ཾၢᅿቐ፷ᑦᕰᙲ");
+			string string_ = "DELETE FROM SurveyUsers";
 			this.dbprovider_0.ExecuteNonQuery(string_);
 		}
 
@@ -113,21 +113,21 @@ namespace Gssy.Capi.DAL
 			string[] array = new string[6];
 			if (bool_0)
 			{
-				array[0] = GClass0.smethod_0("丼鐨ȥ苮嚫稔嗶");
-				array[1] = GClass0.smethod_0("甠挰ȩ袺釪兛礔缀");
-				array[2] = GClass0.smethod_0("甫挵嘌");
-				array[3] = GClass0.smethod_0("濂氺");
-				array[4] = GClass0.smethod_0("寄礀");
-				array[5] = GClass0.smethod_0("觖荱ɋͅ");
+				array[0] = "主键 自动编号";
+				array[1] = "用户/访问员编码";
+				array[2] = "用户名";
+				array[3] = "激活";
+				array[4] = "密码";
+				array[5] = "角色ID";
 			}
 			else
 			{
-				array[0] = GClass0.smethod_0("KŅ");
-				array[1] = GClass0.smethod_0("Rŕɀ͖ќՋم");
-				array[2] = GClass0.smethod_0("\\śɂ͔њՊقݏࡄ");
-				array[3] = GClass0.smethod_0("@śɘ̓ыՅفݎࡄ");
-				array[4] = GClass0.smethod_0("Sőɖ");
-				array[5] = GClass0.smethod_0("Uŉɉ́ќՋم");
+				array[0] = "ID";
+				array[1] = "USER_ID";
+				array[2] = "USER_NAME";
+				array[3] = "IS_ENABLE";
+				array[4] = "PSW";
+				array[5] = "ROLE_ID";
 			}
 			return array;
 		}
