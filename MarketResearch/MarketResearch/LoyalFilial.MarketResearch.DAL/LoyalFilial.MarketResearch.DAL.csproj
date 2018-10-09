@@ -76,11 +76,11 @@
     <Compile Include="XmlDB.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gssy.Capi.Common\LoyalFilial.MarketResearch.Common.csproj">
+    <ProjectReference Include="..\LoyalFilial.MarketResearch.Common\LoyalFilial.MarketResearch.Common.csproj">
       <Project>{2ca05b08-921c-4741-acfe-52f2f0b9374c}</Project>
       <Name>LoyalFilial.MarketResearch.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Gssy.Capi.Entities\LoyalFilial.MarketResearch.Entities.csproj">
+    <ProjectReference Include="..\LoyalFilial.MarketResearch.Entities\LoyalFilial.MarketResearch.Entities.csproj">
       <Project>{033aefff-86e8-434f-bda5-9acd3b67ef46}</Project>
       <Name>LoyalFilial.MarketResearch.Entities</Name>
     </ProjectReference>

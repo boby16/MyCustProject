@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch", "Gssy.Capi\LoyalFilial.MarketResearch.csproj", "{9C57C8AC-5F34-4594-8546-F134D5A3A577}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch", "LoyalFilial.MarketResearch\LoyalFilial.MarketResearch.csproj", "{9C57C8AC-5F34-4594-8546-F134D5A3A577}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch.BIZ", "Gssy.Capi.BIZ\LoyalFilial.MarketResearch.BIZ.csproj", "{2EB996E0-A14E-4EBE-9F7D-AF18E929B9B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch.BIZ", "LoyalFilial.MarketResearch.BIZ\LoyalFilial.MarketResearch.BIZ.csproj", "{2EB996E0-A14E-4EBE-9F7D-AF18E929B9B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch.Common", "Gssy.Capi.Common\LoyalFilial.MarketResearch.Common.csproj", "{2CA05B08-921C-4741-ACFE-52F2F0B9374C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch.Common", "LoyalFilial.MarketResearch.Common\LoyalFilial.MarketResearch.Common.csproj", "{2CA05B08-921C-4741-ACFE-52F2F0B9374C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch.DAL", "Gssy.Capi.DAL\LoyalFilial.MarketResearch.DAL.csproj", "{7739FFF4-4843-4131-823F-77371D05A8D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch.DAL", "LoyalFilial.MarketResearch.DAL\LoyalFilial.MarketResearch.DAL.csproj", "{7739FFF4-4843-4131-823F-77371D05A8D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch.Entities", "Gssy.Capi.Entities\LoyalFilial.MarketResearch.Entities.csproj", "{033AEFFF-86E8-434F-BDA5-9ACD3B67EF46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch.Entities", "LoyalFilial.MarketResearch.Entities\LoyalFilial.MarketResearch.Entities.csproj", "{033AEFFF-86E8-434F-BDA5-9ACD3B67EF46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch.Update", "Gssy.Capi.Update\LoyalFilial.MarketResearch.Update.csproj", "{A53AFC19-2573-45B1-A233-29CFCAD8462D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyalFilial.MarketResearch.Update", "LoyalFilial.MarketResearch.Update\LoyalFilial.MarketResearch.Update.csproj", "{A53AFC19-2573-45B1-A233-29CFCAD8462D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
