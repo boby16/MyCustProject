@@ -1,5 +1,5 @@
 <Window
-	x:Class="Gssy.Capi.Update.SurveyUpdate" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="LoyalFilial.MarketResearch.Update.SurveyUpdate" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	Title="SurveyUpdate"
 	Height="320"
 	Width="500"
@@ -8,7 +8,7 @@
 	ResizeMode="NoResize"
 	Background="#FFFFFFFF"
 	BorderBrush="#6A6A6A"
-	BorderThickness="0.5" xmlns:update="clr-namespace:Gssy.Capi.Update"
+	BorderThickness="0.5" xmlns:update="clr-namespace:LoyalFilial.MarketResearch.Update"
 	Loaded="method_0">
 	<FrameworkElement.Resources>
 		<ResourceDictionary>
@@ -32,7 +32,7 @@
 					Value="200" />
 				<Setter
 					Property="Source"
-					Value="/Gssy.Capi.Update;component/Resources/Logo.png" />
+					Value="/LoyalFilial.MarketResearch.Update;component/Resources/Logo.png" />
 			</Style>
 		</ResourceDictionary>
 	</FrameworkElement.Resources>
@@ -59,7 +59,7 @@
 		<TextBlock
 			Name="txtProjectName"
 			Grid.Row="0"
-			Text="CAPI程序（补丁更新）"
+			Text="MarketResearch程序（补丁更新）"
 			HorizontalAlignment="Center"
 			FontSize="18"
 			FontWeight="Bold"

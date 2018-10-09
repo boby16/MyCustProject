@@ -1,6 +1,6 @@
 using System;
 
-namespace Gssy.Capi.Update
+namespace LoyalFilial.MarketResearch.Update
 {
 	public class SurveyConfigBiz
 	{

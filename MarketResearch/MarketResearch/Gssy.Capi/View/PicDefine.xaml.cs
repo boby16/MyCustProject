@@ -12,12 +12,12 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
-using Gssy.Capi.Common;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.View
+namespace LoyalFilial.MarketResearch.View
 {
 	public partial class PicDefine : Page
 	{
@@ -177,7 +177,7 @@ namespace Gssy.Capi.View
 						Environment.NewLine,
 						"解决方法：",
 						Environment.NewLine,
-						"先退出CAPI程序，然后放置正确的图片文件，再重新启动程序继续访问。"
+						"先退出MarketResearch程序，然后放置正确的图片文件，再重新启动程序继续访问。"
 					}), SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
 					return;
 				}

@@ -1,11 +1,11 @@
 <Window
-	x:Class="Gssy.Capi.QEdit.EditAttachments" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="LoyalFilial.MarketResearch.QEdit.EditAttachments" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	WindowStartupLocation="CenterScreen"
 	ResizeMode="NoResize"
 	Title="{DynamicResource LSystemTitle}"
 	Height="500"
 	Width="700"
-	Style="{StaticResource WindowBaseStyle}" xmlns:qedit="clr-namespace:Gssy.Capi.QEdit"
+	Style="{StaticResource WindowBaseStyle}" xmlns:qedit="clr-namespace:LoyalFilial.MarketResearch.QEdit"
 	Loaded="method_0">
 	<Grid>
 		<Grid.RowDefinitions>

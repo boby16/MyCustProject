@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-using Gssy.Capi.Common;
-using Gssy.Capi.DAL;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.DAL;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.BIZ
+namespace LoyalFilial.MarketResearch.BIZ
 {
 	public class SurveytoXml
 	{

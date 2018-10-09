@@ -5,7 +5,7 @@ using System.Diagnostics;
 using FirebirdSql.Data.FirebirdClient;
 using MySql.Data.MySqlClient;
 
-namespace Gssy.Capi.Common
+namespace LoyalFilial.MarketResearch.Common
 {
 	public class DBProvider
 	{
@@ -419,7 +419,7 @@ namespace Gssy.Capi.Common
 
 		private DBType _DatabaseType = DBType.FireBird;
 
-		private string FireBirdServerPath = "C:\\inetpub\\wwwroot\\webcapi\\";
+		private string FireBirdServerPath = "C:\\inetpub\\wwwroot\\webmarketresearch\\";
 
 		private string FireBirdServerHost = "localhost";
 

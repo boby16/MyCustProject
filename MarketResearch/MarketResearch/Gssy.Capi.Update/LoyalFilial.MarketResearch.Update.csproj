@@ -6,14 +6,14 @@
     <ProjectGuid>{A53AFC19-2573-45B1-A233-29CFCAD8462D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gssy.Capi.Update</RootNamespace>
-    <AssemblyName>Gssy.Capi.Update</AssemblyName>
+    <RootNamespace>LoyalFilial.MarketResearch.Update</RootNamespace>
+    <AssemblyName>LoyalFilial.MarketResearch.Update</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>Gssy.Capi.Update.ico</ApplicationIcon>
-    <StartupObject>Gssy.Capi.Update.App</StartupObject>
+    <ApplicationIcon>resources\update.ico</ApplicationIcon>
+    <StartupObject>LoyalFilial.MarketResearch.Update.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,17 +53,17 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Gssy\Capi\Class\SurveyMsg.cs" />
-    <Compile Include="Gssy\Capi\Update\alioss.cs" />
-    <Compile Include="Gssy\Capi\Update\App.xaml.cs">
+    <Compile Include="SurveyMsg.cs" />
+    <Compile Include="alioss.cs" />
+    <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gssy\Capi\Update\DBProvider.cs" />
-    <Compile Include="Gssy\Capi\Update\DBType.cs" />
-    <Compile Include="Gssy\Capi\Update\RarFile.cs" />
-    <Compile Include="Gssy\Capi\Update\SurveyConfigBiz.cs" />
-    <Compile Include="Gssy\Capi\Update\SurveyConfigDal.cs" />
-    <Compile Include="Gssy\Capi\Update\SurveyUpdate.xaml.cs">
+    <Compile Include="DBProvider.cs" />
+    <Compile Include="DBType.cs" />
+    <Compile Include="RarFile.cs" />
+    <Compile Include="SurveyConfigBiz.cs" />
+    <Compile Include="SurveyConfigDal.cs" />
+    <Compile Include="SurveyUpdate.xaml.cs">
       <DependentUpon>SurveyUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="ns0\Class0.Designer.cs">
@@ -92,13 +92,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="Gssy\Capi\Update\App.xaml">
+    <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Gssy\Capi\Update\SurveyUpdate.xaml">
+    <Page Include="SurveyUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,5 +107,6 @@
     <Resource Include="resources\logo.png" />
     <Resource Include="resources\update.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

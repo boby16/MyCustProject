@@ -1,10 +1,10 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
 	<s:String
-		x:Key="LMainWindowTitle">CAPI</s:String>
+		x:Key="LMainWindowTitle">MarketResearch</s:String>
 	<s:String
-		x:Key="LSystemTitle">CAPI</s:String>
+		x:Key="LSystemTitle">MarketResearch</s:String>
 	<s:String
-		x:Key="LSystemContact">Support By G.S.S.Y.(Email:gssycn@QQ.com)</s:String>
+		x:Key="LSystemContact">Support By Loyal.Filial(Email:2404769274@QQ.com)</s:String>
 	<s:String
 		x:Key="LSystemVersion">Version v20150703</s:String>
 	<s:String
@@ -12,7 +12,7 @@
 	<s:String
 		x:Key="LSystemNo">No</s:String>
 	<s:String
-		x:Key="LSystemTool">CAPI</s:String>
+		x:Key="LSystemTool">MarketResearch</s:String>
 	<s:String
 		x:Key="LSystemRunInfo">Information</s:String>
 	<s:String
@@ -356,7 +356,7 @@
 	<s:String
 		x:Key="LFrmConfigMP3txt1">When length of record is over :</s:String>
 	<s:String
-		x:Key="LFrmConfigMinute">minutes, at the end of CAPI,</s:String>
+		x:Key="LFrmConfigMinute">minutes, at the end of MarketResearch,</s:String>
 	<s:String
 		x:Key="LFrmConfigMP3txt2">for MP3!</s:String>
 	<s:String

@@ -7,10 +7,10 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
 
-namespace Gssy.Capi.View
+namespace LoyalFilial.MarketResearch.View
 {
 	public partial class CircleGuide : Page
 	{
@@ -119,7 +119,7 @@ namespace Gssy.Capi.View
 						text2,
 						SurveyMsg.MsgErrorEnd
 					}), SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
-					this.oLogicEngine.OutputResult(text2, "CapiDebug.Log");
+					this.oLogicEngine.OutputResult(text2, "MarketResearchDebug.Log");
 					if (this.CurPageId == SurveyHelper.SurveyFirstPage)
 					{
 						MessageBox.Show(SurveyMsg.MsgErrorRoadmapTip + SurveyMsg.MsgErrorEnd, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
@@ -153,7 +153,7 @@ namespace Gssy.Capi.View
 					text3,
 					SurveyMsg.MsgErrorEnd
 				}), SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
-				this.oLogicEngine.OutputResult(text3, "CapiDebug.Log");
+				this.oLogicEngine.OutputResult(text3, "MarketResearchDebug.Log");
 				if (this.CurPageId == SurveyHelper.SurveyFirstPage)
 				{
 					MessageBox.Show(SurveyMsg.MsgErrorRoadmapTip + SurveyMsg.MsgErrorEnd, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);

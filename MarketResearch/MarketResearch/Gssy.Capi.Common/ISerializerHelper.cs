@@ -1,6 +1,6 @@
 using System;
 
-namespace Gssy.Capi.Common
+namespace LoyalFilial.MarketResearch.Common
 {
 	public interface ISerializerHelper
 	{

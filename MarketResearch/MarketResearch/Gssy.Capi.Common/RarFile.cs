@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace Gssy.Capi.Common
+namespace LoyalFilial.MarketResearch.Common
 {
 	public class RarFile
 	{

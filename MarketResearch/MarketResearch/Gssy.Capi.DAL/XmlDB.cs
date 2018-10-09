@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 
-namespace Gssy.Capi.DAL
+namespace LoyalFilial.MarketResearch.DAL
 {
 	public abstract class XmlDB<T> where T : class
 	{

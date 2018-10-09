@@ -1,6 +1,6 @@
 <Window
-	x:Class="Gssy.Capi.CStart" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	Title="GSSY CAPI"
+	x:Class="LoyalFilial.MarketResearch.CStart" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="Market Research"
 	Height="400"
 	Width="600"
 	WindowStartupLocation="CenterScreen"
@@ -10,7 +10,7 @@
 	Background="#FFFFFFFF"
 	BorderBrush="#6A6A6A"
 	BorderThickness="0.5"
-	Icon="resources/capi.ico" xmlns:capi="clr-namespace:Gssy.Capi"
+	Icon="resources/MarketResearch.ico" xmlns:MarketResearch="clr-namespace:LoyalFilial.MarketResearch"
 	Loaded="CStart_Load">
 	<Grid
 		Name="LayoutRoot">

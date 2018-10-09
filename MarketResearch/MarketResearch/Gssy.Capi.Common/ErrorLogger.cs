@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 
-namespace Gssy.Capi.Common
+namespace LoyalFilial.MarketResearch.Common
 {
 	public class ErrorLogger : ILogger
 	{

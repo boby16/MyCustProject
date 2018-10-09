@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Gssy.Capi.Class
+namespace LoyalFilial.MarketResearch.Class
 {
 	public class Persent5 : INotifyPropertyChanged
 	{

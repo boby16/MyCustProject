@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using FirebirdSql.Data.FirebirdClient;
 
-namespace Gssy.Capi.Update
+namespace LoyalFilial.MarketResearch.Update
 {
 	public class DBProvider
 	{
@@ -362,7 +362,7 @@ namespace Gssy.Capi.Update
 					fbConnectionStringBuilder.Password = password;
 					fbConnectionStringBuilder.Charset = "UNICODE_FSS";
 					fbConnectionStringBuilder.Dialect = 3;
-					string str = "D:\\Gssy\\Gssy.Capi.Mobile\\Gssy.Capi.Mobile\\";
+					string str = "D:\\MarketResearch\\LoyalFilial.MarketResearch.Mobile\\LoyalFilial.MarketResearch.Mobile\\";
 					fbConnectionStringBuilder.DataSource = "localhost";
 					fbConnectionStringBuilder.Database = str + text3;
 					this._ConnectionString = fbConnectionStringBuilder.ToString();

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace Gssy.Capi.Entities
+namespace LoyalFilial.MarketResearch.Entities
 {
 	[Serializable]
 	public class SurveyRoadMap

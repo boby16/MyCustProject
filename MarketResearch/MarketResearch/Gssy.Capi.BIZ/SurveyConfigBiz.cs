@@ -1,7 +1,7 @@
 using System;
-using Gssy.Capi.DAL;
+using LoyalFilial.MarketResearch.DAL;
 
-namespace Gssy.Capi.BIZ
+namespace LoyalFilial.MarketResearch.BIZ
 {
 	public class SurveyConfigBiz
 	{

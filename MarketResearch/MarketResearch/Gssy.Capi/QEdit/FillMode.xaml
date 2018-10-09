@@ -1,12 +1,12 @@
 <Window
-	x:Class="Gssy.Capi.QEdit.FillMode" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="LoyalFilial.MarketResearch.QEdit.FillMode" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	WindowStartupLocation="CenterScreen"
 	ResizeMode="NoResize"
 	Title="{DynamicResource LSystemTitle}"
 	Width="900"
 	Height="600"
 	Style="{StaticResource WindowBaseStyle}"
-	Icon="/Gssy.Capi;component/Resources/Capi.ico" xmlns:qedit="clr-namespace:Gssy.Capi.QEdit"
+	Icon="/LoyalFilial.MarketResearch;component/Resources/MarketResearch.ico" xmlns:qedit="clr-namespace:LoyalFilial.MarketResearch.QEdit"
 	Loaded="method_0">
 	<Grid>
 		<Grid.RowDefinitions>

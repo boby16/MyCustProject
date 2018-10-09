@@ -3,9 +3,9 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
-using Gssy.Capi.Entities.BaiduJson;
+using LoyalFilial.MarketResearch.Entities.BaiduJson;
 
-namespace Gssy.Capi.BIZ
+namespace LoyalFilial.MarketResearch.BIZ
 {
 	public class BaiduMapHelper
 	{

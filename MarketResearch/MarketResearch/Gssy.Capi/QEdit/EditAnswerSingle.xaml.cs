@@ -9,13 +9,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
-using Gssy.Capi.Common;
-using Gssy.Capi.DAL;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.DAL;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.QEdit
+namespace LoyalFilial.MarketResearch.QEdit
 {
 	public partial class EditAnswerSingle : Window
 	{

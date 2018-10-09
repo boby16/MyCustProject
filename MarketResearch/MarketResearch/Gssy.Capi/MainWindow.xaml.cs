@@ -8,14 +8,14 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Navigation;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
-using Gssy.Capi.Common;
-using Gssy.Capi.QEdit;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.QEdit;
 using Microsoft.DirectX.DirectSound;
 using WawaSoft.Media;
 
-namespace Gssy.Capi
+namespace LoyalFilial.MarketResearch
 {
 	public partial class MainWindow : Window
 	{
@@ -213,7 +213,7 @@ namespace Gssy.Capi
 					this.MyNav.RoadMap.FORM_NAME
 				});
 				MessageBox.Show(text + SurveyMsg.MsgErrorEnd, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
-				this.oLogicExplain.OutputResult(text, "CapiDebug.Log", true);
+				this.oLogicExplain.OutputResult(text, "MarketResearchDebug.Log", true);
 				this.btnExit_Click(sender, e);
 			}
 		}
@@ -298,7 +298,7 @@ namespace Gssy.Capi
 						text,
 						SurveyMsg.MsgErrorEnd
 					}), SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
-					this.oLogicExplain.OutputResult(text, "CapiDebug.Log", true);
+					this.oLogicExplain.OutputResult(text, "MarketResearchDebug.Log", true);
 				}
 				return;
 			}

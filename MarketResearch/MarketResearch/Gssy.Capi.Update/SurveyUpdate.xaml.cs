@@ -13,9 +13,9 @@ using System.Windows.Markup;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Aliyun.OpenServices.OpenStorageService;
-using Gssy.Capi.Class;
+using LoyalFilial.MarketResearch.Class;
 
-namespace Gssy.Capi.Update
+namespace LoyalFilial.MarketResearch.Update
 {
 	public partial class SurveyUpdate : Window
 	{
@@ -32,7 +32,7 @@ namespace Gssy.Capi.Update
 
 		private void method_0(object sender, RoutedEventArgs e)
 		{
-			this.method_5("Gssy.Capi");
+			this.method_5("LoyalFilial.MarketResearch");
 			this.VersionID = this.oSurveyConfigBiz.GetByCodeTextRead("VersionID");
 			string byCodeText = this.oSurveyConfigBiz.GetByCodeText("PCCode");
 			this.txtPCCode.Text = ((byCodeText == null) ? "<未设置>" : byCodeText);
@@ -42,7 +42,7 @@ namespace Gssy.Capi.Update
 
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
-			if (MessageBox.Show("这个更新操作将会覆盖现在的程序版本，并无法恢复！" + Environment.NewLine + Environment.NewLine + "是否确认检查并更新CAPI程序？", "版本更新确认", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
+			if (MessageBox.Show("这个更新操作将会覆盖现在的程序版本，并无法恢复！" + Environment.NewLine + Environment.NewLine + "是否确认检查并更新MarketResearch程序？", "版本更新确认", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
 			{
 				this.btnSave.IsEnabled = false;
 				this.bw = new BackgroundWorker();
@@ -239,13 +239,13 @@ namespace Gssy.Capi.Update
 		{
 			MessageBox.Show(string.Concat(new string[]
 			{
-				"      该系统的技术支持由 G.S.S.Y. (中国) 提供。",
+				"      该系统的技术支持由 Loyal.Filial 提供。",
 				Environment.NewLine,
 				Environment.NewLine,
-				"      此系统的版权属于 G.S.S.Y. 成员所有。任何人未经G.S.S.Y. 成员的书面许可，不能对该软件进行任何形式的逆向工程、破译以及修改任何信息。G.S.S.Y. 成员对上述行为保留对其追究法律责任的权利。",
+				"      此系统的版权属于 Loyal.Filial 成员所有。任何人未经Loyal.Filial 成员的书面许可，不能对该软件进行任何形式的逆向工程、破译以及修改任何信息。Loyal.Filial 成员对上述行为保留对其追究法律责任的权利。",
 				Environment.NewLine,
 				Environment.NewLine,
-				" G.S.S.Y. (China)   Email：gssycn@QQ.com"
+				" Loyal.Filial  Email：2404769274@QQ.com"
 			}), "版权声明", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 		}
 
@@ -266,7 +266,7 @@ namespace Gssy.Capi.Update
 
 		private string strRarOutputFolder = "";
 
-		private string strRarPassword = "GSSY.capi";
+		private string strRarPassword = "LoyalFilial.MarketResearch";
 
 		private string VersionID = "";
 

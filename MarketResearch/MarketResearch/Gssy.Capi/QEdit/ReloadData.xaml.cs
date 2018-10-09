@@ -6,10 +6,10 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
 
-namespace Gssy.Capi.QEdit
+namespace LoyalFilial.MarketResearch.QEdit
 {
 	public partial class ReloadData : Window
 	{

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.Win32;
 
-namespace Gssy.Capi.Common
+namespace LoyalFilial.MarketResearch.Common
 {
 	public class ExcelHelper
 	{

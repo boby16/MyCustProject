@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace Gssy.Capi.Class
+namespace LoyalFilial.MarketResearch.Class
 {
 	public class ProgressConverter : IValueConverter
 	{

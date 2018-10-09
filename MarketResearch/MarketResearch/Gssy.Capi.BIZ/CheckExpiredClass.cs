@@ -1,4 +1,4 @@
-using Gssy.Capi.Common;
+using LoyalFilial.MarketResearch.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace Gssy.Capi.BIZ
+namespace LoyalFilial.MarketResearch.BIZ
 {
     public class CheckExpiredClass
     {
@@ -69,7 +69,7 @@ namespace Gssy.Capi.BIZ
                 _ntEnd = string_7;
             }
             _strTimeFile = method_3(string_5);
-            if (string_2 != "CAPI")
+            if (string_2 != "MarketResearch")
             {
                 if (string_2 != "")
                 {

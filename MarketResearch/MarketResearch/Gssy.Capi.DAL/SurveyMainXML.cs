@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.DAL
+namespace LoyalFilial.MarketResearch.DAL
 {
 	public class SurveyMainXML : XmlDB<SurveyMain>
 	{

@@ -1,7 +1,7 @@
 using System;
 using System.Net;
 
-namespace Gssy.Capi.Common
+namespace LoyalFilial.MarketResearch.Common
 {
 	public class HttpResult
 	{

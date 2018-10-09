@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.Business
+namespace LoyalFilial.MarketResearch.Business
 {
 	public class QDisplay
 	{

@@ -1,6 +1,6 @@
 using System;
 
-namespace Gssy.Capi.Class
+namespace LoyalFilial.MarketResearch.Class
 {
 	public static class SurveyMsg
 	{

@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace Gssy.Capi.Class
+namespace LoyalFilial.MarketResearch.Class
 {
     public static class SurveyTaptip
     {

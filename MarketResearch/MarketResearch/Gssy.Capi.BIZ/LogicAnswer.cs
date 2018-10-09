@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Gssy.Capi.DAL;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.DAL;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.BIZ
+namespace LoyalFilial.MarketResearch.BIZ
 {
 	public class LogicAnswer
 	{

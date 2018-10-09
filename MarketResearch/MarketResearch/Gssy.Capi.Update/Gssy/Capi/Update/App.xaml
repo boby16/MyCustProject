@@ -1,4 +1,0 @@
-<Application x:Class="Gssy.Capi.Update.App" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-  <Application.Resources>
-</Application.Resources>
-</Application>

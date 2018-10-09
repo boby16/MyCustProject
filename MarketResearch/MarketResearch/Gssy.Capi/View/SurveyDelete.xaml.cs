@@ -6,11 +6,11 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
-using Gssy.Capi.DAL;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
+using LoyalFilial.MarketResearch.DAL;
 
-namespace Gssy.Capi.View
+namespace LoyalFilial.MarketResearch.View
 {
 	public partial class SurveyDelete : Window
 	{

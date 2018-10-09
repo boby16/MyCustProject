@@ -1,8 +1,8 @@
-using Gssy.Capi.DAL;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.DAL;
+using LoyalFilial.MarketResearch.Entities;
 using System.Collections.Generic;
 
-namespace Gssy.Capi.BIZ
+namespace LoyalFilial.MarketResearch.BIZ
 {
     public class LimitBiz
     {

@@ -19,7 +19,7 @@
 			Value="100" />
 		<Setter
 			Property="Source"
-			Value="/Gssy.Capi;component/Resources/Loading.gif" />
+			Value="/LoyalFilial.MarketResearch;component/Resources/Loading.gif" />
 	</Style>
 	<Style
 		TargetType="{x:Type Image}"
@@ -41,7 +41,7 @@
 			Value="200" />
 		<Setter
 			Property="Source"
-			Value="/Gssy.Capi;component/Resources/Logo.png" />
+			Value="/LoyalFilial.MarketResearch;component/Resources/Logo.png" />
 	</Style>
 	<Style
 		TargetType="{x:Type Image}"
@@ -63,6 +63,6 @@
 			Value="295" />
 		<Setter
 			Property="Source"
-			Value="/Gssy.Capi;component/Resources/background.png" />
+			Value="/LoyalFilial.MarketResearch;component/Resources/background.png" />
 	</Style>
 </ResourceDictionary>

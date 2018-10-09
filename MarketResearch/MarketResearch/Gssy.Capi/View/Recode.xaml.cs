@@ -7,13 +7,13 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
-using Gssy.Capi.Common;
-using Gssy.Capi.DAL;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.DAL;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.View
+namespace LoyalFilial.MarketResearch.View
 {
 	public partial class Recode : Page
 	{

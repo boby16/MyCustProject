@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gssy.Capi.Entities">
-      <HintPath>..\Gssy.Capi.Entities\bin\Debug\Gssy.Capi.Entities.dll</HintPath>
-    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.XML" />
@@ -79,9 +76,13 @@
     <Compile Include="XmlDB.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gssy.Capi.Common\Gssy.Capi.Common.csproj">
+    <ProjectReference Include="..\Gssy.Capi.Common\LoyalFilial.MarketResearch.Common.csproj">
       <Project>{2ca05b08-921c-4741-acfe-52f2f0b9374c}</Project>
-      <Name>Gssy.Capi.Common</Name>
+      <Name>LoyalFilial.MarketResearch.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gssy.Capi.Entities\LoyalFilial.MarketResearch.Entities.csproj">
+      <Project>{033aefff-86e8-434f-bda5-9acd3b67ef46}</Project>
+      <Name>LoyalFilial.MarketResearch.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

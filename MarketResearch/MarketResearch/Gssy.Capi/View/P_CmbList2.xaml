@@ -1,7 +1,7 @@
 <Page
-	x:Class="Gssy.Capi.View.P_CmbList2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	x:Class="LoyalFilial.MarketResearch.View.P_CmbList2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	Title="P_CmbList2"
-	Style="{StaticResource WindowBaseStyle}" xmlns:view="clr-namespace:Gssy.Capi.View"
+	Style="{StaticResource WindowBaseStyle}" xmlns:view="clr-namespace:LoyalFilial.MarketResearch.View"
 	Loaded="method_0"
 	LayoutUpdated="method_1">
 	<Grid>

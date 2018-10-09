@@ -1,7 +1,7 @@
 <UserControl
-	x:Class="Gssy.Capi.Control.UCProgress" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	x:Class="LoyalFilial.MarketResearch.Control.UCProgress" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	Height="30"
-	Width="30" xmlns:control="clr-namespace:Gssy.Capi.Control">
+	Width="30" xmlns:control="clr-namespace:LoyalFilial.MarketResearch.Control">
 	<Grid
 		Background="#00FFFFFF"
 		HorizontalAlignment="Left"

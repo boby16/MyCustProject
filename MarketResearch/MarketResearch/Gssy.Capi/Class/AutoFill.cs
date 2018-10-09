@@ -4,11 +4,11 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Common;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.Class
+namespace LoyalFilial.MarketResearch.Class
 {
 	public class AutoFill : Page
 	{

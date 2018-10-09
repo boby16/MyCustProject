@@ -2,7 +2,7 @@ using System;
 using System.Net;
 using System.Text;
 
-namespace Gssy.Capi.Common
+namespace LoyalFilial.MarketResearch.Common
 {
 	public class HttpItem
 	{

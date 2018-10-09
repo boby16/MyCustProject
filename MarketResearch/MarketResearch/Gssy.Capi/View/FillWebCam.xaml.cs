@@ -11,13 +11,13 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
-using Gssy.Capi.Entities;
-using Gssy.Capi.QEdit;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
+using LoyalFilial.MarketResearch.Entities;
+using LoyalFilial.MarketResearch.QEdit;
 using WPFMediaKit.DirectShow.Controls;
 
-namespace Gssy.Capi.View
+namespace LoyalFilial.MarketResearch.View
 {
 	public partial class FillWebCam : Page
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gssy.Capi.Class
+namespace LoyalFilial.MarketResearch.Class
 {
 	public static class SurveyMsg
 	{
@@ -88,7 +88,7 @@ namespace Gssy.Capi.Class
 
 		public static string QuotaManagerFilePort = "9999";
 
-		public static string MsgExpire = "版本使用有效期已过, 如需正式版，请与开发者(gssycn@QQ.com)联系。";
+		public static string MsgExpire = "版本使用有效期已过, 如需正式版，请与开发者(2404769274@QQ.com)联系。";
 
 		public static string MsgSelectDir = "请选择目录";
 
@@ -199,23 +199,23 @@ namespace Gssy.Capi.Class
 		public static string VersionID = "vYYYYMMDD";
 
 		public static string MsgOverTime = "这个程序使用的第三方授权组件的许可证已经过期！" + Environment.NewLine + Environment.NewLine 
-            + "如需续费使用，请与开发者(gssycn@qq.com)联系。";
+            + "如需续费使用，请与开发者(2404769274@qq.com)联系。";
 
 		public static string MsgErrorTime = "系统日期错误，请先调整正确！";
 
-		public static string MsgTestOverTime = "测试版本使用有效期已过, 如需正式版，请与开发者(gssycn@qq.com)联系。";
+		public static string MsgTestOverTime = "测试版本使用有效期已过, 如需正式版，请与开发者(2404769274@qq.com)联系。";
 
 		public static string MsgRightTitle = "版权声明";
 
 		public static string MsgRight = string.Concat(new string[]
 		{
-			"      该系统的技术支持由 G.S.S.Y. (中国) 提供。",
+			"      该系统的技术支持由 Loyal.Filial 提供。",
 			Environment.NewLine,
 			Environment.NewLine,
-			"      此系统的版权属于 G.S.S.Y. 成员所有。任何人未经G.S.S.Y. 成员的书面许可，不能对该软件进行任何形式的逆向工程、破译以及修改任何信息。G.S.S.Y. 成员对上述行为保留对其追究法律责任的权利。",
+			"      此系统的版权属于 Loyal.Filial 成员所有。任何人未经Loyal.Filial 成员的书面许可，不能对该软件进行任何形式的逆向工程、破译以及修改任何信息。Loyal.Filial 成员对上述行为保留对其追究法律责任的权利。",
 			Environment.NewLine,
 			Environment.NewLine,
-			" G.S.S.Y. (China)   Email：gssycn@QQ.com"
+			" Loyal.Filial   Email：2404769274@QQ.com"
 		});
 
 		public static string MsgbtnNav_Content = "继  续";
@@ -312,7 +312,7 @@ namespace Gssy.Capi.Class
 
 		public static string MsgPageNoMP3 = "本题未配音。";
 
-		public static string MsgErrorEnd = Environment.NewLine + Environment.NewLine + "请把此错误信息告知开发者(gssycn@qq.com)！";
+		public static string MsgErrorEnd = Environment.NewLine + Environment.NewLine + "请把此错误信息告知开发者(2404769274@QQ.com)！";
 
 		public static string MsgNoKeyFile = "许可证文件未找到！";
 
@@ -374,7 +374,7 @@ namespace Gssy.Capi.Class
 
 		public static string MsgNewSurvey = "正在建立新问卷,请稍候...";
 
-		public static string MsgErrorSysSlow = "Windows系统过慢，造成建立问卷数据准备超时！为防止因此导致访问数据丢失，请优化系统后再运行CAPI程序,CAPI程序将自动退出 ！";
+		public static string MsgErrorSysSlow = "Windows系统过慢，造成建立问卷数据准备超时！为防止因此导致访问数据丢失，请优化系统后再运行MarketResearch程序,MarketResearch程序将自动退出 ！";
 
 		public static string MsgErrorCreateSurvey = "问卷 {0} 创建失败, 可能由于非标准的系统日期格式设置导致，请设定标准的系统日期格式！";
 
@@ -394,7 +394,7 @@ namespace Gssy.Capi.Class
 
 		public static string MsgCurrentContent = "当前内容：";
 
-		public static string MsgErrorRoadmapTip = "由于这是问卷开始就出现的错误，所以请先直接点“退出”，然后等CAPI程序员更新程序后，再重新访问。";
+		public static string MsgErrorRoadmapTip = "由于这是问卷开始就出现的错误，所以请先直接点“退出”，然后等MarketResearch系统管理员更新程序后，再重新访问。";
 
 		public static string MsgConfirmEnd = "确认对表格内容已完成审核，并结束吗？";
 
@@ -574,7 +574,7 @@ namespace Gssy.Capi.Class
 
 		public static string MsgOrderInfo = string.Concat(new string[]
 		{
-			"G.S.S.Y.友情建议：",
+			"Loyal.Filial友情建议：",
 			Environment.NewLine,
 			"　　为各个的访问设备设置相互独立的问卷编号段，可以有效避免问卷编号重复的问题发生。",
 			Environment.NewLine,

@@ -8,12 +8,12 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
-using Gssy.Capi.Class;
-using Gssy.Capi.DAL;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.Class;
+using LoyalFilial.MarketResearch.DAL;
+using LoyalFilial.MarketResearch.Entities;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
-namespace Gssy.Capi.QEdit
+namespace LoyalFilial.MarketResearch.QEdit
 {
 	public partial class EditAttachments : Window
 	{

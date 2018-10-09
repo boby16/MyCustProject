@@ -1,10 +1,10 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
 	<s:String
-		x:Key="LMainWindowTitle">CAPI</s:String>
+		x:Key="LMainWindowTitle">MarketResearch</s:String>
 	<s:String
-		x:Key="LSystemTitle">CAPI</s:String>
+		x:Key="LSystemTitle">MarketResearch</s:String>
 	<s:String
-		x:Key="LSystemContact">系统技术支持由G.S.S.Y.(中国)提供，联系邮箱：gssycn@QQ.com</s:String>
+		x:Key="LSystemContact">系统技术支持由 Loyal.Filial 提供，联系邮箱：2404769274@QQ.com</s:String>
 	<s:String
 		x:Key="LSystemVersion">版本 v20150703</s:String>
 	<s:String
@@ -12,7 +12,7 @@
 	<s:String
 		x:Key="LSystemNo">否</s:String>
 	<s:String
-		x:Key="LSystemTool">CAPI 辅助工具</s:String>
+		x:Key="LSystemTool">MarketResearch 辅助工具</s:String>
 	<s:String
 		x:Key="LSystemRunInfo">系统执行信息</s:String>
 	<s:String

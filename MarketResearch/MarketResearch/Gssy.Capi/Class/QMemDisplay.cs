@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.Class
+namespace LoyalFilial.MarketResearch.Class
 {
 	public class QMemDisplay : QDisplay
 	{

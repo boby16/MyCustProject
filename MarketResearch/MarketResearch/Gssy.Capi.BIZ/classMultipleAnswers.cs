@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Gssy.Capi.BIZ
+namespace LoyalFilial.MarketResearch.BIZ
 {
 	public class classMultipleAnswers
 	{

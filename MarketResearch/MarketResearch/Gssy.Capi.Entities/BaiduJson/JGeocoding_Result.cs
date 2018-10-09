@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace Gssy.Capi.Entities.BaiduJson
+namespace LoyalFilial.MarketResearch.Entities.BaiduJson
 {
 	[Serializable]
 	public class JGeocoding_Result

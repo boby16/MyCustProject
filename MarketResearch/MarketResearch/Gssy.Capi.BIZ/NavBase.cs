@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Gssy.Capi.DAL;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.DAL;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.BIZ
+namespace LoyalFilial.MarketResearch.BIZ
 {
 	public class NavBase
 	{
@@ -115,7 +115,7 @@ namespace Gssy.Capi.BIZ
 					"，FORM_NAME=",
 					this.RoadMap.FORM_NAME
 				});
-				this.oLogicExplain.OutputResult(string_3, "CapiDebug.Log", true);
+				this.oLogicExplain.OutputResult(string_3, "MarketResearchDebug.Log", true);
 			}
 			this.AddSurveySequence(string_0, int_0, string_1, string_2);
 			this.UpdateSurveyMain(string_0, int_0 + 1, text, this.RoadMap.VERSION_ID);
@@ -199,7 +199,7 @@ namespace Gssy.Capi.BIZ
 					"，FORM_NAME=",
 					this.RoadMap.FORM_NAME
 				});
-				this.oLogicExplain.OutputResult(string_4, "CapiDebug.Log", true);
+				this.oLogicExplain.OutputResult(string_4, "MarketResearchDebug.Log", true);
 				string_4 = string.Concat(new object[]
 				{
 					"       上一错误循环信息：LoopA=",
@@ -213,7 +213,7 @@ namespace Gssy.Capi.BIZ
 					", GroupPageType=",
 					this.GroupPageType
 				});
-				this.oLogicExplain.OutputResult(string_4, "CapiDebug.Log", true);
+				this.oLogicExplain.OutputResult(string_4, "MarketResearchDebug.Log", true);
 			}
 			this.AddSurveySequence(string_0, int_0, string_1, string_2);
 			this.UpdateSurveyMain(string_0, int_0 + 1, text, this.RoadMap.VERSION_ID);

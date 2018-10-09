@@ -12,11 +12,11 @@ using System.Windows.Markup;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Aliyun.OpenServices.OpenStorageService;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
-using Gssy.Capi.Common;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
+using LoyalFilial.MarketResearch.Common;
 
-namespace Gssy.Capi.View
+namespace LoyalFilial.MarketResearch.View
 {
 	public partial class SurveyCloud : Window
 	{
@@ -291,7 +291,7 @@ namespace Gssy.Capi.View
 
 		private string strRarFileName = "";
 
-		private string strRarPassword = "GSSY.capi";
+		private string strRarPassword = "LoyalFilial.MarketResearch";
 
 		private bool strRarExcludeRootFolder;
 

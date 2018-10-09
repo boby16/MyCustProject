@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using System.Xml.Linq;
 
-namespace Gssy.Capi.DAL
+namespace LoyalFilial.MarketResearch.DAL
 {
 	public static class XElementHelper
 	{

@@ -9,12 +9,12 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media.Animation;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
-using Gssy.Capi.Common;
-using Gssy.Capi.Control;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.Control;
 
-namespace Gssy.Capi
+namespace LoyalFilial.MarketResearch
 {
 	public partial class StartOne : Window
 	{
@@ -286,7 +286,7 @@ namespace Gssy.Capi
 
 		private string strRarFileName = "";
 
-		private string strRarPassword = "GSSY.capi";
+		private string strRarPassword = "LoyalFilial.MarketResearch";
 
 		private bool strRarExcludeRootFolder;
 

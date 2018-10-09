@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.Class
+namespace LoyalFilial.MarketResearch.Class
 {
 	public static class SurveyHelper
 	{

@@ -3,10 +3,10 @@ using System.CodeDom.Compiler;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
 
-namespace Gssy.Capi
+namespace LoyalFilial.MarketResearch
 {
 	public partial class App : Application
 	{

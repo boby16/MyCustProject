@@ -1,8 +1,8 @@
-﻿using Gssy.Capi.BIZ;
-using Gssy.Capi.Common;
-using Gssy.Capi.DAL;
-using Gssy.Capi.Entities;
-using Gssy.Capi.QEdit;
+﻿using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.DAL;
+using LoyalFilial.MarketResearch.Entities;
+using LoyalFilial.MarketResearch.QEdit;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +14,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 
-namespace Gssy.Capi.Class
+namespace LoyalFilial.MarketResearch.Class
 {
     public class PageNav : Page
     {
@@ -107,7 +107,7 @@ namespace Gssy.Capi.Class
                     {
                         string text3 = string.Format(SurveyMsg.MsgErrorJump, surveyID, navCurPage, navBase_0.RoadMap.VERSION_ID, navBase_0.RoadMap.PAGE_ID, navBase_0.RoadMap.FORM_NAME);
                         MessageBox.Show(SurveyMsg.MsgErrorRoadmap + Environment.NewLine + Environment.NewLine + text3 + SurveyMsg.MsgErrorEnd, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
-                        oLogicEngine.OutputResult(text3, "CapiDebug.Log");
+                        oLogicEngine.OutputResult(text3, "MarketResearchDebug.Log");
                         return false;
                     }
                     navigationService_0.RemoveBackEntry();
@@ -124,7 +124,7 @@ namespace Gssy.Capi.Class
             {
                 string text4 = string.Format(SurveyMsg.MsgErrorJump, surveyID, navCurPage, navBase_0.RoadMap.VERSION_ID, navBase_0.RoadMap.PAGE_ID, navBase_0.RoadMap.FORM_NAME);
                 MessageBox.Show(SurveyMsg.MsgErrorRoadmap + Environment.NewLine + Environment.NewLine + text4 + SurveyMsg.MsgErrorEnd, SurveyMsg.MsgCaption, MessageBoxButton.OK, MessageBoxImage.Hand);
-                oLogicEngine.OutputResult(text4, "CapiDebug.Log");
+                oLogicEngine.OutputResult(text4, "MarketResearchDebug.Log");
                 return false;
             }
             return true;

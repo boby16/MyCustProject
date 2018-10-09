@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Gssy.Capi.Control
+namespace LoyalFilial.MarketResearch.Control
 {
 	public class MaskedTextBox : TextBox
 	{

@@ -1,5 +1,5 @@
 <Application
-	x:Class="Gssy.Capi.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:capi="clr-namespace:Gssy.Capi"
+	x:Class="LoyalFilial.MarketResearch.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:MarketResearch="clr-namespace:LoyalFilial.MarketResearch"
     StartupUri="CStart.xaml">
     <Application.Resources>
         <ResourceDictionary>

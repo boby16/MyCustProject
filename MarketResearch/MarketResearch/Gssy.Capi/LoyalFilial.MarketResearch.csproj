@@ -6,12 +6,12 @@
     <ProjectGuid>{9C57C8AC-5F34-4594-8546-F134D5A3A577}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gssy.Capi</RootNamespace>
-    <AssemblyName>Gssy.Capi</AssemblyName>
+    <RootNamespace>LoyalFilial.MarketResearch</RootNamespace>
+    <AssemblyName>LoyalFilial.MarketResearch</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ApplicationIcon>Gssy.Capi.ico</ApplicationIcon>
+    <ApplicationIcon>MarketResearch.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>LoyalFilial.MarketResearch.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aliyun.OpenServices">
       <HintPath>..\Library\Aliyun.OpenServices.dll</HintPath>
@@ -41,18 +44,6 @@
     </Reference>
     <Reference Include="FirebirdSql.Data.FirebirdClient">
       <HintPath>..\Library\FirebirdSql.Data.FirebirdClient.dll</HintPath>
-    </Reference>
-    <Reference Include="Gssy.Capi.BIZ">
-      <HintPath>..\Gssy.Capi.BIZ\obj\Debug\Gssy.Capi.BIZ.dll</HintPath>
-    </Reference>
-    <Reference Include="Gssy.Capi.Common">
-      <HintPath>..\Gssy.Capi.Common\obj\Debug\Gssy.Capi.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Gssy.Capi.DAL">
-      <HintPath>..\Gssy.Capi.DAL\obj\Debug\Gssy.Capi.DAL.dll</HintPath>
-    </Reference>
-    <Reference Include="Gssy.Capi.Entities">
-      <HintPath>..\Gssy.Capi.Entities\bin\Debug\Gssy.Capi.Entities.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.DirectX.DirectSound">
@@ -138,6 +129,11 @@
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ns0\Class1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Class1.resx</DependentUpon>
     </Compile>
     <Compile Include="ns0\Class2.Designer.cs">
       <DependentUpon>Class2.settings</DependentUpon>
@@ -402,6 +398,7 @@
     <EmbeddedResource Include="ns0\Class1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Class1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -797,7 +794,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\autodo.png" />
-    <Resource Include="resources\capi.ico">
+    <Resource Include="resources\MarketResearch.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="resources\del.png" />
@@ -812,9 +809,27 @@
     <Resource Include="resources\upload.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Gssy.Capi.ico" />
+    <EmbeddedResource Include="MarketResearch.ico" />
     <Resource Include="resources\background.png" />
     <Resource Include="resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gssy.Capi.BIZ\LoyalFilial.MarketResearch.BIZ.csproj">
+      <Project>{2eb996e0-a14e-4ebe-9f7d-af18e929b9b8}</Project>
+      <Name>LoyalFilial.MarketResearch.BIZ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gssy.Capi.Common\LoyalFilial.MarketResearch.Common.csproj">
+      <Project>{2ca05b08-921c-4741-acfe-52f2f0b9374c}</Project>
+      <Name>LoyalFilial.MarketResearch.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gssy.Capi.DAL\LoyalFilial.MarketResearch.DAL.csproj">
+      <Project>{7739fff4-4843-4131-823f-77371d05a8d4}</Project>
+      <Name>LoyalFilial.MarketResearch.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gssy.Capi.Entities\LoyalFilial.MarketResearch.Entities.csproj">
+      <Project>{033aefff-86e8-434f-bda5-9acd3b67ef46}</Project>
+      <Name>LoyalFilial.MarketResearch.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

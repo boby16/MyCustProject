@@ -1,6 +1,6 @@
 using System;
 
-namespace Gssy.Capi.BIZ
+namespace LoyalFilial.MarketResearch.BIZ
 {
 	public class classHtmlText
 	{

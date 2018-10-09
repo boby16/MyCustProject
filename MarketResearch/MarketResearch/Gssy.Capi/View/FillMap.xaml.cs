@@ -13,14 +13,14 @@ using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Threading;
-using Gssy.Capi.BIZ;
-using Gssy.Capi.Class;
-using Gssy.Capi.Common;
-using Gssy.Capi.Entities;
-using Gssy.Capi.Entities.BaiduJson;
-using Gssy.Capi.QEdit;
+using LoyalFilial.MarketResearch.BIZ;
+using LoyalFilial.MarketResearch.Class;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.Entities;
+using LoyalFilial.MarketResearch.Entities.BaiduJson;
+using LoyalFilial.MarketResearch.QEdit;
 
-namespace Gssy.Capi.View
+namespace LoyalFilial.MarketResearch.View
 {
 	public partial class FillMap : Page
 	{

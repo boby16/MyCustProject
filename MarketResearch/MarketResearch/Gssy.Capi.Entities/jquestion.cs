@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace Gssy.Capi.Entities
+namespace LoyalFilial.MarketResearch.Entities
 {
 	public class jquestion
 	{

@@ -1,6 +1,6 @@
 using System;
 
-namespace Gssy.Capi.Update
+namespace LoyalFilial.MarketResearch.Update
 {
 	public class alioss
 	{
@@ -51,39 +51,39 @@ namespace Gssy.Capi.Update
 						{
 							uriString = "http://oss-cn-shenzhen.aliyuncs.com";
 							uriString2 = "http://oss-cn-shenzhen-internal.aliyuncs.com";
-							this.bucketName = "capi";
-							this.bucketNameUpdate = "capiupdate";
+							this.bucketName = "marketresearch";
+							this.bucketNameUpdate = "marketresearchupdate";
 						}
 						else
 						{
 							uriString = "http://oss-cn-hongkong.aliyuncs.com";
 							uriString2 = "http://oss-cn-hongkong-internal.aliyuncs.com";
-							this.bucketName = "capihk";
-							this.bucketNameUpdate = "capiupdatehk";
+							this.bucketName = "marketresearchhk";
+							this.bucketNameUpdate = "marketresearchupdatehk";
 						}
 					}
 					else
 					{
 						uriString = "http://oss-cn-beijing.aliyuncs.com";
 						uriString2 = "http://oss-cn-beijing-internal.aliyuncs.com";
-						this.bucketName = "capibj";
-						this.bucketNameUpdate = "capiupdatebj";
+						this.bucketName = "marketresearchbj";
+						this.bucketNameUpdate = "marketresearchupdatebj";
 					}
 				}
 				else
 				{
 					uriString = "http://oss-cn-qingdao.aliyuncs.com";
 					uriString2 = "http://oss-cn-qingdao-internal.aliyuncs.com";
-					this.bucketName = "capiqd";
-					this.bucketNameUpdate = "capiupdateqd";
+					this.bucketName = "marketresearchqd";
+					this.bucketNameUpdate = "marketresearchupdateqd";
 				}
 			}
 			else
 			{
 				uriString = "http://oss.aliyuncs.com";
 				uriString2 = "http://oss-internal.aliyuncs.com";
-				this.bucketName = "capihz";
-				this.bucketNameUpdate = "capiupdatehz";
+				this.bucketName = "marketresearchhz";
+				this.bucketNameUpdate = "marketresearchupdatehz";
 			}
 			this.endpoint = new Uri(uriString);
 			this.endpointInner = new Uri(uriString2);

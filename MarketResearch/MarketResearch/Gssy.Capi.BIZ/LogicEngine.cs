@@ -1,11 +1,11 @@
-using Gssy.Capi.Common;
-using Gssy.Capi.DAL;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.DAL;
+using LoyalFilial.MarketResearch.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Gssy.Capi.BIZ
+namespace LoyalFilial.MarketResearch.BIZ
 {
     public class LogicEngine
     {

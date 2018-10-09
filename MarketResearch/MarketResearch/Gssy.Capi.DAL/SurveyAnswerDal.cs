@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Gssy.Capi.Common;
-using Gssy.Capi.Entities;
+using LoyalFilial.MarketResearch.Common;
+using LoyalFilial.MarketResearch.Entities;
 
-namespace Gssy.Capi.DAL
+namespace LoyalFilial.MarketResearch.DAL
 {
 	public class SurveyAnswerDal
 	{

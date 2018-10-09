@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LoyalFilial.MarketResearch.Update.ns0 {
+namespace LoyalFilial.MarketResearch.ns0 {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace LoyalFilial.MarketResearch.Update.ns0 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Class0 {
+    internal class Class1 {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Class0() {
+        internal Class1() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace LoyalFilial.MarketResearch.Update.ns0 {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LoyalFilial.MarketResearch.Update.ns0.Class0", typeof(Class0).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LoyalFilial.MarketResearch.ns0.Class1", typeof(Class1).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Markup;
 using System.Windows.Media;
 
-namespace Gssy.Capi.Control
+namespace LoyalFilial.MarketResearch.Control
 {
 	public partial class UCProgress : UserControl
 	{
