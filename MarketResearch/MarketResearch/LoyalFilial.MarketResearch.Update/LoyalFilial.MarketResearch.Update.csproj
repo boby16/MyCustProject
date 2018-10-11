@@ -66,30 +66,10 @@
     <Compile Include="SurveyUpdate.xaml.cs">
       <DependentUpon>SurveyUpdate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ns0\Class0.Designer.cs">
-      <DependentUpon>Class0.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ns0\Class1.Designer.cs">
-      <DependentUpon>Class1.settings</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ns0\Class0.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Class0.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.manifest" />
-    <None Include="ns0\Class1.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Class1.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

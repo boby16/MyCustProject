@@ -6,7 +6,7 @@
 	<s:String
 		x:Key="LSystemContact">系统技术支持由 Loyal.Filial 提供，联系邮箱：2404769274@QQ.com</s:String>
 	<s:String
-		x:Key="LSystemVersion">版本 v20150703</s:String>
+		x:Key="LSystemVersion">版本 v2018.10.10</s:String>
 	<s:String
 		x:Key="LSystemYes">是</s:String>
 	<s:String

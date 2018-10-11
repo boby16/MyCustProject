@@ -53,9 +53,12 @@
     <Compile Include="BaiduMapHelper.cs" />
     <Compile Include="CheckExpiredClass.cs" />
     <Compile Include="classHtmlText.cs" />
+    <Compile Include="classListBorder.cs" />
+    <Compile Include="classListButton.cs" />
     <Compile Include="classLoopA.cs" />
     <Compile Include="classLoopB.cs" />
     <Compile Include="classLoopQuestion.cs" />
+    <Compile Include="classMatixButton.cs" />
     <Compile Include="classMatixMultipleAnswers.cs" />
     <Compile Include="classMultipleAnswers.cs" />
     <Compile Include="ControlCircleSingle.cs" />

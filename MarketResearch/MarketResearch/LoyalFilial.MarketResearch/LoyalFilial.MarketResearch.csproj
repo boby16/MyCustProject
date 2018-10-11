@@ -102,11 +102,6 @@
     <Compile Include="AutoDo.xaml.cs">
       <DependentUpon>AutoDo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BIZ\classListBorder.cs" />
-    <Compile Include="BIZ\classListButton.cs" />
-    <Compile Include="BIZ\classMatixBorder.cs" />
-    <Compile Include="BIZ\classMatixButton.cs" />
-    <Compile Include="Business\QDisplay.cs" />
     <Compile Include="Class\AutoFill.cs" />
     <Compile Include="Class\BoldTitle.cs" />
     <Compile Include="Class\PageNav.cs" />
@@ -129,16 +124,6 @@
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ns0\Class1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Class1.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ns0\Class2.Designer.cs">
-      <DependentUpon>Class2.settings</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QEdit\CheckPsw.xaml.cs">
@@ -395,18 +380,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ns0\Class1.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Class1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
-    <None Include="ns0\Class2.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Class2.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
