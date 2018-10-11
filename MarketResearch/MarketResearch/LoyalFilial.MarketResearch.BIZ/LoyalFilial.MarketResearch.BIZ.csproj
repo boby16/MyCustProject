@@ -37,6 +37,7 @@
     <Reference Include="DirectShowLib-2005">
       <HintPath>..\Library\DirectShowLib-2005.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
