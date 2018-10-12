@@ -8,7 +8,7 @@ using System.Windows;
 
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright © Loyal.Filial 2018")]
 [assembly: AssemblyProduct("LoyalFilial.MarketResearch.Update")]
 [assembly: ComVisible(false)]
 [assembly: AssemblyFileVersion("1.0.0.0")]
@@ -17,6 +17,6 @@ using System.Windows;
 [assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
 [assembly: CompilationRelaxations(8)]
 [assembly: AssemblyTitle("LoyalFilial.MarketResearch.Update")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Loyal.Filial")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("MarketResearch.Update")]
