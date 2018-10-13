@@ -62,10 +62,16 @@ namespace LoyalFilial.MarketResearch.Class
 
 		public static string MsgCompany = "ZDO";
 
+        /// <summary>
+        /// 项目ID
+        /// </summary>
 		public static string ProjectId = "zd17916";
 
 		public static string ClientId = "zdo";
 
+        /// <summary>
+        /// 阿里云服务器位置（深圳）
+        /// </summary>
 		public static string OSSRegion = "sz";
 
 		public static string VersionDate = "2017-10-22";

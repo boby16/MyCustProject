@@ -107,7 +107,7 @@ namespace LoyalFilial.MarketResearch.View
 		{
 			string arg = "999";
 			bool bool_ = SurveyMsg.VersionID.IndexOf("测试版") >= 0 || SurveyMsg.VersionID.IndexOf("演示版") >= 0 || SurveyMsg.VersionID.IndexOf("Demo") >= 0;
-			alioss alioss = new alioss(SurveyMsg.OSSRegion, bool_, SurveyMsg.ProjectId);
+			AliOSS alioss = new AliOSS(SurveyMsg.OSSRegion, bool_, SurveyMsg.ProjectId);
 			if (!alioss.CreateOss())
 			{
 				this.txtMsg.Text = alioss.OutMessage;

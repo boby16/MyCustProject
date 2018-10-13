@@ -6,7 +6,10 @@ using Aliyun.OpenServices.OpenStorageService;
 
 namespace LoyalFilial.MarketResearch.BIZ
 {
-	public class alioss
+    /// <summary>
+    /// 阿里文件上传
+    /// </summary>
+	public class AliOSS
 	{
 		public string accessId { get; private set; }
 
@@ -28,35 +31,43 @@ namespace LoyalFilial.MarketResearch.BIZ
 
 		public string OutMessage { get; private set; }
 
-		public alioss(string string_0, bool bool_0, string string_1)
+        /// <summary>
+        /// 阿里云
+        /// </summary>
+        /// <param name="server"></param>
+        /// <param name="debugger"></param>
+        /// <param name="bucketDir"></param>
+		public AliOSS(string server, bool debugger, string bucketDir)
 		{
-			this.method_0(string_0, bool_0, string_1);
+			this.method_0(server, debugger, bucketDir);
 		}
 
-		private void method_0(string string_0, bool bool_0, string string_1)
+		private void method_0(string server, bool debuger, string bucketDir)
 		{
+            //阿里云存储服务器
 			this.accessId = "JvHEr8eZMOo0JOy7";
 			this.accessKey = "vxcNrCYZL06Zb9xaJkcpr450QvVnHA";
 			this.BigFilePartSize = 150;
-			if (bool_0)
+			if (debuger)
 			{
-				this.bucketDir = "debug" + string_1;
+				this.bucketDir = "debug" + bucketDir;
 			}
 			else
 			{
-				this.bucketDir = string_1;
+				this.bucketDir = bucketDir;
 			}
-			this.bucketDirUpdate = string_1 + "update";
+			this.bucketDirUpdate = bucketDir + "update";
 			string uriString = "";
 			string uriString2 = "";
-			if (!(string_0 == "hz"))
+			if (!(server == "hz"))
 			{
-				if (!(string_0 == "qd"))
+				if (!(server == "qd"))
 				{
-					if (!(string_0 == "bj"))
+					if (!(server == "bj"))
 					{
-						if (!(string_0 == "hk"))
+						if (!(server == "hk"))
 						{
+                            //深圳
 							uriString = "http://oss-cn-shenzhen.aliyuncs.com";
 							uriString2 = "http://oss-cn-shenzhen-internal.aliyuncs.com";
 							this.bucketName = "marketresearch";
@@ -64,6 +75,7 @@ namespace LoyalFilial.MarketResearch.BIZ
 						}
 						else
 						{
+                            //香港
 							uriString = "http://oss-cn-hongkong.aliyuncs.com";
 							uriString2 = "http://oss-cn-hongkong-internal.aliyuncs.com";
 							this.bucketName = "marketresearchhk";
@@ -72,6 +84,7 @@ namespace LoyalFilial.MarketResearch.BIZ
 					}
 					else
 					{
+                        //北京
 						uriString = "http://oss-cn-beijing.aliyuncs.com";
 						uriString2 = "http://oss-cn-beijing-internal.aliyuncs.com";
 						this.bucketName = "marketresearchbj";
@@ -80,6 +93,7 @@ namespace LoyalFilial.MarketResearch.BIZ
 				}
 				else
 				{
+                    //青岛
 					uriString = "http://oss-cn-qingdao.aliyuncs.com";
 					uriString2 = "http://oss-cn-qingdao-internal.aliyuncs.com";
 					this.bucketName = "marketresearchqd";
@@ -88,6 +102,7 @@ namespace LoyalFilial.MarketResearch.BIZ
 			}
 			else
 			{
+                //杭州
 				uriString = "http://oss.aliyuncs.com";
 				uriString2 = "http://oss-internal.aliyuncs.com";
 				this.bucketName = "marketresearchhz";

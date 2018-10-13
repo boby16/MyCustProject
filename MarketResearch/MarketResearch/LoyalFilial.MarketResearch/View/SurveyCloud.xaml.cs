@@ -51,7 +51,7 @@ namespace LoyalFilial.MarketResearch.View
 			if (SurveyMsg.VersionID.IndexOf("演示版") <= -1 && SurveyMsg.VersionID.IndexOf("Demo") <= -1)
 			{
 				bool bool_ = SurveyMsg.VersionID.IndexOf("测试版") > -1 || SurveyMsg.VersionID.IndexOf("演示版") > -1 || SurveyMsg.VersionID.IndexOf("Demo") > -1;
-				alioss alioss = new alioss(SurveyMsg.OSSRegion, bool_, SurveyMsg.ProjectId);
+				AliOSS alioss = new AliOSS(SurveyMsg.OSSRegion, bool_, SurveyMsg.ProjectId);
 				this.method_2();
 				this.method_3(20.0);
 				Stopwatch stopwatch = new Stopwatch();

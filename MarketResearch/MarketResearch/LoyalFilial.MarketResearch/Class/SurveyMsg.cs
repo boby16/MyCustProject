@@ -47,7 +47,9 @@ namespace LoyalFilial.MarketResearch.Class
 		public static string SetPCNumber = "SetPCNumber_true";
 
 		public static string SurveyRangeDemoPsw = "demo";
-
+        /// <summary>
+        /// 密码
+        /// </summary>
 		public static string SurveyRangePsw = "zd17916";
 
 		public static bool SurveyRangePswOk = false;

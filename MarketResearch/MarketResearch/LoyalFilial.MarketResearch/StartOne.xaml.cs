@@ -182,7 +182,7 @@ namespace LoyalFilial.MarketResearch
 		{
 			string arg = "000";
 			bool bool_ = SurveyMsg.VersionID.IndexOf("正式版") <= -1;
-			alioss alioss = new alioss(SurveyMsg.OSSRegion, bool_, SurveyMsg.ProjectId);
+			AliOSS alioss = new AliOSS(SurveyMsg.OSSRegion, bool_, SurveyMsg.ProjectId);
 			if (!alioss.CreateOss())
 			{
 				this.txtMsg.Text = alioss.OutMessage;

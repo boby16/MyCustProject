@@ -2,6 +2,9 @@ using System;
 
 namespace LoyalFilial.MarketResearch.Update
 {
+    /// <summary>
+    /// 阿里云文件上传
+    /// </summary>
 	public class alioss
 	{
 		public string accessId { get; private set; }
@@ -25,30 +28,32 @@ namespace LoyalFilial.MarketResearch.Update
 			this.method_0(string_0, bool_0, string_1);
 		}
 
-		private void method_0(string string_0, bool bool_0, string string_1)
+		private void method_0(string server, bool debug, string bucketDir)
 		{
 			this.accessId = "JvHEr8eZMOo0JOy7";
 			this.accessKey = "vxcNrCYZL06Zb9xaJkcpr450QvVnHA";
 			this.BigFilePartSize = 150;
-			if (bool_0)
+			if (debug)
 			{
-				this.bucketDir = "debug" + string_1;
+				this.bucketDir = "debug" + bucketDir;
 			}
 			else
 			{
-				this.bucketDir = string_1;
+				this.bucketDir = bucketDir;
 			}
-			this.bucketDirUpdate = string_1 + "update";
+			this.bucketDirUpdate = bucketDir + "update";
 			string uriString = "";
 			string uriString2 = "";
-			if (!(string_0 == "hz"))
+
+			if (!(server == "hz"))
 			{
-				if (!(string_0 == "qd"))
+				if (!(server == "qd"))
 				{
-					if (!(string_0 == "bj"))
+					if (!(server == "bj"))
 					{
-						if (!(string_0 == "hk"))
+						if (!(server == "hk"))
 						{
+                            //深圳服务器
 							uriString = "http://oss-cn-shenzhen.aliyuncs.com";
 							uriString2 = "http://oss-cn-shenzhen-internal.aliyuncs.com";
 							this.bucketName = "marketresearch";
@@ -56,6 +61,7 @@ namespace LoyalFilial.MarketResearch.Update
 						}
 						else
 						{
+                            //香港服务器
 							uriString = "http://oss-cn-hongkong.aliyuncs.com";
 							uriString2 = "http://oss-cn-hongkong-internal.aliyuncs.com";
 							this.bucketName = "marketresearchhk";
@@ -64,6 +70,7 @@ namespace LoyalFilial.MarketResearch.Update
 					}
 					else
 					{
+                        //北京服务器
 						uriString = "http://oss-cn-beijing.aliyuncs.com";
 						uriString2 = "http://oss-cn-beijing-internal.aliyuncs.com";
 						this.bucketName = "marketresearchbj";
@@ -72,6 +79,7 @@ namespace LoyalFilial.MarketResearch.Update
 				}
 				else
 				{
+                    //青岛服务器
 					uriString = "http://oss-cn-qingdao.aliyuncs.com";
 					uriString2 = "http://oss-cn-qingdao-internal.aliyuncs.com";
 					this.bucketName = "marketresearchqd";
@@ -80,6 +88,7 @@ namespace LoyalFilial.MarketResearch.Update
 			}
 			else
 			{
+                //杭州阿里云
 				uriString = "http://oss.aliyuncs.com";
 				uriString2 = "http://oss-internal.aliyuncs.com";
 				this.bucketName = "marketresearchhz";
