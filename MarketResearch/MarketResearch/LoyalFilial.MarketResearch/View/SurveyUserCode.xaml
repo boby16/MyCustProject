@@ -1,0 +1,93 @@
+<Page
+	x:Class="LoyalFilial.MarketResearch.View.SurveyUserCode" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	Title="SurveyUserCode"
+	Style="{StaticResource WindowBaseStyle}" xmlns:view="clr-namespace:LoyalFilial.MarketResearch.View"
+	Loaded="method_0">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="1*" />
+			<RowDefinition
+				Height="2*" />
+			<RowDefinition
+				Height="1*" />
+			<RowDefinition
+				Height="1*" />
+			<RowDefinition
+				Height="3*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			Name="txtQuestionTitle"
+			Grid.Row="1"
+			Margin="20,20,20,10"
+			Style="{StaticResource TitleTextStyle}"
+			TextWrapping="Wrap">
+			<Span
+				Name="span1">1</Span> <Span
+				Name="span2"
+				Foreground="{StaticResource PressedBrush}"
+				FontWeight="Bold">2</Span> <Span
+				Name="span3">3</Span> <Span
+				Name="span4"
+				Foreground="{StaticResource PressedBrush}"
+				FontWeight="Bold">4</Span> <Span
+				Name="span5">5</Span> <Span
+				Name="span6"
+				Foreground="{StaticResource PressedBrush}"
+				FontWeight="Bold">6</Span> <Span
+				Name="span7">7</Span></TextBlock>
+		<StackPanel
+			Name="stk1"
+			Grid.Row="2"
+			Orientation="Horizontal"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Top">
+			<TextBlock
+				Name="txtBefore"
+				Margin="10,0,20,0"
+				Text="1"
+				Style="{StaticResource ContentTextStyle}"
+				TextAlignment="Left"
+				VerticalAlignment="Center" />
+			<TextBox
+				Name="txtFill"
+				Margin="0,0,0,0"
+				InputScope="Number"
+				Style="{StaticResource TextBoxMediumStyle}"
+				VerticalAlignment="Top"
+				Width="120"
+				MaxLength="4"
+				KeyDown="txtFill_KeyDown"
+				TextChanged="txtFill_TextChanged"
+				GotFocus="txtFill_GotFocus"
+				LostFocus="txtFill_LostFocus" />
+		</StackPanel>
+		<TextBlock
+			Name="txtAfter"
+			Grid.Row="3"
+			Margin="20,0,0,0"
+			Text="城市+两位流水号"
+			Style="{StaticResource ContentTextStyle}"
+			TextAlignment="Center"
+			VerticalAlignment="Center" />
+		<DockPanel
+			Grid.Row="5"
+			Margin="5,0,5,0">
+			<Image
+				Style="{StaticResource ImgLogo}" />
+			<TextBlock
+				Name="txtSurvey"
+				Margin="10,0,0,0"
+				Text=""
+				Style="{StaticResource TitleMediumStyle}"
+				VerticalAlignment="Center" />
+			<Button
+				Name="btnNav"
+				Content="{DynamicResource LBtnNav}"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnNav_Click" />
+		</DockPanel>
+	</Grid>
+</Page>

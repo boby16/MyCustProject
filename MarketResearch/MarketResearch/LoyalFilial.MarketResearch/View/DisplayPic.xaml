@@ -1,0 +1,115 @@
+<Page
+	x:Class="LoyalFilial.MarketResearch.View.DisplayPic" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	Title="{DynamicResource LSystemTitle}"
+	Style="{StaticResource WindowBaseStyle}" xmlns:view="clr-namespace:LoyalFilial.MarketResearch.View"
+	Loaded="method_0">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			Name="gridContent"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Margin="30,30,30,20">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<TextBlock
+				Name="txtQuestionTitle"
+				Margin="0,0,0,5"
+				Grid.Row="0"
+				Grid.ColumnSpan="3"
+				HorizontalAlignment="Center"
+				Style="{StaticResource TitleTextStyle}"
+				TextWrapping="Wrap"
+				FontSize="42"
+				VerticalAlignment="Bottom">问题标题</TextBlock>
+			<TextBlock
+				Name="txtCircleTitle"
+				Margin="0,0,0,5"
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				HorizontalAlignment="Center"
+				Style="{StaticResource TitleTextStyle}"
+				TextWrapping="Wrap"
+				FontSize="40"
+				VerticalAlignment="Center">副标题</TextBlock>
+			<TextBlock
+				Name="txtLeftTitle"
+				Margin="0,5,5,5"
+				Grid.Row="2"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				Width="300"
+				Style="{StaticResource TitleTextStyle}"
+				TextWrapping="Wrap"
+				FontSize="32"
+				VerticalAlignment="Center">左侧说明内容</TextBlock>
+			<TextBlock
+				Name="txtRightTitle"
+				Margin="5,5,0,5"
+				Grid.Row="2"
+				Grid.Column="2"
+				HorizontalAlignment="Left"
+				Width="300"
+				Style="{StaticResource TitleTextStyle}"
+				TextWrapping="Wrap"
+				FontSize="32"
+				VerticalAlignment="Center">右侧说明内容</TextBlock>
+			<TextBlock
+				Name="txtQuestionNote"
+				Margin="0,5,0,10"
+				Grid.Row="3"
+				Grid.ColumnSpan="3"
+				HorizontalAlignment="Center"
+				Style="{StaticResource TitleTextStyle}"
+				TextWrapping="Wrap"
+				VerticalAlignment="Center">底部说明内容</TextBlock>
+		</Grid>
+		<DockPanel
+			Grid.Row="1"
+			Margin="5,0,5,0">
+			<Image
+				Style="{StaticResource ImgLogo}" />
+			<TextBlock
+				Name="txtSurvey"
+				Margin="10,0,0,0"
+				Text=""
+				Style="{StaticResource TitleMediumStyle}"
+				VerticalAlignment="Center" />
+			<Button
+				Name="btnAttach"
+				Content="{DynamicResource LBtnAddAttach}"
+				Width="160"
+				Margin="5,5,0,5"
+				VerticalAlignment="Top"
+				Style="{StaticResource NavBtnStyle}"
+				Visibility="Collapsed"
+				Click="btnAttach_Click" />
+			<Button
+				Name="btnNav"
+				Content="{DynamicResource LBtnNav}"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnNav_Click" />
+		</DockPanel>
+	</Grid>
+</Page>

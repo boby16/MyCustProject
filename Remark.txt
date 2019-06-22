@@ -1,0 +1,4 @@
+此仓储存放客户项目：
+
+QRCodePrint：昆山固品条码打印（单机版（Access数据库））
+MarketResarch：市场调研项目（WPF）

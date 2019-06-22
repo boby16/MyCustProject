@@ -1,0 +1,84 @@
+<Page
+	x:Class="LoyalFilial.MarketResearch.View.EndSummary" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	Title="{DynamicResource LSystemTitle}"
+	Style="{StaticResource WindowBaseStyle}" xmlns:view="clr-namespace:LoyalFilial.MarketResearch.View"
+	Loaded="method_0">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="1">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<TextBlock
+				Name="txtMsg"
+				Grid.Row="0"
+				Margin="50,0,50,0"
+				Text="{DynamicResource LFrmSummaryCheck}"
+				Style="{StaticResource ContentTextStyle}"
+				Foreground="{StaticResource PressedBrush}"
+				HorizontalAlignment="Center"
+				FontFamily="Simsun"
+				FontSize="45" />
+			<TextBlock
+				Grid.Row="1"
+				Text="{DynamicResource LFrmSummaryTitle}"
+				Margin="50,20,50,5"
+				Style="{StaticResource ContentTextStyle}"
+				FontFamily="Simsun" />
+			<DataGrid
+				Name="DataGrid1"
+				FontSize="24"
+				Grid.Row="2"
+				Margin="50,0,50,50"
+				IsReadOnly="True"
+				AutoGenerateColumns="False"
+				FontFamily="Simsun"
+				VerticalScrollBarVisibility="Auto">
+				<DataGrid.Columns>
+					<DataGridTextColumn
+						Header="{DynamicResource LFrmSummaryField1}"
+						FontSize="24"
+						Binding="{Binding SUMMARY_TITLE}" />
+					<DataGridTextColumn
+						Header="{DynamicResource LFrmSummaryField2}"
+						FontSize="24"
+						Binding="{Binding CODE}" />
+					<DataGridTextColumn
+						Header="{DynamicResource LFrmSummaryField3}"
+						FontSize="24"
+						Binding="{Binding CODE_TEXT}" />
+				</DataGrid.Columns>
+			</DataGrid>
+		</Grid>
+		<DockPanel
+			Grid.Row="0"
+			Margin="5,0,5,0">
+			<Image
+				Style="{StaticResource ImgLogo}" />
+			<TextBlock
+				Name="txtSurvey"
+				Margin="10,0,0,0"
+				Text=""
+				Style="{StaticResource TitleMediumStyle}"
+				VerticalAlignment="Center" />
+			<Button
+				Name="btnExit"
+				Content="{DynamicResource LBtnEnd}"
+				Grid.Row="3"
+				Margin="20,5,20,5"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnExit_Click" />
+		</DockPanel>
+	</Grid>
+</Page>

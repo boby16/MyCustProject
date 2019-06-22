@@ -1,0 +1,406 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+	<s:String
+		x:Key="LMainWindowTitle">MarketResearch</s:String>
+	<s:String
+		x:Key="LSystemTitle">MarketResearch</s:String>
+	<s:String
+		x:Key="LSystemContact">Support By Loyal.Filial(Email:2404769274@QQ.com)</s:String>
+	<s:String
+		x:Key="LSystemVersion">Version v2018.10.10</s:String>
+	<s:String
+		x:Key="LSystemYes">Yes</s:String>
+	<s:String
+		x:Key="LSystemNo">No</s:String>
+	<s:String
+		x:Key="LSystemTool">MarketResearch</s:String>
+	<s:String
+		x:Key="LSystemRunInfo">Information</s:String>
+	<s:String
+		x:Key="LSystemFilePath">Data Setup</s:String>
+	<s:String
+		x:Key="LSystemPath">Path</s:String>
+	<s:String
+		x:Key="LSystemDownload">Download Survey File</s:String>
+	<s:String
+		x:Key="LSystemDownloadPath">Download Path</s:String>
+	<s:String
+		x:Key="LSystemConfig">Setting</s:String>
+	<s:String
+		x:Key="LSystemNoShort">Do not import short survey</s:String>
+	<s:String
+		x:Key="LSystemImportAllNew">Import all</s:String>
+	<s:String
+		x:Key="LCfgLanguage">Language</s:String>
+	<s:String
+		x:Key="LCfgTheme">Theme</s:String>
+	<s:String
+		x:Key="LMenuExcel">Export to Excel</s:String>
+	<s:String
+		x:Key="LMenuSpss">Export to SPSS</s:String>
+	<s:String
+		x:Key="LMenuQuota">Count Quota</s:String>
+	<s:String
+		x:Key="LMenuImport">Import Data</s:String>
+	<s:String
+		x:Key="LMenuQuery">Query</s:String>
+	<s:String
+		x:Key="LMenuConfig">Config</s:String>
+	<s:String
+		x:Key="LMenuAssistant">Assistant Data Build</s:String>
+	<s:String
+		x:Key="LMenuDevelopment">Development Tool-Box</s:String>
+	<s:String
+		x:Key="LMenuMT">Export to MT</s:String>
+	<s:String
+		x:Key="LMenuDownload">Download</s:String>
+	<s:String
+		x:Key="LMenuRecode">Recode</s:String>
+	<s:String
+		x:Key="LMenuQC">QC</s:String>
+	<s:String
+		x:Key="LMenuQCAdvance">QC(Advance)</s:String>
+	<s:String
+		x:Key="LMenuSetQuota">Set Quota</s:String>
+	<s:String
+		x:Key="LMenuQueryQuota">Query Quota</s:String>
+	<s:String
+		x:Key="LMenuDatModify">Batch Modify Data</s:String>
+	<s:String
+		x:Key="LMenuDatModifyHelp">Help</s:String>
+	<s:String
+		x:Key="LMenuKeyFile">Key File</s:String>
+	<s:String
+		x:Key="LMenuCompile">Compile</s:String>
+	<s:String
+		x:Key="LMenuUpload">Version Upload</s:String>
+	<s:String
+		x:Key="LMenuMap">Map Mark</s:String>
+	<s:String
+		x:Key="LMenuExit">Exit</s:String>
+	<s:String
+		x:Key="LBtnConfirm">Confirm</s:String>
+	<s:String
+		x:Key="LBtnRun">Run</s:String>
+	<s:String
+		x:Key="LBtnClose">Close</s:String>
+	<s:String
+		x:Key="LBtnStart">Start</s:String>
+	<s:String
+		x:Key="LBtnExit">Exit</s:String>
+	<s:String
+		x:Key="LBtnAutoCapture">Capture</s:String>
+	<s:String
+		x:Key="LBtnAutoFill">Auto Fill</s:String>
+	<s:String
+		x:Key="LBtnFillMode">Fill Mode</s:String>
+	<s:String
+		x:Key="LBtnHelp">Help</s:String>
+	<s:String
+		x:Key="LBtnSaveLog">Save LogFile</s:String>
+	<s:String
+		x:Key="LBtnReturn">Back</s:String>
+	<s:String
+		x:Key="LBtnRecord">Record</s:String>
+	<s:String
+		x:Key="LBtnRead">Read</s:String>
+	<s:String
+		x:Key="LBtnKeyboard">Keyboard</s:String>
+	<s:String
+		x:Key="LBtnDeveloper">Debug</s:String>
+	<s:String
+		x:Key="LBtnGoto">Goto</s:String>
+	<s:String
+		x:Key="LBtnNav">Continue</s:String>
+	<s:String
+		x:Key="LBtnEnd">End</s:String>
+	<s:String
+		x:Key="LBtnCancel">Cancel</s:String>
+	<s:String
+		x:Key="LBtnSearch">Search</s:String>
+	<s:String
+		x:Key="LBtnSelect">Select</s:String>
+	<s:String
+		x:Key="LBtnUpload">Upload</s:String>
+	<s:String
+		x:Key="LBtnPreSurveyId">Pre_ID</s:String>
+	<s:String
+		x:Key="LBtnNextSurveyId">Next_ID</s:String>
+	<s:String
+		x:Key="LBtnConfirmDel">Confirm</s:String>
+	<s:String
+		x:Key="LBtnQuery">Load</s:String>
+	<s:String
+		x:Key="LBtnOpen">Open</s:String>
+	<s:String
+		x:Key="LBtnPlay">Play</s:String>
+	<s:String
+		x:Key="LBtnReplay">Replay</s:String>
+	<s:String
+		x:Key="LBtnContinue">Continue</s:String>
+	<s:String
+		x:Key="LBtnStop">Stop</s:String>
+	<s:String
+		x:Key="LBtnBack">Back</s:String>
+	<s:String
+		x:Key="LBtnForward">Forward</s:String>
+	<s:String
+		x:Key="LBtnBack10">Prev 10s</s:String>
+	<s:String
+		x:Key="LBtnForward10">Next 10s</s:String>
+	<s:String
+		x:Key="LBtnModify">Modify</s:String>
+	<s:String
+		x:Key="LBtnListen">Play</s:String>
+	<s:String
+		x:Key="LBtnSee">View</s:String>
+	<s:String
+		x:Key="LBtnAddAttach">Attach</s:String>
+	<s:String
+		x:Key="LBtnAttach">View</s:String>
+	<s:String
+		x:Key="LBtnRemove">DEL.</s:String>
+	<s:String
+		x:Key="LBtnOutExcel">Excel</s:String>
+	<s:String
+		x:Key="LBtnOutDat">DAT File</s:String>
+	<s:String
+		x:Key="LBtnOutDatAll">All DAT</s:String>
+	<s:String
+		x:Key="LBtnSave">Save</s:String>
+	<s:String
+		x:Key="LBtnSelectAttach">Select</s:String>
+	<s:String
+		x:Key="LBtnAddtoList">Add to list</s:String>
+	<s:String
+		x:Key="LBtnExcelDataFile">Excel data file</s:String>
+	<s:String
+		x:Key="LBtnAfterModify">Modify file folder</s:String>
+	<s:String
+		x:Key="LBtnKeyFilePath">Key file folder</s:String>
+	<s:String
+		x:Key="LBtnDownloadPath">Select download folder</s:String>
+	<s:String
+		x:Key="LBtnPhoto">Shoot</s:String>
+	<s:String
+		x:Key="LBtnViewPic">Shoot Again</s:String>
+	<s:String
+		x:Key="LBtnAppRun">Run</s:String>
+	<s:String
+		x:Key="LBtnMP3Setup">MP3 Convert Setup</s:String>
+	<s:String
+		x:Key="LBtnRankBrandReset">Reset from this No.</s:String>
+	<s:String
+		x:Key="LBtnFillMode1">Only fill 1 answer</s:String>
+	<s:String
+		x:Key="LBtnFillMode2">Random fill some answers</s:String>
+	<s:String
+		x:Key="LBtnFillMode3">Fill all answers</s:String>
+	<s:String
+		x:Key="LBtnUnSel">Clear</s:String>
+	<s:String
+		x:Key="LBtnSelAll">All</s:String>
+	<s:String
+		x:Key="LBtnSetFillMode">Set Fill Mode</s:String>
+	<s:String
+		x:Key="LBtnGenData">Generate</s:String>
+	<s:String
+		x:Key="LBtnMapData">Read Data</s:String>
+	<s:String
+		x:Key="LBtnMap">Show Mark</s:String>
+	<s:String
+		x:Key="LBtnShowMarkText">Show Flag</s:String>
+	<s:String
+		x:Key="LBtnShowAddress">Show Address</s:String>
+	<s:String
+		x:Key="LBtnShowID">Show ID</s:String>
+	<s:String
+		x:Key="LBtnCapture">Capture</s:String>
+	<s:String
+		x:Key="LFrmAutoDoOrder1">Start Order :</s:String>
+	<s:String
+		x:Key="LFrmAutoDoOrder2">(Exclude Ex-No.)</s:String>
+	<s:String
+		x:Key="LFrmAutoDoOrder3">Cases of Generate :</s:String>
+	<s:String
+		x:Key="LFrmExcelDir">Data Folder</s:String>
+	<s:String
+		x:Key="LFrmExcelQn">Output Qn and Data</s:String>
+	<s:String
+		x:Key="LFrmExcelTitle">Output Title and Data</s:String>
+	<s:String
+		x:Key="LFrmExcelQnTitle">Output Qn and Title and Data</s:String>
+	<s:String
+		x:Key="LFrmExcelFilter">Ignore data of screening aborted</s:String>
+	<s:String
+		x:Key="LFrmGuidFilter">Ignore data in Excel\GUID.txt</s:String>
+	<s:String
+		x:Key="LFrmRecodeFirst">Prefer data in [Recode](Note:those data will not RECODE again)</s:String>
+	<s:String
+		x:Key="LFrmExcelMsg">System Message</s:String>
+	<s:String
+		x:Key="LFrmRecodeFilter">Note: Data need to RECODE, the processing time is longer, please wait!</s:String>
+	<s:String
+		x:Key="LFrmCStartPrj">Project Name</s:String>
+	<s:String
+		x:Key="LFrmCStartAutoDo">Automatic Generate Data</s:String>
+	<s:String
+		x:Key="LFrmCStartManager">Data Delete</s:String>
+	<s:String
+		x:Key="LFrmCStartUpload">Upload</s:String>
+	<s:String
+		x:Key="LFrmCStartConfig">Config</s:String>
+	<s:String
+		x:Key="LFrmStartOneLoad">Loading ....</s:String>
+	<s:String
+		x:Key="LFrmQTitle">Title</s:String>
+	<s:String
+		x:Key="LFrmQSubtitle">Sub Title</s:String>
+	<s:String
+		x:Key="LFrmQDesc">Question Description</s:String>
+	<s:String
+		x:Key="LFrmSetFillMode">Set Auto Fill Mode</s:String>
+	<s:String
+		x:Key="LFrmMultiSet">Multi-Answer</s:String>
+	<s:String
+		x:Key="LFrmStopFill">Auto Fill stop at :</s:String>
+	<s:String
+		x:Key="LFrmStopTip">(Blank for fill to ending)</s:String>
+	<s:String
+		x:Key="LFrmSetCapture">Click [Next] to capture screen</s:String>
+	<s:String
+		x:Key="LFrmThankyou">Thank you very much!</s:String>
+	<s:String
+		x:Key="LFrmEndSurvey">End of Interview</s:String>
+	<s:String
+		x:Key="LFrmCurSurveyId">Current Survey ID :</s:String>
+	<s:String
+		x:Key="LFrmSummaryField1">Question</s:String>
+	<s:String
+		x:Key="LFrmSummaryField2">Code</s:String>
+	<s:String
+		x:Key="LFrmSummaryField3">Text</s:String>
+	<s:String
+		x:Key="LFrmSummaryTitle">Summary</s:String>
+	<s:String
+		x:Key="LFrmSummaryCheck">Please review the contents of the table by supervisor!</s:String>
+	<s:String
+		x:Key="LFrmSearchSelected">Selected :</s:String>
+	<s:String
+		x:Key="LFrmSearchContent">Search Concent :</s:String>
+	<s:String
+		x:Key="LFrmCheckRecord">Note: Please turn on recording!</s:String>
+	<s:String
+		x:Key="LFrmCity">City</s:String>
+	<s:String
+		x:Key="LFrmUpTitle">Upload</s:String>
+	<s:String
+		x:Key="LFrmUpTip">Please keep the connection of internet!</s:String>
+	<s:String
+		x:Key="LFrmUpLast">Last upload at :</s:String>
+	<s:String
+		x:Key="LFrmUpMachine">Machine ID :</s:String>
+	<s:String
+		x:Key="LFrmUpInfo">System Message :</s:String>
+	<s:String
+		x:Key="LFrmCodeTitle">Survey ID :</s:String>
+	<s:String
+		x:Key="LFrmCodeRange">Survey ID Range :</s:String>
+	<s:String
+		x:Key="LFrmCodeTime">Please confirm before accessing the system time is correct!</s:String>
+	<s:String
+		x:Key="LFrmDelInfo">Note: Deleted Data CANNOT be recovered!</s:String>
+	<s:String
+		x:Key="LFrmDelSurveyId">Survey ID :</s:String>
+	<s:String
+		x:Key="LFrmDelPsw">Password :</s:String>
+	<s:String
+		x:Key="LFrmDelTitle">Data Delete</s:String>
+	<s:String
+		x:Key="LFrmQueryInfo">View Screening</s:String>
+	<s:String
+		x:Key="LFrmQueryRecord">Record Voice</s:String>
+	<s:String
+		x:Key="LFrmQueryVol">Volume :</s:String>
+	<s:String
+		x:Key="LFrmQueryCurQuestion">Question :</s:String>
+	<s:String
+		x:Key="LFrmQueryStartPlace">Start at :</s:String>
+	<s:String
+		x:Key="LFrmQueryGrid">Group :</s:String>
+	<s:String
+		x:Key="LFrmQueryField1">Question</s:String>
+	<s:String
+		x:Key="LFrmQueryField2">Code</s:String>
+	<s:String
+		x:Key="LFrmQueryField3">Text</s:String>
+	<s:String
+		x:Key="LFrmConfigTitle">Config</s:String>
+	<s:String
+		x:Key="LFrmConfigSelect">Please choice :</s:String>
+	<s:String
+		x:Key="LFrmConfigStart">Start ID:</s:String>
+	<s:String
+		x:Key="LFrmConfigEnd">End ID:</s:String>
+	<s:String
+		x:Key="LFrmConfigMachine">Machine ID :</s:String>
+	<s:String
+		x:Key="LFrmConfigPsw">Password :</s:String>
+	<s:String
+		x:Key="LFrmConfigPad">Pad Mode :</s:String>
+	<s:String
+		x:Key="LFrmConfigTip">(Last 4 Num.)</s:String>
+	<s:String
+		x:Key="LFrmConfigTipNum">(4 bit)</s:String>
+	<s:String
+		x:Key="LFrmConfigTipPsw">(Password : demo)</s:String>
+	<s:String
+		x:Key="LFrmConfigMP3txt1">When length of record is over :</s:String>
+	<s:String
+		x:Key="LFrmConfigMinute">minutes, at the end of MarketResearch,</s:String>
+	<s:String
+		x:Key="LFrmConfigMP3txt2">for MP3!</s:String>
+	<s:String
+		x:Key="LFrmConfigMP3ToolTip">0 for not convert; 999 for convert however!</s:String>
+	<s:String
+		x:Key="LFrmTipMulModify">Tips:Please use net driver</s:String>
+	<s:String
+		x:Key="LFrmRecodeTip">Tips:Please wait</s:String>
+	<s:String
+		x:Key="LFrmDownloadOverwrite">Download all file (Overwrite)</s:String>
+	<s:String
+		x:Key="LFrmCheckPswTitle">Need Admin Password</s:String>
+	<s:String
+		x:Key="LFrmEditOldAnswer">Old Answer :</s:String>
+	<s:String
+		x:Key="LFrmEditNewAnswer">New Answer :</s:String>
+	<s:String
+		x:Key="LFrmAttachTitle">- Attachment</s:String>
+	<s:String
+		x:Key="LFrmAttachSelect">Select file</s:String>
+	<s:String
+		x:Key="LFrmAttachList">Attach files</s:String>
+	<s:String
+		x:Key="LFrmAttachSelected">Selected file</s:String>
+	<s:String
+		x:Key="LFrmCamera">Camera :</s:String>
+	<s:String
+		x:Key="LFrmPhotoTitle">Take Photo</s:String>
+	<s:String
+		x:Key="LFrmMediaBar">Progress :</s:String>
+	<s:String
+		x:Key="LFrmAppInfo">Program :</s:String>
+	<s:String
+		x:Key="LFrmRankBrandInfo1">Select option to</s:String>
+	<s:String
+		x:Key="LFrmSearchInfo1">Following is selected :</s:String>
+	<s:String
+		x:Key="LFrmSearchInfo2">(Click option to unselect)</s:String>
+	<s:String
+		x:Key="LFrmOther">Other</s:String>
+	<s:String
+		x:Key="LFrmKeyFileID">Survey ID of Key File :</s:String>
+	<s:String
+		x:Key="LFrmConnetFail">Error: Internet connet fail!</s:String>
+	<s:String
+		x:Key="LFrmConnetTip">After reconnecting, please return and re-enter this question.</s:String>
+</ResourceDictionary>

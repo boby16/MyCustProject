@@ -1,0 +1,149 @@
+<Page
+	x:Class="LoyalFilial.MarketResearch.View.PageMedia" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:extToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended" xmlns:local="clr-namespace:LoyalFilial.MarketResearch.Class"
+	Title="PageDisplayCenter"
+	Style="{StaticResource WindowBaseStyle}" xmlns:view="clr-namespace:LoyalFilial.MarketResearch.View"
+	Loaded="method_0">
+	<Grid>
+		<FrameworkElement.Resources>
+			<ResourceDictionary>
+				<local:ProgressConverter
+					x:Key="PrgConverter" />
+			</ResourceDictionary>
+		</FrameworkElement.Resources>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			Name="txtQuestionTitle"
+			Grid.Row="0"
+			Margin="20,20,20,10"
+			Style="{StaticResource TitleTextStyle}"
+			TextWrapping="Wrap">问题描述</TextBlock>
+		<Border
+			Name="mediaBorder"
+			Grid.Row="1">
+			<StackPanel
+				Grid.Row="1"
+				HorizontalAlignment="Center"
+				Margin="0">
+				<Border
+					BorderThickness="3"
+					Background="#FF333333">
+					<Border.BorderBrush>
+						<LinearGradientBrush
+							StartPoint="0.5,0"
+							EndPoint="0.5,1">
+							<GradientStop
+								Offset="0"
+								Color="#FF333333" />
+							<GradientStop
+								Offset="0.5"
+								Color="#FF333333" />
+						</LinearGradientBrush>
+					</Border.BorderBrush>
+					<MediaElement
+						Name="mediaElement"
+						LoadedBehavior="Manual"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						RenderTransformOrigin="0.5,0.5"
+						Volume="{Binding ElementName=volumeSlider, Path=Value}"
+						MediaOpened="mediaElement_MediaOpened"
+						MouseLeftButtonUp="mediaElement_MouseLeftButtonUp">
+						<UIElement.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform />
+								<SkewTransform />
+								<RotateTransform
+									x:Name="mediaAngle"
+									Angle="0" />
+								<TranslateTransform />
+							</TransformGroup>
+						</UIElement.RenderTransform>
+					</MediaElement>
+				</Border>
+			</StackPanel>
+		</Border>
+		<StackPanel
+			Grid.Row="2"
+			HorizontalAlignment="Center"
+			Orientation="Horizontal"
+			Margin="10">
+			<TextBlock
+				Text="{DynamicResource LFrmQueryVol}"
+				FontSize="18"
+				Margin="10,0,10,0" />
+			<Slider
+				Name="volumeSlider"
+				Margin="0,0,10,0"
+				Minimum="0"
+				Maximum="1"
+				Value="0.5"
+				Width="100" />
+			<TextBlock
+				Text="{DynamicResource LFrmMediaBar}"
+				FontSize="18"
+				Margin="10,0,10,0" />
+			<Slider
+				Name="ProgressSlider"
+				LargeChange="10"
+				Margin="0,0,10,0"
+				Width="250"
+				Value="{Binding ElementName=mediaElement, Path=Position, Mode=TwoWay, Converter={StaticResource PrgConverter}}" />
+			<Button
+				Name="openBtn"
+				Content="{DynamicResource LBtnOpen}"
+				Width="80"
+				Margin="10,0,10,0"
+				FontSize="18"
+				Click="openBtn_Click" />
+			<Button
+				Name="StartBtn"
+				Content="{DynamicResource LBtnReplay}"
+				Width="80"
+				Margin="10,0,10,0"
+				FontSize="18"
+				Click="StartBtn_Click" />
+			<Button
+				Name="playBtn"
+				Content="{DynamicResource LBtnContinue}"
+				Width="80"
+				Margin="10,0,10,0"
+				FontSize="18"
+				Click="playBtn_Click" />
+		</StackPanel>
+		<DockPanel
+			Grid.Row="3"
+			Margin="5,0,5,0">
+			<Image
+				Style="{StaticResource ImgLogo}" />
+			<TextBlock
+				Name="txtSurvey"
+				Margin="10,0,0,0"
+				Text=""
+				Style="{StaticResource TitleMediumStyle}"
+				VerticalAlignment="Center" />
+			<Button
+				Name="btnAttach"
+				Content="{DynamicResource LBtnAddAttach}"
+				Width="160"
+				Margin="5,5,0,5"
+				VerticalAlignment="Top"
+				Style="{StaticResource NavBtnStyle}"
+				Visibility="Collapsed"
+				Click="btnAttach_Click" />
+			<Button
+				Name="btnNav"
+				Content="{DynamicResource LBtnNav}"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnNav_Click" />
+		</DockPanel>
+	</Grid>
+</Page>

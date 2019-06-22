@@ -1,0 +1,327 @@
+<Window
+	x:Class="LoyalFilial.MarketResearch.View.SurveyRange" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	Title="{DynamicResource LSystemTitle}"
+	Height="768"
+	Width="1024"
+	WindowState="Maximized"
+	WindowStyle="None"
+	Style="{StaticResource WindowBaseStyle}" xmlns:view="clr-namespace:LoyalFilial.MarketResearch.View"
+	Loaded="method_0">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="2*" />
+			<RowDefinition
+				Height="7*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			Grid.Row="0"
+			Text="{DynamicResource LFrmConfigTitle}"
+			Style="{StaticResource TitleTextStyle}" />
+		<ScrollViewer
+			Grid.Row="1"
+			Margin="5,5,5,20"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Stretch"
+			VerticalScrollBarVisibility="Auto"
+			HorizontalScrollBarVisibility="Auto">
+			<Grid
+				Row="1"
+				Margin="5,5,5,20"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="auto" />
+					<RowDefinition
+						Height="1*" />
+					<RowDefinition
+						Height="1*" />
+					<RowDefinition
+						Height="1*" />
+					<RowDefinition
+						Height="1*" />
+					<RowDefinition
+						Height="1*" />
+					<RowDefinition
+						Height="1*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="7*" />
+					<ColumnDefinition
+						Width="8*" />
+				</Grid.ColumnDefinitions>
+				<TextBlock
+					Name="OrderInfo"
+					Grid.Row="1"
+					Grid.RowSpan="2"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					Width="800"
+					Visibility="Hidden"
+					Style="{StaticResource TitleMediumStyle}"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					TextWrapping="Wrap"
+					Foreground="{DynamicResource PressedBrush}" />
+				<TextBlock
+					Name="City"
+					Grid.Row="0"
+					Text="{DynamicResource LFrmConfigSelect}"
+					Style="{StaticResource TitleMediumStyle}"
+					HorizontalAlignment="Right" />
+				<TextBlock
+					Name="OrderStart"
+					Grid.Row="1"
+					Text="{DynamicResource LFrmConfigStart}"
+					Style="{StaticResource TitleMediumStyle}"
+					HorizontalAlignment="Right" />
+				<TextBlock
+					Name="OrderEnd"
+					Grid.Row="2"
+					Text="{DynamicResource LFrmConfigEnd}"
+					Style="{StaticResource TitleMediumStyle}"
+					HorizontalAlignment="Right" />
+				<TextBlock
+					Name="PCcode"
+					Grid.Row="3"
+					Text="{DynamicResource LFrmConfigMachine}"
+					Style="{StaticResource TitleMediumStyle}"
+					HorizontalAlignment="Right" />
+				<TextBlock
+					Grid.Row="4"
+					Text="{DynamicResource LFrmConfigPsw}"
+					Style="{StaticResource TitleMediumStyle}"
+					HorizontalAlignment="Right" />
+				<TextBlock
+					Grid.Row="5"
+					Text="{DynamicResource LFrmConfigPad}"
+					Style="{StaticResource TitleMediumStyle}"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Top"
+					Margin="0,20,0,0" />
+				<TextBlock
+					Name="txtMP3"
+					Grid.Row="6"
+					Text="{DynamicResource LFrmConfigMP3txt1}"
+					Style="{StaticResource TitleMediumStyle}"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,0,0"
+					Visibility="Collapsed" />
+				<ComboBox
+					Name="cmbCITY"
+					Grid.Row="0"
+					Grid.Column="1"
+					Style="{StaticResource SimpleComboBox}"
+					HorizontalAlignment="Left"
+					Margin="0,0,0,20"
+					SelectionChanged="cmbCITY_SelectionChanged" />
+				<StackPanel
+					Grid.Row="1"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Orientation="Horizontal">
+					<TextBlock
+						Name="txtBegin1st"
+						Text=""
+						Width="0"
+						Style="{StaticResource TitleMediumStyle}"
+						FontSize="32"
+						TextAlignment="Right" />
+					<TextBox
+						Name="txtBegin"
+						InputScope="Number"
+						Margin="0,0,0,0"
+						HorizontalAlignment="Left"
+						Style="{StaticResource TextBoxMediumStyle}"
+						VerticalAlignment="Center"
+						Width="180"
+						MaxLength="5"
+						KeyDown="txtMP3Len_KeyDown"
+						TextChanged="txtMP3Len_TextChanged"
+						GotFocus="txtMP3Len_GotFocus"
+						LostFocus="txtMP3Len_LostFocus" />
+					<TextBlock
+						Name="BeginBit"
+						Text="{DynamicResource LFrmConfigTip}"
+						Style="{StaticResource TitleMediumStyle}"
+						Margin="10,0,0,0" />
+				</StackPanel>
+				<StackPanel
+					Grid.Row="2"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Orientation="Horizontal">
+					<TextBlock
+						Name="txtEnd1st"
+						Text=""
+						Width="0"
+						Style="{StaticResource TitleMediumStyle}"
+						FontSize="32"
+						TextAlignment="Right" />
+					<TextBox
+						Name="txtEnd"
+						InputScope="Number"
+						Margin="0,0,0,0"
+						HorizontalAlignment="Left"
+						Style="{StaticResource TextBoxMediumStyle}"
+						VerticalAlignment="Center"
+						Width="180"
+						MaxLength="5"
+						KeyDown="txtMP3Len_KeyDown"
+						TextChanged="txtMP3Len_TextChanged"
+						GotFocus="txtMP3Len_GotFocus"
+						LostFocus="txtMP3Len_LostFocus" />
+					<TextBlock
+						Name="EndBit"
+						Text="{DynamicResource LFrmConfigTip}"
+						Style="{StaticResource TitleMediumStyle}"
+						Margin="10,0,0,0" />
+				</StackPanel>
+				<StackPanel
+					Grid.Row="3"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Orientation="Horizontal">
+					<TextBlock
+						Name="PCcode1st"
+						Text=""
+						Width="0"
+						Style="{StaticResource TitleMediumStyle}"
+						FontSize="32"
+						TextAlignment="Right" />
+					<TextBox
+						Name="txtPCCode"
+						InputScope="Number"
+						Margin="0,0,0,0"
+						HorizontalAlignment="Left"
+						Style="{StaticResource TextBoxMediumStyle}"
+						VerticalAlignment="Center"
+						Width="180"
+						MaxLength="3"
+						Text=""
+						KeyDown="txtMP3Len_KeyDown"
+						TextChanged="txtMP3Len_TextChanged"
+						GotFocus="txtMP3Len_GotFocus"
+						LostFocus="txtMP3Len_LostFocus" />
+					<TextBlock
+						Name="PCcodeMsg"
+						Text="{DynamicResource LFrmConfigTipNum}"
+						Style="{StaticResource TitleMediumStyle}"
+						Margin="10,0,0,0" />
+				</StackPanel>
+				<StackPanel
+					Grid.Row="4"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Orientation="Horizontal">
+					<PasswordBox
+						Name="passwordBox1"
+						Width="180"
+						Height="40"
+						HorizontalAlignment="Left"
+						FontSize="24"
+						FontWeight="Bold"
+						GotFocus="txtMP3Len_GotFocus"
+						LostFocus="txtMP3Len_LostFocus"
+						KeyDown="passwordBox1_KeyDown" />
+					<TextBlock
+						Name="PasswordMsg"
+						Text="{DynamicResource LFrmConfigTipPsw}"
+						Visibility="Collapsed"
+						Style="{StaticResource TitleMediumStyle}"
+						Margin="10,0,0,0" />
+				</StackPanel>
+				<CheckBox
+					Name="ChkTouchPad"
+					Grid.Row="5"
+					Grid.Column="1"
+					Margin="0,20,0,0"
+					Content="{DynamicResource LSystemYes}"
+					FontSize="14"
+					Foreground="#FFFFFFFF"
+					HorizontalAlignment="Left"
+					Style="{StaticResource CheckBoxStyle}"
+					VerticalAlignment="Top" />
+				<StackPanel
+					Name="spMP3Setup"
+					Grid.Row="6"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Orientation="Horizontal"
+					Visibility="Collapsed">
+					<Button
+						Name="btnMP3Setup"
+						Content="{DynamicResource LBtnMP3Setup}"
+						FontSize="32"
+						Height="45"
+						Margin="0,0,0,0"
+						Style="{StaticResource NavBtnStyle}"
+						Click="btnMP3Setup_Click" />
+				</StackPanel>
+				<StackPanel
+					Name="spMP3"
+					Grid.Row="6"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Orientation="Horizontal"
+					Visibility="Collapsed">
+					<TextBox
+						Name="txtMP3Len"
+						InputScope="Number"
+						ToolTip="{DynamicResource LFrmConfigMP3ToolTip}"
+						Margin="0,0,0,0"
+						HorizontalAlignment="Left"
+						Width="100"
+						MaxLength="3"
+						Style="{StaticResource TextBoxMediumStyle}"
+						VerticalAlignment="Center"
+						KeyDown="txtMP3Len_KeyDown"
+						TextChanged="txtMP3Len_TextChanged"
+						GotFocus="txtMP3Len_GotFocus"
+						LostFocus="txtMP3Len_LostFocus" />
+					<TextBlock
+						Text="{DynamicResource LFrmConfigMinute}"
+						Style="{StaticResource TitleMediumStyle}"
+						Margin="10,0,0,0" />
+					<Button
+						Name="btnMP3"
+						Content="禁止转换"
+						FontSize="32"
+						Width="160"
+						Height="50"
+						Margin="15,0,0,0"
+						Style="{StaticResource NavBtnStyle}"
+						Click="btnMP3_Click" />
+					<TextBlock
+						Text="{DynamicResource LFrmConfigMP3txt2}"
+						Style="{StaticResource TitleMediumStyle}"
+						Margin="10,0,0,0" />
+				</StackPanel>
+			</Grid>
+		</ScrollViewer>
+		<DockPanel
+			Grid.Row="3"
+			Margin="5,0,5,0">
+			<Image
+				Style="{StaticResource ImgLogo}" />
+			<Button
+				Name="btnExit"
+				Content="{DynamicResource LBtnReturn}"
+				Width="300"
+				Margin="20,5,0,20"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnExit_Click" />
+			<Button
+				Name="btnSave"
+				Content="{DynamicResource LBtnSave}"
+				Margin="20,5,20,20"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnSave_Click" />
+		</DockPanel>
+	</Grid>
+</Window>

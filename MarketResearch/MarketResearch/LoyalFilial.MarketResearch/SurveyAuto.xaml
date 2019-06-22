@@ -1,0 +1,148 @@
+<Window
+	x:Class="LoyalFilial.MarketResearch.SurveyAuto" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Control="clr-namespace:LoyalFilial.MarketResearch.Control"
+	Title="SuveryAuto"
+	Height="768"
+	Width="1024"
+	WindowState="Maximized"
+	Style="{StaticResource WindowBaseStyle}" xmlns:MarketResearch="clr-namespace:LoyalFilial.MarketResearch">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="1*" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="7*" />
+			<RowDefinition
+				Height="1*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="4*" />
+			<ColumnDefinition
+				Width="3*" />
+			<ColumnDefinition
+				Width="3*" />
+		</Grid.ColumnDefinitions>
+		<TextBlock
+			Name="txtQuestionTitle"
+			Grid.Row="0"
+			Grid.Column="0"
+			Grid.ColumnSpan="3"
+			Margin="20,2,20,2"
+			HorizontalAlignment="Center"
+			Style="{StaticResource TitleTextStyle}"
+			TextWrapping="Wrap"
+			Foreground="{StaticResource PressedBrush}">
+			<Run
+				Text="Auto Survey" />
+		</TextBlock>
+		<TextBlock
+			Grid.Row="1"
+			Grid.Column="0"
+			HorizontalAlignment="Center"
+			Style="{StaticResource TitleTextStyle}"
+			TextWrapping="Wrap"
+			Foreground="{StaticResource PressedBrush}">
+			<Run
+				Text="问题信息" />
+		</TextBlock>
+		<RichTextBox
+			Name="RTxtQInfo"
+			Grid.Row="2"
+			Grid.Column="0"
+			Margin="5"
+			ScrollViewer.VerticalScrollBarVisibility="Auto">
+			<FlowDocument>
+				<Paragraph>
+					<Run
+						Text="" />
+				</Paragraph>
+			</FlowDocument>
+		</RichTextBox>
+		<TextBlock
+			Grid.Row="1"
+			Grid.Column="1"
+			HorizontalAlignment="Center"
+			Style="{StaticResource TitleTextStyle}"
+			TextWrapping="Wrap"
+			Foreground="{StaticResource PressedBrush}">
+			<Run
+				Text="执行信息" />
+		</TextBlock>
+		<RichTextBox
+			Name="RTxtQRun"
+			Grid.Row="2"
+			Grid.Column="1"
+			Margin="5"
+			ScrollViewer.VerticalScrollBarVisibility="Auto">
+			<FlowDocument>
+				<Paragraph>
+					<Run
+						Text="" />
+				</Paragraph>
+			</FlowDocument>
+		</RichTextBox>
+		<TextBlock
+			Grid.Row="1"
+			Grid.Column="2"
+			HorizontalAlignment="Center"
+			Style="{StaticResource TitleTextStyle}"
+			TextWrapping="Wrap"
+			Foreground="{StaticResource PressedBrush}">
+			<Run
+				Text="系统参数" />
+		</TextBlock>
+		<RichTextBox
+			Name="RTxtQSysInfo"
+			Grid.Row="2"
+			Grid.Column="2"
+			Margin="5"
+			ScrollViewer.VerticalScrollBarVisibility="Auto">
+			<FlowDocument>
+				<Paragraph>
+					<Run
+						Text="" />
+				</Paragraph>
+			</FlowDocument>
+		</RichTextBox>
+		<DockPanel
+			Grid.Row="3"
+			Grid.Column="0"
+			Grid.ColumnSpan="3"
+			Margin="5,0,5,0"
+			HorizontalAlignment="Center">
+			<Button
+				Name="btnRun"
+				Content="执 行"
+				Width="250"
+				Margin="20,5,0,5"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnRun_Click" />
+			<Button
+				Name="btnReport"
+				Content="报告输出"
+				Width="250"
+				Margin="20,5,0,5"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnReport_Click" />
+			<Button
+				Name="btnExit"
+				Content="退 出"
+				Width="250"
+				Margin="20,5,20,5"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnExit_Click" />
+			<Button
+				Name="btnTest"
+				Content="Test"
+				Width="100"
+				Margin="20,5,0,5"
+				Style="{StaticResource NavBtnStyle}"
+				Click="btnTest_Click" />
+		</DockPanel>
+		<Control:UCProgress />
+	</Grid>
+</Window>
