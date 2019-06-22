@@ -1,0 +1,14 @@
+H:\DownLoad\tsc条码打印dll及用例说明\TSCLIB_DLL_IN_VCsharp_2005\2QRCodePrint\obj\Debug\TSCLIB_DLL_IN_C_Sharp.exe
+H:\DownLoad\tsc条码打印dll及用例说明\TSCLIB_DLL_IN_VCsharp_2005\2QRCodePrint\obj\Debug\TSCLIB_DLL_IN_C_Sharp.pdb
+H:\DownLoad\tsc条码打印dll及用例说明\TSCLIB_DLL_IN_VCsharp_2005\2QRCodePrint\bin\Debug\TSCLIB_DLL_IN_C_Sharp.exe
+H:\DownLoad\tsc条码打印dll及用例说明\TSCLIB_DLL_IN_VCsharp_2005\2QRCodePrint\bin\Debug\TSCLIB_DLL_IN_C_Sharp.pdb
+H:\DownLoad\tsc条码打印dll及用例说明\TSCLIB_DLL_IN_VCsharp_2005\2QRCodePrint\obj\Debug\2QRCodePrint.csprojResolveAssemblyReference.cache
+H:\DownLoad\tsc条码打印dll及用例说明\TSCLIB_DLL_IN_VCsharp_2005\2QRCodePrint\obj\Debug\TSCLIB_DLL_IN_C_Sharp.Form1.resources
+H:\DownLoad\tsc条码打印dll及用例说明\TSCLIB_DLL_IN_VCsharp_2005\2QRCodePrint\obj\Debug\TSCLIB_DLL_IN_C_Sharp.Properties.Resources.resources
+H:\DownLoad\tsc条码打印dll及用例说明\TSCLIB_DLL_IN_VCsharp_2005\2QRCodePrint\obj\Debug\2QRCodePrint.csproj.GenerateResource.Cache
+D:\Project\GuPinBarCode\2QRCodePrint\2QRCodePrint\obj\Debug\TSCLIB_DLL_IN_C_Sharp.exe
+D:\Project\GuPinBarCode\2QRCodePrint\2QRCodePrint\obj\Debug\TSCLIB_DLL_IN_C_Sharp.pdb
+D:\Project\GuPinBarCode\2QRCodePrint\2QRCodePrint\obj\Debug\2QRCodePrint.csprojResolveAssemblyReference.cache
+D:\Project\GuPinBarCode\2QRCodePrint\2QRCodePrint\obj\Debug\QRCodePrint.main.resources
+D:\Project\GuPinBarCode\2QRCodePrint\2QRCodePrint\obj\Debug\QRCodePrint.Properties.Resources.resources
+D:\Project\GuPinBarCode\2QRCodePrint\2QRCodePrint\obj\Debug\2QRCodePrint.csproj.GenerateResource.Cache
