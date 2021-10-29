@@ -1,0 +1,462 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KM</name>
+    </assembly>
+    <members>
+        <member name="T:Sunlike.Business.KM.File">
+            <summary>
+            Summary description for File.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Business.KM.File.FileFragmentSize">
+            <summary>
+            文件分段下载的片断大小
+            </summary>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.#ctor">
+            <summary>
+            文件管理
+            </summary>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.#ctor(System.String)">
+            <summary>
+            文件管理
+            </summary>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.GetData(System.String,System.Boolean)">
+            <summary>
+            取文件资料
+            </summary>
+            <param name="fileID">档案编号</param>
+            <param name="showHistory">列历史记录否</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.GetDataByType(System.String,System.String)">
+            <summary>
+            取文件资料
+            </summary>
+            <param name="typeID">文件类型代号</param>
+            <param name="userID">用户代号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.Upload(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32,System.String,System.IO.Stream,System.String[],System.Boolean,System.String,System.Boolean)">
+            <summary>
+            文件上传
+            </summary>
+            <param name="folderID">目录代号</param>
+            <param name="rem">文件描述</param>
+            <param name="engRem">文件英文描述</param>
+            <param name="fileName">文件名称</param>
+            <param name="version">版本</param>
+            <param name="mediaID">Media流文件否</param>
+            <param name="mediaTime">Media播放总时间</param>
+            <param name="mediaRem">Media文件描述</param>
+            <param name="fileContent">文件内容</param>
+            <param name="typeAry">文件所属类型集合</param>
+            <param name="IsDtLc">是否走动态审核</param>
+            <param name="DtNo">动态审核字符串</param>
+            <param name="isSave">是否存盘（是：直接存盘，否：只作缓存）</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.EnterUpload(System.String@,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32,System.String,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            文件上传：插入一笔文件记录（文件内容为空），返回文本指针
+            </summary>
+            <param name="fileID">传出档案编号</param>
+            <param name="oldFileID">前一版的档案编号（当CheckIn时才需要，否则传入null）</param>
+            <param name="folderID">目录代号</param>
+            <param name="rem">文件描述</param>
+            <param name="engRem">文件英文描述</param>
+            <param name="fileName">文件名称</param>
+            <param name="version">版本</param>
+            <param name="mediaID">Media流文件否</param>
+            <param name="mediaTime">Media播放总时间</param>
+            <param name="mediaRem">Media文件描述</param>
+            <param name="IsDtLc">是否走动态审核</param>
+            <param name="DtNo">动态审核字符串</param>
+            <param name="isSave">是否存盘（是：直接存盘，否：只作缓存）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.UploadFragment(System.Byte[],System.Int32,System.Byte[])">
+            <summary>
+            文件上传：分段更新文件内容
+            </summary>
+            <param name="pointer">文本指针</param>
+            <param name="offset">起始位置</param>
+            <param name="fileAry">分段的文件内容（</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.LeaveUpload(System.String,System.String,System.Int32,System.String[],System.Boolean,System.String,System.Boolean)">
+            <summary>
+            文件上传：分段更新结束
+            </summary>
+            <param name="fileID">档案编号</param>
+            <param name="oldFileID">前一版的档案编号（当CheckIn时才需要，否则传入null）</param>
+            <param name="fileSize">档案大小</param>
+            <param name="typeAry">文件所属类型集合</param>
+            <param name="IsDtLc">是否走动态审核</param>
+            <param name="DtNo">动态审核字符串</param>
+            <param name="isSave">是否存盘（是：直接存盘，否：只作缓存）</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.Download(System.String,System.Boolean,System.Int32,System.String,System.Boolean)">
+            <summary>
+            文件下载
+            </summary>
+            <param name="fileID">档案编号</param>
+            <param name="isDownLoad">是否下载文件：true为下载，false为打开</param>
+            <param name="curPos">下载开始位置</param>
+            <param name="fileName">文件名称</param>
+            <param name="isRelative">是否下载相对版本（是则取文件的最新版本）</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.CheckOut(System.String,System.Boolean)">
+            <summary>
+            文件CheckOut
+            </summary>
+            <param name="fileID">档案编号</param>
+            <param name="isUnDo">撤消否</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.CheckIn(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32,System.String,System.IO.Stream,System.String[],System.Boolean,System.String,System.Boolean)">
+            <summary>
+            文件CheckIn
+            </summary>
+            <param name="fileID">档案编号</param>
+            <param name="rem">文件描述</param>
+            <param name="engRem">文件英文描述</param>
+            <param name="fileName">文件名称</param>
+            <param name="version">版本</param>
+            <param name="mediaID">Media流文件否</param>
+            <param name="mediaTime">Media播放总时间</param>
+            <param name="mediaRem">Media文件描述</param>
+            <param name="fileContent">文件内容</param>
+            <param name="typeAry">文件所属类型集合</param>
+            <param name="IsDtLc">是否走动态审核</param>
+            <param name="DtNo">动态审核字符串</param>
+            <param name="isSave">是否存盘（是：直接存盘，否：只作缓存）</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.Rollback(System.String)">
+            <summary>
+            文件版本Rollback
+            </summary>
+            <param name="fileID">档案编号</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.GetType(System.String)">
+            <summary>
+            取文件所属类型资料
+            </summary>
+            <param name="fileID">档案编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.UpdateType(System.String,System.String[])">
+            <summary>
+            修改文件所属类型
+            </summary>
+            <param name="fileID">档案编号</param>
+            <param name="typeAry">文件类型代号集合</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.Update(System.String,System.String,System.String,System.String,System.Boolean,System.Int32,System.String,System.String[])">
+            <summary>
+            修改文件资料
+            </summary>
+            <param name="fileID">档案编号</param>
+            <param name="rem">文件描述</param>
+            <param name="engRem">文件英文描述</param>
+            <param name="version">版本</param>
+            <param name="mediaID">Media流文件否</param>
+            <param name="mediaTime">Media播放总时间</param>
+            <param name="mediaRem">Media文件描述</param>
+            <param name="typeAry">文件所属类型集合</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.Update(System.String,System.String,System.String,System.IO.Stream)">
+            <summary>
+            修改文件内容
+            </summary>
+            <param name="fileID">档案编号</param>
+            <param name="fileName">文件名</param>
+            <param name="extensionName">文件扩展名(含".")</param>
+            <param name="fileContent">文件流</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.Delete(System.String)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="fileID">档案编号</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.Move(System.String,System.String)">
+            <summary>
+            移动文件
+            </summary>
+            <param name="fileID">文件代号</param>
+            <param name="folderID">目录代号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.Search(System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String,System.String,System.String,System.String[])">
+            <summary>
+            文件一般查找
+            </summary>
+            <param name="fileID">文件代号</param>
+            <param name="folderID">目录代号</param>
+            <param name="hasSubFolder">含子目录否</param>
+            <param name="rem">文件描述</param>
+            <param name="engRem">文件英文描述</param>
+            <param name="includeWord">包含字符（用于全文检索）</param>
+            <param name="userID">上传文件的用户代号</param>
+            <param name="startDate">上传文件的起始日期</param>
+            <param name="endDate">上传文件的截止日期</param>
+            <param name="typeAry">文件所属类型集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.Approve(System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            审核通过
+            </summary>
+            <param name="bil_id">目录代号</param>
+            <param name="bil_no">档案编号</param>
+            <param name="chk_man">终审人</param>
+            <param name="cls_dd">终审日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.Deny(System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            审核不通过
+            </summary>
+            <param name="bil_id">目录代号</param>
+            <param name="bil_no">档案编号</param>
+            <param name="chk_man">终审人</param>
+            <param name="cls_dd">终审日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.RollBack(System.String,System.String)">
+            <summary>
+            反审核
+            </summary>
+            <param name="bil_id">目录代号</param>
+            <param name="bil_no">档案编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.GetMediaFileName(System.String)">
+            <summary>
+            从SQL写文件到MEDIA的存放路径，返回生成的Media文件名
+            </summary>
+            <param name="fileID">档案编号</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.UpdateUseID(System.String,System.Boolean)">
+            <summary>
+            修改文件是否使用中
+            </summary>
+            <param name="fileID">档案编号</param>
+            <param name="hasUse">文件是否使用中</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.File.SendMail(System.String,System.String)">
+            <summary>
+            订阅发送MAIL
+            </summary>
+            <param name="fileID">档案编号</param>
+            <param name="folderID">目录代号</param>
+        </member>
+        <member name="T:Sunlike.Business.KM.Folders">
+            <summary>
+            Summary description for Folders.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.#ctor(System.String)">
+            <summary>
+            目录管理
+            </summary>
+            <param name="userID">用户代号</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.GetData(System.String,System.Int32)">
+            <summary>
+            取得目录及其下属目录的资料
+            </summary>
+            <param name="folderID">目录代号</param>
+            <param name="subLevel">下属目录层数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.GetData(System.String)">
+            <summary>
+            取得目录的子目录和文件的资料
+            </summary>
+            <param name="folderID">目录代号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.Add(System.String,System.String,System.String,System.String)">
+            <summary>
+            新增目录，并给当前用户加上管理和操作权限
+            </summary>
+            <param name="folderID">目录代号</param>
+            <param name="folderName">目录名称</param>
+            <param name="engName">目录英文名称</param>
+            <param name="up">上层目录</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.Update(System.String,System.String,System.String)">
+            <summary>
+            修改目录名称
+            </summary>
+            <param name="folderID">目录代号</param>
+            <param name="folderName">目录名称</param>
+            <param name="engName">目录英文名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.Delete(System.String)">
+            <summary>
+            删除目录
+            </summary>
+            <param name="folderID">目录代号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.Move(System.String,System.String)">
+            <summary>
+            移动目录
+            </summary>
+            <param name="folderID">目录代号</param>
+            <param name="up">上层目录</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.GetPower(System.String)">
+            <summary>
+            取目录文件权限（1、可新增否，2、可读取否，3、可更新否，4、可删除否，5、可订阅否，6、是否是继承父目录的权限）
+            </summary>
+            <param name="folderID">目录代号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.GetPower(System.String[])">
+            <summary>
+            取目录文件权限（1、可新增否，2、可读取否，3、可更新否，4、可删除否，5、可订阅否，6、是否是继承父目录的权限）
+            </summary>
+            <param name="folderAry">目录代号集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.GetPower(System.String,System.Boolean)">
+            <summary>
+            取得目录成员权限
+            </summary>
+            <param name="folderID">目录代号</param>
+            <param name="hasSubFolder">是否含下属目录</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.UpdatePower(System.String,System.Xml.XmlDocument,System.Boolean,System.Boolean)">
+            <summary>
+            设定目录权限
+            </summary>
+            <param name="folderID">目录代号</param>
+            <param name="powerXml">要更新权限的XML数据。每笔记录有4个Attribute——
+            STATE（更新状态）：I为新增，U为更新，D为删除；
+            FLAG（用户/群组标记）：U为用户，G为群组；
+            NO（用户/群组代号）；
+            POWER（权限）：TTAATT，1、新增权限(T/F)，2、读取权限(T/F)，3、编辑权限(A/T/F)，
+            4、删除权限(A/T/F)，5、订阅权限(T/F)，6、是否继承父目录权限(T/F)。
+            如果更新状态为D，可不须此Attribute。
+            </param>
+            <param name="inherited">是否继承父目录权限</param>
+            <param name="overwriteSubFolder">是否强迫复写子目录的权限</param>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.GetSubscribe(System.String)">
+            <summary>
+            取得用户订阅的目录
+            </summary>
+            <param name="userID">用户代号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.Subscribe(System.String,System.Boolean)">
+            <summary>
+            文件订阅
+            </summary>
+            <param name="folderID">目录代号</param>
+            <param name="isCheck">订阅否</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.IsExists(System.String)">
+            <summary>
+            判断目录是否存在
+            </summary>
+            <param name="folderID">目录代号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.GetPowerMng(System.String,System.Boolean)">
+            <summary>
+            取得目录管理权限资料
+            </summary>
+            <param name="folderID">目录代号</param>
+            <param name="hasSubFolder">含子目录否</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.UpdatePowerMng(Sunlike.Common.CommonVar.SunlikeDataSet)">
+            <summary>
+            更新目录管理权限资料
+            </summary>
+            <param name="changedDS"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.GetShortCut(System.Int32)">
+            <summary>
+            取发布目录资料
+            </summary>
+            <param name="scNo">发布代号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.UpdateShortCut(Sunlike.Common.CommonVar.SunlikeDataSet)">
+            <summary>
+            更新发布目录资料
+            </summary>
+            <param name="changedDS">发布目录资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Folders.BeforeUpdate(System.String,System.Data.StatementType,System.Data.DataRow,System.Data.UpdateStatus@)">
+            <summary>
+            BeforeUpdate
+            </summary>
+            <param name="tableName"></param>
+            <param name="statementType"></param>
+            <param name="dr"></param>
+            <param name="status"></param>
+        </member>
+        <member name="T:Sunlike.Business.KM.Types">
+            <summary>
+            Summary description for Types.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Business.KM.Types.#ctor">
+            <summary>
+            文件类型管理
+            </summary>
+        </member>
+        <member name="M:Sunlike.Business.KM.Types.GetData">
+            <summary>
+            取文件类型资料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Types.GetData(System.String)">
+            <summary>
+            取文件类型资料
+            </summary>
+            <param name="typeID">文件类型代号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Types.Add(System.String,System.String,System.String)">
+            <summary>
+            新增文件类型
+            </summary>
+            <param name="typeID">文件类型代号</param>
+            <param name="typeName">类型名称</param>
+            <param name="engName">类型英文名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Types.Update(System.String,System.String,System.String)">
+            <summary>
+            修改文件类型
+            </summary>
+            <param name="typeID">文件类型代号</param>
+            <param name="typeName">类型名称</param>
+            <param name="engName">类型英文名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Business.KM.Types.Delete(System.String)">
+            <summary>
+            删除文件类型，返回删除信息（小于0：该文件类型已被使用，不能删除；等于0：删不到任何记录）
+            </summary>
+            <param name="typeID">文件类型代号</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
