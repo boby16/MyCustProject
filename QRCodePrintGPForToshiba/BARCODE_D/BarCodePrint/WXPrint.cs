@@ -946,50 +946,85 @@ namespace BarCodePrintTSB
 
         private void txtBatNo_Leave(object sender, EventArgs e)
         {
+            //string[] _batNoLst = txtBatNo.Text.Split('/');
+            //onlineService.BarPrintServer _bps = new BarCodePrintTSB.onlineService.BarPrintServer();
+            //_bps.UseDefaultCredentials = true;
+            //DataSet _dsBat = new DataSet();
+            //foreach (string _batNo in _batNoLst)
+            //{
+            //    if (!String.IsNullOrEmpty(_batNo))
+            //    {
+            //        if (_batNo.Length != 7)
+            //        {
+            //            MessageBox.Show("批号输入不正确！");
+            //            txtBatNo.Text = "";
+            //            _canUpdate = false;
+            //            return;
+            //        }
+            //        else//检测批号有没有打印过（即有没有生产过）
+            //        {
+            //            //如果是退货条码，由于流水号不跟品号走，只跟批号有关，则BAR_SQNO表中PRD_NO是为空
+            //            if (cbSBBar.Checked)
+            //                _dsBat = _bps.GetBatNo2(" AND LEFT(A.BAT_NO,7)='" + _batNo + "' AND ISNULL(B.PRD_NO,'')='' AND LEFT(A.BAT_NO,7) IN (SELECT SUBSTRING(BAR_NO,13,7) FROM BAR_REC WHERE PRD_NO='" + txtPrdNo.Text + "')  ");
+            //            else
+            //            {
+            //                //如果不是退货条码，由于流水号跟品号+批号走，则必须检测BAR_SQNO表中对应PRD_NO中此批号有没有存在（PRD_MARK(储存批号)）
+            //                if (txtPrdNo.Text.Length > 0)
+            //                    _dsBat = _bps.GetBatNo2(" AND LEFT(A.BAT_NO,7)='" + _batNo + "' AND ISNULL(B.PRD_NO,'')='" + txtPrdNo.Text + "' ");
+            //                else
+            //                    _dsBat = _bps.GetBatNo2(" AND LEFT(A.BAT_NO,7)='" + _batNo + "' AND ISNULL(B.PRD_NO,'')<>'' ");
+            //            }
+            //            if (_dsBat != null && _dsBat.Tables.Count > 0 && _dsBat.Tables[0].Rows.Count > 0)
+            //            {
+            //                if (!cbSBBar.Checked && _dsBat.Tables[0].Select("PRD_NO='" + txtPrdNo.Text + "'").Length <= 0)
+            //                {
+            //                    MessageBox.Show("此批号已使用！");
+            //                    txtBatNo.Text = "";
+            //                    _canUpdate = false;
+            //                }
+            //            }
+            //            else
+            //            {
+            //                MessageBox.Show(string.Format("批号[{0}]不存在！", _batNo));
+            //                txtBatNo.Text = "";
+            //                _canUpdate = false;
+            //                return;
+            //            }
+            //        }
+            //    }
+            //}
+
+
             string[] _batNoLst = txtBatNo.Text.Split('/');
             onlineService.BarPrintServer _bps = new BarCodePrintTSB.onlineService.BarPrintServer();
             _bps.UseDefaultCredentials = true;
-            DataSet _dsBat = new DataSet();
+            DataSet dataSet = new DataSet();
             foreach (string _batNo in _batNoLst)
             {
-                if (!String.IsNullOrEmpty(_batNo))
+                if (!string.IsNullOrEmpty(_batNo))
                 {
                     if (_batNo.Length != 7)
                     {
                         MessageBox.Show("批号输入不正确！");
                         txtBatNo.Text = "";
                         _canUpdate = false;
-                        return;
+                        break;
                     }
-                    else//检测批号有没有打印过（即有没有生产过）
+                    dataSet = _bps.GetBatNo2(" AND LEFT(A.BAT_NO,7)='" + _batNo + "' AND ISNULL(B.PRD_NO,'')='' AND LEFT(A.BAT_NO,7) IN (SELECT SUBSTRING(BAR_NO,13,7) FROM BAR_REC WHERE PRD_NO='" + txtPrdNo.Text + "' or PRD_NO='" + txtPrdNo.Text.Substring(0, 4).Remove(1, 1) + "')  ");
+                    if (txtPrdNo.Text.Length > 0)
                     {
-                        //如果是退货条码，由于流水号不跟品号走，只跟批号有关，则BAR_SQNO表中PRD_NO是为空
-                        if (cbSBBar.Checked)
-                            _dsBat = _bps.GetBatNo2(" AND LEFT(A.BAT_NO,7)='" + _batNo + "' AND ISNULL(B.PRD_NO,'')='' AND LEFT(A.BAT_NO,7) IN (SELECT SUBSTRING(BAR_NO,13,7) FROM BAR_REC WHERE PRD_NO='" + txtPrdNo.Text + "')  ");
-                        else
-                        {
-                            //如果不是退货条码，由于流水号跟品号+批号走，则必须检测BAR_SQNO表中对应PRD_NO中此批号有没有存在（PRD_MARK(储存批号)）
-                            if (txtPrdNo.Text.Length > 0)
-                                _dsBat = _bps.GetBatNo2(" AND LEFT(A.BAT_NO,7)='" + _batNo + "' AND ISNULL(B.PRD_NO,'')='" + txtPrdNo.Text + "' ");
-                            else
-                                _dsBat = _bps.GetBatNo2(" AND LEFT(A.BAT_NO,7)='" + _batNo + "' AND ISNULL(B.PRD_NO,'')<>'' ");
-                        }
-                        if (_dsBat != null && _dsBat.Tables.Count > 0 && _dsBat.Tables[0].Rows.Count > 0)
-                        {
-                            if (!cbSBBar.Checked && _dsBat.Tables[0].Select("PRD_NO='" + txtPrdNo.Text + "'").Length <= 0)
-                            {
-                                MessageBox.Show("此批号已使用！");
-                                txtBatNo.Text = "";
-                                _canUpdate = false;
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show(string.Format("批号[{0}]不存在！", _batNo));
-                            txtBatNo.Text = "";
-                            _canUpdate = false;
-                            return;
-                        }
+                        dataSet.Merge(_bps.GetBatNo2(" AND LEFT(A.BAT_NO,7)='" + _batNo + "' AND (ISNULL(B.PRD_NO,'')='" + txtPrdNo.Text + "' or isnull(B.PRD_NO,'')='" + txtPrdNo.Text.Substring(0, 4).Remove(1, 1) + "') "));
+                    }
+                    else
+                    {
+                        dataSet.Merge(_bps.GetBatNo2(" AND LEFT(A.BAT_NO,7)='" + _batNo + "' AND ISNULL(B.PRD_NO,'')<>'' "));
+                    }
+                    if (dataSet == null || dataSet.Tables.Count <= 0 || dataSet.Tables[0].Rows.Count <= 0)
+                    {
+                        MessageBox.Show(string.Format("批号[{0}]不存在！", _batNo));
+                        txtBatNo.Text = "";
+                        _canUpdate = false;
+                        break;
                     }
                 }
             }
