@@ -1,4 +1,4 @@
-﻿namespace QRCodePrint
+﻿namespace QRCodePrintTSB
 {
     partial class main
     {

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.OleDb;
 
-namespace QRCodePrint
+namespace QRCodePrintTSB
 {
     public partial class main : Form
     {

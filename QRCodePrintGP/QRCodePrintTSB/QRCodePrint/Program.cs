@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
 
-namespace QRCodePrint
+namespace QRCodePrintTSB
 {
     static class Program
     {

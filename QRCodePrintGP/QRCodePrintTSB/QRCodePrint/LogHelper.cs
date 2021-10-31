@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace QRCodePrint
+namespace QRCodePrintTSB
 {
     public class LogHelper
     {

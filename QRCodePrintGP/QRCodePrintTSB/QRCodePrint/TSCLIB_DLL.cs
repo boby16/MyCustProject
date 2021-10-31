@@ -7,7 +7,7 @@
 //using System.Text;
 //using System.Xml;
 
-//namespace QRCodePrint
+//namespace QRCodePrintTSB
 //{
 //    public class TSCLIB_DLL
 //    {

@@ -1,0 +1,24 @@
+   条码打印机WIN驱动使用方法
+
+一. WINDOWNS系统下打印条码与汉字,字母,符号方法
+1. 汉字,字母,符号可以直接指定WINDOWS系统中的任一种TureType字体;
+
+2. 需要打印的条码可选择打印机所支持的条形码字体,可选的条形码字体可以参照
+   "打印机-属性-条形码字体" 中所列出的字体名称
+   注: 在使用时,指定条形码字体时在字体名称前需加"TEC-"
+    如字体名称为"BarFont Code 128",在指定字体时用"TEC-BarFont Code 128'
+    以DELPHI为例:
+    printer.BeginDoc;
+    printer.canvas.font.name:='TEC-BarFont Code128'; {条码字体为BarFont Code128}
+    printer.Canvas.Font.Size:=20;
+    printer.canvas.TextOut(10,10,'12345678'); {打印条码12345678}
+    Printer.Canvas.Font.name:='宋体';
+    printer.canvas.Font.size:=15;
+    printer.canvas.TextOut(10,190,'汉字'); {打印字符}
+    printer.enddoc;
+    
+3. 条码的尺寸可以在"打印机-属性-条形码字体" 编辑中设置
+
+二.常见问题
+1. 打印几张标签后 ERROR 红灯亮
+   答: 页面长,宽不正确,或标签间距不正确,在打印机首选项中修改

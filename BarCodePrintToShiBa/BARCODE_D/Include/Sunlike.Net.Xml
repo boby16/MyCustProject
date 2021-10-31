@@ -1,0 +1,403 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sunlike.Net</name>
+    </assembly>
+    <members>
+        <member name="T:Sunlike.Net.DownLoadMonitor">
+            <summary>
+            下载监视器
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.DownLoadMonitor.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.DownLoadMonitor.#ctor">
+            <summary>
+            下载监视器构造
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.DownLoadMonitor.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.DownLoadMonitor.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.DownLoadMonitor.Reset">
+            <summary>
+            重新设置
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.DownLoadMonitor.IsUsed">
+            <summary>
+            是否被使用
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.DownLoadMonitor.FileSize">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.DownLoadMonitor.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.DownLoadMonitor.DoneValue">
+            <summary>
+            已下载大小
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.DownLoadMonitor.Threads">
+            <summary>
+            下载块数
+            </summary>
+        </member>
+        <member name="T:Sunlike.Net.SingleDownLoadDialog">
+            <summary>
+            单线程下载窗体
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.SingleDownLoadDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.SingleDownLoadDialog.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.SingleDownLoadDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.SingleDownLoadDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.SingleDownLoadDialog.OnLoad(System.EventArgs)">
+            <summary>
+            OnLoad
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sunlike.Net.SingleDownLoadDialog.DownLoadFile(System.String,System.String,System.Collections.ArrayList)">
+            <summary>
+            下载Assembly
+            </summary>
+            <param name="remotingPath">远端路径</param>
+            <param name="localPath">本地路径</param>
+            <param name="fileList">下载文件集</param>
+        </member>
+        <member name="M:Sunlike.Net.SingleDownLoadDialog.RestoreFile(System.String)">
+            <summary>
+            更新出错或终止更新时把已更新的文件还原
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.SingleDownLoadDialog.FileList">
+            <summary>
+            FileList
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.SingleDownLoadDialog.LocalPath">
+            <summary>
+            LocalPath
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.SingleDownLoadDialog.RemotingPath">
+            <summary>
+            RemotingPath
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.SingleDownLoadDialog.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.SingleDownLoadDialog.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.SingleDownLoadDialog.TotalValue">
+            <summary>
+            总数值
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.SingleDownLoadDialog.Value">
+            <summary>
+            当前数值
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.SingleDownLoadDialog.HadLoaded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Sunlike.Net.MultiDownLoader">
+            <summary>
+            多线程下载
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.MultiDownLoader.#ctor(System.String,System.String,System.String,System.Int32,Sunlike.Net.MultiDownLoader.MultiThreadHandler)">
+            <summary>
+            多线程下载
+            </summary>
+            <param name="remotingPath">远端路径</param>
+            <param name="localPath">本地文件存放路径</param>
+            <param name="fileName">文件名</param>
+            <param name="threadCount">线程数量</param>
+            <param name="handler">外部代理</param>
+        </member>
+        <member name="M:Sunlike.Net.MultiDownLoader.Start">
+            <summary>
+            开始下载
+            </summary>
+        </member>
+        <member name="T:Sunlike.Net.MultiDownLoader.DownLoadInfo">
+            <summary>
+            下载信息
+            </summary>
+        </member>
+        <member name="T:Sunlike.Net.MultiDownLoader.MultiThreadHandler">
+            <summary>
+            多线程操作代理
+            </summary>
+        </member>
+        <member name="T:Sunlike.Net.MultiDownLoader.EDownLoadAction">
+            <summary>
+            多线程下载状态
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.MultiDownLoader.EDownLoadAction.Preparing">
+            <summary>
+            准备中
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.MultiDownLoader.EDownLoadAction.Prepared">
+            <summary>
+            准备完成
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.MultiDownLoader.EDownLoadAction.Loading">
+            <summary>
+            下载中
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.MultiDownLoader.EDownLoadAction.Finished">
+            <summary>
+            下载完成
+            </summary>
+        </member>
+        <member name="T:Sunlike.Net.MultiDownLoader.MultiThreadArgs">
+            <summary>
+            多线程操作代理参数类型
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.MultiDownLoader.MultiThreadArgs.#ctor(System.String,System.String,System.Int64,System.Int64,System.Int64,Sunlike.Net.MultiDownLoader.EDownLoadAction,System.Int32,System.Int32)">
+            <summary>
+            构造
+            </summary>
+            <param name="downLoadID">下载代号</param>
+            <param name="fileName">文件名</param>
+            <param name="start">开始位置</param>
+            <param name="end">结束位置</param>
+            <param name="totalLength">文件总长度</param>
+            <param name="action">操作类型</param>
+            <param name="currentThreads">下载线程数</param>
+            <param name="totalThreads">总下载线程数</param>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoader.MultiThreadArgs.CurrentThreads">
+            <summary>
+            下载线程数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoader.MultiThreadArgs.TotalThreads">
+            <summary>
+            总下载线程数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoader.MultiThreadArgs.DownLoadID">
+            <summary>
+            下载代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoader.MultiThreadArgs.Action">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoader.MultiThreadArgs.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoader.MultiThreadArgs.StartPosition">
+            <summary>
+            开始位置
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoader.MultiThreadArgs.EndPosition">
+            <summary>
+            结束位置
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoader.MultiThreadArgs.TotalLength">
+            <summary>
+            文件总长度
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoader.MultiThreadArgs.CurrentPosition">
+            <summary>
+            当前位置
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoader.MultiThreadArgs.DoneData">
+            <summary>
+            当前操作已写入的数据长度
+            </summary>
+        </member>
+        <member name="T:Sunlike.Net.MultiDownLoadDialog">
+            <summary>
+            单线程下载窗体
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.MultiDownLoadDialog.FilesPer">
+            <summary>
+            每次同时下载的文件数
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.MultiDownLoadDialog.DownLoadThreads">
+            <summary>
+            每份文件下载的线程数
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.MultiDownLoadDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.MultiDownLoadDialog.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.MultiDownLoadDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.MultiDownLoadDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.MultiDownLoadDialog.OnLoad(System.EventArgs)">
+            <summary>
+            OnLoad
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sunlike.Net.MultiDownLoadDialog.DownLoadFile(System.String,System.String,System.Collections.ArrayList)">
+            <summary>
+            下载Assembly
+            </summary>
+            <param name="remotingPath">远端路径</param>
+            <param name="localPath">本地路径</param>
+            <param name="fileList">下载文件集</param>
+        </member>
+        <member name="M:Sunlike.Net.MultiDownLoadDialog.RestoreFile(System.String)">
+            <summary>
+            更新出错或终止更新时把已更新的文件还原
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoadDialog.FileList">
+            <summary>
+            FileList
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoadDialog.LocalPath">
+            <summary>
+            LocalPath
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoadDialog.RemotingPath">
+            <summary>
+            RemotingPath
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.MultiDownLoadDialog.HadLoaded">
+            <summary>
+            是否可以取消下载
+            </summary>
+        </member>
+        <member name="T:Sunlike.Net.LoadTypeForm">
+            <summary>
+            Summary description for LoadTypeForm.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.LoadTypeForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.LoadTypeForm.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.LoadTypeForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Net.LoadTypeForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Net.LoadTypeForm.LoadType">
+            <summary>
+            下载方式
+            </summary>
+        </member>
+        <member name="T:Sunlike.Net.LoadTypeForm.ELoadType">
+            <summary>
+            下载方式
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.LoadTypeForm.ELoadType.MultiDownLoad">
+            <summary>
+            多线程
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.LoadTypeForm.ELoadType.SingleDownLoad">
+            <summary>
+            单线程
+            </summary>
+        </member>
+        <member name="T:Sunlike.Net.StaticHelper">
+            <summary>
+            Summary description for StaticHelper.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Net.StaticHelper.Language">
+            <summary>
+            语言别名称
+            </summary>
+        </member>
+    </members>
+</doc>

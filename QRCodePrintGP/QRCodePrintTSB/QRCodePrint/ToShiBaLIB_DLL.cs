@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
+using System.Net;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Xml;
 
-namespace QRCodePrint
+namespace QRCodePrintTSB
 {
     public class ToShiBaLIB_DLL
     {
@@ -463,9 +465,18 @@ namespace QRCodePrint
                 "\\GP",
                 boxVo.SerialNo
             });
-            ToShiBaLIB_DLL.openport(printSet);
-            ToShiBaLIB_DLL.setup("105", "95", "3", "12", "0", "2.5", "0");
-            ToShiBaLIB_DLL.clearbuffer();
+
+            string _ip = GetPrintSetIP();
+            string _port = GetPrintSetPort();
+
+
+            StringBuilder str = new StringBuilder();
+            str.Append("{D1150,0950,1050|}").Append('\n');
+            str.Append("{C|}").Append('\n');
+
+            str.Append("{PC000;0070,0070,20,20,e,00,B,J0101=" + boxVo.CompName + "|}").Append('\n');
+
+
             ToShiBaLIB_DLL.windowsfont(70, 70, 65, 0, 0, 0, "标楷体", boxVo.CompName);
 
 
@@ -663,6 +674,44 @@ namespace QRCodePrint
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.Load(System.Windows.Forms.Application.ExecutablePath + ".config");
             string xpath = "/configuration/appSettings/add[@key=\"CompanyType\"]/@value";
+            XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
+            if (xmlNode != null)
+            {
+                result = xmlNode.InnerText;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// IP
+        /// </summary>
+        /// <returns></returns>
+        public static string GetPrintSetIP()
+        {
+            string result = "";
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.Load(System.Windows.Forms.Application.ExecutablePath + ".config");
+            string xpath = "/configuration/appSettings/add[@key=\"PrintSetIP\"]/@value";
+            XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
+            if (xmlNode != null)
+            {
+                result = xmlNode.InnerText;
+            }
+            return result;
+        }
+
+
+
+        /// <summary>
+        /// PORT
+        /// </summary>
+        /// <returns></returns>
+        public static string GetPrintSetPort()
+        {
+            string result = "";
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.Load(System.Windows.Forms.Application.ExecutablePath + ".config");
+            string xpath = "/configuration/appSettings/add[@key=\"PrintSetPort\"]/@value";
             XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
             if (xmlNode != null)
             {
