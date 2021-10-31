@@ -93,10 +93,14 @@ namespace QRCodePrintTSB
                         curSerialNo += 1;
                     }
                     boxVo.SerialNo = boxVo.SerialNo.Substring(0, boxVo.SerialNo.Length - 6) + curSerialNo.ToString("000000");
-                    if (dpi == "200")
-                        BoxPrint200(boxVo);
-                    else
-                        BoxPrint300(boxVo);
+                    //if (dpi == "200")
+                    //    BoxPrint200(boxVo);
+                    //else if(dpi == "300")
+                    //    BoxPrint300(boxVo);
+                    //else
+                    //{
+                        BoxPrintNew(boxVo);
+                    //}
                 }
                 //SaveBoxSerialNo(curSerialNo);
                 DbMannager.SaveDateSerailNo(boxVo.PDate, curSerialNo);
@@ -468,6 +472,12 @@ namespace QRCodePrintTSB
 
             string _ip = GetPrintSetIP();
             string _port = GetPrintSetPort();
+            
+            //建立连接
+            IPAddress ipa = IPAddress.Parse(_ip);
+            IPEndPoint ipe = new IPEndPoint(ipa, int.Parse(_port));
+            Socket soc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            soc.Connect(ipe);
 
 
             StringBuilder str = new StringBuilder();
@@ -477,34 +487,53 @@ namespace QRCodePrintTSB
             str.Append("{PC000;0070,0070,20,20,e,00,B,J0101=" + boxVo.CompName + "|}").Append('\n');
 
 
-            ToShiBaLIB_DLL.windowsfont(70, 70, 65, 0, 0, 0, "标楷体", boxVo.CompName);
+
+            str.Append("{LC;1060,0060,1170,0140,1,3|}").Append('\n');//方框
+            str.Append("{LC;0800,0060,0200,0080,1,3,005|}").Append('\n');//椭圆
+
+            str.Append("{PC000;0820,0070,20,20,e,00,B,J0101=ROHS|}").Append('\n');
+
+            str.Append("{LC;1060,0060,1170,0140,1,3|}").Append('\n');//方框
+            
 
 
-            ToShiBaLIB_DLL.sendcommand("ELLIPSE 800,60,200,80,6");
-            ToShiBaLIB_DLL.windowsfont(820, 70, 60, 0, 2, 0, "标楷体", "ROHS");
-            ToShiBaLIB_DLL.sendcommand("BOX 1060,60,1170,140,6");
-            ToShiBaLIB_DLL.windowsfont(1080, 70, 60, 0, 2, 0, "标楷体", "HF");
+            str.Append("{PC000;1080,0070,20,20,e,00,B,J0101=HF|}").Append('\n');
+            str.Append("{PC000;0100,0220,20,20,e,00,B,J0101=" + lblPO + "|}").Append('\n');
 
-            ToShiBaLIB_DLL.windowsfont(100, 220, 60, 0, 0, 0, "标楷体", lblPO);
-            ToShiBaLIB_DLL.barcode("400", "220", "128", "50", "2", "0", "2", "4", boxVo.OrderNo);
-            ToShiBaLIB_DLL.sendcommand("QRCODE 950,750,L,8,A,0,M2,S3,\"" + qrCode + "\"");
-            ToShiBaLIB_DLL.windowsfont(100, 320, 60, 0, 0, 0, "标楷体", lblPN);
-            ToShiBaLIB_DLL.windowsfont(400, 320, 60, 0, 0, 0, "标楷体", boxVo.PN);
-            ToShiBaLIB_DLL.windowsfont(100, 420, 60, 0, 0, 0, "标楷体", content3);
-            ToShiBaLIB_DLL.windowsfont(400, 420, 60, 0, 0, 0, "标楷体", boxVo.LotNo);
-            ToShiBaLIB_DLL.windowsfont(100, 520, 60, 0, 0, 0, "标楷体", lblDate);
-            ToShiBaLIB_DLL.windowsfont(400, 520, 60, 0, 0, 0, "标楷体", _dateValPrint);
-            ToShiBaLIB_DLL.windowsfont(100, 620, 60, 0, 0, 0, "标楷体", content5);
-            ToShiBaLIB_DLL.windowsfont(400, 620, 60, 0, 0, 0, "标楷体", boxVo.Qty);
-            ToShiBaLIB_DLL.windowsfont(100, 720, 60, 0, 0, 0, "标楷体", content6);
-            ToShiBaLIB_DLL.windowsfont(400, 720, 60, 0, 0, 0, "标楷体", boxVo.DWGRev);
-            ToShiBaLIB_DLL.windowsfont(100, 820, 60, 0, 0, 0, "标楷体", "PERCO PN：");
-            ToShiBaLIB_DLL.windowsfont(400, 820, 60, 0, 0, 0, "标楷体", boxVo.GPPrdName.Substring(0, 2) + boxVo.SPC);
-            ToShiBaLIB_DLL.windowsfont(100, 920, 60, 0, 0, 0, "标楷体", content7);
-            ToShiBaLIB_DLL.windowsfont(400, 920, 60, 0, 0, 0, "标楷体", ("GP" + boxVo.SerialNo));
-            //ToShiBaLIB_DLL.barcode("400", "920", "128", "50", "2", "0", "2", "4", ("GP" + boxVo.SerialNo));
-            ToShiBaLIB_DLL.printlabel("1", "1");
-            ToShiBaLIB_DLL.closeport();
+
+            str.Append("{XB00;0400,0220,9,1,04,0,0080,+0000000000,000,0,00=" + boxVo.OrderNo + "|}").Append('\n');
+            str.Append("{PC000;0400,0270,20,20,e,00,B,J0101=" + boxVo.OrderNo + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0320,20,20,e,00,B,J0101=" + lblPN + "|}").Append('\n');
+            str.Append("{PC000;0400,0320,20,20,e,00,B,J0101=" + boxVo.PN + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0420,20,20,e,00,B,J0101=" + content3 + "|}").Append('\n');
+            str.Append("{PC000;0400,0420,20,20,e,00,B,J0101=" + boxVo.LotNo + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0520,20,20,e,00,B,J0101=" + lblDate + "|}").Append('\n');
+            str.Append("{PC000;0400,0520,20,20,e,00,B,J0101=" + _dateValPrint + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0620,20,20,e,00,B,J0101=" + content5 + "|}").Append('\n');
+            str.Append("{PC000;0400,0620,20,20,e,00,B,J0101=" + boxVo.Qty + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0720,20,20,e,00,B,J0101=" + content6 + "|}").Append('\n');
+            str.Append("{PC000;0400,0720,20,20,e,00,B,J0101=" + boxVo.DWGRev + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0820,20,20,e,00,B,J0101=PERCO PN：|}").Append('\n');
+            str.Append("{PC000;0400,0820,20,20,e,00,B,J0101=" + boxVo.GPPrdName.Substring(0, 2) + boxVo.SPC + "|}").Append('\n');
+
+
+            str.Append("{XB00;0950,0750,T,L,08,A,0=" + qrCode + "|}").Append('\n');//二维码
+
+
+            str.Append("{PC000;0100,0920,20,20,e,00,B,J0101=" + content7 + "|}").Append('\n');
+            str.Append("{PC000;0400,0920,20,20,e,00,B,J0101=" + boxVo.SerialNo + "|}").Append('\n');
+
+            str.Append("{XS;I,0001,0002C6111|}").Append('\n');
+
+            byte[] b = System.Text.Encoding.GetEncoding("GB2312").GetBytes(str.ToString());
+            soc.Send(b);
+            soc.Close();
         }
 
 
@@ -568,69 +597,7 @@ namespace QRCodePrintTSB
             ToShiBaLIB_DLL.printlabel("1", "1");
             ToShiBaLIB_DLL.closeport();
         }
-
-        public void barCodePrintNew(DataRow _dr)
-        {
-
-            BarSet _bs = new BarSet();
-            string fileName = System.Windows.Forms.Application.ExecutablePath + ".config";
-            string _ip = _bs.GetPrintSet(fileName, "PrintSetIP");
-            string _port = _bs.GetPrintSet(fileName, "PrintSetPort");
-
-            String ipPort = "";
-            //建立连接
-            IPAddress ipa = IPAddress.Parse(_ip);
-            IPEndPoint ipe = new IPEndPoint(ipa, int.Parse(_port));
-            Socket soc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            soc.Connect(ipe);
-
-
-            //string str= "hello,123456789,大家好! ";
-
-
-
-            //箱条码（富士康版）
-            string _bar_no = _dr["BARCODE"].ToString();//序列号
-            string _line11 = "供 应 商   " + _dr["FOX_SUP"].ToString(); string _line12 = "材　　　 质   " + _dr["FOX_CZ"].ToString();
-            string _line21 = "品　　名   " + _dr["FOX_PRD_NAME"].ToString(); string _line22 = "规　　　 格   " + _dr["BOX_SPC"].ToString();
-            string _line31 = "版　　次   " + _dr["FOX_BC"].ToString(); string _line32 = "Foxconn料号 " + _dr["FOX_LH"].ToString();
-            string _line41 = "生产批号   " + _dr["FOX_BAT_MANU"].ToString(); string _line42 = "原 料 批 号   " + _dr["FOX_BAT_MAT"].ToString();
-            string _qty = "数量(卷)   " + _dr["BOX_QTY"].ToString();
-            string _weight = "重量(KG)   " + _dr["FOX_WEIGHT"].ToString();
-            string _bat_no = "追溯批号   " + _dr["BOX_BAT"].ToString();
-
-            StringBuilder str = new StringBuilder();
-            str.Append("{D1150,0950,1050|}").Append('\n');
-            str.Append("{C|}").Append('\n');
-
-            str.Append("{PC000;0950,0780,20,20,e,22,B,J0101=" + _line11 + "|}").Append('\n');
-            str.Append("{PC000;0550,0780,20,20,e,22,B,J0101=" + _line12 + "|}").Append('\n');
-
-            str.Append("{PC000;0950,0700,20,20,e,22,B,J0101=" + _line21 + "|}").Append('\n');
-            str.Append("{PC000;0550,0700,20,20,e,22,B,J0101=" + _line22 + "|}").Append('\n');
-
-            str.Append("{PC000;0950,0620,20,20,e,22,B,J0101=" + _line31 + "|}").Append('\n');
-            str.Append("{PC000;0550,0620,20,20,e,22,B,J0101=" + _line32 + "|}").Append('\n');
-
-            str.Append("{PC000;0950,0540,20,20,e,22,B,J0101=" + _line41 + "|}").Append('\n');
-            str.Append("{PC000;0550,0540,20,20,e,22,B,J0101=" + _line42 + "|}").Append('\n');
-
-            str.Append("{PC000;0950,0460,20,20,e,22,B,J0101=" + _qty + "|}").Append('\n');
-            str.Append("{PC000;0950,0380,20,20,e,22,B,J0101=" + _weight + "|}").Append('\n');
-
-            str.Append("{PC000;0950,0300,20,20,e,22,B,J0101=" + _bat_no + "|}").Append('\n');
-            str.Append("{PC000;0950,0220,20,20,e,22,B,J0101=出货日期|}").Append('\n');
-
-            str.Append("{XB00;0300,0100,9,1,04,0,0080,+0000000000,000,0,00=" + _bar_no + _dr["INIT_NO"].ToString() + "|}").Append('\n');
-
-            str.Append("{PC000;0600,0060,15,15,e,22,B=" + _bar_no.Substring(1) + "-" + _dr["INIT_NO"].ToString() + "|}").Append('\n');
-
-            str.Append("{XS;I,0001,0002C6111|}").Append('\n');
-
-            byte[] b = System.Text.Encoding.GetEncoding("GB2312").GetBytes(str.ToString());
-            soc.Send(b);
-            soc.Close();
-        }
+        
 
 
         public static string GetPrintSet()
