@@ -481,48 +481,46 @@ namespace QRCodePrintTSB
 
 
             StringBuilder str = new StringBuilder();
-            str.Append("{D1150,0950,1050|}").Append('\n');
+            str.Append("{D1150,1050,1050|}").Append('\n');
             str.Append("{C|}").Append('\n');
 
-            str.Append("{PC000;0070,0070,25,25,e,00,B,J0101=" + boxVo.CompName + "|}").Append('\n');
+            str.Append("{PC000;0070,0100,25,25,e,00,B,J0101=" + boxVo.CompName + "|}").Append('\n');
             
-            str.Append("{LC;0700,0050,0800,0100,1,3,008|}").Append('\n');//椭圆
-            str.Append("{PC000;0720,0070,20,20,e,00,B,J0101=ROHS|}").Append('\n');
+            str.Append("{LC;0700,0050,0830,0100,1,3,030|}").Append('\n');//椭圆
+            str.Append("{PC000;0730,0120,20,20,e,00,B,J0101=ROHS|}").Append('\n');
 
-            str.Append("{LC;0900,0060,1000,0140,1,3,000|}").Append('\n');//方框
-            str.Append("{PC000;0950,0070,20,20,e,00,B,J0101=HF|}").Append('\n');
+            str.Append("{LC;0850,0050,0950,0100,1,3,000|}").Append('\n');//方框
+            str.Append("{PC000;0900,0120,20,20,e,00,B,J0101=HF|}").Append('\n');
 
-            str.Append("{PC000;0100,0220,20,20,e,00,B,J0101=" + lblPO + "|}").Append('\n');
-
-       
+            str.Append("{PC000;0100,0230,20,20,e,00,B,J0101=" + lblPO + "|}").Append('\n');
             str.Append("{XB00;0400,0180,9,1,04,0,0050,+0000000000,000,1,00=" + boxVo.OrderNo + "|}").Append('\n');
             //str.Append("{PC000;0400,0270,20,20,e,00,B,J0101=" + boxVo.OrderNo + "|}").Append('\n');
 
             str.Append("{PC000;0100,0320,20,20,e,00,B,J0101=" + lblPN + "|}").Append('\n');
             str.Append("{PC000;0400,0320,20,20,e,00,B,J0101=" + boxVo.PN + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0420,20,20,e,00,B,J0101=" + content3 + "|}").Append('\n');
-            str.Append("{PC000;0400,0420,20,20,e,00,B,J0101=" + boxVo.LotNo + "|}").Append('\n');
+            str.Append("{PC000;0100,0410,20,20,e,00,B,J0101=" + content3 + "|}").Append('\n');
+            str.Append("{PC000;0400,0410,20,20,e,00,B,J0101=" + boxVo.LotNo + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0520,20,20,e,00,B,J0101=" + lblDate + "|}").Append('\n');
-            str.Append("{PC000;0400,0520,20,20,e,00,B,J0101=" + _dateValPrint + "|}").Append('\n');
+            str.Append("{PC000;0100,0500,20,20,e,00,B,J0101=" + lblDate + "|}").Append('\n');
+            str.Append("{PC000;0400,0500,20,20,e,00,B,J0101=" + _dateValPrint + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0620,20,20,e,00,B,J0101=" + content5 + "|}").Append('\n');
-            str.Append("{PC000;0400,0620,20,20,e,00,B,J0101=" + boxVo.Qty + "|}").Append('\n');
+            str.Append("{PC000;0100,0590,20,20,e,00,B,J0101=" + content5 + "|}").Append('\n');
+            str.Append("{PC000;0400,0590,20,20,e,00,B,J0101=" + boxVo.Qty + "|}").Append('\n');
+            
 
-            str.Append("{PC000;0100,0720,20,20,e,00,B,J0101=" + content6 + "|}").Append('\n');
-            str.Append("{PC000;0400,0720,20,20,e,00,B,J0101=" + boxVo.DWGRev + "|}").Append('\n');
+            str.Append("{XB00;0750,0650,T,M,16,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
+
+            str.Append("{PC000;0100,0680,20,20,e,00,B,J0101=" + content6 + "|}").Append('\n');
+            str.Append("{PC000;0400,0680,20,20,e,00,B,J0101=" + boxVo.DWGRev + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0770,20,20,e,00,B,J0101=PERCO PN：|}").Append('\n');
+            str.Append("{PC000;0400,0770,20,20,e,00,B,J0101=" + boxVo.GPPrdName.Substring(0, 2) + boxVo.SPC + "|}").Append('\n');
 
 
-            str.Append("{XB00;0850,0750,T,M,08,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
 
-            str.Append("{PC000;0100,0820,20,20,e,00,B,J0101=PERCO PN：|}").Append('\n');
-            str.Append("{PC000;0400,0820,20,20,e,00,B,J0101=" + boxVo.GPPrdName.Substring(0, 2) + boxVo.SPC + "|}").Append('\n');
-
-
-
-            str.Append("{PC000;0100,0920,20,20,e,00,B,J0101=" + content7 + "|}").Append('\n');
-            str.Append("{PC000;0400,0920,20,20,e,00,B,J0101=" + boxVo.SerialNo + "|}").Append('\n');
+            str.Append("{PC000;0100,0860,20,20,e,00,B,J0101=" + content7 + "|}").Append('\n');
+            str.Append("{PC000;0400,0860,20,20,e,00,B,J0101=" + boxVo.SerialNo + "|}").Append('\n');
 
             str.Append("{XS;I,0001,0002C6111|}").Append('\n');
 
