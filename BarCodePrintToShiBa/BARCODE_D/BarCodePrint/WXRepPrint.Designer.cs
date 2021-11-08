@@ -93,6 +93,8 @@ namespace BarCodePrintTSB
             this.bnXpPrint = new System.Windows.Forms.Button();
             this.bnXpClear = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtXingHao = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.pnlFoxconn.SuspendLayout();
@@ -114,7 +116,7 @@ namespace BarCodePrintTSB
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(275, 668);
+            this.panel1.Size = new System.Drawing.Size(275, 629);
             this.panel1.TabIndex = 0;
             // 
             // panel6
@@ -122,16 +124,16 @@ namespace BarCodePrintTSB
             this.panel6.Controls.Add(this.bnXpAddPrint);
             this.panel6.Controls.Add(this.cbXpNew);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 605);
+            this.panel6.Location = new System.Drawing.Point(0, 588);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(273, 42);
+            this.panel6.Size = new System.Drawing.Size(273, 39);
             this.panel6.TabIndex = 47;
             // 
             // bnXpAddPrint
             // 
-            this.bnXpAddPrint.Location = new System.Drawing.Point(177, 8);
+            this.bnXpAddPrint.Location = new System.Drawing.Point(177, 7);
             this.bnXpAddPrint.Name = "bnXpAddPrint";
-            this.bnXpAddPrint.Size = new System.Drawing.Size(75, 25);
+            this.bnXpAddPrint.Size = new System.Drawing.Size(75, 23);
             this.bnXpAddPrint.TabIndex = 1;
             this.bnXpAddPrint.Text = "加入打印";
             this.bnXpAddPrint.UseVisualStyleBackColor = true;
@@ -139,9 +141,9 @@ namespace BarCodePrintTSB
             // 
             // cbXpNew
             // 
-            this.cbXpNew.Location = new System.Drawing.Point(86, 8);
+            this.cbXpNew.Location = new System.Drawing.Point(86, 7);
             this.cbXpNew.Name = "cbXpNew";
-            this.cbXpNew.Size = new System.Drawing.Size(75, 25);
+            this.cbXpNew.Size = new System.Drawing.Size(75, 23);
             this.cbXpNew.TabIndex = 0;
             this.cbXpNew.Text = "新增";
             this.cbXpNew.UseVisualStyleBackColor = true;
@@ -149,6 +151,8 @@ namespace BarCodePrintTSB
             // 
             // pnlFoxconn
             // 
+            this.pnlFoxconn.Controls.Add(this.txtXingHao);
+            this.pnlFoxconn.Controls.Add(this.label26);
             this.pnlFoxconn.Controls.Add(this.txtWeightPer);
             this.pnlFoxconn.Controls.Add(this.label21);
             this.pnlFoxconn.Controls.Add(this.txtWeight);
@@ -169,150 +173,150 @@ namespace BarCodePrintTSB
             this.pnlFoxconn.Controls.Add(this.label22);
             this.pnlFoxconn.Controls.Add(this.label23);
             this.pnlFoxconn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlFoxconn.Location = new System.Drawing.Point(0, 369);
+            this.pnlFoxconn.Location = new System.Drawing.Point(0, 340);
             this.pnlFoxconn.Name = "pnlFoxconn";
-            this.pnlFoxconn.Size = new System.Drawing.Size(273, 236);
+            this.pnlFoxconn.Size = new System.Drawing.Size(273, 248);
             this.pnlFoxconn.TabIndex = 40;
             this.pnlFoxconn.Visible = false;
             // 
             // txtWeightPer
             // 
-            this.txtWeightPer.Location = new System.Drawing.Point(6, 196);
+            this.txtWeightPer.Location = new System.Drawing.Point(6, 181);
             this.txtWeightPer.Name = "txtWeightPer";
-            this.txtWeightPer.Size = new System.Drawing.Size(16, 20);
+            this.txtWeightPer.Size = new System.Drawing.Size(16, 21);
             this.txtWeightPer.TabIndex = 49;
             this.txtWeightPer.Visible = false;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(25, 199);
+            this.label21.Location = new System.Drawing.Point(25, 184);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(52, 13);
+            this.label21.Size = new System.Drawing.Size(53, 12);
             this.label21.TabIndex = 48;
             this.label21.Text = "重量(KG)";
             // 
             // txtWeight
             // 
-            this.txtWeight.Location = new System.Drawing.Point(83, 196);
+            this.txtWeight.Location = new System.Drawing.Point(83, 181);
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(152, 20);
+            this.txtWeight.Size = new System.Drawing.Size(152, 21);
             this.txtWeight.TabIndex = 47;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(22, 173);
+            this.label20.Location = new System.Drawing.Point(22, 160);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(55, 13);
+            this.label20.Size = new System.Drawing.Size(53, 12);
             this.label20.TabIndex = 46;
             this.label20.Text = "原料批号";
             // 
             // txtBatMat
             // 
-            this.txtBatMat.Location = new System.Drawing.Point(83, 170);
+            this.txtBatMat.Location = new System.Drawing.Point(83, 157);
             this.txtBatMat.Name = "txtBatMat";
-            this.txtBatMat.Size = new System.Drawing.Size(152, 20);
+            this.txtBatMat.Size = new System.Drawing.Size(152, 21);
             this.txtBatMat.TabIndex = 45;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(22, 147);
+            this.label19.Location = new System.Drawing.Point(22, 136);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 13);
+            this.label19.Size = new System.Drawing.Size(53, 12);
             this.label19.TabIndex = 44;
             this.label19.Text = "生产批号";
             // 
             // txtBatManu
             // 
-            this.txtBatManu.Location = new System.Drawing.Point(83, 144);
+            this.txtBatManu.Location = new System.Drawing.Point(83, 133);
             this.txtBatManu.Name = "txtBatManu";
-            this.txtBatManu.Size = new System.Drawing.Size(152, 20);
+            this.txtBatManu.Size = new System.Drawing.Size(152, 21);
             this.txtBatManu.TabIndex = 43;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(5, 121);
+            this.label18.Location = new System.Drawing.Point(5, 112);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(72, 13);
+            this.label18.Size = new System.Drawing.Size(71, 12);
             this.label18.TabIndex = 42;
             this.label18.Text = "Foxconn料号";
             // 
             // txtFoxLH
             // 
-            this.txtFoxLH.Location = new System.Drawing.Point(83, 118);
+            this.txtFoxLH.Location = new System.Drawing.Point(83, 109);
             this.txtFoxLH.Name = "txtFoxLH";
             this.txtFoxLH.ReadOnly = true;
-            this.txtFoxLH.Size = new System.Drawing.Size(152, 20);
+            this.txtFoxLH.Size = new System.Drawing.Size(152, 21);
             this.txtFoxLH.TabIndex = 41;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(46, 95);
+            this.label17.Location = new System.Drawing.Point(46, 88);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(31, 13);
+            this.label17.Size = new System.Drawing.Size(29, 12);
             this.label17.TabIndex = 40;
             this.label17.Text = "版次";
             // 
             // txtBC
             // 
-            this.txtBC.Location = new System.Drawing.Point(83, 92);
+            this.txtBC.Location = new System.Drawing.Point(83, 85);
             this.txtBC.Name = "txtBC";
             this.txtBC.ReadOnly = true;
-            this.txtBC.Size = new System.Drawing.Size(152, 20);
+            this.txtBC.Size = new System.Drawing.Size(152, 21);
             this.txtBC.TabIndex = 39;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(46, 69);
+            this.label16.Location = new System.Drawing.Point(46, 64);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(31, 13);
+            this.label16.Size = new System.Drawing.Size(29, 12);
             this.label16.TabIndex = 38;
             this.label16.Text = "材质";
             // 
             // txtCZ
             // 
-            this.txtCZ.Location = new System.Drawing.Point(83, 66);
+            this.txtCZ.Location = new System.Drawing.Point(83, 61);
             this.txtCZ.Name = "txtCZ";
             this.txtCZ.ReadOnly = true;
-            this.txtCZ.Size = new System.Drawing.Size(152, 20);
+            this.txtCZ.Size = new System.Drawing.Size(152, 21);
             this.txtCZ.TabIndex = 37;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(46, 43);
+            this.label15.Location = new System.Drawing.Point(46, 40);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(31, 13);
+            this.label15.Size = new System.Drawing.Size(29, 12);
             this.label15.TabIndex = 36;
             this.label15.Text = "品名";
             // 
             // txtPrdName
             // 
-            this.txtPrdName.Location = new System.Drawing.Point(83, 40);
+            this.txtPrdName.Location = new System.Drawing.Point(83, 37);
             this.txtPrdName.Name = "txtPrdName";
-            this.txtPrdName.Size = new System.Drawing.Size(152, 20);
+            this.txtPrdName.Size = new System.Drawing.Size(152, 21);
             this.txtPrdName.TabIndex = 35;
             this.txtPrdName.Text = "片材";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(34, 17);
+            this.label14.Location = new System.Drawing.Point(34, 16);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(43, 13);
+            this.label14.Size = new System.Drawing.Size(41, 12);
             this.label14.TabIndex = 34;
             this.label14.Text = "供应商";
             // 
             // txtSup
             // 
-            this.txtSup.Location = new System.Drawing.Point(83, 14);
+            this.txtSup.Location = new System.Drawing.Point(83, 13);
             this.txtSup.Name = "txtSup";
-            this.txtSup.Size = new System.Drawing.Size(152, 20);
+            this.txtSup.Size = new System.Drawing.Size(152, 21);
             this.txtSup.TabIndex = 33;
             this.txtSup.Text = "固品";
             // 
@@ -320,16 +324,16 @@ namespace BarCodePrintTSB
             // 
             this.label22.Location = new System.Drawing.Point(5, -6);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(261, 21);
+            this.label22.Size = new System.Drawing.Size(261, 19);
             this.label22.TabIndex = 50;
             this.label22.Text = "................................................................................." +
                 ".";
             // 
             // label23
             // 
-            this.label23.Location = new System.Drawing.Point(5, 219);
+            this.label23.Location = new System.Drawing.Point(5, 223);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(261, 21);
+            this.label23.Size = new System.Drawing.Size(261, 19);
             this.label23.TabIndex = 51;
             this.label23.Text = "................................................................................." +
                 ".";
@@ -357,9 +361,9 @@ namespace BarCodePrintTSB
             this.panel7.Controls.Add(this.txtSpc);
             this.panel7.Controls.Add(this.label9);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 124);
+            this.panel7.Location = new System.Drawing.Point(0, 114);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(273, 245);
+            this.panel7.Size = new System.Drawing.Size(273, 226);
             this.panel7.TabIndex = 48;
             // 
             // btn4BH
@@ -367,9 +371,9 @@ namespace BarCodePrintTSB
             this.btn4BH.BackgroundImage = global::BarCodePrintTSB.Properties.Resources.qry;
             this.btn4BH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn4BH.Font = new System.Drawing.Font("Arial", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn4BH.Location = new System.Drawing.Point(235, 179);
+            this.btn4BH.Location = new System.Drawing.Point(235, 165);
             this.btn4BH.Name = "btn4BH";
-            this.btn4BH.Size = new System.Drawing.Size(20, 20);
+            this.btn4BH.Size = new System.Drawing.Size(20, 18);
             this.btn4BH.TabIndex = 79;
             this.btn4BH.UseVisualStyleBackColor = true;
             this.btn4BH.Visible = false;
@@ -378,66 +382,66 @@ namespace BarCodePrintTSB
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(24, 182);
+            this.label25.Location = new System.Drawing.Point(24, 168);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(55, 13);
+            this.label25.Size = new System.Drawing.Size(53, 12);
             this.label25.TabIndex = 78;
             this.label25.Text = "产品编号";
             // 
             // txtPrdBH
             // 
-            this.txtPrdBH.Location = new System.Drawing.Point(85, 179);
+            this.txtPrdBH.Location = new System.Drawing.Point(85, 165);
             this.txtPrdBH.Name = "txtPrdBH";
             this.txtPrdBH.ReadOnly = true;
-            this.txtPrdBH.Size = new System.Drawing.Size(150, 20);
+            this.txtPrdBH.Size = new System.Drawing.Size(150, 21);
             this.txtPrdBH.TabIndex = 77;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(52, 208);
+            this.label24.Location = new System.Drawing.Point(52, 192);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(27, 13);
+            this.label24.Size = new System.Drawing.Size(23, 12);
             this.label24.TabIndex = 76;
             this.label24.Text = "P/O";
             // 
             // txtPO
             // 
-            this.txtPO.Location = new System.Drawing.Point(85, 205);
+            this.txtPO.Location = new System.Drawing.Point(85, 189);
             this.txtPO.Name = "txtPO";
-            this.txtPO.Size = new System.Drawing.Size(150, 20);
+            this.txtPO.Size = new System.Drawing.Size(150, 21);
             this.txtPO.TabIndex = 75;
             // 
             // txtPrdNo
             // 
-            this.txtPrdNo.Location = new System.Drawing.Point(85, 21);
+            this.txtPrdNo.Location = new System.Drawing.Point(85, 19);
             this.txtPrdNo.Name = "txtPrdNo";
             this.txtPrdNo.ReadOnly = true;
-            this.txtPrdNo.Size = new System.Drawing.Size(150, 20);
+            this.txtPrdNo.Size = new System.Drawing.Size(150, 21);
             this.txtPrdNo.TabIndex = 50;
             // 
             // txtIdx1
             // 
-            this.txtIdx1.Location = new System.Drawing.Point(85, 73);
+            this.txtIdx1.Location = new System.Drawing.Point(85, 67);
             this.txtIdx1.Name = "txtIdx1";
             this.txtIdx1.ReadOnly = true;
-            this.txtIdx1.Size = new System.Drawing.Size(150, 20);
+            this.txtIdx1.Size = new System.Drawing.Size(150, 21);
             this.txtIdx1.TabIndex = 56;
             // 
             // txtIdxNo
             // 
-            this.txtIdxNo.Location = new System.Drawing.Point(29, 73);
+            this.txtIdxNo.Location = new System.Drawing.Point(29, 67);
             this.txtIdxNo.Name = "txtIdxNo";
-            this.txtIdxNo.Size = new System.Drawing.Size(16, 20);
+            this.txtIdxNo.Size = new System.Drawing.Size(16, 21);
             this.txtIdxNo.TabIndex = 64;
             this.txtIdxNo.Visible = false;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(48, 76);
+            this.label13.Location = new System.Drawing.Point(48, 70);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 13);
+            this.label13.Size = new System.Drawing.Size(29, 12);
             this.label13.TabIndex = 57;
             this.label13.Text = "中类";
             // 
@@ -447,9 +451,9 @@ namespace BarCodePrintTSB
             this.btn4IdxNo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn4IdxNo.Enabled = false;
             this.btn4IdxNo.Font = new System.Drawing.Font("Arial", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn4IdxNo.Location = new System.Drawing.Point(235, 153);
+            this.btn4IdxNo.Location = new System.Drawing.Point(235, 141);
             this.btn4IdxNo.Name = "btn4IdxNo";
-            this.btn4IdxNo.Size = new System.Drawing.Size(20, 20);
+            this.btn4IdxNo.Size = new System.Drawing.Size(20, 18);
             this.btn4IdxNo.TabIndex = 63;
             this.btn4IdxNo.UseVisualStyleBackColor = true;
             this.btn4IdxNo.Visible = false;
@@ -459,7 +463,7 @@ namespace BarCodePrintTSB
             // 
             this.label12.Location = new System.Drawing.Point(7, 1);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(259, 21);
+            this.label12.Size = new System.Drawing.Size(259, 19);
             this.label12.TabIndex = 55;
             this.label12.Text = "................................................................................." +
                 "..";
@@ -467,78 +471,78 @@ namespace BarCodePrintTSB
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 156);
+            this.label4.Location = new System.Drawing.Point(24, 144);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 62;
             this.label4.Text = "打印品名";
             // 
             // txtBatNo
             // 
-            this.txtBatNo.Location = new System.Drawing.Point(85, 99);
+            this.txtBatNo.Location = new System.Drawing.Point(85, 91);
             this.txtBatNo.Name = "txtBatNo";
             this.txtBatNo.ReadOnly = true;
-            this.txtBatNo.Size = new System.Drawing.Size(150, 20);
+            this.txtBatNo.Size = new System.Drawing.Size(150, 21);
             this.txtBatNo.TabIndex = 58;
             // 
             // txtPrintName
             // 
-            this.txtPrintName.Location = new System.Drawing.Point(85, 153);
+            this.txtPrintName.Location = new System.Drawing.Point(85, 141);
             this.txtPrintName.Name = "txtPrintName";
             this.txtPrintName.ReadOnly = true;
-            this.txtPrintName.Size = new System.Drawing.Size(150, 20);
+            this.txtPrintName.Size = new System.Drawing.Size(150, 21);
             this.txtPrintName.TabIndex = 61;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(48, 50);
+            this.label10.Location = new System.Drawing.Point(48, 46);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(31, 13);
+            this.label10.Size = new System.Drawing.Size(29, 12);
             this.label10.TabIndex = 54;
             this.label10.Text = "规格";
             // 
             // txtPrdQty
             // 
-            this.txtPrdQty.Location = new System.Drawing.Point(85, 125);
+            this.txtPrdQty.Location = new System.Drawing.Point(85, 115);
             this.txtPrdQty.Name = "txtPrdQty";
             this.txtPrdQty.ReadOnly = true;
-            this.txtPrdQty.Size = new System.Drawing.Size(150, 20);
+            this.txtPrdQty.Size = new System.Drawing.Size(150, 21);
             this.txtPrdQty.TabIndex = 48;
             this.txtPrdQty.Text = "1";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(48, 104);
+            this.label11.Location = new System.Drawing.Point(48, 96);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 13);
+            this.label11.Size = new System.Drawing.Size(29, 12);
             this.label11.TabIndex = 59;
             this.label11.Text = "批号";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 128);
+            this.label6.Location = new System.Drawing.Point(7, 118);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 13);
+            this.label6.Size = new System.Drawing.Size(71, 12);
             this.label6.TabIndex = 49;
             this.label6.Text = "数量(卷)/箱";
             // 
             // txtSpc
             // 
-            this.txtSpc.Location = new System.Drawing.Point(85, 47);
+            this.txtSpc.Location = new System.Drawing.Point(85, 43);
             this.txtSpc.Name = "txtSpc";
             this.txtSpc.ReadOnly = true;
-            this.txtSpc.Size = new System.Drawing.Size(150, 20);
+            this.txtSpc.Size = new System.Drawing.Size(150, 21);
             this.txtSpc.TabIndex = 53;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(48, 24);
+            this.label9.Location = new System.Drawing.Point(48, 22);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 13);
+            this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 51;
             this.label9.Text = "品号";
             // 
@@ -557,15 +561,15 @@ namespace BarCodePrintTSB
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(273, 124);
+            this.panel5.Size = new System.Drawing.Size(273, 114);
             this.panel5.TabIndex = 30;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 96);
+            this.label8.Location = new System.Drawing.Point(24, 89);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 65;
             this.label8.Text = "打印版式";
             // 
@@ -581,71 +585,71 @@ namespace BarCodePrintTSB
             "5.富士康",
             "6.塑柏碧",
             "7.瀚荃"});
-            this.cbFormat.Location = new System.Drawing.Point(83, 92);
+            this.cbFormat.Location = new System.Drawing.Point(83, 85);
             this.cbFormat.Name = "cbFormat";
-            this.cbFormat.Size = new System.Drawing.Size(150, 21);
+            this.cbFormat.Size = new System.Drawing.Size(150, 20);
             this.cbFormat.TabIndex = 66;
             this.cbFormat.SelectionChangeCommitted += new System.EventHandler(this.cbFormat_SelectionChangeCommitted);
             this.cbFormat.DropDown += new System.EventHandler(this.cbFormat_DropDown);
             // 
             // txtSNB
             // 
-            this.txtSNB.Location = new System.Drawing.Point(83, 37);
+            this.txtSNB.Location = new System.Drawing.Point(83, 34);
             this.txtSNB.Name = "txtSNB";
-            this.txtSNB.Size = new System.Drawing.Size(65, 20);
+            this.txtSNB.Size = new System.Drawing.Size(65, 21);
             this.txtSNB.TabIndex = 26;
             this.txtSNB.Leave += new System.EventHandler(this.txtSNB_Leave);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(151, 40);
+            this.label2.Location = new System.Drawing.Point(151, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 13);
+            this.label2.Size = new System.Drawing.Size(17, 12);
             this.label2.TabIndex = 29;
             this.label2.Text = "--";
             // 
             // txtCount
             // 
-            this.txtCount.Location = new System.Drawing.Point(83, 66);
+            this.txtCount.Location = new System.Drawing.Point(83, 61);
             this.txtCount.Name = "txtCount";
-            this.txtCount.Size = new System.Drawing.Size(150, 20);
+            this.txtCount.Size = new System.Drawing.Size(150, 21);
             this.txtCount.TabIndex = 14;
             this.txtCount.Text = "1";
             this.txtCount.Leave += new System.EventHandler(this.txtCount_Leave);
             // 
             // txtSNE
             // 
-            this.txtSNE.Location = new System.Drawing.Point(168, 37);
+            this.txtSNE.Location = new System.Drawing.Point(168, 34);
             this.txtSNE.Name = "txtSNE";
-            this.txtSNE.Size = new System.Drawing.Size(65, 20);
+            this.txtSNE.Size = new System.Drawing.Size(65, 21);
             this.txtSNE.TabIndex = 28;
             this.txtSNE.Leave += new System.EventHandler(this.txtSNE_Leave);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 70);
+            this.label7.Location = new System.Drawing.Point(24, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 13);
+            this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 15;
             this.label7.Text = "打印张数";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 40);
+            this.label5.Location = new System.Drawing.Point(12, 37);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 27;
             this.label5.Text = "起止流水号";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 15);
+            this.label1.Location = new System.Drawing.Point(48, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 25;
             this.label1.Text = "日期";
             // 
@@ -653,42 +657,42 @@ namespace BarCodePrintTSB
             // 
             this.txtDate.CustomFormat = "yyyy-MM-dd";
             this.txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtDate.Location = new System.Drawing.Point(83, 11);
+            this.txtDate.Location = new System.Drawing.Point(83, 10);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(150, 20);
+            this.txtDate.Size = new System.Drawing.Size(150, 21);
             this.txtDate.TabIndex = 24;
             this.txtDate.ValueChanged += new System.EventHandler(this.txtDate_ValueChanged);
             // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 614);
+            this.panel2.Location = new System.Drawing.Point(0, 579);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(273, 52);
+            this.panel2.Size = new System.Drawing.Size(273, 48);
             this.panel2.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 467);
+            this.label3.Location = new System.Drawing.Point(28, 431);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 5;
             this.label3.Text = "部门";
             // 
             // txt4Dep
             // 
-            this.txt4Dep.Location = new System.Drawing.Point(63, 463);
+            this.txt4Dep.Location = new System.Drawing.Point(63, 427);
             this.txt4Dep.Name = "txt4Dep";
-            this.txt4Dep.Size = new System.Drawing.Size(120, 20);
+            this.txt4Dep.Size = new System.Drawing.Size(120, 21);
             this.txt4Dep.TabIndex = 1;
             // 
             // btnDept
             // 
             this.btnDept.Font = new System.Drawing.Font("Arial", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDept.Location = new System.Drawing.Point(196, 466);
+            this.btnDept.Location = new System.Drawing.Point(196, 430);
             this.btnDept.Name = "btnDept";
-            this.btnDept.Size = new System.Drawing.Size(25, 20);
+            this.btnDept.Size = new System.Drawing.Size(25, 18);
             this.btnDept.TabIndex = 16;
             this.btnDept.Text = "...";
             this.btnDept.UseVisualStyleBackColor = true;
@@ -698,9 +702,9 @@ namespace BarCodePrintTSB
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(275, 618);
+            this.panel3.Location = new System.Drawing.Point(275, 583);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(523, 50);
+            this.panel3.Size = new System.Drawing.Size(523, 46);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -710,14 +714,14 @@ namespace BarCodePrintTSB
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(308, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(213, 48);
+            this.panel4.Size = new System.Drawing.Size(213, 44);
             this.panel4.TabIndex = 4;
             // 
             // bnXpPrint
             // 
-            this.bnXpPrint.Location = new System.Drawing.Point(114, 11);
+            this.bnXpPrint.Location = new System.Drawing.Point(114, 10);
             this.bnXpPrint.Name = "bnXpPrint";
-            this.bnXpPrint.Size = new System.Drawing.Size(75, 25);
+            this.bnXpPrint.Size = new System.Drawing.Size(75, 23);
             this.bnXpPrint.TabIndex = 3;
             this.bnXpPrint.Text = "打印";
             this.bnXpPrint.UseVisualStyleBackColor = true;
@@ -725,9 +729,9 @@ namespace BarCodePrintTSB
             // 
             // bnXpClear
             // 
-            this.bnXpClear.Location = new System.Drawing.Point(13, 11);
+            this.bnXpClear.Location = new System.Drawing.Point(13, 10);
             this.bnXpClear.Name = "bnXpClear";
-            this.bnXpClear.Size = new System.Drawing.Size(75, 25);
+            this.bnXpClear.Size = new System.Drawing.Size(75, 23);
             this.bnXpClear.TabIndex = 2;
             this.bnXpClear.Text = "清除";
             this.bnXpClear.UseVisualStyleBackColor = true;
@@ -741,16 +745,32 @@ namespace BarCodePrintTSB
             this.dataGridView1.Location = new System.Drawing.Point(275, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(523, 618);
+            this.dataGridView1.Size = new System.Drawing.Size(523, 583);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
+            // txtXingHao
+            // 
+            this.txtXingHao.Location = new System.Drawing.Point(83, 205);
+            this.txtXingHao.Name = "txtXingHao";
+            this.txtXingHao.Size = new System.Drawing.Size(152, 21);
+            this.txtXingHao.TabIndex = 55;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(46, 206);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(29, 12);
+            this.label26.TabIndex = 54;
+            this.label26.Text = "型号";
+            // 
             // WXRepPrint
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 668);
+            this.ClientSize = new System.Drawing.Size(798, 629);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -843,5 +863,7 @@ namespace BarCodePrintTSB
         private System.Windows.Forms.TextBox txtPrdBH;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtPO;
+        private System.Windows.Forms.TextBox txtXingHao;
+        private System.Windows.Forms.Label label26;
 	}
 }

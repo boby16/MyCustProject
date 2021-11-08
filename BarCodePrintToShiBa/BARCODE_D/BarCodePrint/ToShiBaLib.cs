@@ -373,9 +373,10 @@ namespace BarCodePrintTSB
             string _line21 = "品　　名   " + _dr["FOX_PRD_NAME"].ToString(); string _line22 = "规　　　 格   " + _dr["BOX_SPC"].ToString();
             string _line31 = "版　　次   " + _dr["FOX_BC"].ToString(); string _line32 = "Foxconn料号 " + _dr["FOX_LH"].ToString();
             string _line41 = "生产批号   " + _dr["FOX_BAT_MANU"].ToString(); string _line42 = "原 料 批 号   " + _dr["FOX_BAT_MAT"].ToString();
-            string _qty = "数量(卷)   " + _dr["BOX_QTY"].ToString();
+            string _qty = "数量(卷)   " + _dr["BOX_QTY"].ToString(); string _fox_xinghao = "型号 " + _dr["FOX_XINGHAO"].ToString();
             string _weight = "重量(KG)   " + _dr["FOX_WEIGHT"].ToString();
             string _bat_no = "追溯批号   " + _dr["BOX_BAT"].ToString();
+            
 
             StringBuilder str = new StringBuilder();
             str.Append("{D1150,0950,1050|}").Append('\n');
@@ -394,6 +395,8 @@ namespace BarCodePrintTSB
             str.Append("{PC000;0550,0540,20,20,e,22,B,J0101=" + _line42 + "|}").Append('\n');
 
             str.Append("{PC000;0950,0460,20,20,e,22,B,J0101=" + _qty + "|}").Append('\n');
+            str.Append("{PC000;0550,0460,20,20,e,22,B,J0101=" + _fox_xinghao + "|}").Append('\n');
+
             str.Append("{PC000;0950,0380,20,20,e,22,B,J0101=" + _weight + "|}").Append('\n');
 
             str.Append("{PC000;0950,0300,20,20,e,22,B,J0101=" + _bat_no + "|}").Append('\n');

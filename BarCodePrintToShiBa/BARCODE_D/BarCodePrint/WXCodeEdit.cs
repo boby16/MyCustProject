@@ -76,6 +76,7 @@ namespace BarCodePrintTSB
             _barPrintTable.Columns.Add("FOX_BAT_MANU", System.Type.GetType("System.String"));//生产批号
             _barPrintTable.Columns.Add("FOX_BAT_MAT", System.Type.GetType("System.String"));//原料批号
             _barPrintTable.Columns.Add("FOX_WEIGHT", System.Type.GetType("System.String"));//重量
+            _barPrintTable.Columns.Add("FOX_XINGHAO", System.Type.GetType("System.String"));//型号
 
 			_barPrintTable.PrimaryKey = new DataColumn[1] { _pkColumn };
 			return _barPrintTable;
@@ -198,6 +199,7 @@ namespace BarCodePrintTSB
                     _dr["FOX_BAT_MANU"] = txtBatManu.Text;//生产批号
                     _dr["FOX_BAT_MAT"] = txtBatMat.Text;//原料批号
                     _dr["FOX_WEIGHT"] = txtWeight.Text; //重量
+                    _dr["FOX_XINGHAO"] = txtXingHao.Text;//型号
 
                     #endregion
                 }
@@ -300,6 +302,7 @@ namespace BarCodePrintTSB
             _barCodeTable1.Columns.Add("FOX_BAT_MANU", System.Type.GetType("System.String"));//生产批号
             _barCodeTable1.Columns.Add("FOX_BAT_MAT", System.Type.GetType("System.String"));//原料批号
             _barCodeTable1.Columns.Add("FOX_WEIGHT", System.Type.GetType("System.String"));//重量
+            _barCodeTable1.Columns.Add("FOX_XINGHAO", System.Type.GetType("System.String"));//型号
 
 			for (int i = 0; i < printHistoryDS.Tables[0].Rows.Count; i++)
 			{
@@ -351,6 +354,7 @@ namespace BarCodePrintTSB
                     _dr1["FOX_BAT_MANU"] = printHistoryDS.Tables[0].Rows[i]["FOX_BAT_MANU"];
                     _dr1["FOX_BAT_MAT"] = printHistoryDS.Tables[0].Rows[i]["FOX_BAT_MAT"];
                     _dr1["FOX_WEIGHT"] = printHistoryDS.Tables[0].Rows[i]["FOX_WEIGHT"];
+                    _dr1["FOX_XINGHAO"] = printHistoryDS.Tables[0].Rows[i]["FOX_XINGHAO"];
 
                     _barCodeTable1.Rows.Add(_dr1);
                 }
@@ -617,6 +621,7 @@ namespace BarCodePrintTSB
             dataGridView1.Columns["FOX_BAT_MANU"].HeaderText = "生产批号";
             dataGridView1.Columns["FOX_BAT_MAT"].HeaderText = "原料批号";
             dataGridView1.Columns["FOX_WEIGHT"].HeaderText = "重量(KG)";
+            dataGridView1.Columns["FOX_XINGHAO"].HeaderText = "型号";
         }
 
         #region Date
