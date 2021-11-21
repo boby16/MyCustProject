@@ -601,7 +601,7 @@ namespace QRCodePrintTSB
 
 
             StringBuilder str = new StringBuilder();
-            str.Append("{D1050,1050,1050|}").Append('\n');
+            str.Append("{D1050,0950,0950|}").Append('\n');
             str.Append("{C|}").Append('\n');
 
             //str.Append("{LC;0700,0050,0830,0100,1,3,040|}").Append('\n');//椭圆
