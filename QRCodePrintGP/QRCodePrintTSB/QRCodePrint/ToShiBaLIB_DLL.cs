@@ -65,21 +65,7 @@ namespace QRCodePrintTSB
         private static string dpi = GetPrintSetDPI();
         private static string printSet = ToShiBaLIB_DLL.GetPrintSet();
         private static string compType = GetCompanyType();
-        public static void OrderNoBarCodePrint(string orderNo, string qty)
-        {
-            if (dpi == "200")
-                OrderNoBarCodePrint200(orderNo, qty);
-            else
-                OrderNoBarCodePrint300(orderNo, qty);
-        }
 
-        public static void OrderNoBarCodePrintNoBox(string orderNo, string qty)
-        {
-            if (dpi == "200")
-                OrderNoBarCodePrintNoBox200(orderNo, qty);
-            else
-                OrderNoBarCodePrintNoBox300(orderNo, qty);
-        }
 
         public static void BoxPrint(BoxVO boxVo)
         {
@@ -93,19 +79,18 @@ namespace QRCodePrintTSB
                         curSerialNo += 1;
                     }
                     boxVo.SerialNo = boxVo.SerialNo.Substring(0, boxVo.SerialNo.Length - 6) + curSerialNo.ToString("000000");
-                    //if (dpi == "200")
-                    //    BoxPrint200(boxVo);
-                    //else if(dpi == "300")
-                    //    BoxPrint300(boxVo);
-                    //else
-                    //{
+                    if (dpi == "200")
+                        BoxPrint200(boxVo);
+                    else if (dpi == "300")
+                        BoxPrint300(boxVo);
+                    else
                         BoxPrintNew(boxVo);
-                    //}
                 }
                 //SaveBoxSerialNo(curSerialNo);
                 DbMannager.SaveDateSerailNo(boxVo.PDate, curSerialNo);
             }
         }
+
         public static void ProductPrint(ProductVO productVo)
         {
             int curSerialNo = 0;
@@ -120,189 +105,218 @@ namespace QRCodePrintTSB
                     productVo.SerialNo = productVo.SerialNo.Substring(0, productVo.SerialNo.Length - 6) + curSerialNo.ToString("000000");
                     if (dpi == "200")
                         ProductPrint200(productVo);
-                    else
+                    else if (dpi == "300")
                         ProductPrint300(productVo);
+                    else
+                        ProductPrintNew(productVo);
                 }
                 //SaveBoxSerialNo(curSerialNo);
                 DbMannager.SaveDateSerailNo(productVo.PDate, curSerialNo);
             }
         }
 
-        public static void OrderNoBarCodePrint300(string orderNo, string qty)
+        public static void ZBPrint(ZhanbanVO zhanbanVo)
         {
-            string text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            ToShiBaLIB_DLL.openport(printSet);
-            ToShiBaLIB_DLL.setup("70", "24", "3", "12", "0", "2.5", "0");
-            ToShiBaLIB_DLL.clearbuffer();
-            ToShiBaLIB_DLL.sendcommand("BOX 50,50,800,110,4");
-            ToShiBaLIB_DLL.windowsfont(80, 65, 45, 0, 0, 0, "标楷体", orderNo);
-            ToShiBaLIB_DLL.barcode("400", "60", "128", "50", "0", "0", "2", "4", orderNo);
-            ToShiBaLIB_DLL.windowsfont(720, 65, 45, 0, 0, 0, "标楷体", qty);
-            ToShiBaLIB_DLL.printlabel("1", "1");
-            ToShiBaLIB_DLL.closeport();
+            if (dpi == "200")
+                ZBPrint200(zhanbanVo);
+            else if (dpi == "300")
+                ZBPrint300(zhanbanVo);
+            else
+                ZBPrintNew(zhanbanVo);
         }
 
-        public static void OrderNoBarCodePrintNoBox300(string orderNo, string qty)
+
+        public static void ZBPrint300(ZhanbanVO zhanbanVo)
         {
-            string text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string _dateVal = zhanbanVo.PDate.Year + ""
+                + ((zhanbanVo.PDate.Month < 10) ? ("0" + zhanbanVo.PDate.Month.ToString()) : zhanbanVo.PDate.Month.ToString()) 
+                + "" + ((zhanbanVo.PDate.Day < 10) ? ("0" + zhanbanVo.PDate.Day.ToString()) : zhanbanVo.PDate.Day.ToString());
+
+            string qrCode = string.Concat(new string[]
+            {
+                zhanbanVo.OrderNo,
+                ",",
+                zhanbanVo.CompNo,
+                ",",
+                zhanbanVo.PN,
+                ",",
+                zhanbanVo.Qty,
+                ",",
+                _dateVal,
+                ",",
+                zhanbanVo.DWGRev
+            });
             ToShiBaLIB_DLL.openport(printSet);
-            ToShiBaLIB_DLL.setup("70", "24", "3", "12", "0", "2.5", "0");
+            ToShiBaLIB_DLL.setup("100", "50", "3", "12", "0", "2.5", "0");
             ToShiBaLIB_DLL.clearbuffer();
-            ToShiBaLIB_DLL.windowsfont(80, 65, 45, 0, 0, 0, "标楷体", orderNo);
-            ToShiBaLIB_DLL.barcode("400", "60", "128", "50", "0", "0", "2", "4", orderNo);
-            ToShiBaLIB_DLL.printlabel("1", qty);
+            
+            ToShiBaLIB_DLL.sendcommand("QRCODE 300,160,L,10,A,0,M2,S3,\"" + qrCode + "\"");
+            ToShiBaLIB_DLL.printlabel("1", "1");
             ToShiBaLIB_DLL.closeport();
         }
 
         public static void BoxPrint300(BoxVO boxVo)
         {
+            string _dateVal = boxVo.PDate.Year
+                + "" + ((boxVo.PDate.Month < 10) ? ("0" + boxVo.PDate.Month.ToString()) : boxVo.PDate.Month.ToString())
+                + "" + ((boxVo.PDate.Day < 10) ? ("0" + boxVo.PDate.Day.ToString()) : boxVo.PDate.Day.ToString());
+            
+            string qrCode = string.Concat(new string[]
+            {
+                boxVo.OrderNo,
+                ",",
+                boxVo.CompNo,
+                ",",
+                boxVo.PN,
+                ",",
+                boxVo.Qty,
+                ",",
+                _dateVal,
+                ",",
+                boxVo.LotNo,
+                ",",
+                boxVo.SerialNo,
+                ",",
+                boxVo.DWGRev
+            });
+            ToShiBaLIB_DLL.openport(printSet);
+            ToShiBaLIB_DLL.setup("105", "95", "3", "12", "0", "2.5", "0");
+            ToShiBaLIB_DLL.clearbuffer();
+            
+
+            ToShiBaLIB_DLL.windowsfont(100, 80, 60, 0, 0, 0, "标楷体", "订 单 号");
+            ToShiBaLIB_DLL.windowsfont(400, 80, 60, 0, 0, 0, "标楷体", boxVo.OrderNo);
+            ToShiBaLIB_DLL.windowsfont(100, 170, 60, 0, 0, 0, "标楷体", "供应商代码");
+            ToShiBaLIB_DLL.windowsfont(400, 170, 60, 0, 0, 0, "标楷体", boxVo.CompNo);
+            ToShiBaLIB_DLL.windowsfont(100, 260, 60, 0, 0, 0, "标楷体", "客户料号");
+            ToShiBaLIB_DLL.windowsfont(400, 260, 60, 0, 0, 0, "标楷体", boxVo.ModelNo);
+            ToShiBaLIB_DLL.windowsfont(100, 350, 60, 0, 0, 0, "标楷体", "供应商料号");
+            ToShiBaLIB_DLL.windowsfont(400, 350, 60, 0, 0, 0, "标楷体", boxVo.PN);
+
+            ToShiBaLIB_DLL.sendcommand("QRCODE 950,350,L,8,A,0,M2,S3,\"" + qrCode + "\"");
+            ToShiBaLIB_DLL.windowsfont(980, 620, 60, 0, 0, 0, "标楷体", "ROHS+HF");
+
+            ToShiBaLIB_DLL.windowsfont(100, 440, 60, 0, 0, 0, "标楷体", "重量（KG）");
+            ToShiBaLIB_DLL.windowsfont(400, 440, 60, 0, 0, 0, "标楷体", boxVo.Qty);
+            ToShiBaLIB_DLL.windowsfont(100, 530, 60, 0, 0, 0, "标楷体", "生产日期");
+            ToShiBaLIB_DLL.windowsfont(400, 530, 60, 0, 0, 0, "标楷体", _dateVal);
+            ToShiBaLIB_DLL.windowsfont(100, 620, 60, 0, 0, 0, "标楷体", "生产批号");
+            ToShiBaLIB_DLL.windowsfont(400, 620, 60, 0, 0, 0, "标楷体", boxVo.LotNo);
+            ToShiBaLIB_DLL.windowsfont(100, 710, 60, 0, 0, 0, "标楷体", "追溯代码");
+            ToShiBaLIB_DLL.windowsfont(400, 710, 60, 0, 0, 0, "标楷体", boxVo.SerialNo);
+            ToShiBaLIB_DLL.windowsfont(100, 800, 60, 0, 0, 0, "标楷体", "湿度等级");
+            ToShiBaLIB_DLL.windowsfont(400, 800, 60, 0, 0, 0, "标楷体", boxVo.Shidu);
+            ToShiBaLIB_DLL.windowsfont(100, 890, 60, 0, 0, 0, "标楷体", "版    次");
+            ToShiBaLIB_DLL.windowsfont(400, 890, 60, 0, 0, 0, "标楷体", boxVo.DWGRev);
+            ToShiBaLIB_DLL.printlabel("1", "1");
+            ToShiBaLIB_DLL.closeport();
+        }
+
+        public static void ProductPrint300(ProductVO productVo)
+        {
+
+            string _dateVal = productVo.PDate.Year
+                + "" + ((productVo.PDate.Month < 10) ? ("0" + productVo.PDate.Month.ToString()) : productVo.PDate.Month.ToString())
+                + "" + ((productVo.PDate.Day < 10) ? ("0" + productVo.PDate.Day.ToString()) : productVo.PDate.Day.ToString());
+
+            string qrCode = string.Concat(new string[]
+            {
+                productVo.CompNo,
+                ",",
+                productVo.PN,
+                ",",
+                productVo.Qty,
+                ",",
+                _dateVal,
+                ",",
+                productVo.LotNo,
+                ",",
+                productVo.SerialNo,
+                ",",
+                productVo.DWGRev
+            });
+            ToShiBaLIB_DLL.openport(printSet);
+            ToShiBaLIB_DLL.setup("105", "95", "3", "12", "0", "2.5", "0");
+            ToShiBaLIB_DLL.clearbuffer();
+
+            
+            ToShiBaLIB_DLL.windowsfont(100, 100, 60, 0, 0, 0, "标楷体", "供应商代码");
+            ToShiBaLIB_DLL.windowsfont(400, 100, 60, 0, 0, 0, "标楷体", productVo.CompNo);
+            ToShiBaLIB_DLL.windowsfont(100, 200, 60, 0, 0, 0, "标楷体", "客户料号");
+            ToShiBaLIB_DLL.windowsfont(400, 200, 60, 0, 0, 0, "标楷体", productVo.ModelNo);
+            ToShiBaLIB_DLL.windowsfont(100, 300, 60, 0, 0, 0, "标楷体", "供应商料号");
+            ToShiBaLIB_DLL.windowsfont(400, 300, 60, 0, 0, 0, "标楷体", productVo.PN);
+
+            ToShiBaLIB_DLL.sendcommand("QRCODE 950,350,L,8,A,0,M2,S3,\"" + qrCode + "\"");
+            ToShiBaLIB_DLL.windowsfont(980, 620, 60, 0, 0, 0, "标楷体", "ROHS+HF");
+
+            ToShiBaLIB_DLL.windowsfont(100, 400, 60, 0, 0, 0, "标楷体", "重量（KG）");
+            ToShiBaLIB_DLL.windowsfont(400, 400, 60, 0, 0, 0, "标楷体", productVo.Qty);
+            ToShiBaLIB_DLL.windowsfont(100, 500, 60, 0, 0, 0, "标楷体", "生产日期");
+            ToShiBaLIB_DLL.windowsfont(400, 500, 60, 0, 0, 0, "标楷体", _dateVal);
+            ToShiBaLIB_DLL.windowsfont(100, 600, 60, 0, 0, 0, "标楷体", "生产批号");
+            ToShiBaLIB_DLL.windowsfont(400, 600, 60, 0, 0, 0, "标楷体", productVo.LotNo);
+            ToShiBaLIB_DLL.windowsfont(100, 700, 60, 0, 0, 0, "标楷体", "追溯代码");
+            ToShiBaLIB_DLL.windowsfont(400, 700, 60, 0, 0, 0, "标楷体", productVo.SerialNo);
+            ToShiBaLIB_DLL.windowsfont(100, 800, 60, 0, 0, 0, "标楷体", "湿度等级");
+            ToShiBaLIB_DLL.windowsfont(400, 800, 60, 0, 0, 0, "标楷体", productVo.Shidu);
+            ToShiBaLIB_DLL.windowsfont(100, 900, 60, 0, 0, 0, "标楷体", "版次");
+            ToShiBaLIB_DLL.windowsfont(400, 900, 60, 0, 0, 0, "标楷体", productVo.DWGRev);
+            ToShiBaLIB_DLL.printlabel("1", "1");
+            ToShiBaLIB_DLL.closeport();
+        }
+
+
+        public static void ZBPrint200(ZhanbanVO zhanbanVo)
+        {
             var _dateValPrint = string.Empty;
-            string _dateVal = boxVo.PDate.Year +"/"+((boxVo.PDate.Month < 10) ? ("0" + boxVo.PDate.Month.ToString()) : boxVo.PDate.Month.ToString())+ "/"+((boxVo.PDate.Day < 10) ? ("0" + boxVo.PDate.Day.ToString()) : boxVo.PDate.Day.ToString());
+            string _dateVal = zhanbanVo.PDate.Year + "/" + ((zhanbanVo.PDate.Month < 10) ? ("0" + zhanbanVo.PDate.Month.ToString()) : zhanbanVo.PDate.Month.ToString()) + "/" + ((zhanbanVo.PDate.Day < 10) ? ("0" + zhanbanVo.PDate.Day.ToString()) : zhanbanVo.PDate.Day.ToString());
             if (compType == "1")
                 _dateValPrint = _dateVal;
-            string lblPO = "PO：";
-            string lblPN = "P/N：";
+            string content = "PO：";
+            string content2 = "P/N：";
             string content3 = "LOT NO：";
             string lblDate = "DATE：";
             string content5 = "QTY：";
             string content6 = "DWG REV：";
             string content7 = "Serial NO：";
-            string qrCode = string.Concat(new string[]
+            string str = string.Concat(new string[]
             {
-                boxVo.PN,
+                zhanbanVo.PN,
                 "\\",
-                boxVo.LotNo,
+                zhanbanVo.LotNo,
                 "\\",
                 _dateVal,
                 "\\",
-                boxVo.Qty,
+                zhanbanVo.Qty,
                 "\\",
-                boxVo.DWGRev,
+                zhanbanVo.DWGRev,
                 "\\GP",
-                boxVo.SerialNo
+                zhanbanVo.SerialNo
             });
             ToShiBaLIB_DLL.openport(printSet);
-            ToShiBaLIB_DLL.setup("105", "95", "3", "12", "0", "2.5", "0");
-            ToShiBaLIB_DLL.clearbuffer();
-            ToShiBaLIB_DLL.windowsfont(70, 70, 65, 0, 0, 0, "标楷体", boxVo.CompName);
-
-
-            ToShiBaLIB_DLL.sendcommand("ELLIPSE 800,60,200,80,6");
-            ToShiBaLIB_DLL.windowsfont(820, 70, 60, 0, 2, 0, "标楷体", "ROHS");
-            ToShiBaLIB_DLL.sendcommand("BOX 1060,60,1170,140,6");
-            ToShiBaLIB_DLL.windowsfont(1080, 70, 60, 0, 2, 0, "标楷体", "HF");
-
-            ToShiBaLIB_DLL.windowsfont(100, 220, 60, 0, 0, 0, "标楷体", lblPO);
-            ToShiBaLIB_DLL.barcode("400", "220", "128", "50", "2", "0", "2", "4", boxVo.OrderNo);
-            ToShiBaLIB_DLL.sendcommand("QRCODE 950,750,L,8,A,0,M2,S3,\"" + qrCode + "\"");
-            ToShiBaLIB_DLL.windowsfont(100, 320, 60, 0, 0, 0, "标楷体", lblPN);
-            ToShiBaLIB_DLL.windowsfont(400, 320, 60, 0, 0, 0, "标楷体", boxVo.PN);
-            ToShiBaLIB_DLL.windowsfont(100, 420, 60, 0, 0, 0, "标楷体", content3);
-            ToShiBaLIB_DLL.windowsfont(400, 420, 60, 0, 0, 0, "标楷体", boxVo.LotNo);
-            ToShiBaLIB_DLL.windowsfont(100, 520, 60, 0, 0, 0, "标楷体", lblDate);
-            ToShiBaLIB_DLL.windowsfont(400, 520, 60, 0, 0, 0, "标楷体", _dateValPrint);
-            ToShiBaLIB_DLL.windowsfont(100, 620, 60, 0, 0, 0, "标楷体", content5);
-            ToShiBaLIB_DLL.windowsfont(400, 620, 60, 0, 0, 0, "标楷体", boxVo.Qty);
-            ToShiBaLIB_DLL.windowsfont(100, 720, 60, 0, 0, 0, "标楷体", content6);
-            ToShiBaLIB_DLL.windowsfont(400, 720, 60, 0, 0, 0, "标楷体", boxVo.DWGRev);
-            ToShiBaLIB_DLL.windowsfont(100, 820, 60, 0, 0, 0, "标楷体", "PERCO PN：");
-            ToShiBaLIB_DLL.windowsfont(400, 820, 60, 0, 0, 0, "标楷体", boxVo.GPPrdName.Substring(0, 2) + boxVo.SPC);
-            ToShiBaLIB_DLL.windowsfont(100, 920, 60, 0, 0, 0, "标楷体", content7);
-            ToShiBaLIB_DLL.windowsfont(400, 920, 60, 0, 0, 0, "标楷体", ("GP" + boxVo.SerialNo));
-            //ToShiBaLIB_DLL.barcode("400", "920", "128", "50", "2", "0", "2", "4", ("GP" + boxVo.SerialNo));
-            ToShiBaLIB_DLL.printlabel("1", "1");
-            ToShiBaLIB_DLL.closeport();
-        }
-
-
-        public static void ProductPrint300(ProductVO productVo)
-        {
-            var _dateValPrint = string.Empty;
-            string _dateVal = productVo.PDate.Year + "/" + ((productVo.PDate.Month < 10) ? ("0" + productVo.PDate.Month.ToString()) : productVo.PDate.Month.ToString()) + "/" + ((productVo.PDate.Day < 10) ? ("0" + productVo.PDate.Day.ToString()) : productVo.PDate.Day.ToString());
-            if (compType == "1")
-                _dateValPrint = _dateVal;
-            string lblPO = "PO：";
-            string lblPn = "P/N：";
-            string lblLotNo = "LOT NO：";
-            string lblDate = "DATE：";
-            string lblQty = "QTY：";
-            string lblDwgrev = "DWG REV：";
-            string lblSno = "Serial NO：";
-            string _barcodetxt = productVo.GPPrdName + productVo.LotNo + productVo.SerialNo;//一维码
-            string qrCode = string.Concat(new string[]
-            {
-                productVo.PN,
-                "\\",
-                productVo.LotNo,
-                "\\",
-                _dateVal,
-                "\\",
-                productVo.Qty,
-                "\\",
-                productVo.DWGRev,
-                "\\GP",
-                productVo.SerialNo
-            });
-            ToShiBaLIB_DLL.openport(printSet);
-            ToShiBaLIB_DLL.setup("105", "95", "3", "12", "0", "2.5", "0");
-            ToShiBaLIB_DLL.clearbuffer();
-            ToShiBaLIB_DLL.windowsfont(70, 70, 65, 0, 0, 0, "标楷体", productVo.CompName);
-
-            ToShiBaLIB_DLL.sendcommand("ELLIPSE 800,50,200,80,6");
-            ToShiBaLIB_DLL.windowsfont(820, 60, 60, 0, 2, 0, "标楷体", "ROHS");
-            ToShiBaLIB_DLL.sendcommand("BOX 1060,50,1170,130,6");
-            ToShiBaLIB_DLL.windowsfont(1080, 60, 60, 0, 2, 0, "标楷体", "HF");
-
-            ToShiBaLIB_DLL.windowsfont(100, 220, 60, 0, 0, 0, "标楷体", lblPO);
-            ToShiBaLIB_DLL.barcode("400", "220", "128", "50", "2", "0", "2", "4", productVo.OrderNo);
-            ToShiBaLIB_DLL.sendcommand("QRCODE 950,750,L,8,A,0,M2,S3,\"" + qrCode + "\"");
-            ToShiBaLIB_DLL.windowsfont(100, 320, 60, 0, 0, 0, "标楷体", lblPn);
-            ToShiBaLIB_DLL.windowsfont(400, 320, 60, 0, 0, 0, "标楷体", productVo.PN);
-            ToShiBaLIB_DLL.windowsfont(100, 420, 60, 0, 0, 0, "标楷体", lblLotNo);
-            ToShiBaLIB_DLL.windowsfont(400, 420, 60, 0, 0, 0, "标楷体", productVo.LotNo);
-            ToShiBaLIB_DLL.windowsfont(100, 520, 60, 0, 0, 0, "标楷体", lblDate);
-            ToShiBaLIB_DLL.windowsfont(400, 520, 60, 0, 0, 0, "标楷体", _dateValPrint);
-            ToShiBaLIB_DLL.windowsfont(100, 620, 60, 0, 0, 0, "标楷体", lblQty);
-            ToShiBaLIB_DLL.windowsfont(400, 620, 60, 0, 0, 0, "标楷体", productVo.Qty);
-            ToShiBaLIB_DLL.windowsfont(100, 720, 60, 0, 0, 0, "标楷体", lblDwgrev);
-            ToShiBaLIB_DLL.windowsfont(400, 720, 60, 0, 0, 0, "标楷体", productVo.DWGRev);
-            ToShiBaLIB_DLL.windowsfont(100, 820, 60, 0, 0, 0, "标楷体", "PERCO PN：");
-            ToShiBaLIB_DLL.windowsfont(400, 820, 60, 0, 0, 0, "标楷体", productVo.GPPrdName.Substring(0, 2) + productVo.SPC);
-            ToShiBaLIB_DLL.windowsfont(100, 920, 60, 0, 0, 0, "标楷体", lblSno);
-            ToShiBaLIB_DLL.windowsfont(400, 920, 60, 0, 0, 0, "标楷体", ("GP" + productVo.SerialNo));
-            //ToShiBaLIB_DLL.barcode("400", "920", "128", "50", "2", "0", "2", "4", _barcodetxt);
-
-            ToShiBaLIB_DLL.printlabel("1", "1");
-            ToShiBaLIB_DLL.closeport();
-        }
-
-        public static void OrderNoBarCodePrint200(string orderNo, string qty)
-        {
-            string text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            ToShiBaLIB_DLL.openport(printSet);
-            ToShiBaLIB_DLL.setup("70", "24", "3", "12", "0", "2.5", "0");
+            ToShiBaLIB_DLL.setup("100", "95", "3", "12", "0", "2.5", "0");
             ToShiBaLIB_DLL.sendcommand("DIRECTION 1,0");
             ToShiBaLIB_DLL.sendcommand("REFERENCE 0,0");
             ToShiBaLIB_DLL.clearbuffer();
-            ToShiBaLIB_DLL.sendcommand("BOX 30,30,550,70,4");
-            ToShiBaLIB_DLL.windowsfont(50, 40, 30, 0, 0, 0, "标楷体", orderNo);
-            ToShiBaLIB_DLL.barcode("250", "40", "128", "30", "0", "0", "2", "4", orderNo);
-            ToShiBaLIB_DLL.windowsfont(500, 42, 30, 0, 0, 0, "标楷体", qty);
+            ToShiBaLIB_DLL.windowsfont(45, 45, 40, 0, 0, 0, "标楷体", zhanbanVo.CompName);
+            ToShiBaLIB_DLL.windowsfont(65, 150, 40, 0, 0, 0, "标楷体", content);
+            ToShiBaLIB_DLL.sendcommand("QRCODE 600,500,L,8,A,0,M2,S3,\"" + str + "\"");
+            ToShiBaLIB_DLL.windowsfont(65, 220, 40, 0, 0, 0, "标楷体", content2);
+            ToShiBaLIB_DLL.windowsfont(250, 220, 40, 0, 0, 0, "标楷体", zhanbanVo.PN);
+            ToShiBaLIB_DLL.windowsfont(65, 285, 40, 0, 0, 0, "标楷体", content3);
+            ToShiBaLIB_DLL.windowsfont(250, 285, 40, 0, 0, 0, "标楷体", zhanbanVo.LotNo);
+            ToShiBaLIB_DLL.windowsfont(65, 350, 40, 0, 0, 0, "标楷体", lblDate);
+            ToShiBaLIB_DLL.windowsfont(250, 350, 40, 0, 0, 0, "标楷体", _dateValPrint);
+            ToShiBaLIB_DLL.windowsfont(65, 415, 40, 0, 0, 0, "标楷体", content5);
+            ToShiBaLIB_DLL.windowsfont(250, 415, 40, 0, 0, 0, "标楷体", zhanbanVo.Qty);
+            ToShiBaLIB_DLL.windowsfont(65, 480, 40, 0, 0, 0, "标楷体", content6);
+            ToShiBaLIB_DLL.windowsfont(250, 480, 40, 0, 0, 0, "标楷体", zhanbanVo.DWGRev);
+            ToShiBaLIB_DLL.windowsfont(65, 535, 40, 0, 0, 0, "标楷体", "PERCO PN：");
+            ToShiBaLIB_DLL.windowsfont(250, 535, 40, 0, 0, 0, "标楷体", zhanbanVo.GPPrdName.Substring(0, 2) + zhanbanVo.SPC);
+            ToShiBaLIB_DLL.windowsfont(65, 600, 40, 0, 0, 0, "标楷体", content7);
+            ToShiBaLIB_DLL.barcode("250", "600", "128", "40", "2", "0", "2", "4", ("GP" + zhanbanVo.SerialNo));
             ToShiBaLIB_DLL.printlabel("1", "1");
-            ToShiBaLIB_DLL.closeport();
-        }
-
-        public static void OrderNoBarCodePrintNoBox200(string orderNo, string qty)
-        {
-            string text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            ToShiBaLIB_DLL.openport(printSet);
-            ToShiBaLIB_DLL.setup("70", "24", "3", "12", "0", "2.5", "0");
-            ToShiBaLIB_DLL.sendcommand("DIRECTION 1,0");
-            ToShiBaLIB_DLL.sendcommand("REFERENCE 0,0");
-            ToShiBaLIB_DLL.clearbuffer();
-            ToShiBaLIB_DLL.windowsfont(50, 40, 30, 0, 0, 0, "标楷体", orderNo);
-            ToShiBaLIB_DLL.barcode("250", "40", "128", "30", "0", "0", "2", "4", orderNo);
-            ToShiBaLIB_DLL.printlabel("1", qty);
             ToShiBaLIB_DLL.closeport();
         }
 
@@ -358,6 +372,7 @@ namespace QRCodePrintTSB
             ToShiBaLIB_DLL.printlabel("1", "1");
             ToShiBaLIB_DLL.closeport();
         }
+
         public static void ProductPrint200(ProductVO productVo)
         {
             var _dateValPrint = string.Empty;
@@ -415,59 +430,75 @@ namespace QRCodePrintTSB
 
 
 
-
-        public static void OrderNoBarCodePrintNew(string orderNo, string qty)
+        public static void ZBPrintNew(ZhanbanVO zhanbanVo)
         {
-            string text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            ToShiBaLIB_DLL.openport(printSet);
-            ToShiBaLIB_DLL.setup("70", "24", "3", "12", "0", "2.5", "0");
-            ToShiBaLIB_DLL.clearbuffer();
-            ToShiBaLIB_DLL.sendcommand("BOX 50,50,800,110,4");
-            ToShiBaLIB_DLL.windowsfont(80, 65, 45, 0, 0, 0, "标楷体", orderNo);
-            ToShiBaLIB_DLL.barcode("400", "60", "128", "50", "0", "0", "2", "4", orderNo);
-            ToShiBaLIB_DLL.windowsfont(720, 65, 45, 0, 0, 0, "标楷体", qty);
-            ToShiBaLIB_DLL.printlabel("1", "1");
-            ToShiBaLIB_DLL.closeport();
-        }
+            string _dateVal = zhanbanVo.PDate.Year + ""
+                + ((zhanbanVo.PDate.Month < 10) ? ("0" + zhanbanVo.PDate.Month.ToString()) : zhanbanVo.PDate.Month.ToString())
+                + "" + ((zhanbanVo.PDate.Day < 10) ? ("0" + zhanbanVo.PDate.Day.ToString()) : zhanbanVo.PDate.Day.ToString());
 
-        public static void OrderNoBarCodePrintNoBoxNew(string orderNo, string qty)
-        {
-            string text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            ToShiBaLIB_DLL.openport(printSet);
-            ToShiBaLIB_DLL.setup("70", "24", "3", "12", "0", "2.5", "0");
-            ToShiBaLIB_DLL.clearbuffer();
-            ToShiBaLIB_DLL.windowsfont(80, 65, 45, 0, 0, 0, "标楷体", orderNo);
-            ToShiBaLIB_DLL.barcode("400", "60", "128", "50", "0", "0", "2", "4", orderNo);
-            ToShiBaLIB_DLL.printlabel("1", qty);
-            ToShiBaLIB_DLL.closeport();
+            string qrCode = string.Concat(new string[]
+            {
+                zhanbanVo.OrderNo,
+                ",",
+                zhanbanVo.CompNo,
+                ",",
+                zhanbanVo.PN,
+                ",",
+                zhanbanVo.Qty,
+                ",",
+                _dateVal,
+                ",",
+                zhanbanVo.DWGRev
+            });
+
+            string _ip = GetPrintSetIP();
+            string _port = GetPrintSetPort();
+
+            //建立连接
+            IPAddress ipa = IPAddress.Parse(_ip);
+            IPEndPoint ipe = new IPEndPoint(ipa, int.Parse(_port));
+            Socket soc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            soc.Connect(ipe);
+
+
+            StringBuilder str = new StringBuilder();
+            str.Append("{D1000,0500,0500|}").Append('\n');
+            str.Append("{C|}").Append('\n');
+            
+            
+            str.Append("{XB00;0300,0160,T,L,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
+            
+
+            str.Append("{XS;I,0001,0002C6111|}").Append('\n');
+
+            byte[] b = System.Text.Encoding.GetEncoding("GB2312").GetBytes(str.ToString());
+            soc.Send(b);
+            soc.Close();
         }
 
         public static void BoxPrintNew(BoxVO boxVo)
         {
-            var _dateValPrint = string.Empty;
-            string _dateVal = boxVo.PDate.Year + "/" + ((boxVo.PDate.Month < 10) ? ("0" + boxVo.PDate.Month.ToString()) : boxVo.PDate.Month.ToString()) + "/" + ((boxVo.PDate.Day < 10) ? ("0" + boxVo.PDate.Day.ToString()) : boxVo.PDate.Day.ToString());
-            if (compType == "1")
-                _dateValPrint = _dateVal;
-            string lblPO = "PO：";
-            string lblPN = "P/N：";
-            string content3 = "LOT NO：";
-            string lblDate = "DATE：";
-            string content5 = "QTY：";
-            string content6 = "DWG REV：";
-            string content7 = "Serial NO：";
+            string _dateVal = boxVo.PDate.Year
+                + "" + ((boxVo.PDate.Month < 10) ? ("0" + boxVo.PDate.Month.ToString()) : boxVo.PDate.Month.ToString())
+                + "" + ((boxVo.PDate.Day < 10) ? ("0" + boxVo.PDate.Day.ToString()) : boxVo.PDate.Day.ToString());
+
             string qrCode = string.Concat(new string[]
             {
+                boxVo.OrderNo,
+                ",",
+                boxVo.CompNo,
+                ",",
                 boxVo.PN,
-                "\\",
-                boxVo.LotNo,
-                "\\",
-                _dateVal,
-                "\\",
+                ",",
                 boxVo.Qty,
-                "\\",
-                boxVo.DWGRev,
-                "\\GP",
-                boxVo.SerialNo
+                ",",
+                _dateVal,
+                ",",
+                boxVo.LotNo,
+                ",",
+                boxVo.SerialNo,
+                ",",
+                boxVo.DWGRev
             });
 
             string _ip = GetPrintSetIP();
@@ -484,43 +515,50 @@ namespace QRCodePrintTSB
             str.Append("{D1150,1050,1050|}").Append('\n');
             str.Append("{C|}").Append('\n');
 
-            str.Append("{PC000;0070,0100,25,25,e,00,B,J0101=" + boxVo.CompName + "|}").Append('\n');
+            //str.Append("{LC;0700,0050,0830,0100,1,3,040|}").Append('\n');//椭圆
+            //str.Append("{PC000;0730,0095,20,20,e,00,B,J0101=ROHS|}").Append('\n');
+
+            //str.Append("{LC;0880,0050,0950,0100,1,3,000|}").Append('\n');//方框
+            //str.Append("{PC000;0900,0095,20,20,e,00,B,J0101=HF|}").Append('\n');
+
+            //str.Append("{XB00;0400,0180,9,1,04,0,0050,+0000000000,000,1,00=" + boxVo.OrderNo + "|}").Append('\n');//一维条形码
+
+
+            str.Append("{PC000;0100,0100,20,20,e,00,B,J0101=订 单 号|}").Append('\n');
+            str.Append("{PC000;0400,0100,20,20,e,00,B,J0101=" + boxVo.OrderNo + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0200,20,20,e,00,B,J0101=供应商代码|}").Append('\n');
+            str.Append("{PC000;0400,0200,20,20,e,00,B,J0101=" + boxVo.CompNo + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0300,20,20,e,00,B,J0101=客户料号|}").Append('\n');
+            str.Append("{PC000;0400,0300,20,20,e,00,B,J0101=" + boxVo.ModelNo + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0400,20,20,e,00,B,J0101=供应商料号|}").Append('\n');
+            str.Append("{PC000;0400,0400,20,20,e,00,B,J0101=" + boxVo.PN + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0500,20,20,e,00,B,J0101=重量（KG）|}").Append('\n');
+            str.Append("{PC000;0400,0500,20,20,e,00,B,J0101=" + boxVo.Qty + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0600,20,20,e,00,B,J0101=生产日期|}").Append('\n');
+            str.Append("{PC000;0400,0600,20,20,e,00,B,J0101=" + _dateVal + "|}").Append('\n');
+
+
+            //str.Append("{XB00;0750,0650,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
+
+            str.Append("{XB00;0750,0300,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
+            str.Append("{PC000;0800,0700,20,20,e,00,B,J0101=ROHS+HF|}").Append('\n');
+
+            str.Append("{PC000;0100,0700,20,20,e,00,B,J0101=生产批号|}").Append('\n');
+            str.Append("{PC000;0400,0700,20,20,e,00,B,J0101=" + boxVo.LotNo + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0800,20,20,e,00,B,J0101=追溯代码|}").Append('\n');
+            str.Append("{PC000;0400,0800,20,20,e,00,B,J0101=" + boxVo.SerialNo + "|}").Append('\n');
             
-            str.Append("{LC;0700,0050,0830,0100,1,3,040|}").Append('\n');//椭圆
-            str.Append("{PC000;0730,0095,20,20,e,00,B,J0101=ROHS|}").Append('\n');
-
-            str.Append("{LC;0880,0050,0950,0100,1,3,000|}").Append('\n');//方框
-            str.Append("{PC000;0900,0095,20,20,e,00,B,J0101=HF|}").Append('\n');
-
-            str.Append("{PC000;0100,0230,20,20,e,00,B,J0101=" + lblPO + "|}").Append('\n');
-            str.Append("{XB00;0400,0180,9,1,04,0,0050,+0000000000,000,1,00=" + boxVo.OrderNo + "|}").Append('\n');
-            //str.Append("{PC000;0400,0270,20,20,e,00,B,J0101=" + boxVo.OrderNo + "|}").Append('\n');
-
-            str.Append("{PC000;0100,0320,20,20,e,00,B,J0101=" + lblPN + "|}").Append('\n');
-            str.Append("{PC000;0400,0320,20,20,e,00,B,J0101=" + boxVo.PN + "|}").Append('\n');
-
-            str.Append("{PC000;0100,0410,20,20,e,00,B,J0101=" + content3 + "|}").Append('\n');
-            str.Append("{PC000;0400,0410,20,20,e,00,B,J0101=" + boxVo.LotNo + "|}").Append('\n');
-
-            str.Append("{PC000;0100,0500,20,20,e,00,B,J0101=" + lblDate + "|}").Append('\n');
-            str.Append("{PC000;0400,0500,20,20,e,00,B,J0101=" + _dateValPrint + "|}").Append('\n');
-
-            str.Append("{PC000;0100,0590,20,20,e,00,B,J0101=" + content5 + "|}").Append('\n');
-            str.Append("{PC000;0400,0590,20,20,e,00,B,J0101=" + boxVo.Qty + "|}").Append('\n');
+            str.Append("{PC000;0100,0900,20,20,e,00,B,J0101=湿度等级|}").Append('\n');
+            str.Append("{PC000;0400,0900,20,20,e,00,B,J0101=" + boxVo.Shidu + "|}").Append('\n');
             
-
-            str.Append("{XB00;0750,0650,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
-
-            str.Append("{PC000;0100,0680,20,20,e,00,B,J0101=" + content6 + "|}").Append('\n');
-            str.Append("{PC000;0400,0680,20,20,e,00,B,J0101=" + boxVo.DWGRev + "|}").Append('\n');
-
-            str.Append("{PC000;0100,0770,20,20,e,00,B,J0101=PERCO PN：|}").Append('\n');
-            str.Append("{PC000;0400,0770,20,20,e,00,B,J0101=" + boxVo.GPPrdName.Substring(0, 2) + boxVo.SPC + "|}").Append('\n');
-
-
-
-            str.Append("{PC000;0100,0860,20,20,e,00,B,J0101=" + content7 + "|}").Append('\n');
-            str.Append("{PC000;0400,0860,20,20,e,00,B,J0101=" + boxVo.SerialNo + "|}").Append('\n');
+            str.Append("{PC000;0100,1000,20,20,e,00,B,J0101=版    次|}").Append('\n');
+            str.Append("{PC000;0400,1000,20,20,e,00,B,J0101=" + boxVo.DWGRev + "|}").Append('\n');
 
             str.Append("{XS;I,0001,0002C6111|}").Append('\n');
 
@@ -528,69 +566,94 @@ namespace QRCodePrintTSB
             soc.Send(b);
             soc.Close();
         }
-
-
+        
         public static void ProductPrintNew(ProductVO productVo)
         {
-            var _dateValPrint = string.Empty;
-            string _dateVal = productVo.PDate.Year + "/" + ((productVo.PDate.Month < 10) ? ("0" + productVo.PDate.Month.ToString()) : productVo.PDate.Month.ToString()) + "/" + ((productVo.PDate.Day < 10) ? ("0" + productVo.PDate.Day.ToString()) : productVo.PDate.Day.ToString());
-            if (compType == "1")
-                _dateValPrint = _dateVal;
-            string lblPO = "PO：";
-            string lblPn = "P/N：";
-            string lblLotNo = "LOT NO：";
-            string lblDate = "DATE：";
-            string lblQty = "QTY：";
-            string lblDwgrev = "DWG REV：";
-            string lblSno = "Serial NO：";
-            string _barcodetxt = productVo.GPPrdName + productVo.LotNo + productVo.SerialNo;//一维码
+            string _dateVal = productVo.PDate.Year
+                + "" + ((productVo.PDate.Month < 10) ? ("0" + productVo.PDate.Month.ToString()) : productVo.PDate.Month.ToString())
+                + "" + ((productVo.PDate.Day < 10) ? ("0" + productVo.PDate.Day.ToString()) : productVo.PDate.Day.ToString());
+
             string qrCode = string.Concat(new string[]
             {
+                productVo.CompNo,
+                ",",
                 productVo.PN,
-                "\\",
-                productVo.LotNo,
-                "\\",
-                _dateVal,
-                "\\",
+                ",",
                 productVo.Qty,
-                "\\",
-                productVo.DWGRev,
-                "\\GP",
-                productVo.SerialNo
+                ",",
+                _dateVal,
+                ",",
+                productVo.LotNo,
+                ",",
+                productVo.SerialNo,
+                ",",
+                productVo.DWGRev
             });
-            ToShiBaLIB_DLL.openport(printSet);
-            ToShiBaLIB_DLL.setup("105", "95", "3", "12", "0", "2.5", "0");
-            ToShiBaLIB_DLL.clearbuffer();
-            ToShiBaLIB_DLL.windowsfont(70, 70, 65, 0, 0, 0, "标楷体", productVo.CompName);
 
-            ToShiBaLIB_DLL.sendcommand("ELLIPSE 800,50,200,80,6");
-            ToShiBaLIB_DLL.windowsfont(820, 60, 60, 0, 2, 0, "标楷体", "ROHS");
-            ToShiBaLIB_DLL.sendcommand("BOX 1060,50,1170,130,6");
-            ToShiBaLIB_DLL.windowsfont(1080, 60, 60, 0, 2, 0, "标楷体", "HF");
+            string _ip = GetPrintSetIP();
+            string _port = GetPrintSetPort();
 
-            ToShiBaLIB_DLL.windowsfont(100, 220, 60, 0, 0, 0, "标楷体", lblPO);
-            ToShiBaLIB_DLL.barcode("400", "220", "128", "50", "2", "0", "2", "4", productVo.OrderNo);
-            ToShiBaLIB_DLL.sendcommand("QRCODE 950,750,L,8,A,0,M2,S3,\"" + qrCode + "\"");
-            ToShiBaLIB_DLL.windowsfont(100, 320, 60, 0, 0, 0, "标楷体", lblPn);
-            ToShiBaLIB_DLL.windowsfont(400, 320, 60, 0, 0, 0, "标楷体", productVo.PN);
-            ToShiBaLIB_DLL.windowsfont(100, 420, 60, 0, 0, 0, "标楷体", lblLotNo);
-            ToShiBaLIB_DLL.windowsfont(400, 420, 60, 0, 0, 0, "标楷体", productVo.LotNo);
-            ToShiBaLIB_DLL.windowsfont(100, 520, 60, 0, 0, 0, "标楷体", lblDate);
-            ToShiBaLIB_DLL.windowsfont(400, 520, 60, 0, 0, 0, "标楷体", _dateValPrint);
-            ToShiBaLIB_DLL.windowsfont(100, 620, 60, 0, 0, 0, "标楷体", lblQty);
-            ToShiBaLIB_DLL.windowsfont(400, 620, 60, 0, 0, 0, "标楷体", productVo.Qty);
-            ToShiBaLIB_DLL.windowsfont(100, 720, 60, 0, 0, 0, "标楷体", lblDwgrev);
-            ToShiBaLIB_DLL.windowsfont(400, 720, 60, 0, 0, 0, "标楷体", productVo.DWGRev);
-            ToShiBaLIB_DLL.windowsfont(100, 820, 60, 0, 0, 0, "标楷体", "PERCO PN：");
-            ToShiBaLIB_DLL.windowsfont(400, 820, 60, 0, 0, 0, "标楷体", productVo.GPPrdName.Substring(0, 2) + productVo.SPC);
-            ToShiBaLIB_DLL.windowsfont(100, 920, 60, 0, 0, 0, "标楷体", lblSno);
-            ToShiBaLIB_DLL.windowsfont(400, 920, 60, 0, 0, 0, "标楷体", ("GP" + productVo.SerialNo));
-            //ToShiBaLIB_DLL.barcode("400", "920", "128", "50", "2", "0", "2", "4", _barcodetxt);
+            //建立连接
+            IPAddress ipa = IPAddress.Parse(_ip);
+            IPEndPoint ipe = new IPEndPoint(ipa, int.Parse(_port));
+            Socket soc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            soc.Connect(ipe);
 
-            ToShiBaLIB_DLL.printlabel("1", "1");
-            ToShiBaLIB_DLL.closeport();
+
+            StringBuilder str = new StringBuilder();
+            str.Append("{D1050,1050,1050|}").Append('\n');
+            str.Append("{C|}").Append('\n');
+
+            //str.Append("{LC;0700,0050,0830,0100,1,3,040|}").Append('\n');//椭圆
+            //str.Append("{PC000;0730,0095,20,20,e,00,B,J0101=ROHS|}").Append('\n');
+
+            //str.Append("{LC;0880,0050,0950,0100,1,3,000|}").Append('\n');//方框
+            //str.Append("{PC000;0900,0095,20,20,e,00,B,J0101=HF|}").Append('\n');
+
+            //str.Append("{XB00;0400,0180,9,1,04,0,0050,+0000000000,000,1,00=" + boxVo.OrderNo + "|}").Append('\n');//一维条形码
+
+            str.Append("{PC000;0100,0100,20,20,e,00,B,J0101=供应商代码|}").Append('\n');
+            str.Append("{PC000;0400,0100,20,20,e,00,B,J0101=" + productVo.CompNo + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0200,20,20,e,00,B,J0101=客户料号|}").Append('\n');
+            str.Append("{PC000;0400,0200,20,20,e,00,B,J0101=" + productVo.ModelNo + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0300,20,20,e,00,B,J0101=供应商料号|}").Append('\n');
+            str.Append("{PC000;0400,0300,20,20,e,00,B,J0101=" + productVo.PN + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0400,20,20,e,00,B,J0101=重量（KG）|}").Append('\n');
+            str.Append("{PC000;0400,0400,20,20,e,00,B,J0101=" + productVo.Qty + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0500,20,20,e,00,B,J0101=生产日期|}").Append('\n');
+            str.Append("{PC000;0400,0500,20,20,e,00,B,J0101=" + _dateVal + "|}").Append('\n');
+
+
+            //str.Append("{XB00;0750,0650,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
+
+            str.Append("{XB00;0750,0300,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
+            str.Append("{PC000;0800,0700,20,20,e,00,B,J0101=ROHS+HF|}").Append('\n');
+
+            str.Append("{PC000;0100,0600,20,20,e,00,B,J0101=生产批号|}").Append('\n');
+            str.Append("{PC000;0400,0600,20,20,e,00,B,J0101=" + productVo.LotNo + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0700,20,20,e,00,B,J0101=追溯代码|}").Append('\n');
+            str.Append("{PC000;0400,0700,20,20,e,00,B,J0101=" + productVo.SerialNo + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0800,20,20,e,00,B,J0101=湿度等级|}").Append('\n');
+            str.Append("{PC000;0400,0800,20,20,e,00,B,J0101=" + productVo.Shidu + "|}").Append('\n');
+
+            str.Append("{PC000;0100,0900,20,20,e,00,B,J0101=版    次|}").Append('\n');
+            str.Append("{PC000;0400,0900,20,20,e,00,B,J0101=" + productVo.DWGRev + "|}").Append('\n');
+
+            str.Append("{XS;I,0001,0002C6111|}").Append('\n');
+
+            byte[] b = System.Text.Encoding.GetEncoding("GB2312").GetBytes(str.ToString());
+            soc.Send(b);
+            soc.Close();
         }
         
+
+
 
 
         public static string GetPrintSet()
@@ -659,9 +722,7 @@ namespace QRCodePrintTSB
             }
             return result;
         }
-
-
-
+        
         /// <summary>
         /// PORT
         /// </summary>
@@ -894,108 +955,305 @@ namespace QRCodePrintTSB
         }
     }
 
+    /// <summary>
+    /// 外箱条码
+    /// </summary>
     public class BoxVO
     {
+        /// <summary>
+        /// 订单号
+        /// </summary>
+        public string OrderNo { get; set; }
+        /// <summary>
+        /// 固品供应商名称
+        /// </summary>
         public string CompName
         {
             get;
             set;
         }
+        /// <summary>
+        /// 固品供应商代码
+        /// </summary>
+        public string CompNo { get; set; }
+        /// <summary>
+        /// 固品料号
+        /// </summary>
         public string GPPrdName
         {
             get;
             set;
         }
+        /// <summary>
+        /// 富士康料号（供应商料号）
+        /// </summary>
         public string PN
         {
             get;
             set;
         }
+        /// <summary>
+        /// 富士康型号（客户料号）
+        /// </summary>
+        public string ModelNo { get; set; }
+        /// <summary>
+        /// 规格
+        /// </summary>
         public string SPC
         {
             get;
             set;
         }
-        public string LotNo
-        {
-            get;
-            set;
-        }
-        public DateTime PDate
-        {
-            get;
-            set;
-        }
+        /// <summary>
+        /// 总重
+        /// </summary>
         public string Qty
         {
             get;
             set;
         }
-        public string DWGRev
+        /// <summary>
+        /// 批号
+        /// </summary>
+        public string LotNo
         {
             get;
             set;
         }
+        /// <summary>
+        /// 生产日期
+        /// </summary>
+        public DateTime PDate
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 追溯代码（流水号）
+        /// </summary>
         public string SerialNo
         {
             get;
             set;
         }
-        public string OrderNo { get; set; }
+        /// <summary>
+        /// 湿度等级
+        /// </summary>
+        public string Shidu { get; set; }
 
+        /// <summary>
+        /// 版次
+        /// </summary>
+        public string DWGRev
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 打印张数
+        /// </summary>
         public int PrintCount { get; set; }
     }
 
+    /// <summary>
+    /// 内箱条码
+    /// </summary>
     public class ProductVO
     {
+        /// <summary>
+        /// 订单号
+        /// </summary>
+        public string OrderNo { get; set; }
+        /// <summary>
+        /// 固品供应商名称
+        /// </summary>
         public string CompName
         {
             get;
             set;
         }
+        /// <summary>
+        /// 固品供应商代码
+        /// </summary>
+        public string CompNo { get; set; }
+        /// <summary>
+        /// 固品料号
+        /// </summary>
         public string GPPrdName
         {
             get;
             set;
         }
+        /// <summary>
+        /// 富士康料号（供应商料号）
+        /// </summary>
         public string PN
         {
             get;
             set;
         }
+        /// <summary>
+        /// 富士康型号（客户料号）
+        /// </summary>
+        public string ModelNo { get; set; }
+        /// <summary>
+        /// 规格
+        /// </summary>
         public string SPC
         {
             get;
             set;
         }
-        public string LotNo
-        {
-            get;
-            set;
-        }
-        public DateTime PDate
-        {
-            get;
-            set;
-        }
+        /// <summary>
+        /// 总重
+        /// </summary>
         public string Qty
         {
             get;
             set;
         }
-        public string DWGRev
+        /// <summary>
+        /// 批号
+        /// </summary>
+        public string LotNo
         {
             get;
             set;
         }
+        /// <summary>
+        /// 生产日期
+        /// </summary>
+        public DateTime PDate
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 追溯代码（流水号）
+        /// </summary>
         public string SerialNo
         {
             get;
             set;
         }
+        /// <summary>
+        /// 湿度等级
+        /// </summary>
+        public string Shidu { get; set; }
 
+        /// <summary>
+        /// 版次
+        /// </summary>
+        public string DWGRev
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 打印张数
+        /// </summary>
+        public int PrintCount { get; set; }
+    }
+
+
+
+    /// <summary>
+    /// 栈板条码
+    /// </summary>
+    public class ZhanbanVO
+    {
+        /// <summary>
+        /// 订单号
+        /// </summary>
         public string OrderNo { get; set; }
+        /// <summary>
+        /// 固品供应商名称
+        /// </summary>
+        public string CompName
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 固品供应商代码
+        /// </summary>
+        public string CompNo { get; set; }
+        /// <summary>
+        /// 固品料号
+        /// </summary>
+        public string GPPrdName
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 富士康料号（供应商料号）
+        /// </summary>
+        public string PN
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 富士康型号（客户料号）
+        /// </summary>
+        public string ModelNo { get; set; }
+        /// <summary>
+        /// 规格
+        /// </summary>
+        public string SPC
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 总重
+        /// </summary>
+        public string Qty
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 批号
+        /// </summary>
+        public string LotNo
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 生产日期
+        /// </summary>
+        public DateTime PDate
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 追溯代码（流水号）
+        /// </summary>
+        public string SerialNo
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 湿度等级
+        /// </summary>
+        public string Shidu { get; set; }
 
+        /// <summary>
+        /// 版次
+        /// </summary>
+        public string DWGRev
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 打印张数
+        /// </summary>
         public int PrintCount { get; set; }
     }
 }
