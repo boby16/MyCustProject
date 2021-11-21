@@ -462,7 +462,7 @@ namespace QRCodePrintTSB
 
 
             StringBuilder str = new StringBuilder();
-            str.Append("{D1000,0500,0500|}").Append('\n');
+            str.Append("{D1000,0500,1000|}").Append('\n');
             str.Append("{C|}").Append('\n');
             
             
@@ -512,7 +512,7 @@ namespace QRCodePrintTSB
 
 
             StringBuilder str = new StringBuilder();
-            str.Append("{D1150,1050,1050|}").Append('\n');
+            str.Append("{D1150,0950,1050|}").Append('\n');
             str.Append("{C|}").Append('\n');
 
             //str.Append("{LC;0700,0050,0830,0100,1,3,040|}").Append('\n');//椭圆
@@ -601,7 +601,7 @@ namespace QRCodePrintTSB
 
 
             StringBuilder str = new StringBuilder();
-            str.Append("{D1050,0950,0950|}").Append('\n');
+            str.Append("{D1050,0950,1050|}").Append('\n');
             str.Append("{C|}").Append('\n');
 
             //str.Append("{LC;0700,0050,0830,0100,1,3,040|}").Append('\n');//椭圆
