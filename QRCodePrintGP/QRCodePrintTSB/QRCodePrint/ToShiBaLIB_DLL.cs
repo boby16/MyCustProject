@@ -466,7 +466,7 @@ namespace QRCodePrintTSB
             str.Append("{C|}").Append('\n');
             
             
-            str.Append("{XB00;0300,0160,T,L,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
+            str.Append("{XB00;0300,0100,T,L,10,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
             
 
             str.Append("{XS;I,0001,0002C6111|}").Append('\n');
@@ -527,38 +527,38 @@ namespace QRCodePrintTSB
             str.Append("{PC000;0100,0100,20,20,e,00,B,J0101=订 单 号|}").Append('\n');
             str.Append("{PC000;0400,0100,20,20,e,00,B,J0101=" + boxVo.OrderNo + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0200,20,20,e,00,B,J0101=供应商代码|}").Append('\n');
-            str.Append("{PC000;0400,0200,20,20,e,00,B,J0101=" + boxVo.CompNo + "|}").Append('\n');
+            str.Append("{PC000;0100,0190,20,20,e,00,B,J0101=供应商代码|}").Append('\n');
+            str.Append("{PC000;0400,0190,20,20,e,00,B,J0101=" + boxVo.CompNo + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0300,20,20,e,00,B,J0101=客户料号|}").Append('\n');
-            str.Append("{PC000;0400,0300,20,20,e,00,B,J0101=" + boxVo.ModelNo + "|}").Append('\n');
+            str.Append("{PC000;0100,0280,20,20,e,00,B,J0101=供应商料号|}").Append('\n');
+            str.Append("{PC000;0400,0280,20,20,e,00,B,J0101=" + boxVo.ModelNo + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0400,20,20,e,00,B,J0101=供应商料号|}").Append('\n');
-            str.Append("{PC000;0400,0400,20,20,e,00,B,J0101=" + boxVo.PN + "|}").Append('\n');
+            str.Append("{PC000;0100,0370,20,20,e,00,B,J0101=客户料号|}").Append('\n');
+            str.Append("{PC000;0400,0370,20,20,e,00,B,J0101=" + boxVo.PN + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0500,20,20,e,00,B,J0101=重量（KG）|}").Append('\n');
-            str.Append("{PC000;0400,0500,20,20,e,00,B,J0101=" + boxVo.Qty + "|}").Append('\n');
+            str.Append("{PC000;0100,0460,20,20,e,00,B,J0101=重量（KG）|}").Append('\n');
+            str.Append("{PC000;0400,0460,20,20,e,00,B,J0101=" + boxVo.Qty + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0600,20,20,e,00,B,J0101=生产日期|}").Append('\n');
-            str.Append("{PC000;0400,0600,20,20,e,00,B,J0101=" + _dateVal + "|}").Append('\n');
+            str.Append("{PC000;0100,0550,20,20,e,00,B,J0101=生产日期|}").Append('\n');
+            str.Append("{PC000;0400,0550,20,20,e,00,B,J0101=" + _dateVal + "|}").Append('\n');
 
 
             //str.Append("{XB00;0750,0650,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
 
-            str.Append("{XB00;0750,0300,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
+            str.Append("{XB00;0750,0300,T,L,08,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
             str.Append("{PC000;0800,0700,20,20,e,00,B,J0101=ROHS+HF|}").Append('\n');
 
-            str.Append("{PC000;0100,0700,20,20,e,00,B,J0101=生产批号|}").Append('\n');
-            str.Append("{PC000;0400,0700,20,20,e,00,B,J0101=" + boxVo.LotNo + "|}").Append('\n');
+            str.Append("{PC000;0100,0640,20,20,e,00,B,J0101=生产批号|}").Append('\n');
+            str.Append("{PC000;0400,0640,20,20,e,00,B,J0101=" + boxVo.LotNo + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0800,20,20,e,00,B,J0101=追溯代码|}").Append('\n');
-            str.Append("{PC000;0400,0800,20,20,e,00,B,J0101=" + boxVo.SerialNo + "|}").Append('\n');
+            str.Append("{PC000;0100,0730,20,20,e,00,B,J0101=追溯代码|}").Append('\n');
+            str.Append("{PC000;0400,0730,20,20,e,00,B,J0101=" + boxVo.SerialNo + "|}").Append('\n');
             
-            str.Append("{PC000;0100,0900,20,20,e,00,B,J0101=湿度等级|}").Append('\n');
-            str.Append("{PC000;0400,0900,20,20,e,00,B,J0101=" + boxVo.Shidu + "|}").Append('\n');
+            str.Append("{PC000;0100,0820,20,20,e,00,B,J0101=湿度等级|}").Append('\n');
+            str.Append("{PC000;0400,0820,20,20,e,00,B,J0101=" + boxVo.Shidu + "|}").Append('\n');
             
-            str.Append("{PC000;0100,1000,20,20,e,00,B,J0101=版    次|}").Append('\n');
-            str.Append("{PC000;0400,1000,20,20,e,00,B,J0101=" + boxVo.DWGRev + "|}").Append('\n');
+            str.Append("{PC000;0100,0910,20,20,e,00,B,J0101=版    次|}").Append('\n');
+            str.Append("{PC000;0400,0910,20,20,e,00,B,J0101=" + boxVo.DWGRev + "|}").Append('\n');
 
             str.Append("{XS;I,0001,0002C6111|}").Append('\n');
 
@@ -615,10 +615,10 @@ namespace QRCodePrintTSB
             str.Append("{PC000;0100,0100,20,20,e,00,B,J0101=供应商代码|}").Append('\n');
             str.Append("{PC000;0400,0100,20,20,e,00,B,J0101=" + productVo.CompNo + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0200,20,20,e,00,B,J0101=客户料号|}").Append('\n');
+            str.Append("{PC000;0100,0200,20,20,e,00,B,J0101=供应商料号|}").Append('\n');
             str.Append("{PC000;0400,0200,20,20,e,00,B,J0101=" + productVo.ModelNo + "|}").Append('\n');
 
-            str.Append("{PC000;0100,0300,20,20,e,00,B,J0101=供应商料号|}").Append('\n');
+            str.Append("{PC000;0100,0300,20,20,e,00,B,J0101=客户料号|}").Append('\n');
             str.Append("{PC000;0400,0300,20,20,e,00,B,J0101=" + productVo.PN + "|}").Append('\n');
 
             str.Append("{PC000;0100,0400,20,20,e,00,B,J0101=重量（KG）|}").Append('\n');
@@ -630,7 +630,7 @@ namespace QRCodePrintTSB
 
             //str.Append("{XB00;0750,0650,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
 
-            str.Append("{XB00;0750,0300,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
+            str.Append("{XB00;0750,0300,T,L,08,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
             str.Append("{PC000;0800,0700,20,20,e,00,B,J0101=ROHS+HF|}").Append('\n');
 
             str.Append("{PC000;0100,0600,20,20,e,00,B,J0101=生产批号|}").Append('\n');

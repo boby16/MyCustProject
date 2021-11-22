@@ -186,6 +186,8 @@ namespace QRCodePrintTSB
                 this.txtSpcBox.Text = dataRow["规格"].ToString();
                 this.txtQtyBox.Text = dataRow["单品净重KG"].ToString();
                 this.txtModelBox.Text = dataRow["型号"].ToString();
+                this.txtBanciBox.Text = dataRow["版次"].ToString();
+                this.txtShiduBox.Text = dataRow["湿度等级"].ToString();
 
             }
         }
@@ -200,6 +202,8 @@ namespace QRCodePrintTSB
                 this.txtSpcPrd.Text = dataRow["规格"].ToString();
                 this.txtQtyPrd.Text = dataRow["单品净重KG"].ToString();
                 this.txtModelPrd.Text = dataRow["型号"].ToString();
+                this.txtBanciPrd.Text = dataRow["版次"].ToString();
+                this.txtShiduPrd.Text = dataRow["湿度等级"].ToString();
 
             }
         }
@@ -215,6 +219,7 @@ namespace QRCodePrintTSB
                 this.txtSpcZB.Text = dataRow["规格"].ToString();
                 this.txtQtyZB.Text = dataRow["单品净重KG"].ToString();
                 this.txtModelZB.Text = dataRow["型号"].ToString();
+                this.txtBanciZB.Text = dataRow["版次"].ToString();
 
             }
         }
