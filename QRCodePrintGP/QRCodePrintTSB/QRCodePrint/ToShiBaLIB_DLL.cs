@@ -150,7 +150,7 @@ namespace QRCodePrintTSB
             ToShiBaLIB_DLL.setup("100", "50", "3", "12", "0", "2.5", "0");
             ToShiBaLIB_DLL.clearbuffer();
             
-            ToShiBaLIB_DLL.sendcommand("QRCODE 300,160,L,10,A,0,M2,S3,\"" + qrCode + "\"");
+            ToShiBaLIB_DLL.sendcommand("QRCODE 300,100,L,10,A,0,M2,S3,\"" + qrCode + "\"");
             ToShiBaLIB_DLL.printlabel("1", "1");
             ToShiBaLIB_DLL.closeport();
         }
@@ -188,9 +188,9 @@ namespace QRCodePrintTSB
             ToShiBaLIB_DLL.windowsfont(400, 80, 60, 0, 0, 0, "标楷体", boxVo.OrderNo);
             ToShiBaLIB_DLL.windowsfont(100, 170, 60, 0, 0, 0, "标楷体", "供应商代码");
             ToShiBaLIB_DLL.windowsfont(400, 170, 60, 0, 0, 0, "标楷体", boxVo.CompNo);
-            ToShiBaLIB_DLL.windowsfont(100, 260, 60, 0, 0, 0, "标楷体", "客户料号");
+            ToShiBaLIB_DLL.windowsfont(100, 260, 60, 0, 0, 0, "标楷体", "供应商料号");
             ToShiBaLIB_DLL.windowsfont(400, 260, 60, 0, 0, 0, "标楷体", boxVo.ModelNo);
-            ToShiBaLIB_DLL.windowsfont(100, 350, 60, 0, 0, 0, "标楷体", "供应商料号");
+            ToShiBaLIB_DLL.windowsfont(100, 350, 60, 0, 0, 0, "标楷体", "客户料号");
             ToShiBaLIB_DLL.windowsfont(400, 350, 60, 0, 0, 0, "标楷体", boxVo.PN);
 
             ToShiBaLIB_DLL.sendcommand("QRCODE 950,350,L,8,A,0,M2,S3,\"" + qrCode + "\"");
@@ -242,9 +242,9 @@ namespace QRCodePrintTSB
             
             ToShiBaLIB_DLL.windowsfont(100, 100, 60, 0, 0, 0, "标楷体", "供应商代码");
             ToShiBaLIB_DLL.windowsfont(400, 100, 60, 0, 0, 0, "标楷体", productVo.CompNo);
-            ToShiBaLIB_DLL.windowsfont(100, 200, 60, 0, 0, 0, "标楷体", "客户料号");
+            ToShiBaLIB_DLL.windowsfont(100, 200, 60, 0, 0, 0, "标楷体", "供应商料号");
             ToShiBaLIB_DLL.windowsfont(400, 200, 60, 0, 0, 0, "标楷体", productVo.ModelNo);
-            ToShiBaLIB_DLL.windowsfont(100, 300, 60, 0, 0, 0, "标楷体", "供应商料号");
+            ToShiBaLIB_DLL.windowsfont(100, 300, 60, 0, 0, 0, "标楷体", "客户料号");
             ToShiBaLIB_DLL.windowsfont(400, 300, 60, 0, 0, 0, "标楷体", productVo.PN);
 
             ToShiBaLIB_DLL.sendcommand("QRCODE 950,350,L,8,A,0,M2,S3,\"" + qrCode + "\"");
