@@ -189,9 +189,9 @@ namespace QRCodePrintTSB
             ToShiBaLIB_DLL.windowsfont(100, 170, 60, 0, 0, 0, "标楷体", "供应商代码");
             ToShiBaLIB_DLL.windowsfont(400, 170, 60, 0, 0, 0, "标楷体", boxVo.CompNo);
             ToShiBaLIB_DLL.windowsfont(100, 260, 60, 0, 0, 0, "标楷体", "供应商料号");
-            ToShiBaLIB_DLL.windowsfont(400, 260, 60, 0, 0, 0, "标楷体", boxVo.ModelNo);
+            ToShiBaLIB_DLL.windowsfont(400, 260, 60, 0, 0, 0, "标楷体", boxVo.PN);
             ToShiBaLIB_DLL.windowsfont(100, 350, 60, 0, 0, 0, "标楷体", "客户料号");
-            ToShiBaLIB_DLL.windowsfont(400, 350, 60, 0, 0, 0, "标楷体", boxVo.PN);
+            ToShiBaLIB_DLL.windowsfont(400, 350, 60, 0, 0, 0, "标楷体", boxVo.ModelNo);
 
             ToShiBaLIB_DLL.sendcommand("QRCODE 950,350,L,8,A,0,M2,S3,\"" + qrCode + "\"");
             ToShiBaLIB_DLL.windowsfont(980, 620, 60, 0, 0, 0, "标楷体", "ROHS+HF");
@@ -243,9 +243,9 @@ namespace QRCodePrintTSB
             ToShiBaLIB_DLL.windowsfont(100, 100, 60, 0, 0, 0, "标楷体", "供应商代码");
             ToShiBaLIB_DLL.windowsfont(400, 100, 60, 0, 0, 0, "标楷体", productVo.CompNo);
             ToShiBaLIB_DLL.windowsfont(100, 200, 60, 0, 0, 0, "标楷体", "供应商料号");
-            ToShiBaLIB_DLL.windowsfont(400, 200, 60, 0, 0, 0, "标楷体", productVo.ModelNo);
+            ToShiBaLIB_DLL.windowsfont(400, 200, 60, 0, 0, 0, "标楷体", productVo.PN);
             ToShiBaLIB_DLL.windowsfont(100, 300, 60, 0, 0, 0, "标楷体", "客户料号");
-            ToShiBaLIB_DLL.windowsfont(400, 300, 60, 0, 0, 0, "标楷体", productVo.PN);
+            ToShiBaLIB_DLL.windowsfont(400, 300, 60, 0, 0, 0, "标楷体", productVo.ModelNo);
 
             ToShiBaLIB_DLL.sendcommand("QRCODE 950,350,L,8,A,0,M2,S3,\"" + qrCode + "\"");
             ToShiBaLIB_DLL.windowsfont(980, 620, 60, 0, 0, 0, "标楷体", "ROHS+HF");
@@ -531,10 +531,10 @@ namespace QRCodePrintTSB
             str.Append("{PC000;0400,0190,20,20,e,00,B,J0101=" + boxVo.CompNo + "|}").Append('\n');
 
             str.Append("{PC000;0100,0280,20,20,e,00,B,J0101=供应商料号|}").Append('\n');
-            str.Append("{PC000;0400,0280,20,20,e,00,B,J0101=" + boxVo.ModelNo + "|}").Append('\n');
+            str.Append("{PC000;0400,0280,20,20,e,00,B,J0101=" + boxVo.PN + "|}").Append('\n');
 
             str.Append("{PC000;0100,0370,20,20,e,00,B,J0101=客户料号|}").Append('\n');
-            str.Append("{PC000;0400,0370,20,20,e,00,B,J0101=" + boxVo.PN + "|}").Append('\n');
+            str.Append("{PC000;0400,0370,20,20,e,00,B,J0101=" + boxVo.ModelNo + "|}").Append('\n');
 
             str.Append("{PC000;0100,0460,20,20,e,00,B,J0101=重量（KG）|}").Append('\n');
             str.Append("{PC000;0400,0460,20,20,e,00,B,J0101=" + boxVo.Qty + "|}").Append('\n');
@@ -616,10 +616,10 @@ namespace QRCodePrintTSB
             str.Append("{PC000;0400,0100,20,20,e,00,B,J0101=" + productVo.CompNo + "|}").Append('\n');
 
             str.Append("{PC000;0100,0200,20,20,e,00,B,J0101=供应商料号|}").Append('\n');
-            str.Append("{PC000;0400,0200,20,20,e,00,B,J0101=" + productVo.ModelNo + "|}").Append('\n');
+            str.Append("{PC000;0400,0200,20,20,e,00,B,J0101=" + productVo.PN + "|}").Append('\n');
 
             str.Append("{PC000;0100,0300,20,20,e,00,B,J0101=客户料号|}").Append('\n');
-            str.Append("{PC000;0400,0300,20,20,e,00,B,J0101=" + productVo.PN + "|}").Append('\n');
+            str.Append("{PC000;0400,0300,20,20,e,00,B,J0101=" + productVo.ModelNo + "|}").Append('\n');
 
             str.Append("{PC000;0100,0400,20,20,e,00,B,J0101=重量（KG）|}").Append('\n');
             str.Append("{PC000;0400,0400,20,20,e,00,B,J0101=" + productVo.Qty + "|}").Append('\n');
