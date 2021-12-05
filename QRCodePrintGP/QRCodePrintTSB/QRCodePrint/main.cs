@@ -78,6 +78,8 @@ namespace QRCodePrintTSB
                         PrintCount = Convert.ToInt32(this.txtPrintCountZB.Text)
                     };
                     ToShiBaLIB_DLL.ZBPrint(zhanbanVo);
+
+                    MessageBox.Show("打印完成！");
                 }
                 else
                 {
@@ -121,6 +123,8 @@ namespace QRCodePrintTSB
                     };
                     ToShiBaLIB_DLL.BoxPrint(boxVo);
                     this.txtSnoBox.Text = ToShiBaLIB_DLL.GetBoxSerialNo(boxVo.PDate);
+
+                    MessageBox.Show("打印完成！");
                 }
                 else
                 {
@@ -162,6 +166,9 @@ namespace QRCodePrintTSB
                     };
                     ToShiBaLIB_DLL.ProductPrint(productVo);
                     this.txtSnoPrd.Text = ToShiBaLIB_DLL.GetBoxSerialNo(productVo.PDate);
+
+
+                    MessageBox.Show("打印完成！");
                 }
                 else
                 {

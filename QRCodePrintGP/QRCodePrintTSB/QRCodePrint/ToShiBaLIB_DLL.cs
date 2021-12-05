@@ -462,11 +462,11 @@ namespace QRCodePrintTSB
 
 
             StringBuilder str = new StringBuilder();
-            str.Append("{D1000,0500,1000|}").Append('\n');
+            str.Append("{D1000,0500,0900|}").Append('\n');
             str.Append("{C|}").Append('\n');
             
             
-            str.Append("{XB00;0300,0100,T,L,10,A,0,M2=" + qrCode + "|}").Append('\n');//二维码
+            str.Append("{XB00;0200,0200,T,L,10,A,0,M2=" + qrCode + "|}").Append('\n');//二维码
             
 
             str.Append("{XS;I,0001,0002C6111|}").Append('\n');
@@ -545,7 +545,7 @@ namespace QRCodePrintTSB
 
             //str.Append("{XB00;0750,0650,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
 
-            str.Append("{XB00;0750,0300,T,L,08,A,0,M2=" + qrCode + "|}").Append('\n');//二维码
+            str.Append("{XB00;0700,0460,T,L,08,A,0,M2=" + qrCode + "|}").Append('\n');//二维码
             str.Append("{PC000;0800,0700,20,20,e,00,B,J0101=ROHS+HF|}").Append('\n');
 
             str.Append("{PC000;0100,0640,20,20,e,00,B,J0101=生产批号|}").Append('\n');
@@ -630,7 +630,7 @@ namespace QRCodePrintTSB
 
             //str.Append("{XB00;0750,0650,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
 
-            str.Append("{XB00;0750,0300,T,L,08,A,0,M2=" + qrCode + "|}").Append('\n');//二维码
+            str.Append("{XB00;0700,0400,T,L,08,A,0,M2=" + qrCode + "|}").Append('\n');//二维码
             str.Append("{PC000;0800,0700,20,20,e,00,B,J0101=ROHS+HF|}").Append('\n');
 
             str.Append("{PC000;0100,0600,20,20,e,00,B,J0101=生产批号|}").Append('\n');
