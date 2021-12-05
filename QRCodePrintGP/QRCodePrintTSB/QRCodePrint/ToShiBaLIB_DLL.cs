@@ -545,8 +545,8 @@ namespace QRCodePrintTSB
 
             //str.Append("{XB00;0750,0650,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
 
-            str.Append("{XB00;0700,0460,T,L,08,A,0,M2=" + qrCode + "|}").Append('\n');//二维码
-            str.Append("{PC000;0800,0700,20,20,e,00,B,J0101=ROHS+HF|}").Append('\n');
+            str.Append("{XB00;0700,0400,T,L,08,A,0,M2=" + qrCode + "|}").Append('\n');//二维码
+            str.Append("{PC000;0750,0700,20,20,e,00,B,J0101=ROHS+HF|}").Append('\n');
 
             str.Append("{PC000;0100,0640,20,20,e,00,B,J0101=生产批号|}").Append('\n');
             str.Append("{PC000;0400,0640,20,20,e,00,B,J0101=" + boxVo.LotNo + "|}").Append('\n');
@@ -630,8 +630,8 @@ namespace QRCodePrintTSB
 
             //str.Append("{XB00;0750,0650,T,H,09,A,0,M1,K8=" + qrCode + "|}").Append('\n');//二维码
 
-            str.Append("{XB00;0700,0400,T,L,08,A,0,M2=" + qrCode + "|}").Append('\n');//二维码
-            str.Append("{PC000;0800,0700,20,20,e,00,B,J0101=ROHS+HF|}").Append('\n');
+            str.Append("{XB00;0700,0350,T,L,08,A,0,M2=" + qrCode + "|}").Append('\n');//二维码
+            str.Append("{PC000;0750,0600,20,20,e,00,B,J0101=ROHS+HF|}").Append('\n');
 
             str.Append("{PC000;0100,0600,20,20,e,00,B,J0101=生产批号|}").Append('\n');
             str.Append("{PC000;0400,0600,20,20,e,00,B,J0101=" + productVo.LotNo + "|}").Append('\n');
