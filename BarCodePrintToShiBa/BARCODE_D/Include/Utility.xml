@@ -1,0 +1,1227 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utility</name>
+    </assembly>
+    <members>
+        <member name="T:Sunlike.Common.Utility.SunlikeException">
+            <summary>
+            继承自Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException
+            为Online自定义的异常类，所有Online Application发生的异常，应该都抛出此异常
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException">
+            <summary>
+            Base Application Exception Class. You can use this as the base exception object from
+            which to derive your applications exception hierarchy.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.#ctor">
+            <summary>
+            Constructor with no params.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.#ctor(System.String)">
+            <summary>
+            Constructor allowing the Message property to be set.
+            </summary>
+            <param name="message">String setting the message of the exception.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor allowing the Message and InnerException property to be set.
+            </summary>
+            <param name="message">String setting the message of the exception.</param>
+            <param name="inner">Sets a reference to the InnerException.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor used for deserialization of the exception class.
+            </summary>
+            <param name="info">Represents the SerializationInfo of the exception.</param>
+            <param name="context">Represents the context information of the exception.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Override the GetObjectData method to serialize custom values.
+            </summary>
+            <param name="info">Represents the SerializationInfo of the exception.</param>
+            <param name="context">Represents the context information of the exception.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.InitializeEnvironmentInformation">
+            <summary>
+            Initialization function that gathers environment information safely.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.MachineName">
+            <summary>
+            Machine name where the exception occurred.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.CreatedDateTime">
+            <summary>
+            Date and Time the exception was created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.AppDomainName">
+            <summary>
+            AppDomain name where the exception occurred.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.ThreadIdentityName">
+            <summary>
+            Identity of the executing thread on which the exception was created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.WindowsIdentityName">
+            <summary>
+            Windows identity under which the code was running.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.BaseApplicationException.AdditionalInformation">
+            <summary>
+            Collection allowing additional information to be added to the exception.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SunlikeException.#ctor">
+            <summary>
+            SunlikeException
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SunlikeException.#ctor(System.String)">
+            <summary>
+            SunlikeException
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SunlikeException.#ctor(System.String,System.Exception)">
+            <summary>
+            SunlikeException
+            </summary>
+            <param name="message"></param>
+            <param name="inner"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SunlikeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            SunlikeException
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SunlikeException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            GetObjectData
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SunlikeException.Publish(System.Exception)">
+            <summary>
+            Publish
+            </summary>
+            <param name="_ex"></param>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SunlikeException.OSVersion">
+            <summary>
+            OSVersion
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.ConfigSetting">
+            <summary>
+            读写XML文件用
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.CheckWindowUser(System.String,System.String,System.String)">
+            <summary>
+            检验WINDOWS用户
+            </summary>
+            <param name="windowUser"></param>
+            <param name="windowPwd"></param>
+            <param name="windowDomain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.SetConfigration(System.String,System.String)">
+            <summary>
+            写Config文件
+            </summary>
+            <param name="settingName">节点名称</param>
+            <param name="settingValue">节点值</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.SetReport(System.String,System.String)">
+            <summary>
+            写config文件
+            </summary>
+            <param name="settingKeyString"></param>
+            <param name="settingValueString"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.SetRemoting(System.String,System.String,System.String)">
+            <summary>
+            写config文件节点
+            </summary>
+            <param name="modeStr"></param>
+            <param name="typeStr"></param>
+            <param name="uriStr"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.GetXmlElement(System.Xml.XmlElement,System.String,System.String)">
+            <summary>
+            得到XML文件的Element
+            </summary>
+            <param name="xmlElement"></param>
+            <param name="elementName"></param>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.GetElement(System.Xml.XmlElement,System.String,System.String)">
+            <summary>
+            取得子节点
+            </summary>
+            <param name="xe">子节点</param>
+            <param name="ElementName"></param>
+            <param name="Condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.Save(System.String,System.String,System.String)">
+            <summary>
+            保存XML文件
+            </summary>
+            <param name="windowUser">Windows用户名</param>
+            <param name="windowPwd">Windows密码</param>
+            <param name="windowDomain">Windows域</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.GetWebConfigConnectionString">
+            <summary>
+            取得web.config里的连接字串
+            </summary>
+            <returns>ConnectionString</returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.SetRemotingFormatter(Sunlike.Common.Utility.ConfigSetting.EFormatType)">
+            <summary>
+            设置Remoting传输类型
+            </summary>
+            <param name="formatType">传输格式</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.SetAppSetting(System.String,System.String,System.String)">
+            <summary>
+            设置AppSetting
+            </summary>
+            <param name="exePath"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.GetAppSetting(System.String,System.String)">
+            <summary>
+            取得AppSetting
+            </summary>
+            <param name="exePath"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.SetConnectionSetting(System.String,System.String,System.String)">
+            <summary>
+            设置Connection
+            </summary>
+            <param name="exePath"></param>
+            <param name="name"></param>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.ConfigSetting.GetConnectionSetting(System.String,System.String)">
+            <summary>
+            取得ConnectionSetting
+            </summary>
+            <param name="exePath"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunlike.Common.Utility.ConfigSetting.EFormatType">
+            <summary>
+            传输格式
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.ConfigSetting.EFormatType.Binary">
+            <summary>
+            二进制
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.ConfigSetting.EFormatType.Soap">
+            <summary>
+            XML结构
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.WMI.Win32Process">
+            <summary>
+            进程管理
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.WMI.Win32Process.Create(System.String,System.String,System.String,System.String)">
+            <summary>
+            创建进程
+            </summary>
+            <param name="machinename"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="command"></param>
+            <returns>返回Process ID</returns>
+        </member>
+        <member name="T:Sunlike.Common.Utility.WMI.StdRegProv">
+            <summary>
+            注册表管理
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.WMI.StdRegProv.GetStringValue(System.String,System.String,System.String,Sunlike.Common.Utility.WMI.ERegKey,System.String,System.String)">
+            <summary>
+            获取注册表项的值
+            </summary>
+            <param name="machinename"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="defKey"></param>
+            <param name="subKeyName">注册表项路径 e.g "SOFTWARE\Microsoft\Pop3 Service"</param>
+            <param name="valueName">注册表项名字 e.g "MailRoot"</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunlike.Common.Utility.WMI.ERegKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.WMI.Win32Account">
+            <summary>
+            windows用户管理
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.WMI.Win32Account.CheckAccountExist(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            检测用户是否存在
+            </summary>
+            <param name="machinename"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="domain"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunlike.Common.Utility.WMI.Win32Directory">
+            <summary>
+            目录管理
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.WMI.Win32Directory.CheckNameExist(System.String,System.String,System.String,System.String)">
+            <summary>
+            检测路径是否存在
+            </summary>
+            <param name="machinename"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="name">路径 e.g "c:\test"</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunlike.Common.Utility.WMI.Win32DiskQuota">
+            <summary>
+            配额管理
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.WMI.Win32DiskQuota.Create(System.String,System.String,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            为用户创建配额
+            </summary>
+            <param name="machinename"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="quoteUser"></param>
+            <param name="size">配额大小 （字节）</param>
+            <param name="volume">配额盘符e.g "C"</param>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.IExceptionPublisher">
+            <summary>
+            Interface to publish exception information.  All exception information is passed as the chain of exception objects.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.IExceptionPublisher.Publish(System.Exception,System.Collections.Specialized.NameValueCollection,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Method used to publish exception information and additional information.
+            </summary>
+            <param name="exception">The exception object whose information should be published.</param>
+            <param name="additionalInfo">A collection of additional data that should be published along with the exception information.</param>
+            <param name="configSettings">A collection of name/value attributes specified in the config settings.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.IExceptionXmlPublisher">
+            <summary>
+            Interface to publish exception information.  All exception information is passed as XML.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.IExceptionXmlPublisher.Publish(System.Xml.XmlDocument,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Method used to publish exception information and any additional information in XML.
+            </summary>
+            <param name="exceptionInfo">An XML Document containing the all exception information.</param>
+            <param name="configSettings">A collection of name/value attributes specified in the config settings.</param>
+        </member>
+        <member name="T:Sunlike.Common.Utility.CacheManager">
+            <summary>
+            得到或设置Cache
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.CacheManager.#ctor">
+            <summary>
+            得到或设置Cache
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.CacheManager.Get(System.String)">
+            <summary>
+            获取Cache
+            </summary>
+            <param name="cacheKey">Cache的名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.CacheManager.Insert(System.String,System.Data.DataSet)">
+            <summary>
+            设置Cache
+            </summary>
+            <param name="cacheKey">Cache的名称</param>
+            <param name="ds"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.CacheManager.Remove(System.String)">
+            <summary>
+            删除Cache
+            </summary>
+            <param name="cacheKey">Cache的名称</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.CacheManager.Clear">
+            <summary>
+            清楚所有的Cache
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.CacheManager.SetLifeTime(System.Xml.XmlDocument)">
+            <summary>
+            设定每个Cache的存活期
+            </summary>
+            <param name="xd">设定的XML内容</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.CacheManager.UseCache(System.String)">
+            <summary>
+            是否使用Cache
+            </summary>
+            <param name="cacheKey">Cache的名称</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunlike.Common.Utility.Security">
+            <summary>
+            安全控制
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.Security.EncodingCompData(System.String,System.String)">
+            <summary>
+            带主键加密字符
+            </summary>
+            <param name="OldValue">要加密的字符</param>
+            <param name="CompNo">主键值</param>
+            <returns>加密后的字符</returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.Security.DecodingCompData(System.String,System.String)">
+            <summary>
+            带主键解密字符
+            </summary>
+            <param name="OldValue">要解密的字符</param>
+            <param name="CompNo">主键值</param>
+            <returns>解密后的字符</returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.Security.EncodingPswd(System.String)">
+            <summary>
+            加密字符
+            </summary>
+            <param name="OldPswd">要加密的字符</param>
+            <returns>加密后的字符</returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.Security.DecodingPswd(System.String)">
+            <summary>
+            解密字符
+            </summary>
+            <param name="OldPswd">要解密的字符</param>
+            <returns>解密后的字符</returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.Security.EncodingStream(System.IO.Stream,System.String)">
+            <summary>
+            加密流
+            </summary>
+            <param name="inputStream">输入流</param>
+            <param name="key">私钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.Security.DecodingStream(System.IO.Stream,System.String)">
+            <summary>
+            解密流
+            </summary>
+            <param name="inputStream">输入流</param>
+            <param name="key">私钥</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManager">
+            <summary>
+            The Exception Manager class manages the publishing of exception information based on settings in the configuration file.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManager.#ctor">
+            <summary>
+            Private constructor to restrict an instance of this class from being created.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManager.Publish(System.Exception)">
+            <summary>
+            Static method to publish the exception information.
+            </summary>
+            <param name="exception">The exception object whose information should be published.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManager.Publish(System.Exception,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Static method to publish the exception information and any additional information.
+            </summary>
+            <param name="exception">The exception object whose information should be published.</param>
+            <param name="additionalInfo">A collection of additional data that should be published along with the exception information.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManager.PublishToCustomPublisher(System.Exception,System.Collections.Specialized.NameValueCollection,Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings)">
+            <summary>
+            Private static helper method to publish the exception information to a custom publisher.
+            </summary>
+            <param name="exception">The exception object whose information should be published.</param>
+            <param name="additionalInfo">A collection of additional data that should be published along with the exception information.</param>
+            <param name="publisher">The PublisherSettings that contains the values of the publishers configuration.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManager.PublishToDefaultPublisher(System.Exception,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Private static helper method to publish the exception information to the default publisher.
+            </summary>
+            <param name="exception">The exception object whose information should be published.</param>
+            <param name="additionalInfo">A collection of additional data that should be published along with the exception information.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManager.PublishInternalException(System.Exception,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Private static helper method to publish the exception information to the default publisher.
+            </summary>
+            <param name="exception">The exception object whose information should be published.</param>
+            <param name="additionalInfo">A collection of additional data that should be published along with the exception information.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManager.Activate(System.String,System.String)">
+            <summary>
+            Private helper function to assist in run-time activations. Returns
+            an object from the specified assembly and type.
+            </summary>
+            <param name="assembly">Name of the assembly file (w/out extension)</param>
+            <param name="typeName">Name of the type to create</param>
+            <returns>Instance of the type specified in the input parameters.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManager.SerializeToXml(System.Exception,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Public static helper method to serialize the exception information into XML.
+            </summary>
+            <param name="exception">The exception object whose information should be published.</param>
+            <param name="additionalInfo">A collection of additional data that should be published along with the exception information.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.DefaultPublisher">
+            <summary>
+            Component used as the default publishing component if one is not specified in the config file.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.DefaultPublisher.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.DefaultPublisher.#ctor(System.String,System.String)">
+            <summary>
+            Constructor allowing the log name and application names to be set.
+            </summary>
+            <param name="logName">The name of the log for the DefaultPublisher to use.</param>
+            <param name="applicationName">The name of the application.  This is used as the Source name in the event log.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.DefaultPublisher.Publish(System.Exception,System.Collections.Specialized.NameValueCollection,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Method used to publish exception information and additional information.
+            </summary>
+            <param name="exception">The exception object whose information should be published.</param>
+            <param name="additionalInfo">A collection of additional data that should be published along with the exception information.</param>
+            <param name="configSettings">A collection of any additional attributes provided in the config settings for the custom publisher.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.DefaultPublisher.WriteToLog(System.String,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            Helper function to write an entry to the Event Log.
+            </summary>
+            <param name="entry">The entry to enter into the Event Log.</param>
+            <param name="type">The EventLogEntryType to be used when the entry is logged to the Event Log.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException">
+            <summary>
+            Summary description for ExceptionManagerExceptions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException.#ctor">
+            <summary>
+            Constructor with no params.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException.#ctor(System.String)">
+            <summary>
+            Constructor allowing the Message property to be set.
+            </summary>
+            <param name="message">String setting the message of the exception.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor allowing the Message and InnerException property to be set.
+            </summary>
+            <param name="message">String setting the message of the exception.</param>
+            <param name="inner">Sets a reference to the InnerException.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException.#ctor(System.String,System.String,System.String,Microsoft.ApplicationBlocks.ExceptionManagement.PublisherFormat)">
+            <summary>
+            Constructor allowing the message, assembly name, type name, and publisher format to be set.
+            </summary>
+            <param name="message">String setting the message of the exception.</param>
+            <param name="assemblyName">String setting the assembly name of the exception.</param>
+            <param name="typeName">String setting the type name of the exception.</param>
+            <param name="publisherFormat">String setting the publisher format of the exception.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException.#ctor(System.String,System.String,System.String,Microsoft.ApplicationBlocks.ExceptionManagement.PublisherFormat,System.Exception)">
+            <summary>
+            Constructor allowing the Message and InnerException property to be set.
+            </summary>
+            <param name="message">String setting the message of the exception.</param>
+            <param name="assemblyName">String setting the assembly name of the exception.</param>
+            <param name="typeName">String setting the type name of the exception.</param>
+            <param name="publisherFormat">String setting the publisher format of the exception.</param>
+            <param name="inner">Sets a reference to the InnerException.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor used for deserialization of the exception class.
+            </summary>
+            <param name="info">Represents the SerializationInfo of the exception.</param>
+            <param name="context">Represents the context information of the exception.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Override the GetObjectData method to serialize custom values.
+            </summary>
+            <param name="info">Represents the SerializationInfo of the exception.</param>
+            <param name="context">Represents the context information of the exception.</param>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException.PublisherFormat">
+            <summary>
+            The exception format configured for the publisher that threw an exception.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException.PublisherAssemblyName">
+            <summary>
+            The Assembly name of the publisher that threw an exception.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.CustomPublisherException.PublisherTypeName">
+            <summary>
+            The Type name of the publisher that threw an exception.
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.EncodeType">
+            <summary>
+            EncodeType
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.EncodeType.Unicode">
+            <summary>
+            Unicode
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.EncodeType.GBK">
+            <summary>
+            GBK
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.EncodeType.BIG5">
+            <summary>
+            BIG5
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.EncodeManage">
+            <summary>
+            EncodeManage
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.EncodeManage.Convert(Sunlike.Common.Utility.EncodeType,Sunlike.Common.Utility.EncodeType,System.String)">
+            <summary>
+            简繁互转
+            </summary>
+            <param name="srcEncoding"></param>
+            <param name="dstEncoding"></param>
+            <param name="srcString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunlike.Common.Utility.TypeInfo">
+            <summary>
+            提供有关型别(Type)的常用方法
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.TypeInfo.Support(System.Object,System.String)">
+            <summary>
+            用来判别该Object是否有实做(Implement)某个Interface，传入的interfaceName不区分大小写
+            </summary>
+            <param name="obj"></param>
+            <param name="interfaceName">Interface的名称</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunlike.Common.Utility.AttachmentLocation">
+            <summary>
+            For use in SmtpAttachment.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.AttachmentLocation.Attachment">
+            <summary>
+            Send as regular attachment.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.AttachmentLocation.Inline">
+            <summary>
+            Send as MIME inline (for html images, etc).
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.AuthenticationType">
+            <summary>
+            Login type for authentication.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.AuthenticationType.None">
+            <summary>
+            No authentication is used.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.AuthenticationType.Base64">
+            <summary>
+            Base64 authentication is used.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.AuthenticationType.Plain">
+            <summary>
+            Plain text authentication is used.
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.CharsetType">
+            <summary>
+            Language type of Mail-format
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.CharsetType.GB2312">
+            <summary>
+            GB2312
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.CharsetType.BIG5">
+            <summary>
+            BIG5
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.CharsetType.ASCII">
+            <summary>
+            ASCII
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.CharsetType.UTF8">
+            <summary>
+            UTF8
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.SmtpAttachment">
+            <summary>
+            Class for holding an attachment's information.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.SmtpAttachment.FileName">
+            <summary>
+            File to send.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.SmtpAttachment.ContentType">
+            <summary>
+            Content type of file (application/octet-stream for regular attachments).
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpAttachment.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpAttachment.#ctor(System.String,System.String,Sunlike.Common.Utility.AttachmentLocation)">
+            <summary>
+            Constructor for passing all information at once.
+            </summary>
+            <param name="fileName">File to send.</param>
+            <param name="contentType">Content type of file (application/octet-stream for regular attachments.)</param>
+            <param name="location">Where to put the attachment.</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpAttachment.#ctor(System.String)">
+            <summary>
+            Shortcut constructor for passing regular style attachments.
+            </summary>
+            <param name="filename">File to send.</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpAttachment.ToString">
+            <summary>
+            Show this attachment.
+            </summary>
+            <returns>The file name of the attachment.</returns>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpAttachment.Location">
+            <summary>
+            Where to put the attachment.
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.SmtpResponseCodes">
+            <summary>
+            List of SMTP reply codes.
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.SmtpConnection">
+            <summary>
+            Class for handling an SMTP connection.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpConnection.#ctor">
+            <summary>
+            Create a new connection.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpConnection.Open(System.String,System.Int32,System.Text.Encoding)">
+            <summary>
+            Open connection to host on port.
+            </summary>
+            <param name="host">Host name to connect to.</param>
+            <param name="port">Port to connect to.</param>
+            <param name="streamEncoding"></param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpConnection.Close">
+            <summary>
+            Close connection.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpConnection.SendCommand(System.String)">
+            <summary>
+            Send a command to the server.
+            </summary>
+            <param name="cmd">Command to send.</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpConnection.GetReply(System.String@,System.Int32@)">
+            <summary>
+            Get the reply message from the server.
+            </summary>
+            <param name="reply">Text reply from server.</param>
+            <param name="code">Status code from server.</param>
+        </member>
+        <member name="T:Sunlike.Common.Utility.SmtpEmailer">
+            <summary>
+            Summary description for SmtpEmailer.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.SmtpEmailer.ErrorMessage">
+            <summary>
+            ErrorMessage
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.Utility.SmtpEmailer.FromCaption">
+            <summary>
+            Caption of sender;  寄件人的说明
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.#ctor">
+            <summary>
+            Create an SmtpEmailer.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.SendMessage">
+            <summary>
+            Send the message.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.SendMessage(System.String@)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="_ex">错误返回信息</param>
+            <returns>是否发送成功</returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.SendMessageAsync">
+            <summary>
+            Send the message on a seperate thread.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.SendMessageAsync(System.String,System.Int32,System.String,System.Boolean,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="MailHost">地址</param>
+            <param name="MailPort">端口号</param>
+            <param name="MailType">验证类型</param>
+            <param name="MailIfHtml">是否以HTML格式发送</param>
+            <param name="MailUsr">用户名</param>
+            <param name="MailPwd">密码</param>
+            <param name="MailFrom">发送地址</param>
+            <param name="MailTo">接受地址</param>
+            <param name="MailSubject">主题</param>
+            <param name="MailBody">内容</param>
+        </member>
+        <member name="E:Sunlike.Common.Utility.SmtpEmailer.OnMailSent">
+            <summary>
+            Event sent when mail has been sent.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.Charset">
+            <summary>
+            Charset of Mail-Format
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.Host">
+            <summary>
+            Name of server.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.Port">
+            <summary>
+            Port to connnect to on server.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.From">
+            <summary>
+            From email address.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.To">
+            <summary>
+            List of to email addresses.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.CC">
+            <summary>
+            List of cc email addresses.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.BCC">
+            <summary>
+            List of bcc email addresses.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.Subject">
+            <summary>
+            Subject of message.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.Body">
+            <summary>
+            Body of message.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.Attachments">
+            <summary>
+            List of files to attach.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.SendAsHtml">
+            <summary>
+            Send body as HTML?
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.AuthenticationMode">
+            <summary>
+            Method used for authentication.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.User">
+            <summary>
+            User ID for authentication.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.Password">
+            <summary>
+            Password for authentication.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.Utility.SmtpEmailer.EventPara">
+            <summary>
+            异部发送邮件触发OnMailSend事件所传递的参数
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.Utility.SmtpEmailer.AddressList">
+            <summary>
+            A utilitiy class for holding the list of addresses.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.AddressList.#ctor(System.Collections.ArrayList)">
+            <summary>
+            Create the AddressList.
+            </summary>
+            <param name="list">Associated array to store list data in.</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.AddressList.Add(System.String)">
+            <summary>
+            Add an address to the list.
+            </summary>
+            <param name="address">Address to add.</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.AddressList.Remove(System.String)">
+            <summary>
+            Remove an address from the list.
+            </summary>
+            <param name="address">Address to remove.</param>
+        </member>
+        <member name="T:Sunlike.Common.Utility.SmtpEmailer.AttachmentList">
+            <summary>
+            A utilitiy class for holding the list of to attachments.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.AttachmentList.#ctor(System.Collections.ArrayList)">
+            <summary>
+            Create the AttachmentList.
+            </summary>
+            <param name="list">Associated array to store list data in.</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.AttachmentList.Add(Sunlike.Common.Utility.SmtpAttachment)">
+            <summary>
+            Add an attachment.
+            </summary>
+            <param name="attachment">Attachment to add.</param>
+        </member>
+        <member name="M:Sunlike.Common.Utility.SmtpEmailer.AttachmentList.Remove(Sunlike.Common.Utility.SmtpAttachment)">
+            <summary>
+            Remove an attachment from the list.
+            </summary>
+            <param name="attachment">Attachment to remove.</param>
+        </member>
+        <member name="T:Sunlike.Common.Utility.SmtpEmailer.MailSentDelegate">
+            <summary>
+            Delegate for mail sent notification.
+            </summary>
+            <param name="isSuccess">是否发送成功</param>
+            <param name="errorMsg">错误信息</param>
+            <param name="htEventPara">传递参数</param>
+        </member>
+        <member name="T:Sunlike.Common.Utility.Impersonate">
+            <summary>
+            Summary description for Impersonate.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.Utility.Impersonate.LogonUser(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            登录用户
+            </summary>
+            <param name="UserName"></param>
+            <param name="Domain"></param>
+            <param name="Pswd"></param>
+            <param name="LogonType"></param>
+            <param name="LogonProvider"></param>
+            <param name="Token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.Utility.Impersonate.SetUser(System.String,System.String,System.String)">
+            <summary>
+            设定模拟用户。返回：模拟成功否
+            </summary>
+            <param name="UserName">要模拟的用户名，不需要模拟可传空值</param>
+            <param name="Domain">要模拟的用户的域名，本机用户或不需要模拟可传空值</param>
+            <param name="Password">要模拟的用户密码，不需要模拟可传空值</param>
+            <returns>模拟成功否</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagementMode">
+            <summary>
+            Enum containing the mode options for the exceptionManagement tag.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagementMode.Off">
+            <summary>The ExceptionManager should not process exceptions.</summary>
+        </member>
+        <member name="F:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagementMode.On">
+            <summary>The ExceptionManager should process exceptions. This is the default.</summary>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherMode">
+            <summary>
+            Enum containing the mode options for the publisher tag.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherMode.Off">
+            <summary>The ExceptionManager should not call the publisher.</summary>
+        </member>
+        <member name="F:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherMode.On">
+            <summary>The ExceptionManager should call the publisher. This is the default.</summary>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherFormat">
+            <summary>
+            Enum containing the format options for the publisher tag.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherFormat.Exception">
+            <summary>The ExceptionManager should call the IExceptionPublisher interface of the publisher. 
+            This is the default.</summary>
+        </member>
+        <member name="F:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherFormat.Xml">
+            <summary>The ExceptionManager should call the IExceptionXmlPublisher interface of the publisher.</summary>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagementSettings">
+            <summary>
+            Class that defines the exception management settings in the config file.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagementSettings.AddPublisher(Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings)">
+            <summary>
+            Adds a PublisherSettings to the arraylist of publishers.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagementSettings.Mode">
+            <summary>
+            Specifies the whether the exceptionManagement settings are "on" or "off".
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagementSettings.Publishers">
+            <summary>
+            An ArrayList containing all of the PublisherSettings listed in the config file.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings">
+            <summary>
+            Class that defines the publisher settings within the exception management settings in 
+            the config file.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings.IsExceptionFiltered(System.Type)">
+            <summary>
+            Determines whether the exception type is to be filtered out based on the includes and exclude
+            types specified.
+            </summary>
+            <param name="exceptionType">The Type of the exception to check for filtering.</param>
+            <returns>True is the exception type is to be filtered out, false if it is not filtered out.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings.MatchesFilter(System.Type,Microsoft.ApplicationBlocks.ExceptionManagement.TypeFilter)">
+            <summary>
+            Determines if a type is contained the supplied filter. 
+            </summary>
+            <param name="type">The Type to look for</param> 
+            <param name="typeFilter">The Filter to test against the Type</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings.AddOtherAttributes(System.String,System.String)">
+            <summary>
+            Allows name/value pairs to be added to the Other Attributes collection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings.Mode">
+            <summary>
+            Specifies the whether the exceptionManagement settings are "on" or "off".
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings.ExceptionFormat">
+            <summary>
+            Specifies the whether the publisher supports the IExceptionXmlPublisher interface (value is set to "xml")
+            or the publisher supports the IExceptionPublisher interface (value is either left off or set to "exception").
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings.AssemblyName">
+            <summary>
+            The assembly name of the publisher component that will be used to invoke the object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings.TypeName">
+            <summary>
+            The type name of the publisher component that will be used to invoke the object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings.IncludeTypes">
+            <summary>
+            A semicolon delimited list of all exception types that the publisher will be invoked for. 
+            A "*" can be used to specify all types and is the default value if this is left off.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings.ExcludeTypes">
+            <summary>
+            A semicolon delimited list of all exception types that the publisher will not be invoked for. 
+            A "*" can be used to specify all types. The default is to exclude no types.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.PublisherSettings.OtherAttributes">
+            <summary>
+            A collection of any other attributes included within the publisher tag in the config file. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.TypeFilter">
+            <summary>
+            TypeFilter class stores contents of the Include and Exclude filters provided in the
+            configuration file
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.TypeFilter.AcceptAllTypes">
+            <summary>
+            Indicates if all types should be accepted for a filter
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.TypeFilter.Types">
+            <summary>
+            Collection of types for the filter
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.TypeInfo">
+            <summary>
+            TypeInfo class contains information about each type within a TypeFilter
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.TypeInfo.IncludeSubClasses">
+            <summary>
+            Indicates if subclasses are to be included with the type specified in the Include and Exclude filters
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationBlocks.ExceptionManagement.TypeInfo.ClassType">
+            <summary>
+            The Type class representing the type specified in the Include and Exclude filters
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagerSectionHandler">
+            <summary>
+            The Configuration Section Handler for the "exceptionManagement" section of the config file. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagerSectionHandler.#ctor">
+            <summary>
+            The constructor for the ExceptionManagerSectionHandler to initialize the resource file.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagerSectionHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            Builds the ExceptionManagementSettings and PublisherSettings structures based on the configuration file.
+            </summary>
+            <param name="parent">Composed from the configuration settings in a corresponding parent configuration section.</param>
+            <param name="configContext">Provides access to the virtual path for which the configuration section handler computes configuration values. Normally this parameter is reserved and is null.</param>
+            <param name="section">The XML node that contains the configuration information to be handled. section provides direct access to the XML contents of the configuration section.</param>
+            <returns>The ExceptionManagementSettings struct built from the configuration settings.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagerSectionHandler.LoadTypeFilter(System.String[])">
+            <summary>
+            Creates TypeFilter with type information from the string array of type names.
+            </summary>
+            <param name="rawFilter">String array containing names of types to be included in the filter.</param>
+            <returns>TypeFilter object containing type information.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagerInstaller">
+            <summary>
+            Installer class used to create two event sources for the 
+            Exception Management Application Block to function correctly.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagerInstaller.#ctor">
+            <summary>
+            Constructor with no params.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.ExceptionManagement.ExceptionManagerInstaller.InitializeComponent">
+            <summary>
+            Initialization function to set internal variables.
+            </summary>
+        </member>
+    </members>
+</doc>

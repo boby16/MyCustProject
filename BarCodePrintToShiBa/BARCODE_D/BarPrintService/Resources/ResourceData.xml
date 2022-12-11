@@ -1,0 +1,21 @@
+<Resource>
+	<ResourceData ModulID="UNKNOWN" FileName="resol.resources.dll" BaseName="online" />
+	<ResourceData ModulID="INV" FileName="resol_INV.resources.dll" BaseName="online_INV" />
+	<ResourceData ModulID="SYS" FileName="resol_SYS.resources.dll" BaseName="online_SYS" />
+	<ResourceData ModulID="MON" FileName="resol_MON.resources.dll" BaseName="online_MON" />
+	<ResourceData ModulID="COMMON" FileName="resol_COMMON.resources.dll" BaseName="online_COMMON" />
+	<ResourceData ModulID="CWK" FileName="resol_CWK.resources.dll" BaseName="online_CWK" />
+	<ResourceData ModulID="EC" FileName="resol_EC.resources.dll" BaseName="online_EC" />
+	<ResourceData ModulID="KM" FileName="resol_KM.resources.dll" BaseName="online_KM" />
+	<ResourceData ModulID="MTN" FileName="resol_MTN.resources.dll" BaseName="online_MTN" />
+	<ResourceData ModulID="MNU" FileName="resol_MNU.resources.dll" BaseName="online_MNU" />
+	<ResourceData ModulID="MOJ" FileName="resol_MOJ.resources.dll" BaseName="online_MOJ" />
+	<ResourceData ModulID="ACC" FileName="resol_ACC.resources.dll" BaseName="online_ACC" />
+	<ResourceData ModulID="FIX" FileName="resol_FIX.resources.dll" BaseName="online_FIX" />
+	<ResourceData ModulID="MNG" FileName="resol_MNG.resources.dll" BaseName="online_MNG" />
+	<ResourceData ModulID="SOPO" FileName="resol_SOPO.resources.dll" BaseName="online_SOPO" />
+	<ResourceData ModulID="SGT" FileName="resol_SGT.resources.dll" BaseName="online_SGT" />
+	<ResourceData ModulID="SEB" FileName="resol_SEB.resources.dll" BaseName="online_SEB" />
+	<ResourceData ModulID="MRP" FileName="resol_MRP.resources.dll" BaseName="online_MRP" />
+	<ResourceData ModulID="WAG" FileName="resol_WAG.resources.dll" BaseName="online_WAG" />
+</Resource>

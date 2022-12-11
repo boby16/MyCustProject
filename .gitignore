@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+QRCodePrint/QRCodePrint/QRCodePrint/bin/x86/Debug/QRCodePrint.vshost.exe
+QRCodePrint/QRCodePrint/QRCodePrint/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+QRCodePrint/QRCodePrint/QRCodePrint/obj/x86/Debug/QRCodePrint.csproj.FileListAbsolute.txt

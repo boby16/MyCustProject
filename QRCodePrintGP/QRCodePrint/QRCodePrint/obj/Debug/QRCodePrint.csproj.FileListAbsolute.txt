@@ -1,0 +1,9 @@
+D:\Project\GuPinBarCode\QRCodePrint\QRCodePrint\bin\Debug\QRCodePrint.exe.config
+D:\Project\GuPinBarCode\QRCodePrint\QRCodePrint\obj\Debug\QRCodePrint.csprojResolveAssemblyReference.cache
+D:\Project\GuPinBarCode\QRCodePrint\QRCodePrint\obj\Debug\QRCodePrint.main.resources
+D:\Project\GuPinBarCode\QRCodePrint\QRCodePrint\obj\Debug\QRCodePrint.Properties.Resources.resources
+D:\Project\GuPinBarCode\QRCodePrint\QRCodePrint\obj\Debug\QRCodePrint.csproj.GenerateResource.Cache
+D:\Project\GuPinBarCode\QRCodePrint\QRCodePrint\bin\Debug\QRCodePrint.exe
+D:\Project\GuPinBarCode\QRCodePrint\QRCodePrint\bin\Debug\QRCodePrint.pdb
+D:\Project\GuPinBarCode\QRCodePrint\QRCodePrint\obj\Debug\QRCodePrint.exe
+D:\Project\GuPinBarCode\QRCodePrint\QRCodePrint\obj\Debug\QRCodePrint.pdb

@@ -1,0 +1,173 @@
+ Dim strOut1 As String
+ Dim strOut2 As String
+ Dim strOut3 As String
+ Dim strOut5 As String
+ Dim strOut6 As String
+ Dim strOut7 As String
+ Dim strOut8 As String
+ Dim strOut9 As String
+ Dim strOut10 As String
+ Dim strOut11 As String
+ Dim strOut12 As String
+ Dim strOut13 As String
+ Dim strOut14 As String
+ Dim strOut15 As String
+ Dim strOut16 As String
+ Dim strOut17 As String
+ Dim strOut18 As String
+ Dim strOut19 As String
+ Dim strOut20 As String
+ Dim strOut21 As String
+ Dim strOut22 As String
+ Dim strOut23 As String
+ Dim strOut24 As String
+ Dim strOut25 As String
+ Dim strOut26 As String
+ Dim strOut27 As String
+ Dim strOut28 As String
+ 
+ Dim B As String
+ Dim Z As String
+ Dim Z1 As String
+ Dim ncount As Integer
+ Dim cbuf(25600) As Byte
+ Dim cbuf1(25600) As Byte
+ 'Dim Jcy As Integer
+    
+    strOut1 = "TEC BARCODE PRINTER JOB START"
+    strOut2 = "{D1230,0800,1200|}"
+    strOut3 = "{AX;-000,-000,-00|}"
+    strOut5 = "{U1;0120|}"
+    strOut6 = "{U2;0120|}"
+    strOut24 = "{C|}"
+    
+    
+   ' ncount = 0
+   ' ncount = getfonthex(Combo1.Text, "黑体", 270, 50, 0, 950, 0, cbuf(ncount), h)
+   ' ncount = 0
+   ' ncount = getfonthex("张", "黑体", 270, 55, 100, 800, 0, cbuf1(ncount), h)
+    
+    
+    strOut7 = "{PV01;0500,0420,0060,0060,B,11,B;01|}" '生产机组
+    strOut8 = "{PV02;0400,0320,0060,0060,B,11,B;02|}" '卷号
+    strOut9 = "{PV03;0300,0320,0060,0060,B,11,B;03|}" '牌号
+                     
+    strOut10 = "{PV04;0200,0320,0043,0060,B,11,B;04|}" '规格
+                      
+    B = Text5.Text & "mmX" & Text10.Text & "mmX" & Text11.Text & "mm"
+    strOut11 = "{PV05;0100,0320,0060,0060,B,11,B;05|}" '重量
+    strOut27 = "{PV08;0100,0670,0060,0060,B,11,B;08|}" '张数
+    If Text6.Text = "" Then
+       Z = ""
+    Else
+       Z = Text6.Text & "Kg"
+    End If
+      If Text12.Text = "" Then
+          Z1 = ""
+      Else
+          Z1 = Text12.Text & ""
+      End If
+     strOut12 = "{PV06;0000,0400,0045,0060,B,11,B;06|}" '生产日期
+    'strOut13 = "{PV07;0000,0900,0040,0050,B,11,B;07|}" '检查员
+     strOut13 = "{PV07;0100,0980,0060,0060,B,11,B;07|}" '包装类型
+     strOut28 = "{PC005;0010,0900,2,2,r,00,B;08|}"
+     
+     
+    'strOut15 = "{PV08;0163,1905,0035,0080,B,11,B;08|}" '日期
+    
+     strOut21 = "{XB01;0500,1120,9,3,04,3,0080,+0000000000,000,0,00;02|}"
+     strOut16 = "{RC;" & Text2.Text & "|" & Text3.Text & "|" & Text4.Text & "|" & B & "|" & Z & "|" & Text7.Text & "|" & Text8.Text & "|" & Z1 & "|" & Combo1.Text & "|}"
+     strOut26 = "{RC;" & Text2.Text & "|" & Text3.Text & "|" & Text14.Text & "|" & Combo1.Text & "|" & Text14.Text & "|" & Text7.Text & "|" & Combo1.Text & "|}"
+  '  strOut17 = "{XS;I,000" & CStr(Text13.Text) & ",0002C5211|}"
+     strOut17 = "{XS;I,0002,0002C5211|}"
+     strOut25 = "{XS;I,0001,0002C5211|}"
+    
+     strOut18 = "{IB|}"
+     strOut19 = "TEC BARCODE PRINTER PAGE END"
+     strOut20 = "TEC BARCODE PRINTER JOB END"
+  
+   
+     Dim age As Currency
+     Dim age1 As Integer
+   ' Currency
+     Dim a As Integer
+    
+    If Check1.Value = 1 Then
+    
+    age = 7.85 * Text5.Text * Text10.Text * Text11.Text * 0.000001 * Text12.Text '实际重量
+    
+    age1 = Text6.Text / (7.85 * Text5.Text * Text10.Text * Text11.Text * 0.000001) '理论张数
+ 
+    If Text6.Text / age < 0.7 Or Text6.Text / age > 2 Or age1 / Text12.Text > 1.018 Or age1 / Text12.Text < 0.98 Then
+   ' If age1 / Text12.Text > 1.018 Or age1 / Text12.Text < 0.98 Then
+    
+          intvar = MsgBox("请检查规格、重量、张数是否输入准确？", -vbInformation + vbOKOnly, "理论张数:" & Fix(CInt(age1)))
+      Else
+     
+   End If
+     End If
+   
+If Text9.Text < 0 Or Text9.Text > 995 Then
+    MsgBox "横坐标数据输入错误,请重新确认！"
+    Exit Sub
+ Else
+    If Text9.Text < 10 Then
+       strOut14 = "{Z2;2,-020+000+00+00" & CStr(Text9.Text) & "+00+00-00-001014|}"
+    Else
+       If Text9.Text < 100 Then
+          strOut14 = "{Z2;2,-020+000+00+0" & CStr(Text9.Text) & "+00+00-00-001014|}"
+       Else
+          strOut14 = "{Z2;2,-020+000+00+" & CStr(Text9.Text) & "+00+00-00-001014|}"
+       End If
+    End If
+ End If
+ Open "LPT1:" For Binary Access Write As #1
+         Put #1, , strOut1
+         Put #1, , strOut2
+         Put #1, , strOut3
+       
+         Put #1, , strOut24
+         
+       'Put #1, , strOut14
+        Put #1, , strOut7
+        Put #1, , strOut21
+        Put #1, , strOut8
+        Put #1, , strOut27
+       'Put #1, , cbuf1
+         
+        Put #1, , strOut9
+        Put #1, , strOut10
+        Put #1, , strOut11
+        Put #1, , strOut13
+        Put #1, , strOut12
+        Put #1, , cbuf
+        
+        Put #1, , strOut26
+        Put #1, , strOut6
+        Put #1, , strOut25
+        Put #1, , strOut5
+        
+        Put #1, , strOut7
+        Put #1, , strOut21
+        Put #1, , strOut8
+        Put #1, , strOut27
+        Put #1, , cbuf1
+         
+        Put #1, , strOut9
+        Put #1, , strOut10
+        Put #1, , strOut11
+        Put #1, , strOut13
+        Put #1, , strOut12
+        Put #1, , cbuf
+        
+        Put #1, , strOut16
+        Put #1, , strOut6
+        Put #1, , strOut17
+        Put #1, , strOut5
+        Put #1, , strOut18
+        Put #1, , strOut19
+        Put #1, , strOut20
+        Put #1, , strOut28
+    
+       Close #1
+ 

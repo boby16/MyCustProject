@@ -1,0 +1,1546 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonVar</name>
+    </assembly>
+    <members>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo">
+            <summary>
+            长度设定
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.COMMON">
+            <summary>
+            共用资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.PRDT">
+            <summary>
+            货品资料长度
+            </summary>        
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.SALM">
+            <summary>
+            业务员资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.ACCN">
+            <summary>
+            会计科目资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.WH">
+            <summary>
+            库位资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.DEPT">
+            <summary>
+            部门资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.CUST">
+            <summary>
+            客户资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.BIL_SPC">
+            <summary>
+            单据类别资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.PSWD">
+            <summary>
+            用户资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.BACC">
+            <summary>
+            银行/现金帐户资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.BAT_NO">
+            <summary>
+            批号资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.INDX">
+            <summary>
+            中类资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.AREA">
+            <summary>
+            区域资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.INV_NO">
+            <summary>
+            发票资料长度
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ColumnWidthInfo.CUR_ID">
+            <summary>
+            币别资料长度
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.CommonWidthInfo">
+            <summary>
+            公用长度
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.CommonWidthInfo.BIL_NO">
+            <summary>
+            单号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.CommonWidthInfo.UP">
+            <summary>
+            单价
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.CommonWidthInfo.QTY">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.CommonWidthInfo.AMT">
+            <summary>
+            外币金额
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.CommonWidthInfo.AMTN">
+            <summary>
+            本位币金额
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.CommonWidthInfo.TAX">
+            <summary>
+            税额
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.PrdtWidthInfo">
+            <summary>
+            货品资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.PrdtWidthInfo.PRD_NO">
+            <summary>
+            货品代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.PrdtWidthInfo.NAME">
+            <summary>
+            货品名称
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.PrdtWidthInfo.SNM">
+            <summary>
+            货品简称
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.PrdtWidthInfo.NAME_ENG">
+            <summary>
+            货品名称
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.PrdtWidthInfo.SPC">
+            <summary>
+            货品规格
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.PrdtWidthInfo.PRD_MARK">
+            <summary>
+            货品特征
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.SalmWidthInfo">
+            <summary>
+            业务员资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.SalmWidthInfo.SAL_NO">
+            <summary>
+            业务员代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.SalmWidthInfo.NAME">
+            <summary>
+            业务员名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.AccnWidthInfo">
+            <summary>
+            会计科目资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.AccnWidthInfo.ACC_NO">
+            <summary>
+             会计科目代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.AccnWidthInfo.NAME">
+            <summary>
+             会计科目名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.WhWidthInfo">
+            <summary>
+            库位资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.WhWidthInfo.WH_NO">
+            <summary>
+             会计科目代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.WhWidthInfo.NAME">
+            <summary>
+             库位名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.DeptWidthInfo">
+            <summary>
+            部门资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.DeptWidthInfo.DEP_NO">
+            <summary>
+             会计科目代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.DeptWidthInfo.NAME">
+            <summary>
+             库位名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.CustWidthInfo">
+            <summary>
+            客户资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.CustWidthInfo.CUS_NO">
+            <summary>
+             客户代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.CustWidthInfo.NAME">
+            <summary>
+             客户名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.BilSpcWidthInfo">
+            <summary>
+            单据类别资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.BilSpcWidthInfo.SPC_NO">
+            <summary>
+             单据类别代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.BilSpcWidthInfo.NAME">
+            <summary>
+             单据类别名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.PswdWidthInfo">
+            <summary>
+            用户资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.PswdWidthInfo.USR">
+            <summary>
+            用户代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.PswdWidthInfo.NAME">
+            <summary>
+             用户名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.BaccWidthInfo">
+            <summary>
+            银行/现金帐户资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.BaccWidthInfo.BACC_NO">
+            <summary>
+            帐户代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.BaccWidthInfo.NAME">
+            <summary>
+             帐户名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.BatNoWidthInfo">
+            <summary>
+            批号资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.BatNoWidthInfo.BAT_NO">
+            <summary>
+            批号代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.BatNoWidthInfo.NAME">
+            <summary>
+             批号名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.IndxWidthInfo">
+            <summary>
+            中类资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.IndxWidthInfo.IDX_NO">
+            <summary>
+            中类代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.IndxWidthInfo.NAME">
+            <summary>
+             中类名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.AreaWidthInfo">
+            <summary>
+            区域资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.AreaWidthInfo.ARE_NO">
+            <summary>
+            区域代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.AreaWidthInfo.NAME">
+            <summary>
+             区域名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.InvNoWidthInfo">
+            <summary>
+            发票资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.InvNoWidthInfo.INV_NO">
+            <summary>
+            区域代号
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ColumnWidthInfo.CurIdWidthInfo">
+            <summary>
+            币别资料列宽信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.CurIdWidthInfo.CUR_ID">
+            <summary>
+            区域代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ColumnWidthInfo.CurIdWidthInfo.NAME">
+            <summary>
+             币别名称
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.StringHelper">
+            <summary>
+            字符串处理
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.StringHelper.Substring(System.String,System.Int32,System.Int32)">
+            <summary>
+            包含中文字符的截断
+            </summary>
+            <param name="text"></param>
+            <param name="startIndex"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.CodingLengthInfo">
+            <summary>
+            编码长度
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.System">
+            <summary>
+            系统数据编码长度
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.Report">
+            <summary>
+            报表显示长度
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.CodingLengthInfo.SysLength">
+            <summary>
+            系统数据编码长度
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.SysLength.ACC_NO">
+            <summary>
+            会计科目
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.SysLength.PRD_NO">
+            <summary>
+            货品代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.SysLength.SAL_NO">
+            <summary>
+            员工代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.SysLength.WH_NO">
+            <summary>
+            库位
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.CodingLengthInfo.ReportLength">
+            <summary>
+            报表显示长度
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.ReportLength.PRD_NO">
+            <summary>
+            货品代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.ReportLength.PRD_NAME">
+            <summary>
+            货品名称
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.ReportLength.DEP">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.ReportLength.WH_NO">
+            <summary>
+            库位
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.ReportLength.UPR">
+            <summary>
+            单价
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.ReportLength.QTY">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.ReportLength.AMT">
+            <summary>
+            金额
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CodingLengthInfo.ReportLength.TAX">
+            <summary>
+            税率
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.CloseAccountDateInfo">
+            <summary>
+            关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_ACC">
+            <summary>
+            总帐关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_FIX">
+            <summary>
+            固定资产关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_WAG">
+            <summary>
+            人事薪资关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_INV">
+            <summary>
+            进销存关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_POS">
+            <summary>
+            POS系统关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_MON">
+            <summary>
+            收付款关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_MNU">
+            <summary>
+            MRP生产关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_PRD">
+            <summary>
+            工程管理关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_TRD">
+            <summary>
+            贸易管理关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_CST">
+            <summary>
+            成本分析关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_ADD">
+            <summary>
+            加值税关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_REG">
+            <summary>
+            工商登记关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_TAX">
+            <summary>
+            税务签证关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_FIN">
+            <summary>
+            财务签证关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CloseAccountDateInfo.CLS_CAS">
+            <summary>
+            委托计划关帐日期
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.SqlAnalyzer">
+            <summary>
+            SQL查询语句分析器
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SqlAnalyzer.#ctor(System.String)">
+            <summary>
+            SQL查询语句分析器
+            </summary>
+            <param name="sqlString">SQL查询语句</param>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SqlAnalyzer.Analyse">
+            <summary>
+            分析SQL语句
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SqlAnalyzer.MakeSqlString">
+            <summary>
+            按属性生成SQL查询语句
+            </summary>
+            <returns>SQL查询语句</returns>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SqlAnalyzer.SqlString">
+            <summary>
+            SQL语句
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SqlAnalyzer.SqlFields">
+            <summary>
+            查询内容
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SqlAnalyzer.SqlTable">
+            <summary>
+            查询表名
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SqlAnalyzer.SqlJoin">
+            <summary>
+            关联信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SqlAnalyzer.SqlWhere">
+            <summary>
+            查询条件
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SqlAnalyzer.SqlGroup">
+            <summary>
+            分组信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SqlAnalyzer.SqlHaving">
+            <summary>
+            分组条件
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SqlAnalyzer.SqlOrder">
+            <summary>
+            排序信息
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.SqlAnalyzer.EKeyPosition">
+            <summary>
+            当前语句位置
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SqlAnalyzer.EKeyPosition.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SqlAnalyzer.EKeyPosition.Fields">
+            <summary>
+            查询内容
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SqlAnalyzer.EKeyPosition.Table">
+            <summary>
+            主表
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SqlAnalyzer.EKeyPosition.Join">
+            <summary>
+            从表
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SqlAnalyzer.EKeyPosition.Where">
+            <summary>
+            条件
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SqlAnalyzer.EKeyPosition.Group">
+            <summary>
+            分组
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SqlAnalyzer.EKeyPosition.Having">
+            <summary>
+            分组条件
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SqlAnalyzer.EKeyPosition.Order">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.StorageFile">
+            <summary>
+            提供将DataSet的资料读写到本地的IsolatedStorage。一般预设的路径存放在
+            [%Documents and Settings%\%userName%\Local Settings\Application Data\IsolatedStorage] 下
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.StorageFile.SaveDataSetToFile(System.Data.DataSet,System.String)">
+            <summary>
+            根据档名，将DataSet的资料写入本地的IsolatedStorage，传入的DataSet不能为null
+            </summary>
+            <param name="ds">DataSet</param>
+            <param name="fileName">档名</param>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.StorageFile.LoadDataSetFromFile(System.String)">
+            <summary>
+            根据档名，从本地的IsolatedStorage读入DataSet，传回的DataSet不必实例化
+            </summary>
+            <param name="fileName">档名</param>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.StorageFile.DeleteFile(System.String)">
+            <summary>
+            根据档名，删除本地的IsolatedStorage
+            </summary>
+            <param name="fileName">档名</param>
+            <returns>删除是否成功</returns>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ResourceCenter">
+            <summary>
+            ResourceCenter是资源帮助器.ResourceCenter提供本地化资源管理.
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.ResourceCenter.#ctor(System.String,System.String,System.String,System.Globalization.CultureInfo)">
+            <summary>
+            资源管理器
+            </summary>
+            <param name="path">资源文件路径</param>
+            <param name="fileName">XML文件名称</param>
+            <param name="customFileName">自定义资源XML文件名称</param>
+            <param name="cultureInfo">文化区域</param>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.ResourceCenter.GetResource(System.String)">
+            <summary>
+            从资源文件中读取内容
+            </summary>
+            <param name="key">关键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.ResourceCenter.GetResource(System.String,System.Boolean)">
+            <summary>
+            从资源文件中读取内容
+            </summary>
+            <param name="key">关键值</param>
+            <param name="hasText">是否含有备注</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.ResourceCenter.LoadXML(System.String,System.String,System.String,System.Globalization.CultureInfo)">
+            <summary>
+            LoadXML
+            </summary>		
+            <param name="path">资源文件路径</param>
+            <param name="fileName">XML文件名称</param>
+            <param name="customFileName">自定义资源XML文件名称</param>
+            <param name="cultureInfo">文化区域</param>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ResourceCenter.Item(System.String)">
+            <summary>
+            索引器
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ResourceCenter.Item(System.String,System.Boolean)">
+            <summary>
+            索引器
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ResourceCenter.Item(System.String,System.Object[])">
+            <summary>
+            索引器
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ResourceCenter.Item(System.String,System.Boolean,System.Object[])">
+            <summary>
+            索引器
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ResourceCenter.CurrentCultureInfo">
+            <summary>
+            当前文化区域
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ResourceCenter.ResourceManager">
+            <summary>
+            资源管理器
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.VoucherInfo">
+            <summary>
+            传票资料
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.GenVoh">
+            <summary>
+            单据.是否切制凭证
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.CheckVohRem">
+            <summary>
+            单据.凭证摘要控制
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Sunlike.Common.CommonVar.VoucherInfo.CheckVohId" -->
+        <!-- Badly formed XML comment ignored for member "P:Sunlike.Common.CommonVar.VoucherInfo.GenVohByAccDep" -->
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.VOH_POS">
+            <summary>
+            传票是否立即过账
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Sunlike.Common.CommonVar.VoucherInfo.CHK_BATACC" -->
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BAT_CHK">
+            <summary>
+            多凭证编码否
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.CHK_UNSH_VOH">
+            <summary>
+            未审凭证立即产生凭证号码
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.VoucherInfo.BillType">
+            <summary>
+            单据类型
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.SOPO">
+            <summary>
+            受订采购
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.PC">
+            <summary>
+            进货
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Sunlike.Common.CommonVar.VoucherInfo.BillType.SA" -->
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.BN">
+            <summary>
+            借入借出
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.IO">
+            <summary>
+            存货调拨
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.IJ">
+            <summary>
+            存货调整
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.RT">
+            <summary>
+            收款
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.PT">
+            <summary>
+            付款
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.CHK">
+            <summary>
+            票据系统
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.BACC">
+            <summary>
+            帐户变动
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.EXP">
+            <summary>
+            其他收(入)支(出)
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.FIX">
+            <summary>
+            固定资产
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.WAG">
+            <summary>
+            工资
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.MBMD">
+            <summary>
+            组合切割
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.TW">
+            <summary>
+            委外托工
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.TAX">
+            <summary>
+            增值税
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Sunlike.Common.CommonVar.VoucherInfo.BillType.ML" -->
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.MM">
+            <summary>
+            成品缴库
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.MC">
+            <summary>
+            原料调拨
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Sunlike.Common.CommonVar.VoucherInfo.BillType.SA_INVOICE" -->
+        <!-- Badly formed XML comment ignored for member "P:Sunlike.Common.CommonVar.VoucherInfo.BillType.PC_INVOICE" -->
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.FF">
+            <summary>
+            费用分摊
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.ZG">
+            <summary>
+            暂估
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.MOD">
+            <summary>
+            模具
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.SEB">
+            <summary>
+            设备
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.JK">
+            <summary>
+            员工借款
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.CV">
+            <summary>
+            在制费用对冲
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.VoucherInfo.BillType.MTN">
+            <summary>
+            维修单据
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.SunlikeDataSet">
+            <summary>
+            SunlikeDataSet
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.#ctor(System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="dataSetName"></param>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            构造
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.ConvertTo(System.Data.DataSet)">
+            <summary>
+            类型转换
+            </summary>
+            <param name="dataSet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.RebuildTableEvent">
+            <summary>
+            重建表事件
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.SetSysDecimalDigits(System.String)">
+            <summary>
+            Split value and set the properties of the instance of SysDecimalDigitsInfo class
+            </summary>
+            <param name="value">Decimal Digits String Value</param>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.GetCustomDecimalDigitInfo">
+            <summary>
+            Get the custom settings from ExtendedProperties
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.Clone">
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.Copy">
+            <summary>
+            Copy
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.GetChanges">
+            <summary>
+            GetChanges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.SunlikeDataSet.GetChanges(System.Data.DataRowState)">
+            <summary>
+            GetChanges
+            </summary>
+            <param name="rowStates">DataRowState</param>
+            <returns></returns>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SunlikeDataSet.DecimalDigits">
+            <summary>
+            数据小数位数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SunlikeDataSet.DecimalDigitsStr">
+            <summary>
+            数据小数位数串
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SunlikeDataSet.CustomFields">
+            <summary>
+            用户自定义列的小数位数(只对Decimal类型起作用)
+            </summary>
+            <remarks>单一字段格式:QTY=2\r\n全模糊字段格式:%QTY%=2\r\n前缀模糊字段格式:%QTY=2\r\n后缀模糊字段格式:QTY%=2\r\n使用;符号作分隔符</remarks>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.SunlikeDataSet.FieldDecimalDigitInfo">
+            <summary>
+            字段小数位数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SunlikeDataSet.FieldDecimalDigitInfo.FieldName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SunlikeDataSet.FieldDecimalDigitInfo.SearchType">
+            <summary>
+            查找方式
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SunlikeDataSet.FieldDecimalDigitInfo.Length">
+            <summary>
+            长度
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.SunlikeDataSet.ESearchType">
+            <summary>
+            查找方式
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SunlikeDataSet.ESearchType.Equal">
+            <summary>
+            相等
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SunlikeDataSet.ESearchType.Inside">
+            <summary>
+            包含
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SunlikeDataSet.ESearchType.Prefix">
+            <summary>
+            前缀查找
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.SunlikeDataSet.ESearchType.Postfix">
+            <summary>
+            后缀查找
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.CompInfo">
+            <summary>
+            CompInfo类用于提供对SunSystem数据库中COMP表的映射及相关系统设置信息.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.CompInfo.FontWidth">
+            <summary>
+            字体宽度
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.CompInfo.#ctor(System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="compNo">帐套代号</param>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.CompInfo.Import(System.Data.DataRow)">
+            <summary>
+            用COMP表中的一行记录来设置CCompHelper中的静态成员
+            </summary>
+            <param name="dr">COMP表中的一行记录</param>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.CompInfo.SetColumnWidth(System.Int32)">
+            <summary>
+            换算长度
+            </summary>
+            <param name="fontWidth"></param>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompInfo.CloseAccountDateInfo">
+            <summary>
+            关帐日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompInfo.CodingLengthInfo">
+            <summary>
+            编码长度
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompInfo.DecimalDigitsInfo">
+            <summary>
+            小数位数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompInfo.CompanyInfo">
+            <summary>
+            公司信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompInfo.SystemInfo">
+            <summary>
+            系统设置信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompInfo.ColumnWidthInfo">
+            <summary>
+            列宽长度信息
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.XmlDocumentHelper">
+            <summary>
+            Xml文件加载器
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.XmlDocumentHelper.Load(System.String)">
+            <summary>
+            加载Xml文件
+            </summary>
+            <param name="fileName">文件地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.XmlDocumentHelper.Load(System.String,System.Net.IWebProxy)">
+            <summary>
+            加载Xml文件
+            </summary>
+            <param name="fileName">文件地址</param>
+            <param name="proxy">网络代理</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.SystemInfo">
+            <summary>
+            系统设置信息
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.DEP_CHK">
+            <summary>
+            含借入借出否
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.WH_CUS">
+            <summary>
+            客户仓库预设节点
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.UP_KND">
+            <summary>
+            税务制度
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.CHECK_DEP">
+            <summary>
+            部门不允许为空
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.WAG_TAX_NO">
+            <summary>
+            税务制度（人事薪资）
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.BATNOF8">
+            <summary>
+            批号库存不足可以出货
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.CHK_BILTYPE">
+            <summary>
+            单据类别不允许为空
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.PS1_TAX">
+            <summary>
+            本业税率
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.SELTAX">
+            <summary>
+            税率取值次序
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.MARK_ID">
+            <summary>
+            货品使用特征 (走PMARK的话,MARK_ID=T 且CHK_MARK=F)
+            如果MARK_ID=F不显示PRD_MARK字段
+            如果MARK_ID=T 且 CHK_MARK=T则显示PRD_MARK字段,且字段名为MARK_NAME.
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.MARK_NAME">
+            <summary>
+            特征命名
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.CHK_MARK">
+            <summary>
+            货品特征为数值型
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.DATEPATTERN">
+            <summary>
+            日期格式
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.TIMEPATTERN">
+            <summary>
+            时间格式
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.CHK_DRP1">
+            <summary>
+            采购确认
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.CHK_DRP2">
+            <summary>
+            交货排期确认
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.CHK_DRP3">
+            <summary>
+            托工确认
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.SystemInfo.OPEN_DAT">
+            <summary>
+            开帐日期
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.DecimalDigitsInfo">
+            <summary>
+            小数位数
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.DecimalDigitsInfo.GetSysDecimalDigits(System.Int32)">
+            <summary>
+            取得定长的系统小数位数设置
+            </summary>
+            <param name="length">位数</param>
+            <returns></returns>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.System">
+            <summary>
+            系统
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.Report">
+            <summary>
+            报表
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.DecimalDigitsInfo.SysDecimalDigits">
+            <summary>
+            单据小数位数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.SysDecimalDigits.POI_AMT">
+            <summary>
+            金额小数位数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.SysDecimalDigits.POI_UPR">
+            <summary>
+            单价小数位数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.SysDecimalDigits.POI_QTY">
+            <summary>
+            数量小数位数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.SysDecimalDigits.POI_TAX">
+            <summary>
+            税额小数位数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.SysDecimalDigits.POI_WBA">
+            <summary>
+            外币金额小数位数
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.DecimalDigitsInfo.ReportDecimalDigits">
+            <summary>
+            报表小数位数
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.ReportDecimalDigits.ACC">
+            <summary>
+            总帐
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.ReportDecimalDigits.INV">
+            <summary>
+            进销存
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.ReportDecimalDigits.MON">
+            <summary>
+            收付款
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.ReportDecimalDigits.FIX">
+            <summary>
+            固定资产
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.ReportDecimalDigits.MRP">
+            <summary>
+            MRP
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.ReportDecimalDigits.WAG">
+            <summary>
+            人事薪资
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.ReportDecimalDigits.MNG">
+            <summary>
+            考勤
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.ReportDecimalDigits.TAX">
+            <summary>
+            增值税
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.DecimalDigitsInfo.ReportDecimalDigits.POS">
+            <summary>
+            POS
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.CompanyInfo">
+            <summary>
+            公司资料
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.TIM_TAX">
+            <summary>
+            申报方式
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.ARE_TAX">
+            <summary>
+            凭证摘要控制
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.KND_NO">
+            <summary>
+            单据审核控制
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.BOS_ADR">
+            <summary>
+            法人地址
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.BOS_ZIP">
+            <summary>
+            法人地址邮编
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.RUN_ADR">
+            <summary>
+            登记地址
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.RUN_ZIP">
+            <summary>
+            登记地址邮编
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.ADR_ENG">
+            <summary>
+            公司英文地址
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.CMP_ADR">
+            <summary>
+            公司地址
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.CMP_ZIP">
+            <summary>
+            公司地址邮编
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.FAX2">
+            <summary>
+            传真号码2
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.FAX1">
+            <summary>
+            传真号码1
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.TEL2">
+            <summary>
+            电话号码2
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.TEL1">
+            <summary>
+            电话号码1
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.BOS_ID">
+            <summary>
+            法人身份证号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.BOS_NAME">
+            <summary>
+            法人名称
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.TAX_NO">
+            <summary>
+            地税编号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.UNI_NO">
+            <summary>
+            国税编号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.CHK_INV_NO">
+            <summary>
+            发票是否可以重开
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.SUB_ID">
+            <summary>
+            帐套序号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.NAME_ENG">
+            <summary>
+            公司英文名称
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.NAME">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.DEP">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.COMPNO">
+            <summary>
+            帐套代号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.MNY_ID">
+            <summary>
+            0:公历年，1:台湾年
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.CHK_PC">
+            <summary>
+            是否走进货检验流程
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.CHK_TW">
+            <summary>
+            是否走托工检验流程
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.CHK_BATACC">
+             <summary>
+            批次切制凭证允许修改来源单
+             </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.CHK_BILTYPE">
+            <summary>
+            单据类别不允许为空
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.CHKPRD_BARCODE">
+            <summary>
+            货品采用序列号
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.CompanyInfo.PRDUSEBAT_NO">
+            <summary>
+            货品采用批号
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.ResRef">
+            <summary>
+            ResRef是资源访问器.ResRef提供本地化资源管理.
+            </summary>
+        </member>
+        <member name="F:Sunlike.Common.CommonVar.ResRef.Resource">
+            <summary>
+            WinForm资料实体
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.ResRef.#ctor">
+            <summary>
+            资源访问器
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.ResRef.#ctor(System.String,System.Reflection.Assembly,System.String)">
+            <summary>
+            资源访问器
+            </summary>
+            <param name="BaseName"></param>
+            <param name="Asm"></param>
+            <param name="DestLangName"></param>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ResRef.ResMgr">
+            <summary>
+            资源管理器
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ResRef.Item(System.String)">
+            <summary>
+            a convenience Indexer that access the internal resource manager
+            索引器
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.ResRef.Item(System.String,System.Object[])">
+            <summary>
+            索引器
+            </summary>
+        </member>
+        <member name="T:Sunlike.Common.CommonVar.XmlConfig">
+            <summary>
+            Xml文件记录器
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.XmlConfig.#cctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.XmlConfig.LoadXML(System.String)">
+            <summary>
+            加载Xml文件
+            </summary>
+            <param name="filePath">文件名</param>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.XmlConfig.SaveXML">
+            <summary>
+            保存Xml文件
+            </summary>
+        </member>
+        <member name="M:Sunlike.Common.CommonVar.XmlConfig.ContainKey(System.String)">
+            <summary>
+            ContainKey
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.XmlConfig.AppSettings">
+            <summary>
+            定义内容
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.XmlConfig.VersionDate">
+            <summary>
+            Xml文件最后修改日期
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.XmlConfig.Count">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:Sunlike.Common.CommonVar.XmlConfig.Item(System.String)">
+            <summary>
+            索引器
+            </summary>
+        </member>
+    </members>
+</doc>

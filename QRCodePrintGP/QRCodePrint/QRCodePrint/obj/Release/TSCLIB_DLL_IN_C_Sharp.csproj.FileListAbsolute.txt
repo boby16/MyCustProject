@@ -1,0 +1,4 @@
+H:\DownLoad\tsc条码打印dll及用例说明\c#调用范例\TSCLIB_DLL_IN_VCsharp_2005\TSCLIB_DLL_IN_C_Sharp\obj\Release\TSCLIB_DLL_IN_C_Sharp.exe
+H:\DownLoad\tsc条码打印dll及用例说明\c#调用范例\TSCLIB_DLL_IN_VCsharp_2005\TSCLIB_DLL_IN_C_Sharp\obj\Release\TSCLIB_DLL_IN_C_Sharp.pdb
+H:\DownLoad\tsc条码打印dll及用例说明\TSCLIB_DLL_IN_VCsharp_2005\TSCLIB_DLL_IN_C_Sharp\obj\Release\TSCLIB_DLL_IN_C_Sharp.exe
+H:\DownLoad\tsc条码打印dll及用例说明\TSCLIB_DLL_IN_VCsharp_2005\TSCLIB_DLL_IN_C_Sharp\obj\Release\TSCLIB_DLL_IN_C_Sharp.pdb
