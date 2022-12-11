@@ -648,6 +648,7 @@ namespace BarCodePrintTSB
             txtBatMat.Text = "";
             txtWeight.Text = "";
             txtWeightPer.Text = "0";
+            txtXingHao.Text = "";
             GetPrintSN();
         }
 
@@ -818,6 +819,7 @@ namespace BarCodePrintTSB
                     if (!String.IsNullOrEmpty(txtPrdQty.Text))
                         _qty = Convert.ToInt32(txtPrdQty.Text) * _qtyPer;
                     txtWeight.Text = String.Format("{0:F2}", _qty);
+                    txtXingHao.Text = _dr["KEHUPINHAO"].ToString();
                 }
                 #endregion
             }
@@ -868,6 +870,7 @@ namespace BarCodePrintTSB
                     if (!String.IsNullOrEmpty(txtPrdQty.Text))
                         _qty = Convert.ToInt32(txtPrdQty.Text) * _qtyPer;
                     txtWeight.Text = String.Format("{0:F2}", _qty);
+                    txtXingHao.Text = _dr["KEHUPINHAO"].ToString();
                 }
                 else
                 {

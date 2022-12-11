@@ -744,7 +744,7 @@ namespace BarPrintService
         //用于箱条码重复打印
         public DataSet GetBoxBarPrint(string _boxNo)
         {
-            string _sql = "SELECT A.BOX_NO,A.QTY,A.PRD_NO,B.SPC,D.IDX_UP,B.IDX1,C.BAT_NO,C.LH,C.IDX_NAME,E.QTY_PER_GP,E.BC_GP,E.LH_FOXCONN,F.CZ_GP"
+            string _sql = "SELECT A.BOX_NO,A.QTY,A.PRD_NO,B.SPC,D.IDX_UP,B.IDX1,C.BAT_NO,C.LH,C.IDX_NAME,E.QTY_PER_GP,E.BC_GP,E.LH_FOXCONN,F.CZ_GP,E.KEHUPINHAO"
                         + " FROM BAR_BOX A"
                         + " LEFT JOIN PRDT B ON A.PRD_NO=B.PRD_NO "
                         + " LEFT JOIN " + Comp.DRP_Prop["BarPrintDB"].ToString() + "..BAR_BOX_BAT C ON C.BOX_NO=A.BOX_NO"
@@ -793,7 +793,7 @@ namespace BarPrintService
         public DataSet GetPrdtFull(string _prdNo, string _idx)
         {
             string _sql = "SELECT P.PRD_NO,P.NAME,P.SPC,P.IDX1,I.NAME AS IDX_NAME,I.IDX_UP,PZ.QTY_PER_GP,PZ.BC_GP,PZ.LH_FOXCONN,IZ.CZ_GP,"
-                        + " BCP.NAME AS LH_BC,BCI.NAME AS PRT_NAME_BC,BOXP.NAME AS LH_BOX,BOXI.NAME AS PRT_NAME_BOX "
+                        + " BCP.NAME AS LH_BC,BCI.NAME AS PRT_NAME_BC,BOXP.NAME AS LH_BOX,BOXI.NAME AS PRT_NAME_BOX,PZ.KEHUPINHAO "
                         + " FROM PRDT P"
                         + " LEFT JOIN INDX I ON P.IDX1=I.IDX_NO"
                         + " LEFT JOIN PRDT_Z PZ ON P.PRD_NO=PZ.PRD_NO"

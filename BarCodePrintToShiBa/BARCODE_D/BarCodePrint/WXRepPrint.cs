@@ -437,6 +437,7 @@ namespace BarCodePrintTSB
             txtWeight.Text = "";
             txtBatManu.Text = "";//生产批号
             txtBatMat.Text = "";//原料批号
+            txtXingHao.Text = "";
         }
 
 		private void bnXpAddPrint_Click(object sender, EventArgs e)
@@ -814,6 +815,8 @@ namespace BarCodePrintTSB
                         _qty = Convert.ToDecimal(_drBox["QTY"]) * _qtyPer;
                     txtWeightPer.Text = _qtyPer.ToString();
                     txtWeight.Text = String.Format("{0:F2}", _qty); ; //重量
+
+                    txtXingHao.Text = _drBox["KEHUPINHAO"].ToString();
                 }
             }
             else
