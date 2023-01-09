@@ -5,7 +5,7 @@ echo ***********  [ obfuscating SystemModify] **************
 
 d:
 
-cd D:\Git\MyCustProject\QRCodePrintGPForToshiba\BARCODE_D\SystemModify\bin
+cd D:\SourceCode\MyCustProject\QRCodePrintGPForToshiba\BARCODE_D\SystemModify\bin
 obfuscator -dll -sign "D:\sunlike.snk" -clrversion v2.0.50727  -removeparam Utility.dll
 obfuscator -exe -sign "D:\sunlike.snk" -clrversion v2.0.50727  -removeparam SystemModify.exe
 

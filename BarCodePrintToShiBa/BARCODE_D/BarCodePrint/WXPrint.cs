@@ -807,7 +807,7 @@ namespace BarCodePrintTSB
                     txtPO.Text = "";
 
                     txtCZ.Text = _dr["CZ_GP"].ToString();
-                    txtBC.Text = _dr["BC_GP"].ToString();
+                    txtXingHao.Text = _dr["BC_GP"].ToString();
                     txtFoxLH.Text = _dr["LH_FOXCONN"].ToString();
                     txtBatManu.Text = "";
                     txtBatMat.Text = "";
@@ -819,7 +819,7 @@ namespace BarCodePrintTSB
                     if (!String.IsNullOrEmpty(txtPrdQty.Text))
                         _qty = Convert.ToInt32(txtPrdQty.Text) * _qtyPer;
                     txtWeight.Text = String.Format("{0:F2}", _qty);
-                    txtXingHao.Text = _dr["KEHUPINHAO"].ToString();
+                    txtBC.Text = "√‚ºÏD∞Ê";
                 }
                 #endregion
             }
@@ -858,7 +858,7 @@ namespace BarCodePrintTSB
                     txtPO.Text = "";
 
                     txtCZ.Text = Strings.StrConv(_dr["CZ_GP"].ToString(), VbStrConv.SimplifiedChinese, 2);
-                    txtBC.Text = Strings.StrConv(_dr["BC_GP"].ToString(), VbStrConv.SimplifiedChinese, 2);
+                    txtXingHao.Text = Strings.StrConv(_dr["BC_GP"].ToString(), VbStrConv.SimplifiedChinese, 2);
                     txtFoxLH.Text = Strings.StrConv(_dr["LH_FOXCONN"].ToString(), VbStrConv.SimplifiedChinese, 2);
                     txtBatManu.Text = "";
                     txtBatMat.Text = "";
@@ -870,7 +870,8 @@ namespace BarCodePrintTSB
                     if (!String.IsNullOrEmpty(txtPrdQty.Text))
                         _qty = Convert.ToInt32(txtPrdQty.Text) * _qtyPer;
                     txtWeight.Text = String.Format("{0:F2}", _qty);
-                    txtXingHao.Text = _dr["KEHUPINHAO"].ToString();
+                    //txtXingHao.Text = _dr["KEHUPINHAO"].ToString();
+                    txtBC.Text = "√‚ºÏD∞Ê";
                 }
                 else
                 {

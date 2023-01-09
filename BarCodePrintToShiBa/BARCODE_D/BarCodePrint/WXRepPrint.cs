@@ -803,7 +803,7 @@ namespace BarCodePrintTSB
                     txtSup.Text = "固品";//供应商
                     txtCZ.Text = Strings.StrConv(_drBox["CZ_GP"].ToString(), VbStrConv.SimplifiedChinese, 2);//材质
                     txtPrdName.Text = "片材";//品名
-                    txtBC.Text = Strings.StrConv(_drBox["BC_GP"].ToString(), VbStrConv.SimplifiedChinese, 2);//版次
+                    txtXingHao.Text = Strings.StrConv(_drBox["BC_GP"].ToString(), VbStrConv.SimplifiedChinese, 2);//版次
                     txtFoxLH.Text = Strings.StrConv(_drBox["LH_FOXCONN"].ToString(), VbStrConv.SimplifiedChinese, 2);//Foxconn料号
                     txtBatManu.Text = "";//生产批号
                     txtBatMat.Text = "";//原料批号
@@ -816,7 +816,8 @@ namespace BarCodePrintTSB
                     txtWeightPer.Text = _qtyPer.ToString();
                     txtWeight.Text = String.Format("{0:F2}", _qty); ; //重量
 
-                    txtXingHao.Text = _drBox["KEHUPINHAO"].ToString();
+                    //txtXingHao.Text = _drBox["KEHUPINHAO"].ToString();
+                    txtBC.Text = "免检D版";
                 }
             }
             else

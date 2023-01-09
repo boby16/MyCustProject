@@ -33,6 +33,8 @@ namespace BarCodePrintTSB
             this.bnXpAddPrint = new System.Windows.Forms.Button();
             this.cbXpNew = new System.Windows.Forms.Button();
             this.pnlFoxconn = new System.Windows.Forms.Panel();
+            this.txtXingHao = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.txtWeightPer = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtWeight = new System.Windows.Forms.TextBox();
@@ -93,8 +95,6 @@ namespace BarCodePrintTSB
             this.bnXpPrint = new System.Windows.Forms.Button();
             this.bnXpClear = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtXingHao = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.pnlFoxconn.SuspendLayout();
@@ -179,6 +179,23 @@ namespace BarCodePrintTSB
             this.pnlFoxconn.TabIndex = 40;
             this.pnlFoxconn.Visible = false;
             // 
+            // txtXingHao
+            // 
+            this.txtXingHao.Location = new System.Drawing.Point(83, 85);
+            this.txtXingHao.Name = "txtXingHao";
+            this.txtXingHao.ReadOnly = true;
+            this.txtXingHao.Size = new System.Drawing.Size(152, 21);
+            this.txtXingHao.TabIndex = 55;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(46, 88);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(29, 12);
+            this.label26.TabIndex = 54;
+            this.label26.Text = "ÐÍºÅ";
+            // 
             // txtWeightPer
             // 
             this.txtWeightPer.Location = new System.Drawing.Point(6, 181);
@@ -255,7 +272,7 @@ namespace BarCodePrintTSB
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(46, 88);
+            this.label17.Location = new System.Drawing.Point(46, 208);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(29, 12);
             this.label17.TabIndex = 40;
@@ -263,9 +280,8 @@ namespace BarCodePrintTSB
             // 
             // txtBC
             // 
-            this.txtBC.Location = new System.Drawing.Point(83, 85);
+            this.txtBC.Location = new System.Drawing.Point(83, 205);
             this.txtBC.Name = "txtBC";
-            this.txtBC.ReadOnly = true;
             this.txtBC.Size = new System.Drawing.Size(152, 21);
             this.txtBC.TabIndex = 39;
             // 
@@ -749,22 +765,6 @@ namespace BarCodePrintTSB
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
-            // 
-            // txtXingHao
-            // 
-            this.txtXingHao.Location = new System.Drawing.Point(83, 205);
-            this.txtXingHao.Name = "txtXingHao";
-            this.txtXingHao.Size = new System.Drawing.Size(152, 21);
-            this.txtXingHao.TabIndex = 55;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(46, 206);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(29, 12);
-            this.label26.TabIndex = 54;
-            this.label26.Text = "ÐÍºÅ";
             // 
             // WXRepPrint
             // 
